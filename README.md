@@ -21,6 +21,12 @@
 
 [打开](https://qiuqiunb666.github.io/centaur-academy-styles/edition/final/) · [组件样张](https://qiuqiunb666.github.io/centaur-academy-styles/edition/final/kit.html) · [DESIGN.md](edition/final/DESIGN.md) · [三个参考站](https://qiuqiunb666.github.io/centaur-academy-styles/references/)
 
+三版骨架原稿：
+
+- ② 以 AI in Design Report 为骨架：[报告版](https://qiuqiunb666.github.io/centaur-academy-styles/edition/a-report/)
+- ③ 以 Dropbox Brand 为骨架：[发丝网格版](https://qiuqiunb666.github.io/centaur-academy-styles/edition/b-grid/)
+- ④ 以 Shopify Editions 为骨架：[刊本](https://qiuqiunb666.github.io/centaur-academy-styles/edition/c-edition/)（胜出，终稿基于它）
+
 ## 第一轮 · 六套自拟方案
 
 | # | 范式 | 一句话 | 预览 | 样张 | 范式文档 |
