@@ -1,2 +1,6 @@
 shot-*.png
 .DS_Store
+fold.png
+references/*/*
+!references/*/STYLE.md
+!references/*/fold.webp

@@ -92,7 +92,7 @@ page = f'''<!doctype html>
 :root{{--bg:#f3f3f1;--ink:#1b1c1e;--mute:#63656a;--line:#dcdcd8;--card:#fff}}
 *{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",system-ui,sans-serif}}
 main{{width:min(1240px,100% - 40px);margin:0 auto;padding-block:56px 96px}}
-header h1{{font-size:clamp(1.6rem,3.4vw,2.4rem);line-height:1.25;margin:0 0 12px;letter-spacing:-.01em}}header p{{margin:0;color:var(--mute);max-width:46em}}
+header h1{{font-size:clamp(1.6rem,3.4vw,2.4rem);line-height:1.25;margin:0 0 12px;letter-spacing:-.01em}}header p{{margin:0;color:var(--mute);max-width:46em}}header .round2{{margin-top:14px}}header .round2 a{{color:var(--ink);font-weight:600;text-underline-offset:4px}}
 aside{{margin-top:28px;padding:18px 20px;border:1px solid var(--line);border-left:3px solid var(--ink);background:var(--card);font-size:.9375rem}}aside h3{{margin:0 0 6px;font-size:1rem}}aside p{{margin:6px 0 0;color:var(--mute)}}aside ul{{margin:8px 0 0;padding-left:1.2em;color:var(--mute)}}aside li{{margin:4px 0}}aside b{{color:var(--ink)}}aside .order{{color:var(--ink);margin-top:12px}}
 .grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:28px;margin-top:40px}}
 .card{{background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column}}
@@ -106,7 +106,7 @@ h2{{margin:0;font-size:1.5rem;line-height:1.3}}.tag{{margin:0;color:var(--mute)}
 nav{{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:auto;padding-top:14px;font-size:.9375rem}}nav a{{color:var(--ink);text-underline-offset:4px;min-height:44px;display:inline-flex;align-items:center}}nav .go{{font-weight:600}}
 a:focus-visible{{outline:2px solid var(--ink);outline-offset:3px}}footer{{margin-top:56px;color:var(--mute);font-size:.875rem}}
 </style></head><body><main>
-<header><h1>半人马AI学院 · 美术范式候选</h1><p>同一份首页文案、同一批插画，六种美术范式。每套都有完整的 DESIGN.md（色板、字体、间距、组件、Do / Don't、Agent Prompt Guide）、可滚动的首页预览和一页组件样张。当前完成 {done} / {len(rows)}。</p>{note}</header>
+<header><h1>半人马AI学院 · 美术范式候选</h1><p>同一份首页文案、同一批插画，六种美术范式。每套都有完整的 DESIGN.md（色板、字体、间距、组件、Do / Don't、Agent Prompt Guide）、可滚动的首页预览和一页组件样张。当前完成 {done} / {len(rows)}。</p><p class="round2"><a href="references/">第二轮：有奖项和行业背书的真实高级参考站 →</a></p>{note}</header>
 <section class="grid">{''.join(card(i) for i in rows)}</section>
 <footer>挑中哪套告诉我编号即可；也可以混搭（例：02 的版式 + 04 的配色）。预览页左下角「← 全部方案」返回这里。</footer>
 </main></body></html>'''
