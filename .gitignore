@@ -4,3 +4,6 @@ fold.png
 references/*/*
 !references/*/STYLE.md
 !references/*/fold.webp
+tu/*/*.png
+edition/*/*.png
+styles/*/*.png
