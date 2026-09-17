@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>中国红大会 · 组件样张</title>
+<meta name="description" content="半人马AI学院「中国红大会」范式的色板、字体、按钮、卡片与流程组件样张。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&text=%E4%BD%A0%E7%9A%84%E8%83%BD%E5%8A%9B%E3%80%82%E5%85%B1%E5%AD%A6%E5%88%9B&display=swap">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--color-ivory);color:var(--color-ink);font-family:var(--font-body);font-size:var(--text-body);line-height:var(--leading-body)}
+h1,h2,h3,p,figure,ol{margin:0}
+ol{padding:0;list-style:none}
+img{display:block;max-width:100%;height:auto}
+:focus-visible{outline:3px solid var(--color-ink);outline-offset:3px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
+.latin{font-family:var(--font-latin);font-size:var(--text-label);letter-spacing:var(--tracking-latin);font-weight:700}
+.top{background:var(--grad-stage);color:var(--color-cream);padding:48px 0 40px;border-bottom:var(--rule-gold);text-align:center}
+.top h1{font-family:var(--font-title);font-weight:900;font-size:var(--text-h2);line-height:1.25;margin-top:8px}
+.top p{margin-top:8px}
+section{padding:48px 0;border-bottom:var(--rule-line)}
+.sh{display:flex;align-items:baseline;gap:12px;margin-bottom:24px}
+.sh h2{font-family:var(--font-title);font-weight:900;font-size:var(--text-title)}
+.sh .latin{color:var(--color-red)}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}
+.sw{background:var(--color-paper);border:var(--rule-line)}
+.chip-c{height:84px;border-bottom:var(--rule-line)}
+.sw div+div{padding:10px 12px;font-size:var(--text-note);line-height:1.5}
+.sw b{display:block}
+.sw code{display:block;font-size:14px;color:var(--color-ink-muted)}
+.type-row{display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px dashed var(--color-line)}
+.type-row small{font-size:var(--text-note);color:var(--color-ink-muted);line-height:1.4}
+.brush{font-family:var(--font-brush);font-size:var(--text-brush);line-height:1.1;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.onred{background:var(--color-red);padding:8px 16px}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:56px;padding:0 28px;border-radius:var(--radius-md);font:700 var(--text-body)/1.2 var(--font-body);letter-spacing:.04em;text-decoration:none;cursor:pointer;border:0;transition:transform var(--dur-fast) var(--ease-rise),filter var(--dur-fast) var(--ease-rise),background-color var(--dur-fast) var(--ease-rise)}
+.btn-gold{background:var(--grad-gold-btn);color:var(--color-red-ink);box-shadow:var(--shadow-button)}
+.btn-gold:hover,.btn-gold.is-hover{filter:brightness(1.06) saturate(1.05)}
+.btn-gold:active,.btn-gold.is-active{transform:translateY(1px);filter:brightness(.96)}
+.btn-red{background:var(--color-red);color:var(--color-cream)}
+.btn-red:hover,.btn-red.is-hover{background:var(--color-red-deep)}
+.btn-red:active,.btn-red.is-active{transform:translateY(1px)}
+.btn-line{background:transparent;color:var(--color-red);box-shadow:inset 0 0 0 2px var(--color-red)}
+.btn-line:hover,.btn-line.is-hover{background:var(--color-red);color:var(--color-cream)}
+.btn:disabled{background:var(--color-disabled-bg);color:var(--color-disabled-text);box-shadow:none;cursor:not-allowed}
+.is-focus{outline:3px solid var(--color-ink);outline-offset:3px}
+.onred .is-focus,.onred :focus-visible{outline-color:var(--color-gold-light)}
+.state{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.state small{font-size:var(--text-label);color:var(--color-ink-muted)}
+.onred .state small{color:var(--color-cream)}
+.cards{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.card{display:flex;flex-direction:column;background:var(--color-paper);border:var(--rule-line);box-shadow:var(--shadow-card);position:relative;text-decoration:none;color:inherit}
+.card-body{position:relative}
+.card-body::after{content:"";position:absolute;inset:0 6px 6px;border:1px solid var(--gold-a55);border-top:0;pointer-events:none}
+.card img{width:100%;aspect-ratio:16/10;object-fit:cover;border-bottom:3px solid var(--color-red)}
+.card-body{padding:18px 20px 22px}
+.meta{display:flex;align-items:center;gap:10px;font-size:var(--text-note);color:var(--color-ink-muted)}
+.chip{padding:0 8px;line-height:26px;background:var(--color-red);color:var(--color-cream);font-weight:700;border-radius:var(--radius-sm)}
+.card h3{margin-top:10px;font-family:var(--font-title);font-weight:900;font-size:var(--text-title-s);line-height:1.4}
+.card p{margin-top:8px;color:var(--color-ink-muted)}
+.prod{display:grid;gap:10px;padding:16px;background:var(--color-paper);border:var(--rule-line);border-top:3px solid var(--color-red);box-shadow:var(--shadow-card)}
+.prod-name{display:flex;align-items:center;gap:12px;font-weight:700;font-size:var(--text-lead)}
+.pseal{flex:none;display:grid;place-items:center;width:48px;height:48px;background:var(--color-red);color:var(--color-cream);font-family:var(--font-title);font-weight:900;font-size:18px;border-radius:var(--radius-sm);box-shadow:inset 0 0 0 3px var(--color-red),inset 0 0 0 4px var(--color-cream)}
+.prod small{font-size:var(--text-note);color:var(--color-ink-muted)}
+.badges{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start}
+.plate{display:inline-flex;align-items:center;gap:10px;padding:6px 14px;background:var(--color-red);color:var(--color-cream);font-weight:700;font-size:var(--text-note);letter-spacing:.06em;border-radius:var(--radius-sm)}
+.seal{display:inline-block;writing-mode:vertical-rl;font-family:var(--font-title);font-weight:900;font-size:18px;line-height:1.5;padding:.3em .22em;background:var(--color-cream);color:var(--color-red);border-radius:var(--radius-sm);box-shadow:inset 0 0 0 2px var(--color-cream),inset 0 0 0 3.5px var(--color-red)}
+.seal>span{display:block}
+.seal .tcy{text-combine-upright:all;font-family:var(--font-body)}
+.badge-m{width:56px;height:56px;border-radius:var(--radius-round);background:var(--grad-medal);box-shadow:0 0 0 1px var(--color-gold);display:grid;place-items:center}
+.badge-m img{width:34px}
+.plaque{display:inline-block;padding:14px 22px;border:var(--rule-gold);outline:1px solid var(--gold-a55);outline-offset:5px;background:var(--color-red-deep);font-family:var(--font-title);font-weight:900;font-size:32px;line-height:1.3}
+.plaque span{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.couplet{writing-mode:vertical-rl;white-space:nowrap;font-family:var(--font-title);font-weight:700;font-size:var(--text-title);letter-spacing:var(--tracking-couplet);line-height:1;padding:22px 14px 14px;background:var(--color-red-deep);color:var(--color-cream);border:var(--rule-gold);outline:1px solid var(--gold-a55);outline-offset:4px}
+.field{display:grid;gap:8px;max-width:420px}
+.field label{font-weight:700}
+.field input{min-height:52px;padding:0 14px;font:inherit;color:var(--color-ink);background:var(--color-paper);border:1px solid var(--color-gold-deep);border-radius:var(--radius-md)}
+.field input:focus-visible{outline:3px solid var(--color-red);outline-offset:1px}
+.field input.err{border-color:var(--color-red);box-shadow:inset 0 0 0 1px var(--color-red)}
+.field small{font-size:var(--text-note);color:var(--color-ink-muted)}
+.field small.err{color:var(--color-red)}
+.scroll{position:relative;background:var(--color-paper);padding:40px 24px;text-align:center;border-left:var(--rule-line);border-right:var(--rule-line);box-shadow:var(--shadow-card)}
+.scroll::before,.scroll::after{content:"";position:absolute;left:-14px;right:-14px;height:14px;background:linear-gradient(90deg,var(--color-gold-mid) 0 10px,var(--color-red-deep) 10px calc(100% - 10px),var(--color-gold-mid) calc(100% - 10px));border-radius:var(--radius-md)}
+.scroll::before{top:-7px}
+.scroll::after{bottom:-7px}
+.scroll p{font-family:var(--font-title);font-weight:900;font-size:30px;line-height:1.55}
+.scroll em{font-style:normal;color:var(--color-red);white-space:nowrap}
+.scroll small{display:block;margin-top:16px;font-size:var(--text-note);color:var(--color-ink-muted)}
+.program{background:var(--color-ivory);padding:28px 20px;border:var(--rule-gold);outline:1px solid var(--gold-a55);outline-offset:6px}
+.program ol{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px}
+.program li{display:grid;justify-items:center;text-align:center;gap:8px}
+.num{display:grid;place-items:center;width:64px;height:64px;border-radius:var(--radius-round);background:var(--color-red);color:var(--color-cream);font-family:var(--font-latin);font-weight:700;font-size:var(--text-title-s);box-shadow:0 0 0 3px var(--color-ivory),0 0 0 4px var(--color-gold-deep)}
+.program h3{font-family:var(--font-title);font-weight:900;font-size:var(--text-title-s)}
+.program p{color:var(--color-ink-muted)}
+.frames{display:grid;gap:32px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));align-items:start}
+.frame{background:var(--color-paper);padding:12px;border:var(--rule-line);box-shadow:var(--shadow-card);position:relative}
+.frame::before{content:"";position:absolute;inset:5px;border:1px solid var(--color-gold);pointer-events:none}
+.frame img{width:100%;aspect-ratio:4/3;object-fit:cover;position:relative}
+.corner{position:absolute;width:22px;height:22px;border:2px solid var(--color-red)}
+.tl{left:-1px;top:-1px;border-right:0;border-bottom:0}.tr{right:-1px;top:-1px;border-left:0;border-bottom:0}
+.bl{left:-1px;bottom:-1px;border-right:0;border-top:0}.br{right:-1px;bottom:-1px;border-left:0;border-top:0}
+.medal-demo{position:relative;width:280px;height:280px;margin:30px auto}
+.medal-demo .rays{position:absolute;left:50%;top:50%;width:170%;height:170%;margin:-85% 0 0 -85%;border-radius:var(--radius-round);background:repeating-conic-gradient(from 3deg,var(--gold-a30) 0deg .8deg,transparent .8deg 10deg),radial-gradient(closest-side,var(--color-red-glow),transparent);-webkit-mask-image:radial-gradient(closest-side,black 38%,transparent 100%);mask-image:radial-gradient(closest-side,black 38%,transparent 100%)}
+.medal-demo .medal{position:absolute;inset:0;border-radius:var(--radius-round);background:var(--grad-medal);box-shadow:var(--shadow-medal)}
+.medal-demo img{position:absolute;left:-2%;top:12%;width:104%;max-width:none}
+.stagebox{background:var(--grad-stage);overflow:hidden;padding:10px 0;border:var(--rule-gold)}
+.cap{margin-top:14px;display:flex;flex-wrap:wrap;gap:4px 10px;color:var(--color-ink-muted);font-size:var(--text-note)}
+.cap .latin{color:var(--color-red)}
+.fret{height:10px;background:var(--color-gold);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10' viewBox='0 0 20 10'%3E%3Cpath d='M0 9.5H10V.5H3V6.5H7V3.5' fill='none' stroke='black'/%3E%3Cpath d='M10 9.5H20' fill='none' stroke='black'/%3E%3C/svg%3E") repeat-x left center/20px 10px;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10' viewBox='0 0 20 10'%3E%3Cpath d='M0 9.5H10V.5H3V6.5H7V3.5' fill='none' stroke='black'/%3E%3Cpath d='M10 9.5H20' fill='none' stroke='black'/%3E%3C/svg%3E") repeat-x left center/20px 10px}
+.desk{background:var(--color-ivory);padding:28px 20px;border-top:6px solid var(--color-gold);box-shadow:var(--shadow-lift);text-align:center}
+.desk p{font-size:var(--text-lead)}
+@media (max-width:600px){.type-row{grid-template-columns:1fr;gap:4px}}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <p class="latin">CENTAUR AI ACADEMY · DESIGN KIT</p>
+    <h1>中国红大会 · 组件样张</h1>
+    <p>红铺底、金点睛、米白托正文</p>
+  </div>
+</header>
+<main>
+<section><div class="wrap">
+  <div class="sh"><h2>色板</h2><span class="latin">COLORS</span></div>
+  <div class="grid">
+    <div class="sw"><div class="chip-c" style="background:var(--color-red)"></div><div><b>朱砂红</b><code>#a30f17</code><code>--color-red</code>大面积铺底、主按钮</div></div>
+    <div class="sw"><div class="chip-c" style="background:var(--color-red-deep)"></div><div><b>绛红</b><code>#6e0910</code><code>--color-red-deep</code>页眉、牌匾、页脚</div></div>
+    <div class="sw"><div class="chip-c" style="background:var(--color-red-glow)"></div><div><b>光心红</b><code>#d0231f</code><code>--color-red-glow</code>只做径向光晕中心</div></div>
+    <div class="sw"><div class="chip-c" style="background:var(--color-red-ink)"></div><div><b>印泥红</b><code>#5e070c</code><code>--color-red-ink</code>金按钮文字</div></div>
+    <div class="sw"><div class="chip-c" style="background:var(--grad-gold)"></div><div><b>金箔渐变</b><code>--grad-gold</code>题字、牌匾字（主 CTA 用 --grad-gold-btn）</div></div>
+    <div class="sw"><div class="chip-c" style="background:var(--color-gold)"></div><div><b>赤金</b><code>#e9c274</code><code>--color-gold</code>1px 细线、边框</div></div>
+    <div class="sw"><div class="chip-c" style="background:var(--color-gold-deep)"></div><div><b>古铜金</b><code>#b8863b</code><code>--color-gold-deep</code>米白底上的点线</div></div>
+    <div class="sw"><div class="chip-c" style="background:var(--color-ivory)"></div><div><b>宣纸米白</b><code>#fbf5ea</code><code>--color-ivory</code>正文区底色</div></div>
+    <div class="sw"><div class="chip-c" style="background:var(--color-cream)"></div><div><b>红底前景</b><code>#fff3e0</code><code>--color-cream</code>红底文字 7.26:1</div></div>
+    <div class="sw"><div class="chip-c" style="background:var(--color-ink)"></div><div><b>墨</b><code>#2a1a14</code><code>--color-ink</code>正文 15.4:1</div></div>
+    <div class="sw"><div class="chip-c" style="background:var(--color-ink-muted)"></div><div><b>淡墨</b><code>#5a4638</code><code>--color-ink-muted</code>次要文字 8.17:1</div></div>
+    <div class="sw"><div class="chip-c" style="background:var(--color-line)"></div><div><b>金米线</b><code>#e6d3ae</code><code>--color-line</code>分割线、卡片边</div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sh"><h2>字体与字号</h2><span class="latin">TYPE</span></div>
+  <div class="type-row"><small>题字 Ma Shan Zheng<br>全站仅一处</small><div class="onred"><span class="brush">你的能力。</span></div></div>
+  <div class="type-row"><small>H1 粗宋 900<br>clamp 42–84px</small><div style="font-family:var(--font-title);font-weight:900;font-size:var(--text-h1);line-height:1.15">让 AI 成为</div></div>
+  <div class="type-row"><small>H2 粗宋 900<br>clamp 32–56px</small><div style="font-family:var(--font-title);font-weight:900;font-size:var(--text-h2);line-height:1.25">你走过的路，都是<span style="color:var(--color-red)">起点</span>。</div></div>
+  <div class="type-row"><small>标题 粗宋 900<br>28 / 24px</small><div style="font-family:var(--font-title);font-weight:900;font-size:var(--text-title)">《来自嘉木的一封信》</div></div>
+  <div class="type-row"><small>导语 黑体 400<br>20px / 1.75</small><div style="font-size:var(--text-lead)">把你的经验、判断和真实问题，与 AI 的能力连接起来。</div></div>
+  <div class="type-row"><small>正文 黑体 400<br>18px / 1.75</small><div>交流彼此的经验，动手试一次，再把新的方法带回工作。</div></div>
+  <div class="type-row"><small>次要 黑体 400<br>16px</small><div style="font-size:var(--text-note);color:var(--color-ink-muted)">下载暂未开放</div></div>
+  <div class="type-row"><small>碑刻罗马字 Cinzel<br>13–15px · 字距 .18em</small><div class="latin" style="font-size:15px;color:var(--color-red)">HUMAN × AI · CENTAUR JOURNAL</div></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sh"><h2>按钮全状态</h2><span class="latin">BUTTONS</span></div>
+  <div class="row onred" style="padding:24px">
+    <div class="state"><a class="btn btn-gold" href="#">联系学院顾问 ↗</a><small>default</small></div>
+    <div class="state"><a class="btn btn-gold is-hover" href="#">联系学院顾问 ↗</a><small>hover</small></div>
+    <div class="state"><a class="btn btn-gold is-active" href="#">联系学院顾问 ↗</a><small>active</small></div>
+    <div class="state"><a class="btn btn-gold is-focus" href="#">联系学院顾问 ↗</a><small>focus</small></div>
+  </div>
+  <div class="row" style="padding:24px 0">
+    <div class="state"><a class="btn btn-red" href="#">联系学院顾问 ↗</a><small>default</small></div>
+    <div class="state"><a class="btn btn-red is-hover" href="#">联系学院顾问 ↗</a><small>hover</small></div>
+    <div class="state"><a class="btn btn-red is-active" href="#">联系学院顾问 ↗</a><small>active</small></div>
+    <div class="state"><a class="btn btn-red is-focus" href="#">联系学院顾问 ↗</a><small>focus</small></div>
+    <div class="state"><button class="btn" type="button" disabled>下载知君 ↓</button><small>disabled</small></div>
+  </div>
+  <div class="row">
+    <div class="state"><button class="btn btn-line" type="button">复制客服链接</button><small>default</small></div>
+    <div class="state"><button class="btn btn-line is-hover" type="button">复制客服链接</button><small>hover</small></div>
+    <div class="state"><button class="btn btn-line is-focus" type="button">复制客服链接</button><small>focus</small></div>
+    <div class="state"><button class="btn btn-line" type="button" disabled>复制客服链接</button><small>disabled</small></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sh"><h2>徽标、印章、牌匾、对联</h2><span class="latin">EMBLEMS</span></div>
+  <div class="badges">
+    <span class="plate"><span class="latin" style="font-size:15px">01</span>/ 从你的积累出发</span>
+    <span class="chip">观点</span>
+    <span class="seal"><span>半人马</span><span><span class="tcy">AI</span>学院</span></span>
+    <span class="badge-m"><img src="../../assets/centaur-logo.webp" alt="" width="434" height="576"></span>
+    <span class="plaque"><span>每一次共学，都向前一点</span></span>
+    <span class="couplet">面向经营者与管理者的</span>
+  </div>
+  <div class="fret" style="margin-top:32px" aria-hidden="true"></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sh"><h2>卡片与产品行</h2><span class="latin">CARDS</span></div>
+  <div class="cards">
+    <a class="card" href="#"><img src="../../assets/co-learning.webp" alt="" width="1448" height="1086"><div class="card-body"><p class="meta"><span class="chip">观点</span><span>· 2026.09.15 ·</span></p><h3>《来自嘉木的一封信》</h3><p>我们为什么创办学院，以及希望与你一起走向怎样的 AI 未来。</p></div></a>
+    <div style="display:grid;gap:16px;align-content:start">
+      <div class="prod"><div class="prod-name"><span class="pseal">知</span>知君 — 让积累参与思考 ↗</div><div class="row"><button class="btn" type="button" disabled>下载知君 ↓</button><small>下载暂未开放</small></div></div>
+      <div class="field"><label for="k1">您的称呼</label><input id="k1" placeholder="例如：王总"><small>输入框 · default / focus</small></div>
+      <div class="field"><label for="k2">联系电话</label><input id="k2" class="err" value="138"><small class="err">请填写 11 位手机号</small></div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sh"><h2>题词引文</h2><span class="latin">QUOTE</span></div>
+  <figure class="scroll"><p style="text-wrap:balance">“我希望学院能聚起一群认同<em>人机共生</em>、愿意共同成长的人。”</p><small>嘉木 — 半人马AI学院院长、创始人</small></figure>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sh"><h2>流程步骤 · 典礼流程</h2><span class="latin">PROGRAM</span></div>
+  <div class="program"><ol>
+    <li><span class="num">01</span><h3>带来问题</h3><p>从正在做的事出发。</p></li>
+    <li><span class="num">02</span><h3>一起梳理</h3><p>讲清背景，找到目标。</p></li>
+    <li><span class="num">03</span><h3>动手尝试</h3><p>做出可以试用的初版。</p></li>
+    <li><span class="num">04</span><h3>交流结果</h3><p>体验彼此的成果。</p></li>
+    <li><span class="num">05</span><h3>持续改进</h3><p>带着反馈，再走一步。</p></li>
+  </ol></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sh"><h2>图片框处理</h2><span class="latin">FRAMES</span></div>
+  <div class="frames">
+    <figure><div class="frame"><img src="../../assets/experience.webp" alt="概念插画：笔记、铅笔与方向标" width="1448" height="1086"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i></div><figcaption class="cap"><span class="latin">EXPERIENCE</span><span>｜ 暖色插画：白衬纸 + 金内线 + 红角花</span></figcaption></figure>
+    <figure><div class="stagebox"><div class="medal-demo"><div class="rays"></div><div class="medal"></div><img src="../../assets/academy-centaur-cutout.webp" alt="半人马艺术形象" width="1448" height="1086"></div></div><figcaption class="cap"><span class="latin">MEDAL</span><span>｜ 透明底半人马：米白奖章 + 克制金光</span></figcaption></figure>
+  </div>
+</div></section>
+
+<section style="border:0"><div class="wrap">
+  <div class="sh"><h2>报名台</h2><span class="latin">CONTACT DESK</span></div>
+  <div class="onred" style="padding:32px 16px"><div class="desk"><p>聊聊你正在做的事，和你希望 AI 帮你做成的事。</p><div class="row" style="justify-content:center;margin-top:20px"><a class="btn btn-red" href="#">联系学院顾问 ↗</a><button class="btn btn-line" type="button">复制客服链接</button></div></div></div>
+</div></section>
+</main>
+<a href="../../" style="position:fixed;left:12px;bottom:12px;z-index:99;font:12px/1 ui-monospace,monospace;padding:8px 10px;border-radius:999px;background:rgba(127,127,127,.18);backdrop-filter:blur(8px);color:inherit;text-decoration:none">← 全部方案</a>
+</body>
+</html>

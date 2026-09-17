@@ -1,0 +1,104 @@
+:root {
+  /* Colors — 红 */
+  --color-red: #a30f17;
+  --color-red-deep: #6e0910;
+  --color-red-glow: #d0231f;
+  --color-red-ink: #5e070c;
+
+  /* Colors — 金 */
+  --color-gold: #e9c274;
+  --color-gold-light: #fbe9b7;
+  --color-gold-mid: #d6a553;
+  --color-gold-deep: #b8863b;
+
+  /* Colors — 米白与墨 */
+  --color-ivory: #fbf5ea;
+  --color-paper: #ffffff;
+  --color-cream: #fff3e0;
+  --color-cream-muted: #f0cdb5;
+  --color-ink: #2a1a14;
+  --color-ink-muted: #5a4638;
+  --color-line: #e6d3ae;
+  --color-disabled-bg: #efe6d6;
+  --color-disabled-text: #4a3a2e;
+
+  /* Colors — 透明度（光效专用，不压正文） */
+  --gold-a06: rgba(233, 194, 116, 0.06);
+  --gold-a14: rgba(233, 194, 116, 0.14);
+  --gold-a30: rgba(233, 194, 116, 0.3);
+  --gold-a55: rgba(233, 194, 116, 0.55);
+  --shine-a60: rgba(255, 250, 235, 0.6);
+  --shade-a50: rgba(40, 0, 0, 0.5);
+  --shade-a25: rgba(94, 7, 12, 0.25);
+  --shade-a08: rgba(94, 7, 12, 0.08);
+
+  /* Gradients */
+  --grad-gold: linear-gradient(180deg, #fbe9b7 0%, #e9c274 46%, #d6a553 58%, #f6dc9f 100%);
+  --grad-gold-btn: linear-gradient(180deg, #fbe9b7 0%, #e9c274 50%, #dfb566 62%, #f6dc9f 100%);
+  --grad-stage: radial-gradient(ellipse 70% 55% at 50% 72%, #d0231f 0%, #a30f17 55%, #6e0910 100%);
+  --grad-medal: radial-gradient(circle at 50% 38%, #ffffff 0%, #fbf5ea 48%, #f3e2bf 100%);
+
+  /* Typography — Families */
+  --font-brush: "Ma Shan Zheng", "STKaiti", "KaiTi", "Kaiti SC", serif;
+  --font-title: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  --font-body: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-latin: "Cinzel", "Trajan Pro", "Times New Roman", serif;
+
+  /* Typography — Scale */
+  --text-label: 13px;
+  --text-note: 16px;
+  --text-body: 18px;
+  --text-lead: 20px;
+  --text-title-s: 24px;
+  --text-title: 28px;
+  --text-h2: clamp(32px, 4.4vw + 14px, 56px);
+  --text-h1: clamp(42px, 5vw + 22px, 84px);
+  --text-brush: clamp(58px, 16vw, 132px);
+
+  /* Line Height & Tracking */
+  --leading-title: 1.25;
+  --leading-body: 1.75;
+  --tracking-latin: 0.18em;
+  --tracking-couplet: 0.3em;
+
+  /* Spacing (4px base) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --gutter: clamp(16px, 4vw, 48px);
+  --maxw: 1200px;
+  --header-h: 64px;
+
+  /* Border Radius — 端正，基本直角 */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-round: 50%;
+
+  /* Borders */
+  --hair: 1px;
+  --rule-gold: 1px solid var(--color-gold);
+  --rule-line: 1px solid var(--color-line);
+
+  /* Shadows & Glow */
+  --shadow-card: 0 1px 0 var(--shade-a08), 0 18px 40px -22px var(--shade-a25);
+  --shadow-lift: 0 2px 0 var(--shade-a08), 0 24px 48px -20px var(--shade-a25);
+  --shadow-medal: 0 0 0 3px var(--color-gold), 0 0 0 11px var(--color-red-deep), 0 0 0 12px var(--gold-a55), 0 0 90px 10px var(--gold-a30), 0 40px 80px -30px var(--shade-a50);
+  --shadow-button: 0 1px 0 var(--color-gold-light) inset, 0 10px 24px -12px var(--shade-a50);
+
+  /* Motion */
+  --ease-rise: cubic-bezier(0.22, 0.8, 0.2, 1);
+  --ease-zoom: cubic-bezier(0.5, 1, 0.89, 1);
+  --dur-fast: 180ms;
+}
+@media (min-width: 1024px) {
+  :root {
+    --header-h: 76px;
+  }
+}
