@@ -1,0 +1,121 @@
+:root {
+  /* Colors — surfaces */
+  --color-background: #0a0c10;
+  --color-foreground: #eceef2;
+  --color-card: #0f1217;
+  --color-card-foreground: #eceef2;
+  --color-popover: #151920;
+  --color-popover-foreground: #eceef2;
+  --color-primary: #eceef2;
+  --color-primary-foreground: #0a0c10;
+  --color-primary-hover: #ffffff;
+  --color-secondary: #151920;
+  --color-secondary-foreground: #eceef2;
+  --color-muted: #151920;
+  --color-muted-foreground: #9aa3b2;
+  --color-subtle-foreground: #7f8999;
+  --color-disabled-foreground: #5b6472;
+  --color-accent: #1b2029;
+  --color-accent-foreground: #eceef2;
+  --color-brand: #f27a1a;
+  --color-brand-foreground: #0a0c10;
+  --color-destructive: #e5645a;
+  --color-destructive-foreground: #0a0c10;
+  --color-success: #5fb67c;
+  --color-success-foreground: #0a0c10;
+  --color-border: #212731;
+  --color-border-strong: #343c4a;
+  --color-input: #2a313d;
+  --color-ring: #f27a1a;
+
+  /* Lightbox — 亮盒展品的衬纸与盒内文字 */
+  --color-lightbox: #f4eee3;
+  --color-lightbox-foreground: #1a1d23;
+  --color-lightbox-muted: #5a5f69;
+
+  /* Pastel semantic pairs (dark: 深底 + 亮字) */
+  --color-pastel-orange-bg: #2a1a0e;
+  --color-pastel-orange-text: #f6a562;
+  --color-pastel-blue-bg: #0f1c33;
+  --color-pastel-blue-text: #7fb0f5;
+  --color-pastel-green-bg: #10231a;
+  --color-pastel-green-text: #7fcf9b;
+  --color-pastel-neutral-bg: #1b2029;
+  --color-pastel-neutral-text: #b9c0cc;
+
+  /* Typography — Font Families */
+  --font-sans:
+    'Geist', 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono:
+    'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'PingFang SC', 'Microsoft YaHei', monospace;
+
+  /* Typography — Scale */
+  --text-label: 11px;
+  --text-caption: 12px;
+  --text-body-sm: 14px;
+  --text-body: 16px;
+  --text-body-lg: 18px;
+  --text-subheading: 20px;
+  --text-heading: 28px;
+  --text-heading-lg: clamp(32px, 4.2vw, 56px);
+  --text-display: clamp(44px, 6.6vw, 92px);
+
+  /* Line Height & Tracking */
+  --leading-display: 1.08;
+  --leading-heading: 1.2;
+  --leading-body: 1.75;
+  --tracking-display: -0.03em;
+  --tracking-heading: -0.02em;
+  --tracking-body: 0em;
+  --tracking-label: 0.08em;
+
+  /* Font weights */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+
+  /* Spacing (4px base) */
+  --spacing: 0.25rem;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-24: 96px;
+  --spacing-32: 128px;
+
+  /* Layout */
+  --page-max: 1240px;
+  --page-gutter: clamp(20px, 3.2vw, 40px);
+  --header-height: 64px;
+  --tick-minor: 8px;
+  --tick-major: 80px;
+
+  /* Border Radius */
+  --radius: 0.375rem;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Shadows — 深色下不靠投影分层，只留顶边高光与亮盒溢光 */
+  --shadow-none: 0 0 0 0 transparent;
+  --shadow-edge: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+  --shadow-pop: 0 16px 48px -8px rgba(0, 0, 0, 0.6);
+  --shadow-lightbox:
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 48px 120px -56px rgba(244, 238, 227, 0.16);
+  --ground-light: rgba(214, 224, 240, 0.1);
+
+  /* Motion */
+  --ease-precise: cubic-bezier(0.19, 1, 0.22, 1);
+  --duration-fast: 140ms;
+  --duration-base: 260ms;
+}

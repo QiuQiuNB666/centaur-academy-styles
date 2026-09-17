@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>董事会深蓝 · 组件样张 — 半人马AI学院</title>
+<meta name="description" content="半人马AI学院候选美术范式「董事会深蓝」的组件样张：色板、字体阶梯、按钮全状态、期刊目录行、插画画框、流程步骤与引文。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500&family=Libre+Franklin:wght@400;500;600&family=Noto+Sans+SC:wght@400;500&family=Noto+Serif+SC:wght@500;700;900&display=swap">
+<link rel="stylesheet" href="tokens.css">
+<style>
+/* ===== Base ===== */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--color-background);color:var(--color-foreground);font-family:var(--font-sans);font-size:var(--text-body);line-height:var(--leading-body);letter-spacing:var(--tracking-body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3,p,figure,blockquote,ol,ul{margin:0;padding:0}
+ol,ul{list-style:none}
+:focus-visible{outline:2px solid var(--color-ring);outline-offset:3px}
+.on-navy :focus-visible{outline-color:var(--color-ring-inverse)}
+.wrap{width:100%;max-width:calc(var(--container) + var(--page-gutter)*2);margin-inline:auto;padding-inline:var(--page-gutter)}
+.on-navy{background:var(--color-primary);color:var(--color-primary-foreground)}
+.on-deep{background:var(--color-primary-deep)}
+.band-secondary{background:var(--color-secondary)}
+
+/* ===== Type roles ===== */
+.serif{font-family:var(--font-serif)}
+.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.eyebrow{font-family:var(--font-sans);font-size:var(--text-caption);font-weight:500;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--color-brass-deep);line-height:1.6}
+.on-navy .eyebrow{color:var(--color-brass-light)}
+.eyebrow .cjk{letter-spacing:.24em}
+.h-display{font-family:var(--font-display);font-size:var(--text-display);line-height:var(--leading-display);letter-spacing:var(--tracking-display);font-weight:500}
+.h-xl{font-family:var(--font-display);font-size:var(--text-heading-xl);line-height:var(--leading-heading);letter-spacing:var(--tracking-heading);font-weight:500}
+.h-lg{font-family:var(--font-display);font-size:var(--text-heading-lg);line-height:var(--leading-heading);letter-spacing:var(--tracking-heading);font-weight:500}
+/* 强调词：加重 + 黄铜细线，不换色 */
+.em{font-weight:900;font-style:normal;text-decoration:underline;text-decoration-color:var(--color-brass);text-decoration-thickness:2px;text-underline-offset:.16em;text-decoration-skip-ink:none}
+.lede{font-family:var(--font-serif);font-size:var(--text-subheading);line-height:1.6;letter-spacing:var(--tracking-heading)}
+.muted{color:var(--color-muted-foreground)}
+.on-navy .muted{color:var(--color-primary-muted-foreground)}
+
+/* ===== Signature: 书眉线（通栏细线 + 左端黄铜签） ===== */
+.rule{position:relative;border-top:var(--rule-hair) solid var(--color-border-strong)}
+.rule::before{content:"";position:absolute;left:0;top:calc(var(--rule-tab-height)*-1);width:var(--rule-tab-width);height:var(--rule-tab-height);background:var(--color-brass)}
+.on-navy .rule{border-top-color:var(--color-primary-border)}
+.rule-head{display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding-top:18px}
+
+/* ===== Buttons ===== */
+.btn{--btn-bg:var(--color-primary);--btn-fg:var(--color-primary-foreground);--btn-bd:var(--color-primary);display:inline-flex;align-items:stretch;min-height:48px;border:1px solid var(--btn-bd);border-radius:var(--radius-md);background:var(--btn-bg);color:var(--btn-fg);font:500 15px/1 var(--font-sans);letter-spacing:.06em;text-decoration:none;cursor:pointer;padding:0;transition:background var(--duration-fast) var(--ease-board),transform var(--duration-fast) var(--ease-board)}
+.btn>span{display:flex;align-items:center;padding:0 22px}
+.btn>.arr{padding:0 15px;border-left:1px solid var(--color-brass);font-family:var(--font-sans);font-size:19px;font-weight:400}
+.btn>.arr i{font-style:normal;display:block;transition:transform var(--duration-fast) var(--ease-board)}
+.btn:hover,.btn.is-hover{--btn-bg:var(--color-primary-raised)}
+.btn:hover>.arr i,.btn.is-hover>.arr i{transform:translate(2px,-2px)}
+.btn:active,.btn.is-active{--btn-bg:var(--color-primary-deep);transform:scale(.98)}
+.btn.is-focus{outline:2px solid var(--color-ring);outline-offset:3px}
+.on-navy .btn.is-focus{outline-color:var(--color-ring-inverse)}
+.btn-inverse{--btn-bg:var(--color-background);--btn-fg:var(--color-primary);--btn-bd:var(--color-background)}
+.btn-inverse:hover,.btn-inverse.is-hover{--btn-bg:var(--color-card)}
+.btn-inverse:active,.btn-inverse.is-active{--btn-bg:var(--color-secondary)}
+.btn-outline{--btn-bg:transparent;--btn-fg:var(--color-foreground);--btn-bd:var(--color-border-strong)}
+.btn-outline:hover,.btn-outline.is-hover{--btn-bg:var(--color-secondary)}
+.btn-outline:active,.btn-outline.is-active{--btn-bg:var(--color-border)}
+.on-navy .btn-outline{--btn-fg:var(--color-primary-foreground);--btn-bd:var(--color-primary-border)}
+.on-navy .btn-outline:hover,.on-navy .btn-outline.is-hover{--btn-bg:var(--color-primary-raised)}
+.btn-sm{min-height:44px;font-size:14px}
+.btn-sm>span{padding:0 16px}
+.btn-sm>.arr{padding:0 12px}
+.btn[disabled],.btn.is-disabled{--btn-bg:transparent;--btn-fg:var(--color-muted-foreground);--btn-bd:var(--color-border);border-style:dashed;cursor:not-allowed;transform:none}
+.btn[disabled]>.arr,.btn.is-disabled>.arr{border-left:1px dashed var(--color-border)}
+.btn[disabled]>.arr i{transform:none}
+/* 文字链：黄铜底线，hover 时线变墨色 */
+.tlink{display:inline-flex;align-items:center;gap:.5em;min-height:44px;font-weight:500;font-size:15px;letter-spacing:.04em;text-decoration:none;background:linear-gradient(var(--color-brass),var(--color-brass)) left calc(50% + .85em)/100% 1px no-repeat;transition:background-size var(--duration-slow) var(--ease-board)}
+.tlink i{font-style:normal;font-family:var(--font-sans);font-size:1.2em;line-height:1;transition:transform var(--duration-fast) var(--ease-board)}
+.tlink:hover i,.tlink.is-hover i{transform:translate(2px,-2px)}
+.tlink:hover,.tlink.is-hover{background-image:linear-gradient(currentColor,currentColor)}
+
+/* ===== Badge ===== */
+.badge{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:var(--radius-sm);font:500 12px/1 var(--font-sans);letter-spacing:.1em;background:var(--color-pastel-navy-bg);color:var(--color-pastel-navy-text)}
+.badge-brass{background:var(--color-pastel-brass-bg);color:var(--color-pastel-brass-text)}
+.badge-stone{background:var(--color-pastel-stone-bg);color:var(--color-pastel-stone-text)}
+.badge-red{background:var(--color-pastel-red-bg);color:var(--color-pastel-red-text)}
+.badge-line{background:transparent;color:var(--color-foreground);box-shadow:inset 0 0 0 1px var(--color-border-strong)}
+
+/* ===== Plate: 章节插画框（衬纸 + 黄铜内线） ===== */
+.plate{background:var(--color-card);padding:clamp(8px,1.1vw,14px);border:1px solid var(--color-border);box-shadow:var(--shadow-frame)}
+.on-navy .plate{border-color:var(--color-card);box-shadow:var(--shadow-frame-navy)}
+.plate .pic{position:relative;overflow:hidden}
+.plate .pic::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px var(--color-brass);opacity:.7;pointer-events:none}
+.plate img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:saturate(.88)}
+.plate-cap{display:flex;gap:14px;align-items:baseline;margin-top:16px;font-size:var(--text-body-sm);color:var(--color-muted-foreground)}
+.plate-cap b{font:500 11px/1.6 var(--font-mono);letter-spacing:.14em;color:var(--color-brass-deep);white-space:nowrap}
+.on-navy .plate-cap{color:var(--color-primary-muted-foreground)}
+.on-navy .plate-cap b{color:var(--color-brass-light)}
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    .plate img{animation:plate-in linear both;animation-timeline:view();animation-range:entry 0% cover 35%}
+    @keyframes plate-in{from{transform:scale(1.06)}to{transform:scale(1)}}
+  }
+}
+
+/* ===== Steps ===== */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--color-border-strong)}
+.steps li{position:relative;padding:28px 24px 4px 0}
+.steps li+li{padding-left:24px;border-left:1px solid var(--color-border)}
+.steps li::before{content:"";position:absolute;top:-4px;left:0;width:7px;height:7px;background:var(--color-brass)}
+.steps li+li::before{left:-4px}
+.steps .n{display:block;font:500 13px/1 var(--font-mono);letter-spacing:.08em;color:var(--color-brass-deep)}
+.steps h3{font-family:var(--font-serif);font-weight:700;font-size:24px;letter-spacing:var(--tracking-heading);line-height:1.3;margin:48px 0 10px}
+.steps p{font-size:15px;line-height:1.7;color:var(--color-muted-foreground)}
+
+/* ===== Journal TOC row ===== */
+.toc{border-top:1px solid var(--color-border-strong)}
+.toc-row{display:grid;grid-template-columns:132px minmax(0,1fr) 176px;gap:32px;align-items:start;padding:32px 0;border-bottom:1px solid var(--color-border);text-decoration:none;color:inherit}
+.toc-meta{display:flex;flex-direction:column;gap:10px;align-items:flex-start;padding-top:6px}
+.toc-meta time{font:400 13px/1 var(--font-mono);letter-spacing:.04em;color:var(--color-muted-foreground);font-variant-numeric:tabular-nums}
+.toc-row h3{font-family:var(--font-serif);font-weight:700;font-size:var(--text-heading);line-height:1.35;letter-spacing:var(--tracking-heading)}
+.toc-row h3 span{background:linear-gradient(currentColor,currentColor) left 100%/0 1px no-repeat;transition:background-size var(--duration-slow) var(--ease-board)}
+.toc-row:hover h3 span,.toc-row.is-hover h3 span{background-size:100% 1px}
+.toc-row p{margin-top:10px;max-width:40em;font-size:15px;color:var(--color-muted-foreground)}
+.toc-thumb{padding:6px;background:var(--color-card);border:1px solid var(--color-border)}
+.toc-thumb img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:saturate(.88);transition:transform var(--duration-slow) var(--ease-board)}
+.toc-thumb .pic{overflow:hidden;background:var(--color-card)}
+.toc-row:hover .toc-thumb img{transform:scale(1.04)}
+
+/* ===== Quote ===== */
+.quote{border-left:1px solid var(--color-brass);padding-left:clamp(20px,3vw,44px)}
+.quote p{font-family:var(--font-serif);font-weight:500;font-size:clamp(26px,3.4vw,48px);line-height:1.42;letter-spacing:var(--tracking-heading);text-indent:-.5em}
+
+/* ===== Product rows ===== */
+.prod{border-top:1px solid var(--color-border-strong)}
+.prod-row{display:grid;grid-template-columns:120px minmax(0,1fr) auto auto;gap:24px;align-items:center;padding:20px 0;border-bottom:1px solid var(--color-border)}
+.prod-row .name{font-family:var(--font-serif);font-weight:900;font-size:var(--text-heading);letter-spacing:.08em;line-height:1}
+.prod-row .tlink{justify-self:start}
+.prod-row .note{font:400 12px/1 var(--font-mono);letter-spacing:.06em;color:var(--color-muted-foreground)}
+
+/* ===== Input ===== */
+.field label{display:block;font-size:13px;font-weight:500;letter-spacing:.06em;margin-bottom:8px}
+.input{width:100%;height:48px;padding:0 14px;border:1px solid var(--color-input);border-radius:var(--radius-md);background:var(--color-card);color:var(--color-foreground);font:400 16px/1 var(--font-sans)}
+.input::placeholder{color:var(--color-muted-foreground)}
+.input:focus,.input.is-focus{outline:2px solid var(--color-ring);outline-offset:2px;border-color:var(--color-ring)}
+.input.is-error{border-color:var(--color-destructive)}
+.field .hint{margin-top:6px;font-size:13px;color:var(--color-muted-foreground)}
+.field .hint.err{color:var(--color-destructive)}
+
+@media (max-width:900px){
+  .steps{grid-template-columns:1fr;border-top:0;border-left:1px solid var(--color-border-strong);margin-left:3px}
+  .steps li,.steps li+li{display:grid;grid-template-columns:44px 1fr;column-gap:8px;padding:0 0 28px 24px;border-left:0}
+  .steps li::before,.steps li+li::before{top:6px;left:-4px}
+  .steps .n{grid-row:1/3;padding-top:7px}
+  .steps h3{margin:0 0 4px}
+  .toc-row{grid-template-columns:minmax(0,1fr) 104px;gap:16px 20px;padding:24px 0}
+  .toc-meta{grid-column:1/-1;flex-direction:row;align-items:center;padding-top:0}
+  .toc-row h3{font-size:21px}
+  .prod-row{grid-template-columns:1fr auto;gap:10px 16px}
+  .prod-row .name{grid-column:1/-1}
+  .prod-row .tlink{grid-column:1/-1;justify-self:start}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms!important;animation:none!important}
+  .btn:active,.btn.is-active{transform:none}
+}
+
+
+/* ===== Page: kit ===== */
+.kit-head{padding-block:40px 48px}
+.kit-head .top{display:flex;justify-content:space-between;align-items:center;gap:24px;padding-bottom:20px;border-bottom:1px solid var(--color-primary-border);font-size:var(--text-body-sm)}
+.kit-head .top a{min-height:44px;display:inline-flex;align-items:center}
+.kit-head h1{margin-top:40px;font-size:clamp(40px,5.6vw,80px)}
+.kit-head p{margin-top:16px;max-width:44em}
+.sec{padding:56px 0 8px}
+.sec>.rule-head{margin-bottom:32px}
+.sec h2{font:500 var(--text-body-sm)/1.6 var(--font-sans);letter-spacing:.14em}
+.sec h2 small{font:400 12px/1 var(--font-mono);letter-spacing:.06em;color:var(--color-muted-foreground);margin-left:12px}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 48px;align-items:start}
+.sub{font:400 12px/1.6 var(--font-mono);letter-spacing:.06em;color:var(--color-muted-foreground);margin-bottom:14px}
+.on-navy .sub{color:var(--color-primary-muted-foreground)}
+/* swatches */
+.sw{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
+.sw li{font-size:13px;line-height:1.5}
+.sw i{display:block;height:84px;border:1px solid var(--color-border);margin-bottom:10px}
+.sw b{display:block;font-weight:500}
+.sw code{display:block;font:400 12px/1.6 var(--font-mono);color:var(--color-muted-foreground)}
+.sw span{display:block;color:var(--color-muted-foreground);font-size:12px}
+.ratio{display:flex;height:14px;margin-top:28px;border:1px solid var(--color-border)}
+.ratio i{display:block}
+/* type */
+.ladder>div{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--color-border)}
+.ladder code{font:400 12px/1.5 var(--font-mono);color:var(--color-muted-foreground)}
+.ladder .s{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fam{padding:20px 0;border-bottom:1px solid var(--color-border)}
+.fam .big{font-size:40px;line-height:1.25}
+/* states */
+.states{display:grid;grid-template-columns:repeat(5,auto);gap:14px 20px;justify-content:start;align-items:center}
+.states small{font:400 11px/1 var(--font-mono);letter-spacing:.08em;color:var(--color-muted-foreground)}
+.on-navy .states small{color:var(--color-primary-muted-foreground)}
+.panel{padding:32px}
+.panel.on-navy{margin-top:24px}
+.chnum{font-family:var(--font-display);font-size:104px;line-height:.9;color:transparent;-webkit-text-stroke:1px var(--color-brass-deep)}
+.on-navy .chnum{-webkit-text-stroke-color:var(--color-brass-light)}
+.cut{position:relative;display:grid;place-items:center;padding:24px}
+.cut svg{position:absolute;inset:6%;width:88%;height:88%;color:var(--color-primary-border)}
+.cut svg .b{stroke:var(--color-brass)}
+.cut img{position:relative;width:86%}
+.banner{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px;padding-top:28px}
+.foot-note{padding:56px 0 96px;font-size:13px;color:var(--color-muted-foreground)}
+@media (max-width:900px){
+  .cols{grid-template-columns:1fr}
+  .sw{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .states{grid-template-columns:repeat(2,auto)}
+  .ladder>div{grid-template-columns:1fr;gap:4px}
+  .panel{padding:20px}
+}
+</style>
+</head>
+<body>
+<header class="on-navy">
+  <div class="wrap kit-head">
+    <div class="top"><span class="serif" style="letter-spacing:.12em">半人马AI学院</span><a class="tlink" href="index.html">查看首页预览 <i>→</i></a></div>
+    <p class="eyebrow" style="margin-top:40px"><span>BOARDROOM NAVY</span> · <span class="cjk">组件样张</span></p>
+    <h1 class="h-display" style="font-size:clamp(40px,5.6vw,80px);margin-top:16px">董事会<em class="em">深蓝</em>。</h1>
+    <p class="muted">深海军蓝色带、象牙正文区、黄铜细线。以下每个部件都只读 tokens.css，首页预览由它们拼成。</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="sec" aria-labelledby="k-color">
+    <div class="rule rule-head"><h2 id="k-color">色板<small>COLORS</small></h2></div>
+    <ul class="sw">
+      <li><i style="background:var(--color-background)"></i><b>象牙画布</b><code>#f5f2ea</code><span>background · 正文区底</span></li>
+      <li><i style="background:var(--color-card)"></i><b>衬纸</b><code>#fbf9f4</code><span>card · 画框衬纸、输入框</span></li>
+      <li><i style="background:var(--color-secondary)"></i><b>深象牙</b><code>#ebe6d9</code><span>secondary · 次级色带、hover</span></li>
+      <li><i style="background:var(--color-border)"></i><b>栏线</b><code>#d9d3c3</code><span>border · 行间细线</span></li>
+      <li><i style="background:var(--color-muted-foreground)"></i><b>石板灰</b><code>#4f5b6e</code><span>muted-foreground · 6.15:1</span></li>
+      <li><i style="background:var(--color-foreground)"></i><b>墨蓝</b><code>#111c2e</code><span>foreground · 正文与重线</span></li>
+      <li><i style="background:var(--color-primary)"></i><b>董事会深蓝</b><code>#0b1f3a</code><span>primary · hero 与色带、主按钮</span></li>
+      <li><i style="background:var(--color-primary-deep)"></i><b>午夜蓝</b><code>#07162b</code><span>primary-deep · 页脚、按压态</span></li>
+      <li><i style="background:var(--color-primary-raised)"></i><b>抬升蓝</b><code>#15305a</code><span>primary-raised · 深蓝上 hover</span></li>
+      <li><i style="background:var(--color-primary-border)"></i><b>深蓝栏线</b><code>#2a4166</code><span>primary-border · 深蓝上的细线</span></li>
+      <li><i style="background:var(--color-primary-muted-foreground)"></i><b>雾蓝</b><code>#a9b4c6</code><span>深蓝上次要文 · 7.89:1</span></li>
+      <li><i style="background:var(--color-brass)"></i><b>黄铜</b><code>#b08d4c</code><span>brass · 只做线与签，≤3%</span></li>
+      <li><i style="background:var(--color-brass-deep)"></i><b>旧金</b><code>#765a1f</code><span>brass-deep · 象牙上的小标 5.77:1</span></li>
+      <li><i style="background:var(--color-brass-light)"></i><b>浅铜</b><code>#d4b97c</code><span>brass-light · 深蓝上的小标 8.68:1</span></li>
+      <li><i style="background:var(--color-destructive)"></i><b>砖红</b><code>#80241e</code><span>destructive · 错误提示</span></li>
+      <li><i style="background:var(--color-success)"></i><b>松绿</b><code>#2f5d46</code><span>success · 成功状态</span></li>
+      <li><i style="background:var(--color-input)"></i><b>输入框线</b><code>#8d8673</code><span>input · 3.24:1</span></li>
+    </ul>
+    <div class="ratio" aria-hidden="true"><i style="flex:56;background:var(--color-background)"></i><i style="flex:8;background:var(--color-secondary)"></i><i style="flex:33;background:var(--color-primary)"></i><i style="flex:3;background:var(--color-brass)"></i></div>
+    <p class="sub" style="margin-top:10px">面积配比：象牙 56 · 深象牙 8 · 深蓝 33 · 黄铜 3</p>
+  </section>
+
+  <section class="sec" aria-labelledby="k-type">
+    <div class="rule rule-head"><h2 id="k-type">字体与字号阶梯<small>TYPOGRAPHY</small></h2></div>
+    <div class="cols">
+      <div>
+        <div class="fam"><p class="sub">--font-display / --font-serif · Frank Ruhl Libre + Noto Serif SC → Songti SC</p><p class="big serif" style="font-weight:500">人决定方向 <span style="font-weight:900">AI 拓展能力</span></p></div>
+        <div class="fam"><p class="sub">--font-sans · Libre Franklin + Noto Sans SC → PingFang SC</p><p style="font-size:20px">聊聊你正在做的事，和你希望 AI 帮你做成的事。Academy</p></div>
+        <div class="fam"><p class="sub">--font-mono · IBM Plex Mono → ui-monospace, Menlo</p><p class="mono" style="font-size:20px">2026.09.15 · 01 02 03 04 05 · HUMAN × AI</p></div>
+        <div class="fam" style="border:0"><p class="sub">强调词：900 字重 + 2px 黄铜底线，不换色</p><p class="h-lg">都是<em class="em">起点</em>。</p></div>
+      </div>
+      <div class="ladder">
+        <div><code>display<br>52–116 / 1.12</code><p class="s h-display" style="font-size:72px">让 AI 成为</p></div>
+        <div><code>heading-xl<br>36–68 / 1.22</code><p class="s h-xl" style="font-size:52px">你走过的路</p></div>
+        <div><code>heading-lg<br>30–44 / 1.22</code><p class="s h-lg">保持好奇，继续对话</p></div>
+        <div><code>heading 28</code><p class="s serif" style="font-size:28px;font-weight:700">来自嘉木的一封信</p></div>
+        <div><code>subheading 22</code><p class="s lede">面向经营者与管理者的长期共学</p></div>
+        <div><code>body-lg 18 / 1.8</code><p class="s" style="font-size:18px">聊聊你正在做的事。</p></div>
+        <div><code>body 16 / 1.8</code><p class="s">把你的经验、判断和真实问题，与 AI 的能力连接起来。</p></div>
+        <div><code>body-sm 14</code><p class="s muted" style="font-size:14px">由半人马人工智能发起</p></div>
+        <div><code>caption 12 · label</code><p class="s eyebrow">FROM THE FOUNDER</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="k-btn">
+    <div class="rule rule-head"><h2 id="k-btn">按钮全状态<small>BUTTONS</small></h2></div>
+    <div class="states">
+      <small>DEFAULT</small><small>HOVER</small><small>ACTIVE</small><small>FOCUS</small><small>DISABLED</small>
+      <a class="btn" href="#k-btn"><span>联系学院顾问</span><span class="arr"><i>↗</i></span></a>
+      <a class="btn is-hover" href="#k-btn"><span>联系学院顾问</span><span class="arr"><i>↗</i></span></a>
+      <a class="btn is-active" href="#k-btn"><span>联系学院顾问</span><span class="arr"><i>↗</i></span></a>
+      <a class="btn is-focus" href="#k-btn"><span>联系学院顾问</span><span class="arr"><i>↗</i></span></a>
+      <button class="btn" type="button" disabled><span>下载知君</span><span class="arr"><i>↓</i></span></button>
+      <button class="btn btn-outline" type="button"><span>复制客服链接</span></button>
+      <button class="btn btn-outline is-hover" type="button"><span>复制客服链接</span></button>
+      <button class="btn btn-outline is-active" type="button"><span>复制客服链接</span></button>
+      <button class="btn btn-outline is-focus" type="button"><span>复制客服链接</span></button>
+      <button class="btn btn-outline" type="button" disabled><span>复制客服链接</span></button>
+      <a class="tlink" href="#k-btn">了解学院的主张 <i>↗</i></a>
+      <a class="tlink is-hover" href="#k-btn">了解学院的主张 <i>↗</i></a>
+      <span></span><span></span><span></span>
+    </div>
+    <div class="panel on-navy">
+      <p class="sub">深蓝色带上：主按钮反转为象牙，描边钮用深蓝栏线，focus 环换浅铜</p>
+      <div class="states">
+        <a class="btn btn-inverse" href="#k-btn"><span>联系学院顾问</span><span class="arr"><i>↗</i></span></a>
+        <a class="btn btn-inverse is-hover" href="#k-btn"><span>联系学院顾问</span><span class="arr"><i>↗</i></span></a>
+        <a class="btn btn-inverse is-active" href="#k-btn"><span>联系学院顾问</span><span class="arr"><i>↗</i></span></a>
+        <a class="btn btn-inverse is-focus" href="#k-btn"><span>联系学院顾问</span><span class="arr"><i>↗</i></span></a>
+        <a class="btn btn-outline btn-sm" href="#k-btn"><span>联系学院顾问</span><span class="arr"><i>↗</i></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="k-sig">
+    <div class="rule rule-head"><h2 id="k-sig">签名：书眉线 · 空心章节数字 · 罗盘经纬<small>SIGNATURE</small></h2></div>
+    <div class="cols">
+      <div>
+        <p class="sub">.rule — 通栏 1px 墨蓝线 + 左端 56×3 黄铜签；每个区块都从它开始</p>
+        <div class="rule rule-head" style="padding-top:28px"><p style="display:flex;align-items:baseline;gap:.8em;font-size:14px;font-weight:500;letter-spacing:.14em"><span class="chnum">01</span><span>/</span><span>从你的积累出发</span></p></div>
+        <p class="sub" style="margin-top:28px">章节数字：Frank Ruhl Libre 400，1px 旧金描边、不填色。只用于三章节这一真实顺序。</p>
+      </div>
+      <div class="on-navy cut">
+        <svg viewBox="0 0 600 600" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="300" cy="300" r="292"/><circle cx="300" cy="300" r="280" stroke-width="10" stroke-dasharray="1 23.43"/><circle class="b" cx="300" cy="300" r="214" stroke-width=".8"/><circle cx="300" cy="300" r="128" stroke-dasharray="3 7"/><path d="M300 0V600M0 300H600"/><path class="b" d="M300 300 524 136" stroke-width="1.2"/><path d="m524 136-17 3 10 13z" fill="var(--color-brass)" stroke="none"/></svg>
+        <img src="../../assets/academy-centaur-cutout.webp" alt="橙色人身与蓝色马身结合的半人马艺术形象" width="1448" height="1086">
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="k-plate">
+    <div class="rule rule-head"><h2 id="k-plate">图片框处理<small>PLATES</small></h2></div>
+    <div class="cols" style="grid-template-columns:repeat(3,minmax(0,1fr));gap:32px">
+      <figure><div class="plate"><div class="pic"><img src="../../assets/experience.webp" alt="概念插画：笔记、铅笔与方向标，象征经验积累与判断" width="1448" height="1086"></div></div><figcaption class="plate-cap"><b>EXPERIENCE</b><span>象牙底：衬纸 + 黄铜内线 + 饱和度 .88</span></figcaption></figure>
+      <figure class="on-navy" style="padding:24px"><div class="plate"><div class="pic"><img src="../../assets/co-learning.webp" alt="概念插画：三位同伴围桌讨论纸上的想法" width="1448" height="1086"></div></div><figcaption class="plate-cap"><b>LEARN TOGETHER</b><span>深蓝底：象牙衬纸画框</span></figcaption></figure>
+      <figure><div class="toc-thumb"><div class="pic"><img src="../../assets/academy-centaur-hero.webp" alt="" width="1448" height="1086" style="mix-blend-mode:multiply"></div></div><figcaption class="plate-cap"><b>MULTIPLY</b><span>米色底图：正片叠底融进衬纸</span></figcaption></figure>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="k-toc">
+    <div class="rule rule-head"><h2 id="k-toc">期刊目录行 · 徽标<small>JOURNAL ROW / BADGE</small></h2></div>
+    <div class="cols" style="grid-template-columns:minmax(0,2fr) minmax(0,1fr)">
+      <div class="toc">
+        <a class="toc-row" href="#k-toc"><div class="toc-meta"><time datetime="2026-09-15">2026.09.15</time><span class="badge badge-line">观点</span></div><div><h3><span>来自嘉木的一封信</span></h3><p>我们为什么创办学院，以及希望与你一起走向怎样的 AI 未来。</p></div><div class="toc-thumb"><div class="pic"><img src="../../assets/co-learning.webp" alt="" width="1448" height="1086"></div></div></a>
+        <a class="toc-row is-hover" href="#k-toc"><div class="toc-meta"><time datetime="2026-09-15">2026.09.15</time><span class="badge badge-line">观点</span></div><div><h3><span>用自己的语言，做一件趁手的工具</span></h3><p>hover：标题下长出一条墨线，缩略图放大 4%。</p></div><div class="toc-thumb"><div class="pic"><img src="../../assets/creating.webp" alt="" width="1448" height="1086"></div></div></a>
+      </div>
+      <div>
+        <p class="sub">徽标：2px 直角，不用胶囊</p>
+        <p style="display:flex;flex-wrap:wrap;gap:10px"><span class="badge badge-line">观点</span><span class="badge">动态</span><span class="badge badge-brass">共学</span><span class="badge badge-stone">暂未开放</span><span class="badge badge-red">已结束</span></p>
+        <p class="sub" style="margin-top:32px">产品下载行</p>
+        <div class="prod"><div class="prod-row" style="grid-template-columns:72px minmax(0,1fr) auto"><span class="name">知君</span><a class="tlink" href="#k-toc">让积累参与思考 <i>↗</i></a><span class="note">下载暂未开放</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="k-steps">
+    <div class="rule rule-head"><h2 id="k-steps">流程步骤<small>STEPS</small></h2></div>
+    <ol class="steps">
+      <li><span class="n">01</span><h3>带来问题</h3><p>从正在做的事出发。</p></li>
+      <li><span class="n">02</span><h3>一起梳理</h3><p>讲清背景，找到目标。</p></li>
+      <li><span class="n">03</span><h3>动手尝试</h3><p>做出可以试用的初版。</p></li>
+      <li><span class="n">04</span><h3>交流结果</h3><p>体验彼此的成果。</p></li>
+      <li><span class="n">05</span><h3>持续改进</h3><p>带着反馈，再走一步。</p></li>
+    </ol>
+  </section>
+
+  <section class="sec" aria-labelledby="k-form">
+    <div class="rule rule-head"><h2 id="k-form">输入框 · 引文<small>INPUT / QUOTE</small></h2></div>
+    <div class="cols">
+      <div style="display:grid;gap:24px">
+        <div class="field"><label for="f1">你的称呼</label><input class="input" id="f1" placeholder="例如：王总"><p class="hint">default</p></div>
+        <div class="field"><label for="f2">正在做的事</label><input class="input is-focus" id="f2" value="想把门店巡检的经验做成工具"><p class="hint">focus：2px 深蓝环</p></div>
+        <div class="field"><label for="f3">联系方式</label><input class="input is-error" id="f3" value="138"><p class="hint err">error：请填写完整的手机号或微信号</p></div>
+      </div>
+      <div class="panel on-navy">
+        <blockquote class="quote"><p style="font-size:30px">“我希望学院能聚起一群认同人机共生、愿意共同成长的人。”</p></blockquote>
+        <p class="sub" style="margin:28px 0 0">引文块：1px 黄铜竖线 + 衬线 500；引号悬挂半字。署名线同为黄铜 1px。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="k-banner">
+    <div class="rule rule-head"><h2 id="k-banner">联系横幅<small>CONTACT BANNER</small></h2></div>
+    <div class="banner"><p class="h-xl">带上你的问题，<br>我们一起往前走。</p><div style="display:flex;flex-wrap:wrap;gap:12px"><a class="btn" href="https://work.weixin.qq.com/kfid/kfc472df2b7db14c36e" target="_blank" rel="noopener"><span>联系学院顾问</span><span class="arr"><i>↗</i></span></a><button class="btn btn-outline" type="button"><span>复制客服链接</span></button></div></div>
+  </section>
+  <p class="foot-note">圆角 2px · 阴影只给画框 · 黄铜只做线。半人马AI学院 / 04-boardroom</p>
+</main>
+
+<div style="position:fixed;left:0;bottom:0;z-index:99;mix-blend-mode:difference;color:var(--color-background)"><a href="../../" style="position:fixed;left:12px;bottom:12px;z-index:99;font:12px/1 ui-monospace,monospace;padding:8px 10px;border-radius:999px;background:rgba(127,127,127,.18);backdrop-filter:blur(8px);color:inherit;text-decoration:none">← 全部方案</a></div>
+</body>
+</html>

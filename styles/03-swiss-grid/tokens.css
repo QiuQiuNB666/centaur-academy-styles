@@ -1,0 +1,107 @@
+:root {
+  /* Colors */
+  --color-background: #ffffff;
+  --color-foreground: #141414;
+  --color-card: #ffffff;
+  --color-card-foreground: #141414;
+  --color-primary: #141414;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #f3f3f1;
+  --color-secondary-foreground: #141414;
+  --color-muted: #f3f3f1;
+  --color-muted-foreground: #5c5f66;
+  --color-brand: #0f5fd0;
+  --color-brand-strong: #0b4fc0;
+  --color-brand-foreground: #ffffff;
+  --color-rule: #141414;
+  --color-border: #d4d4d1;
+  --color-input: #141414;
+  --color-ring: #0f5fd0;
+  --color-grid: #ececea;
+  --color-grid-band: rgba(15, 95, 208, 0.07);
+  --color-destructive: #b3261e;
+  --color-destructive-foreground: #ffffff;
+  --color-success: #1e6b3a;
+  --color-success-foreground: #ffffff;
+
+  /* Pastel semantic pairs */
+  --color-pastel-blue-bg: #e7effb;
+  --color-pastel-blue-text: #0b4fc0;
+  --color-pastel-gray-bg: #f3f3f1;
+  --color-pastel-gray-text: #5c5f66;
+  --color-pastel-orange-bg: #fdeede;
+  --color-pastel-orange-text: #95470a;
+  --color-pastel-green-bg: #e6f2ea;
+  --color-pastel-green-text: #1e6b3a;
+
+  /* Typography — Font Families */
+  --font-sans:
+    'Archivo', 'Helvetica Neue', Helvetica, 'Noto Sans SC', 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
+  --font-display:
+    'Archivo', 'Helvetica Neue', Helvetica, 'Noto Sans SC', 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
+  --font-mono:
+    'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    monospace;
+
+  /* Typography — Scale */
+  --text-caption: 12px;
+  --text-body-sm: 14px;
+  --text-body: 16px;
+  --text-body-lg: 18px;
+  --text-subheading: 20px;
+  --text-heading: 28px;
+  --text-heading-lg: clamp(34px, 4.6vw, 68px);
+  --text-display: clamp(50px, 10vw, 152px);
+  --text-index: clamp(40px, 4.4vw, 64px);
+
+  /* Line Height & Tracking */
+  --leading-display: 1.04;
+  --leading-heading: 1.1;
+  --leading-body: 1.65;
+  --tracking-display: -0.035em;
+  --tracking-heading: -0.02em;
+  --tracking-body: 0em;
+  --tracking-label: 0.08em;
+  --weight-display: 900;
+  --weight-strong: 700;
+  --weight-body: 400;
+
+  /* Spacing (8px base) */
+  --spacing: 0.5rem;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-20: 80px;
+  --spacing-24: 96px;
+  --spacing-32: 128px;
+  --spacing-40: 160px;
+
+  /* Grid */
+  --grid-columns: 12;
+  --grid-gutter: 24px;
+  --grid-margin: clamp(20px, 4.44vw, 64px);
+  --container: 1440px;
+
+  /* Rules — 线是这套系统唯一的「深度」 */
+  --rule-hair: 1px;
+  --rule-strong: 2px;
+  --rule-heavy: 6px;
+
+  /* Border Radius */
+  --radius: 0px;
+
+  /* Shadows */
+  --shadow-none: none;
+
+  /* Motion */
+  --ease-swiss: cubic-bezier(0.2, 0, 0, 1);
+  --duration-fast: 120ms;
+  --duration-base: 240ms;
+}

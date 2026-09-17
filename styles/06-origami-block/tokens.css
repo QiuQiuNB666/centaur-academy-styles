@@ -1,0 +1,110 @@
+:root {
+  /* Colors — 画布与中性 */
+  --color-background: #f6f1e6;
+  --color-foreground: #0e1a3a;
+  --color-card: #fffdf7;
+  --color-card-foreground: #0e1a3a;
+  --color-secondary: #ebe3d2;
+  --color-secondary-foreground: #0e1a3a;
+  --color-muted: #ebe3d2;
+  --color-muted-foreground: #4a5470;
+  --color-border: #0e1a3a;
+  --color-input: #0e1a3a;
+  --color-ring: #0e1a3a;
+  --color-ring-inverse: #ffb070;
+
+  /* Colors — 钴蓝三面（受光 / 本色 / 背光） */
+  --color-cobalt-lit: #2a66dc;
+  --color-cobalt: #1450c8;
+  --color-cobalt-deep: #0d3a96;
+  --color-cobalt-foreground: #ffffff;
+  --color-cobalt-muted-foreground: #dbe6fc;
+
+  /* Colors — 橘橙三面（受光 / 本色 / 背光） */
+  --color-orange-lit: #ffb070;
+  --color-orange: #f47216;
+  --color-orange-deep: #e0640c;
+  --color-orange-foreground: #0e1a3a;
+
+  /* Colors — 墨蓝 */
+  --color-ink: #0e1a3a;
+  --color-ink-foreground: #f6f1e6;
+  --color-ink-muted-foreground: #b3bdd6;
+
+  /* Colors — 语义别名 */
+  --color-primary: #f47216;
+  --color-primary-foreground: #0e1a3a;
+  --color-brand: #1450c8;
+  --color-brand-foreground: #ffffff;
+  --color-disabled-bg: #ebe3d2;
+  --color-disabled-text: #4a5470;
+
+  /* Typography — Font Families */
+  --font-display:
+    'Bricolage Grotesque', 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'Avenir Next', 'Trebuchet MS', sans-serif;
+  --font-sans:
+    'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
+    'Avenir Next', 'Segoe UI', system-ui, sans-serif;
+  --font-mono:
+    'Space Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'PingFang SC', 'Microsoft YaHei', monospace;
+
+  /* Typography — Scale */
+  --text-caption: 12px;
+  --text-body-sm: 14px;
+  --text-body: 16px;
+  --text-body-lg: 19px;
+  --text-subheading: 24px;
+  --text-heading: clamp(28px, 3vw, 40px);
+  --text-heading-lg: clamp(36px, 4.8vw, 68px);
+  --text-display: clamp(44px, 7.2vw, 104px);
+
+  /* Line Height & Tracking */
+  --leading-display: 1.08;
+  --leading-heading: 1.16;
+  --leading-body: 1.75;
+  --tracking-display: -0.02em;
+  --tracking-heading: -0.01em;
+  --tracking-body: 0em;
+  --tracking-mono: 0.08em;
+
+  /* Spacing (4px base) */
+  --spacing: 0.25rem;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-24: 96px;
+  --spacing-36: 144px;
+  --section-y: clamp(72px, 10vw, 144px);
+  --gutter: clamp(20px, 5vw, 48px);
+  --container: 1240px;
+
+  /* Border & Radius — 方正，折角代替圆角 */
+  --border-width: 2px;
+  --radius: 0px;
+  --radius-sm: 2px;
+
+  /* Fold — 折角与折痕 */
+  --fold-sm: 10px;
+  --fold-md: 18px;
+  --fold-lg: 36px;
+  --crease-h: clamp(48px, 7vw, 112px);
+
+  /* Shadows — 只有硬投影（叠纸位移），没有模糊 */
+  --offset-sm: 4px;
+  --offset-md: 8px;
+  --offset-lg: 16px;
+  --shadow-block-sm: 4px 4px 0 0 #0e1a3a;
+  --shadow-block-md: 8px 8px 0 0 #0e1a3a;
+
+  /* Motion */
+  --ease-fold: cubic-bezier(0.2, 0.9, 0.25, 1);
+  --duration-press: 140ms;
+  --duration-fold: 320ms;
+}

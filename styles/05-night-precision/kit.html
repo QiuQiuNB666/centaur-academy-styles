@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>夜航精密 · 组件样张 — 半人马AI学院</title>
+<meta name="description" content="半人马AI学院「夜航精密」范式的组件样张：色板、字体阶梯、按钮全状态、卡片、徽标、输入框、引文、流程步骤与亮盒展品图片框。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--color-background);color:var(--color-foreground);font-family:var(--font-sans);font-size:var(--text-body);line-height:var(--leading-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,p,ul,ol,figure,blockquote{margin:0;padding:0}
+ul,ol{list-style:none}
+button,input{font:inherit;color:inherit}
+:focus-visible,.is-focus{outline:2px solid var(--color-ring);outline-offset:3px}
+.wrap{position:relative;width:min(var(--page-max),100% - 2*var(--page-gutter));margin-inline:auto;padding-inline:var(--page-gutter);border-inline:1px solid var(--color-border)}
+.sec{border-top:1px solid var(--color-border)}
+.sec>.wrap{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--spacing-8);padding-block:var(--spacing-12)}
+.sec>.wrap::before,.sec>.wrap::after{content:"";position:absolute;top:-5px;width:9px;height:9px;pointer-events:none;
+  background:linear-gradient(var(--color-border-strong),var(--color-border-strong)) center/9px 1px no-repeat,linear-gradient(var(--color-border-strong),var(--color-border-strong)) center/1px 9px no-repeat}
+.sec>.wrap::before{left:-5px}.sec>.wrap::after{right:-5px}
+.s-meta{grid-column:1/3;display:flex;flex-direction:column;gap:var(--spacing-2)}
+.s-meta h2{font-size:var(--text-subheading);font-weight:var(--weight-medium);letter-spacing:.02em;color:var(--color-foreground)}
+.s-body{grid-column:3/13;min-width:0}
+.mono{font-family:var(--font-mono);font-size:var(--text-caption);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--color-subtle-foreground);font-feature-settings:"tnum","zero"}
+.mono b{font-weight:var(--weight-medium);color:var(--color-brand)}
+.ruler{height:10px;background:
+  repeating-linear-gradient(90deg,var(--color-border-strong) 0 1px,transparent 1px var(--tick-major)) 0 100%/100% 100% no-repeat,
+  repeating-linear-gradient(90deg,var(--color-border) 0 1px,transparent 1px var(--tick-minor)) 0 100%/100% 50% no-repeat;
+  border-bottom:1px solid var(--color-border-strong)}
+.note{margin-top:var(--spacing-4);font-size:var(--text-body-sm);color:var(--color-muted-foreground);max-width:46em}
+
+/* top */
+.top .wrap{padding-block:var(--spacing-12) var(--spacing-10)}
+.top h1{margin-top:var(--spacing-5);font-size:var(--text-heading-lg);line-height:var(--leading-heading);letter-spacing:var(--tracking-heading);font-weight:var(--weight-medium)}
+.top h1 em{font-style:normal;color:var(--color-brand)}
+.top p.lead{margin-top:var(--spacing-4);color:var(--color-muted-foreground);max-width:40em}
+.top .ruler{margin-top:var(--spacing-10)}
+
+/* swatches */
+.sw-grid{display:grid;grid-template-columns:repeat(6,1fr);border:1px solid var(--color-border);border-radius:var(--radius-lg);overflow:hidden}
+.sw{padding:var(--spacing-3);border-right:1px solid var(--color-border);border-bottom:1px solid var(--color-border);margin:0 -1px -1px 0;background:var(--color-card)}
+.sw i{display:block;height:64px;border-radius:var(--radius-sm);border:1px solid var(--color-border-strong)}
+.sw strong{display:block;margin-top:var(--spacing-3);font-size:var(--text-body-sm);font-weight:var(--weight-medium)}
+.sw code{display:block;font-family:var(--font-mono);font-size:var(--text-caption);color:var(--color-muted-foreground)}
+.sw span{display:block;margin-top:2px;font-size:var(--text-caption);line-height:1.5;color:var(--color-subtle-foreground)}
+.ratio{display:flex;height:14px;margin-top:var(--spacing-6);border-radius:var(--radius-sm);overflow:hidden;border:1px solid var(--color-border-strong)}
+.ratio i{display:block}
+
+/* type */
+.type-row{display:grid;grid-template-columns:150px 1fr;gap:var(--spacing-6);align-items:baseline;padding-block:var(--spacing-3);border-bottom:1px solid var(--color-border)}
+.type-row:first-child{border-top:1px solid var(--color-border)}
+.t-display{font-size:clamp(44px,5vw,72px);line-height:var(--leading-display);letter-spacing:var(--tracking-display);font-weight:var(--weight-medium)}
+.t-display em{font-style:normal;color:var(--color-brand)}
+.t-hlg{font-size:var(--text-heading-lg);line-height:var(--leading-heading);letter-spacing:var(--tracking-heading);font-weight:var(--weight-medium);color:var(--color-muted-foreground)}
+.t-hlg em{font-style:normal;color:var(--color-foreground)}
+.t-h{font-size:var(--text-heading);line-height:1.3;letter-spacing:var(--tracking-heading);font-weight:var(--weight-medium)}
+.t-sub{font-size:var(--text-subheading);font-weight:var(--weight-medium)}
+.t-blg{font-size:var(--text-body-lg);color:var(--color-muted-foreground)}
+.t-b{font-size:var(--text-body)}
+.t-bsm{font-size:var(--text-body-sm);color:var(--color-muted-foreground)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--spacing-3);min-height:44px;padding:0 var(--spacing-5);border:1px solid transparent;border-radius:var(--radius-lg);font-size:15px;font-weight:var(--weight-medium);line-height:1;cursor:pointer;white-space:nowrap;transition:background-color var(--duration-fast) var(--ease-precise),border-color var(--duration-fast) var(--ease-precise),transform var(--duration-fast) var(--ease-precise)}
+.btn:active,.btn.is-active{transform:scale(.98)}
+.btn-primary{background:var(--color-primary);color:var(--color-primary-foreground);padding-right:var(--spacing-2)}
+.btn-primary:hover,.btn-primary.is-hover{background:var(--color-primary-hover)}
+.btn-ico{display:grid;place-items:center;width:28px;height:28px;border-radius:var(--radius-md);background:color-mix(in srgb,var(--color-primary-foreground) 10%,transparent);font-size:15px;transition:transform var(--duration-base) var(--ease-precise)}
+.btn-primary:hover .btn-ico,.btn-primary.is-hover .btn-ico{transform:translate(1px,-1px)}
+.btn-primary.is-active{background:var(--color-pastel-neutral-text)}
+.btn-outline{border-color:var(--color-border-strong);background:transparent}
+.btn-outline:hover,.btn-outline.is-hover{background:var(--color-accent);border-color:var(--color-subtle-foreground)}
+.btn-outline.is-active{background:var(--color-secondary)}
+.btn-ghost{background:transparent;color:var(--color-muted-foreground)}
+.btn-ghost:hover,.btn-ghost.is-hover{background:var(--color-accent);color:var(--color-foreground)}
+.btn-sm{min-height:36px;padding:0 var(--spacing-4);font-size:var(--text-body-sm)}
+.btn[disabled]{background:var(--color-secondary);border-color:var(--color-border);color:var(--color-disabled-foreground);cursor:not-allowed;transform:none}
+.link{display:inline-flex;align-items:center;gap:6px;min-height:44px;font-size:15px;font-weight:var(--weight-medium);background:linear-gradient(var(--color-border-strong),var(--color-border-strong)) 0 calc(50% + 14px)/100% 1px no-repeat}
+.link:hover,.link.is-hover{color:var(--color-brand);background-image:linear-gradient(var(--color-brand),var(--color-brand))}
+.link.is-hover .ar{transform:translate(2px,-2px)}
+.link .ar{transition:transform var(--duration-base) var(--ease-precise)}
+.b-table{display:grid;grid-template-columns:110px repeat(5,1fr);gap:var(--spacing-5) var(--spacing-4);align-items:center}
+.b-table .th{padding-bottom:var(--spacing-2);border-bottom:1px solid var(--color-border)}
+
+/* cards */
+.two{display:grid;grid-template-columns:7fr 5fr;gap:var(--spacing-8);align-items:start}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--spacing-8);align-items:start}
+.card{padding:var(--spacing-6);background:var(--color-card);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-edge)}
+.card h3{font-size:var(--text-subheading);font-weight:var(--weight-medium)}
+.card p{margin-top:var(--spacing-2);font-size:15px;color:var(--color-muted-foreground)}
+.card.is-hover{background:var(--color-secondary);border-color:var(--color-border-strong)}
+.lightbox{position:relative;padding:var(--spacing-3);background:var(--color-card);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-edge),var(--shadow-lightbox)}
+.lightbox::before,.lightbox::after{content:"";position:absolute;width:12px;height:12px;border:solid var(--color-border-strong);pointer-events:none}
+.lightbox::before{top:-9px;left:-9px;border-width:1px 0 0 1px}
+.lightbox::after{bottom:-9px;right:-9px;border-width:0 1px 1px 0}
+.lb-head{display:flex;align-items:center;gap:var(--spacing-4);padding:2px var(--spacing-1) var(--spacing-3)}
+.lb-head .ruler{flex:1;border-bottom:0;height:8px}
+.lb-mat{padding:5px;background:var(--color-lightbox);border-radius:var(--radius-sm);overflow:hidden}
+.lb-mat img{width:100%;border-radius:1px;aspect-ratio:4/3;object-fit:cover}
+.lightbox figcaption{display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--spacing-1) var(--spacing-3);padding:var(--spacing-3) var(--spacing-1) 2px;font-size:var(--text-body-sm);color:var(--color-muted-foreground)}
+.lightbox .sep{color:var(--color-border-strong)}
+.lightbox.mini{padding:6px}.lightbox.mini::before,.lightbox.mini::after{display:none}.lightbox.mini .lb-mat{padding:3px}.lightbox.mini img{aspect-ratio:1/1}
+.cut{position:relative;padding:var(--spacing-6) var(--spacing-6) 0;border:1px solid var(--color-border);border-radius:var(--radius-lg);overflow:hidden}
+.cut img{position:relative;z-index:1;margin-bottom:-6.4%}
+.cut::after{content:"";position:absolute;left:4%;right:4%;bottom:-8%;height:26%;background:radial-gradient(50% 50% at 50% 50%,var(--ground-light),transparent 72%)}
+.cut .ruler{position:absolute;left:0;right:0;bottom:0;z-index:2;border-bottom:0}
+.j-meta{display:flex;gap:var(--spacing-3);align-items:center}
+.tag{font-family:var(--font-mono);font-size:var(--text-caption);padding:3px 7px;border-radius:var(--radius-sm);letter-spacing:.1em}
+.tag.o{color:var(--color-pastel-orange-text);background:var(--color-pastel-orange-bg)}
+.tag.b{color:var(--color-pastel-blue-text);background:var(--color-pastel-blue-bg)}
+.tag.g{color:var(--color-pastel-green-text);background:var(--color-pastel-green-bg)}
+.tag.n{color:var(--color-pastel-neutral-text);background:var(--color-pastel-neutral-bg)}
+.tag.line{color:var(--color-muted-foreground);border:1px solid var(--color-border-strong);padding:2px 6px}
+.j-row{display:grid;grid-template-columns:1fr 120px;align-items:start;gap:var(--spacing-6);padding-block:var(--spacing-6);border-block:1px solid var(--color-border)}
+.j-row h3{margin-top:var(--spacing-3);font-size:var(--text-subheading);font-weight:var(--weight-medium);line-height:1.35}
+.j-row p{margin-top:var(--spacing-2);font-size:15px;color:var(--color-muted-foreground);line-height:1.7}
+.row-gap{display:flex;flex-wrap:wrap;gap:var(--spacing-3);align-items:center}
+
+/* input */
+.field{display:flex;flex-direction:column;gap:var(--spacing-2)}
+.field label{font-size:var(--text-body-sm);color:var(--color-muted-foreground)}
+.input{height:44px;padding:0 var(--spacing-3);background:var(--color-background);border:1px solid var(--color-input);border-radius:var(--radius-lg);font-size:15px;outline:0;transition:border-color var(--duration-fast) var(--ease-precise)}
+.input::placeholder{color:var(--color-subtle-foreground)}
+.input:hover{border-color:var(--color-border-strong)}
+.input:focus,.input.is-focus{border-color:var(--color-brand);outline:2px solid color-mix(in srgb,var(--color-brand) 30%,transparent);outline-offset:0}
+.input.is-error{border-color:var(--color-destructive)}
+.input[disabled]{background:var(--color-secondary);color:var(--color-disabled-foreground)}
+.hint{font-family:var(--font-mono);font-size:var(--text-caption);color:var(--color-subtle-foreground)}
+.hint.err{color:var(--color-destructive)}
+
+/* quote */
+.quote{font-size:clamp(24px,2.6vw,34px);line-height:1.45;letter-spacing:var(--tracking-heading);font-weight:var(--weight-medium);text-indent:-.5em;text-wrap:balance}
+.sign{margin-top:var(--spacing-6);padding-left:var(--spacing-5);border-left:1px solid var(--color-border)}
+.sign strong{font-size:var(--text-subheading);font-weight:var(--weight-medium);letter-spacing:.12em}
+.sign span{display:block;font-size:var(--text-body-sm);color:var(--color-muted-foreground)}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:1px solid var(--color-border)}
+.steps li{position:relative;padding:var(--spacing-5) var(--spacing-5) var(--spacing-6);border-left:1px solid var(--color-border)}
+.steps li:first-child{border-left:0;padding-left:0}
+.steps li::before{content:"";position:absolute;left:-1px;top:-10px;width:1px;height:10px;background:var(--color-brand)}
+.steps li:first-child::before{left:0}
+.steps .no{font-family:var(--font-mono);font-size:var(--text-body-sm);color:var(--color-subtle-foreground);letter-spacing:.06em}
+.steps h3{margin-top:var(--spacing-8);font-size:var(--text-body-lg);font-weight:var(--weight-medium)}
+.steps p{margin-top:var(--spacing-1);font-size:var(--text-body-sm);color:var(--color-muted-foreground)}
+
+/* product row + banner */
+.products{border-top:1px solid var(--color-border)}
+.products li{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:var(--spacing-5);padding:var(--spacing-4) 0;border-bottom:1px solid var(--color-border)}
+.p-name{display:inline-flex;align-items:baseline;gap:var(--spacing-2);color:var(--color-muted-foreground)}
+.p-name strong{font-size:var(--text-subheading);font-weight:var(--weight-medium);color:var(--color-foreground);letter-spacing:.04em}
+.banner{position:relative;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:var(--spacing-5);margin-top:var(--spacing-8);padding:var(--spacing-8);background:var(--color-card);border:1px solid var(--color-border);border-radius:var(--radius-xl);box-shadow:var(--shadow-edge);overflow:hidden}
+.banner::before{content:"";position:absolute;left:var(--spacing-8);top:0;width:64px;height:2px;background:var(--color-brand)}
+.banner h3{font-size:var(--text-heading);font-weight:var(--weight-medium);letter-spacing:var(--tracking-heading)}
+
+/* shapes */
+.shape-row{display:flex;flex-wrap:wrap;gap:var(--spacing-6);align-items:flex-end}
+.shape{display:flex;flex-direction:column;gap:var(--spacing-2)}
+.shape i{display:block;width:88px;height:56px;background:var(--color-secondary);border:1px solid var(--color-border-strong)}
+.sp{display:flex;align-items:flex-end;gap:var(--spacing-3);margin-top:var(--spacing-8)}
+.sp i{display:block;width:14px;background:var(--color-border-strong)}
+
+@media (max-width:900px){
+  .sec>.wrap{display:block}.s-meta{margin-bottom:var(--spacing-6)}
+  .sw-grid{grid-template-columns:repeat(2,1fr)}
+  .two,.three{grid-template-columns:1fr}
+  .b-table{grid-template-columns:repeat(2,1fr)}.b-table .th{display:none}
+  .steps{grid-template-columns:1fr}.steps li,.steps li:first-child{border-left:0;padding-left:0;border-top:1px solid var(--color-border)}.steps li::before{display:none}
+  .type-row{grid-template-columns:1fr;gap:var(--spacing-1)}
+  .products li{grid-template-columns:1fr}
+}
+@media (max-width:767px){.wrap{width:calc(100% - 2*var(--page-gutter));padding-inline:0;border-inline:0}.sec>.wrap::before,.sec>.wrap::after{display:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:0s!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <p class="mono">05 · NIGHT PRECISION / 组件样张</p>
+    <h1>夜航精密：发丝线、刻度尺，和<em>一点橙</em>。</h1>
+    <p class="lead">近黑偏蓝的画布，层级只靠 1px 线与极弱的表面亮度差。暖色插画装进「亮盒」成为展品，logo 橙是全页唯一的强调色。<a class="link" href="index.html" style="margin-left:12px">看首页预览 <span class="ar">→</span></a></p>
+    <div class="ruler" aria-hidden="true"></div>
+  </div>
+</header>
+
+<main>
+<section class="sec"><div class="wrap">
+  <div class="s-meta"><span class="mono">Colors</span><h2>色板</h2></div>
+  <div class="s-body">
+    <div class="sw-grid">
+      <div class="sw"><i style="background:var(--color-background)"></i><strong>夜航黑</strong><code>#0a0c10</code><span>画布，偏蓝的近黑</span></div>
+      <div class="sw"><i style="background:var(--color-card)"></i><strong>舱面一级</strong><code>#0f1217</code><span>卡片、展品外框</span></div>
+      <div class="sw"><i style="background:var(--color-secondary)"></i><strong>舱面二级</strong><code>#151920</code><span>次级底、弹层、禁用</span></div>
+      <div class="sw"><i style="background:var(--color-accent)"></i><strong>舱面三级</strong><code>#1b2029</code><span>悬浮态</span></div>
+      <div class="sw"><i style="background:var(--color-border)"></i><strong>发丝线</strong><code>#212731</code><span>分割线、航道线、小刻度</span></div>
+      <div class="sw"><i style="background:var(--color-border-strong)"></i><strong>强发丝线</strong><code>#343c4a</code><span>大刻度、十字、描边按钮</span></div>
+      <div class="sw"><i style="background:var(--color-foreground)"></i><strong>仪表白</strong><code>#eceef2</code><span>主文字、主按钮底 16.9:1</span></div>
+      <div class="sw"><i style="background:var(--color-muted-foreground)"></i><strong>雾灰</strong><code>#9aa3b2</code><span>正文次要、H2 非强调 7.7:1</span></div>
+      <div class="sw"><i style="background:var(--color-subtle-foreground)"></i><strong>标注灰</strong><code>#7f8999</code><span>等宽标注 5.5:1</span></div>
+      <div class="sw"><i style="background:var(--color-brand)"></i><strong>Logo 橙</strong><code>#f27a1a</code><span>唯一强调色，≤5%</span></div>
+      <div class="sw"><i style="background:var(--color-lightbox)"></i><strong>亮盒衬纸</strong><code>#f4eee3</code><span>插画衬边，只在盒内</span></div>
+      <div class="sw"><i style="background:var(--color-success)"></i><strong>信号绿 / 红</strong><code>#5fb67c · #e5645a</code><span>成功 / 错误，只作信号</span></div>
+    </div>
+    <div class="ratio" aria-hidden="true"><i style="flex:70;background:var(--color-background)"></i><i style="flex:14;background:var(--color-card)"></i><i style="flex:8;background:var(--color-foreground)"></i><i style="flex:5;background:var(--color-lightbox)"></i><i style="flex:3;background:var(--color-brand)"></i></div>
+    <p class="note">用色配比示意：画布 ≈ 70 · 舱面 ≈ 14 · 文字白 ≈ 8 · 亮盒暖色 ≈ 5 · 橙 ≤ 3–5。钴蓝只存在于 logo 与半人马本体，不进入 UI。</p>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="s-meta"><span class="mono">Typography</span><h2>字体与字号</h2></div>
+  <div class="s-body">
+    <div class="type-row"><span class="mono">display · 44–92</span><p class="t-display">让 AI 成为<br><em>你的能力。</em></p></div>
+    <div class="type-row"><span class="mono">heading-lg · 32–56</span><p class="t-hlg">你走过的路，都是<em>起点</em>。</p></div>
+    <div class="type-row"><span class="mono">heading · 28</span><p class="t-h">来自嘉木的一封信</p></div>
+    <div class="type-row"><span class="mono">subheading · 20</span><p class="t-sub">带来问题 · 一起梳理 · 动手尝试</p></div>
+    <div class="type-row"><span class="mono">body-lg · 18</span><p class="t-blg">把你的经验、判断和真实问题，与 AI 的能力连接起来。</p></div>
+    <div class="type-row"><span class="mono">body · 16</span><p class="t-b">人决定方向，AI 拓展人的能力。Geist 负责拉丁与数字，思源黑体负责中文。</p></div>
+    <div class="type-row"><span class="mono">body-sm · 14</span><p class="t-bsm">半人马AI学院院长、创始人 · 产品经理 · 连续创业者</p></div>
+    <div class="type-row"><span class="mono">label · 11–12 mono</span><p class="mono"><b>FIG.</b> 01 &nbsp; EXPERIENCE &nbsp; 2026.09.15 &nbsp; CENTAUR JOURNAL / 观点与动态</p></div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="s-meta"><span class="mono">Buttons</span><h2>按钮全状态</h2></div>
+  <div class="s-body">
+    <div class="b-table">
+      <span></span><span class="mono th">default</span><span class="mono th">hover</span><span class="mono th">active</span><span class="mono th">focus</span><span class="mono th">disabled</span>
+      <span class="mono">primary</span>
+      <span><button class="btn btn-primary" type="button">联系学院顾问 <span class="btn-ico">↗</span></button></span>
+      <span><button class="btn btn-primary is-hover" type="button">联系学院顾问 <span class="btn-ico">↗</span></button></span>
+      <span><button class="btn btn-primary is-active" type="button">联系学院顾问 <span class="btn-ico">↗</span></button></span>
+      <span><button class="btn btn-primary is-focus" type="button">联系学院顾问 <span class="btn-ico">↗</span></button></span>
+      <span><button class="btn" type="button" disabled>下载知君 ↓</button></span>
+      <span class="mono">outline</span>
+      <span><button class="btn btn-outline" type="button">复制客服链接</button></span>
+      <span><button class="btn btn-outline is-hover" type="button">复制客服链接</button></span>
+      <span><button class="btn btn-outline is-active" type="button">复制客服链接</button></span>
+      <span><button class="btn btn-outline is-focus" type="button">复制客服链接</button></span>
+      <span><button class="btn btn-outline" type="button" disabled>复制客服链接</button></span>
+      <span class="mono">ghost / nav</span>
+      <span><button class="btn btn-ghost btn-sm" type="button">了解学院</button></span>
+      <span><button class="btn btn-ghost btn-sm is-hover" type="button">了解学院</button></span>
+      <span><button class="btn btn-ghost btn-sm is-hover is-active" type="button">了解学院</button></span>
+      <span><button class="btn btn-ghost btn-sm is-focus" type="button">了解学院</button></span>
+      <span><button class="btn btn-ghost btn-sm" type="button" disabled>了解学院</button></span>
+      <span class="mono">text link</span>
+      <span><a class="link" href="#">了解学院的主张 <span class="ar">↗</span></a></span>
+      <span><a class="link is-hover" href="#">了解学院的主张 <span class="ar">↗</span></a></span>
+      <span><a class="link is-hover" href="#">了解学院的主张 <span class="ar">↗</span></a></span>
+      <span><a class="link is-focus" href="#">了解学院的主张 <span class="ar">↗</span></a></span>
+      <span class="hint">链接无禁用态</span>
+    </div>
+    <p class="note">主按钮是仪表白而不是橙：橙色留给 H1 强调词、章节号、刻度与悬浮反馈。箭头收进按钮内的小方格，悬浮时向右上移 1px。</p>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="s-meta"><span class="mono">Imagery</span><h2>图片框处理</h2></div>
+  <div class="s-body">
+    <div class="two">
+      <figure class="lightbox">
+        <div class="lb-head" aria-hidden="true"><span class="mono"><b>FIG.</b> 01</span><span class="ruler"></span></div>
+        <div class="lb-mat"><img src="../../assets/experience.webp" alt="概念插画：笔记、铅笔与方向标，象征经验积累与判断" width="1448" height="1086"></div>
+        <figcaption><span class="mono">EXPERIENCE</span><span class="sep">｜</span><span>经验，值得新的可能。</span></figcaption>
+      </figure>
+      <div>
+        <div class="cut"><img src="../../assets/academy-centaur-cutout.webp" alt="橙色人身与蓝色马身结合的半人马艺术形象" width="1448" height="1086"><div class="ruler" aria-hidden="true"></div></div>
+        <p class="note">左：亮盒展品——发丝线外框 + 图号刻度条 + 5px 暖纸衬边 + 图注，角上两枚对位标。右：抠图直接站在画布上，脚下只有一块冷白地面光和一把刻度尺。</p>
+        <div class="row-gap" style="margin-top:var(--spacing-6)">
+          <div class="lightbox mini" style="width:120px"><div class="lb-mat"><img src="../../assets/creating.webp" alt="" width="1448" height="1086"></div></div>
+          <div class="lightbox mini" style="width:120px"><div class="lb-mat"><img src="../../assets/academy-centaur-hero.webp" alt="" width="1448" height="1086"></div></div>
+          <span class="hint">缩略图：去掉对位标与刻度条，<br>保留衬纸。</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="s-meta"><span class="mono">Cards · Badges · Shapes</span><h2>卡片、徽标与圆角</h2></div>
+  <div class="s-body">
+    <div class="three">
+      <div class="card"><span class="mono">standard</span><h3 style="margin-top:12px">通用面板</h3><p>舱面一级 + 发丝线 + 顶边 5% 高光。没有投影。</p></div>
+      <div class="card is-hover"><span class="mono">hover</span><h3 style="margin-top:12px">悬浮态</h3><p>底色升一级，边线换强发丝线。不位移、不发光。</p></div>
+      <div>
+        <div class="j-row">
+          <div><div class="j-meta"><span class="tag o">观点</span><time class="mono">2026.09.15</time></div><h3>用自己的语言，做一件趁手的工具</h3><p>期刊行：不进卡片，只靠上下两条线。</p></div>
+          <div class="lightbox mini"><div class="lb-mat"><img src="../../assets/creating.webp" alt="" width="1448" height="1086"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="row-gap" style="margin-top:var(--spacing-8)">
+      <span class="tag o">观点</span><span class="tag b">共学</span><span class="tag g">已开放</span><span class="tag n">下载暂未开放</span><span class="tag line">FIG. 02</span>
+      <span class="hint">徽标是 2px 圆角的面板标签，不做胶囊。</span>
+    </div>
+    <div class="shape-row" style="margin-top:var(--spacing-8)">
+      <div class="shape"><i style="border-radius:var(--radius-sm)"></i><span class="mono">sm · 2 衬纸/徽标</span></div>
+      <div class="shape"><i style="border-radius:var(--radius-md)"></i><span class="mono">md · 4 导航/图标格</span></div>
+      <div class="shape"><i style="border-radius:var(--radius-lg)"></i><span class="mono">lg · 6 按钮/卡片</span></div>
+      <div class="shape"><i style="border-radius:var(--radius-xl)"></i><span class="mono">xl · 10 联系横幅</span></div>
+      <div class="sp" aria-hidden="true" style="margin:0 0 0 var(--spacing-8)"><i style="height:4px"></i><i style="height:8px"></i><i style="height:12px"></i><i style="height:16px"></i><i style="height:24px"></i><i style="height:32px"></i><i style="height:48px"></i><i style="height:64px"></i></div>
+      <span class="hint">间距 4 · 8 · 12 · 16 · 24 · 32 · 48 · 64 · 96<br>刻度：小格 8px，大格 80px</span>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="s-meta"><span class="mono">Input · Quote</span><h2>输入框与引文</h2></div>
+  <div class="s-body">
+    <div class="two" style="grid-template-columns:5fr 7fr">
+      <div style="display:grid;gap:var(--spacing-5)">
+        <div class="field"><label for="i1">怎么称呼你</label><input class="input" id="i1" placeholder="例如：王总"><span class="hint">default</span></div>
+        <div class="field"><label for="i2">你正在做的事</label><input class="input is-focus" id="i2" value="一家 40 人的外贸公司"><span class="hint">focus · 橙色描边 + 30% 外环</span></div>
+        <div class="field"><label for="i3">联系方式</label><input class="input is-error" id="i3" value="138-"><span class="hint err">error · 号码不完整</span></div>
+      </div>
+      <div style="padding-left:var(--spacing-8);border-left:1px solid var(--color-border)">
+        <span class="mono">FROM THE FOUNDER</span>
+        <blockquote class="quote" style="margin-top:var(--spacing-5)">“我希望学院能聚起一群<span style="white-space:nowrap">认同人机共生、</span><span style="white-space:nowrap">愿意共同成长的人。”</span></blockquote>
+        <div class="sign"><strong>嘉木</strong><span>半人马AI学院院长、创始人</span></div>
+        <p class="note">引文不加引号装饰图形、不进卡片：大字号 + 悬挂引号 + 发丝线署名。</p>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="s-meta"><span class="mono">Steps · Rows</span><h2>流程与行</h2></div>
+  <div class="s-body">
+    <div class="ruler" aria-hidden="true"></div>
+    <ol class="steps">
+      <li><span class="no">01</span><h3>带来问题</h3><p>从正在做的事出发。</p></li>
+      <li><span class="no">02</span><h3>一起梳理</h3><p>讲清背景，找到目标。</p></li>
+      <li><span class="no">03</span><h3>动手尝试</h3><p>做出可以试用的初版。</p></li>
+      <li><span class="no">04</span><h3>交流结果</h3><p>体验彼此的成果。</p></li>
+      <li><span class="no">05</span><h3>持续改进</h3><p>带着反馈，再走一步。</p></li>
+    </ol>
+    <ul class="products" style="margin-top:var(--spacing-10)">
+      <li><a class="p-name" href="#"><strong>知君</strong><span>— 让积累参与思考 ↗</span></a><span class="tag n">下载暂未开放</span><button class="btn btn-sm" type="button" disabled>下载知君 ↓</button></li>
+      <li><a class="p-name" href="#"><strong>万象</strong><span>— 让想法成为应用 ↗</span></a><span class="tag n">下载暂未开放</span><button class="btn btn-sm" type="button" disabled>下载万象 ↓</button></li>
+    </ul>
+    <div class="banner"><h3>带上你的问题，我们一起往前走。</h3><div class="row-gap"><button class="btn btn-primary" type="button">联系学院顾问 <span class="btn-ico">↗</span></button><button class="btn btn-outline" type="button">复制客服链接</button></div></div>
+  </div>
+</div></section>
+
+</main>
+
+<a href="../../" style="position:fixed;left:12px;bottom:12px;z-index:99;font:12px/1 ui-monospace,monospace;padding:8px 10px;border-radius:999px;background:rgba(127,127,127,.18);backdrop-filter:blur(8px);color:inherit;text-decoration:none">← 全部方案</a>
+</body>
+</html>

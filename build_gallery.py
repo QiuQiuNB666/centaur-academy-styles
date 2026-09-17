@@ -46,6 +46,7 @@ for slug, zh, plan in PLAN:
         item['thumb'] = webp(d/'shot-fold.png', d/'thumb.webp', 1200)
         item['mobile'] = webp(d/'shot-mobile.png', d/'thumb-mobile.webp', 480)
         item['kit'] = (d/'kit.html').exists()
+        item['draft'] = not bool(c.get('review'))
     rows.append(item)
 
 e = html.escape
@@ -63,7 +64,7 @@ def card(i):
     if i['cost']: extra += f'<p class="line"><b>代价</b>{e(i["cost"])}</p>'
     kit = f'<a href="{base}kit.html">组件样张</a>' if i['kit'] else ''
     return (f'<article class="card"><a class="shot" href="{base}">{shot}</a><div class="meta">'
-            f'<p class="no">{e(i["slug"][:2])} · {e(i.get("theme",""))}</p><h2>{e(i["zh"])}</h2><p class="tag">{e(i["tagline"])}</p>'
+            f'<p class="no">{e(i["slug"][:2])} · {e(i.get("theme",""))}{" · 初稿，美术总监审稿中" if i["draft"] else ""}</p><h2>{e(i["zh"])}</h2><p class="tag">{e(i["tagline"])}</p>'
             f'<ul class="chips">{chips}</ul>{extra}'
             f'<nav><a class="go" href="{base}">打开预览 →</a>{kit}<a href="{BLOB}styles/{i["slug"]}/DESIGN.md">DESIGN.md</a></nav></div></article>')
 

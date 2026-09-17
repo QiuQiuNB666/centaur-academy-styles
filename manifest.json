@@ -1,0 +1,522 @@
+{
+  "candidates": [
+    {
+      "slug": "01-paper-journal",
+      "name_zh": "纸上学刊",
+      "name_en": "Paper Journal",
+      "tagline": "两种纸，一种墨，一种专色，线比色块重要",
+      "theme": "light",
+      "palette": [
+        {
+          "name": "书纸",
+          "hex": "#f2efe7",
+          "role": "主画布，偏灰的象牙白（--color-background）"
+        },
+        {
+          "name": "图版纸",
+          "hex": "#fcf8f0",
+          "role": "图版衬纸，与主视觉烤入底色同值（--color-card）"
+        },
+        {
+          "name": "墨",
+          "hex": "#1c1b18",
+          "role": "正文、粗线、主按钮、封底墨版（--color-foreground / --color-primary）"
+        },
+        {
+          "name": "钴蓝专色",
+          "hex": "#1b4bb0",
+          "role": "取自 logo 马身；强调词、着重号、悬停、专色单印，字与界面 ≤5%（--color-brand）"
+        },
+        {
+          "name": "细线灰",
+          "hex": "#d3cdbf",
+          "role": "栏线与细分割线（--color-border）"
+        },
+        {
+          "name": "次要墨",
+          "hex": "#5d594f",
+          "role": "次要文字，对书纸 6.1:1（--color-muted-foreground）"
+        }
+      ],
+      "fonts": "Noto Serif SC 思源宋体（回退 Songti SC）500/700/900 / Noto Sans SC 思源黑体（回退 PingFang SC、微软雅黑；拉丁 Helvetica Neue） / Newsreader（拉丁字、数字、眉标、箭头；回退 Iowan Old Style、Georgia），等宽仅 kit 页用 ui-monospace",
+      "signature": "文武线刊头 + 贯穿全页的 200px 页边栏（章节号、栏目名、与图底对齐的图注都进页边，一根细栏线从头贯到尾），强调词下点钴蓝着重号，文章封面一律钴蓝专色单印。",
+      "anchors": [
+        {
+          "brand": "Anthropic",
+          "url": "https://www.anthropic.com/",
+          "borrowed": "实抓 ant-brand CSS：ivory #faf9f5/#f0eee6/#e8e6dc、slate #141413、阴影透明度 0.01–0.04。借了偏灰象牙白画布（书纸 #f2efe7 贴近 ivory-medium）、暖近黑当墨、近乎无阴影；刻意不借 clay 橙与 8px 圆角。"
+        },
+        {
+          "brand": "Stripe Press",
+          "url": "https://press.stripe.com/",
+          "borrowed": "实抓 v1-Page CSS：全站 Ivar Text/Headline/Display 衬线、正文字重 500、按钮字距 .32px、页边距 calc(10px+1vw)、一书一色。借了衬线下放到导航/小字、随视口线性变化的 gutter、「一份刊一个专色」。"
+        },
+        {
+          "brand": "The New Yorker",
+          "url": "https://www.newyorker.com/",
+          "borrowed": "首页内联样式：墨 #231f20、Caslon+Irvin+Graphik 三分工、分割线两档 rgba(51,51,51)/rgba(229,229,229)。借了深线/浅线两档制（--rule-ink / --rule-hair）、衬线标题+无衬线元信息、「栏目 · 日期」元信息体例。"
+        },
+        {
+          "brand": "Monocle",
+          "url": "https://monocle.com/",
+          "borrowed": "首页 CSS 变量：Plantin + Helvetica Neue、画布 #fdfcf3、圆角仅 2/4px、红 #e10912 极少量。借了 2px 圆角上限、衬线标题配黑体正文（拉丁回退 Helvetica Neue）、小号全大写拉字距栏目标。"
+        },
+        {
+          "brand": "单向空间 owspace",
+          "url": "https://www.owspace.com/",
+          "borrowed": "实抓 style.css：Hiragino Sans GB/微软雅黑 16/22px、760px 窄栏、金色 #bea353 方角 1px 描边按钮、底 #f8f7f5。借了中文文化品牌里「方角描边按钮 + 单一强调色 + 无圆角」的做法；没借金色。"
+        }
+      ],
+      "sources": [
+        "https://www.anthropic.com/",
+        "https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/css/ant-brand.shared.3fb5bf118.min.css",
+        "https://press.stripe.com/",
+        "https://b.stripecdn.com/mkt-statics-srv/assets/v1-Page-53812006aaa3053130dd.css",
+        "https://b.stripecdn.com/mkt-statics-srv/assets/v1-Book-f3374d9ea08a3820b06f.css",
+        "https://www.newyorker.com/",
+        "https://monocle.com/",
+        "https://www.owspace.com/",
+        "https://img.owspace.com/ows/style.css?ver=2021"
+      ],
+      "self_notes": "输出目录：/private/tmp/claude-502/-Users-qiu-----/7d6f27d1-bb5d-40db-915c-d59a6bdb5162/scratchpad/styles-repo/styles/01-paper-journal/（DESIGN.md、tokens.css、index.html、kit.html、shot-fold/full/mobile/kit.png）。tokens.css 由脚本原样嵌入 DESIGN.md Quick Start（断言通过）；两页 <style> 内已脚本检查无裸 hex/rgba（仅规定的返回钮内联样式除外）。\n已修（第一轮·坏）：页面超 5200 高→收紧版面间距；首字下沉的浮动把下方链接挤偏→lede 后清浮动；页边栏图注起点偏 24px；联系区 H2 末字掉行、正文孤字；引文「人机共生」被拆行→按意群 inline-block 断行；开引号撞到页边栏线→改为 padding+负缩进悬挂；Newsreader 里「——」断成两截→眉标改黑体破折号、署名前改用一段墨线；五步说明孤字→14px+收右 padding；页脚英文名折行；封面目录与正文块顶线不齐→网格行 auto/1fr/auto 对齐。\n已修（第二轮·美术）：H1 加到 124px 让封面更像封面；眉标条右端补口号当刊物格言；同一张 co-learning 在页内出现两次显得偷懒→文章头条改裁下半 + 三张文章封面统一做钴蓝专色单印（grayscale × screen × 图版纸 multiply），同时和章节彩图拉开层级；强调色弃陶土选钴蓝，避开「米色+宋体+陶土」的 AI 脸；主视觉不用 multiply（会在 #f2efe7 上露出矩形边），改为图版纸取 #fcf8f0 同值无接缝。\n注意事项：(1) BRIEF 给的 390 宽无头截图命令在本机 Chrome 上实际按 ~500px 布局并裁切（会误判为移动端溢出），shot-mobile.png 改用 390px iframe 包裹拍摄，为真实 390 布局，且拍了整页（7150px 高，非 4400）；shot-kit.png 拍 4700 高以拍全。(2) 文案稿里没有企微链接，取自现站 live-index.html：https://work.weixin.qq.com/kfid/kfc472df2b7db14c36e；「半人马人工智能 ↗」指向现站的 https://centaurloop.com/。(3) 为版式加了少量结构性文字：封面「目录」及其锚点条目（取自各区块原标题）、移动端菜单钮「目录」、复制反馈「已复制」、skip link；文章标题未带《》。未编造期号/页码/数据。(4) 钴蓝「≤5%」指文字与界面；H1 强调词与专色单印封面是有意的成块出现，已在 DESIGN.md 写明。\n仍不满意：768 档是单栏直排，成立但不如 1440 有版式感；封面 H1 与下方目录/正文之间的留白略松；Newsreader 的 ↗ 字形偏细，小字号下略弱；Google Fonts 加载失败时回退 Songti SC 的 900 字重在 Windows（SimSun 无粗体）会变成伪粗，标题气势会打折。"
+    },
+    {
+      "slug": "02-ink-seal",
+      "name_zh": "墨与印",
+      "name_en": "Ink & Seal",
+      "tagline": "月白纸上，墨分五色，朱砂只落印",
+      "theme": "light",
+      "palette": [
+        {
+          "name": "月白画布",
+          "hex": "#f2f4f1",
+          "role": "主页面背景，偏青冷白，刻意不用米色"
+        },
+        {
+          "name": "宣纸白",
+          "hex": "#fbfbf8",
+          "role": "衬纸、信笺、乌丝栏底、墨池上的文字"
+        },
+        {
+          "name": "焦墨",
+          "hex": "#16181a",
+          "role": "着重字、主按钮、粗界线、墨池深色区"
+        },
+        {
+          "name": "重墨",
+          "hex": "#474c50",
+          "role": "标题常态字与说明文（着重时提到焦墨）"
+        },
+        {
+          "name": "界格线",
+          "hex": "#d5d9d3",
+          "role": "栏线、分隔、衬纸边"
+        },
+        {
+          "name": "朱砂",
+          "hex": "#b5301f",
+          "role": "唯一彩色，只以印/钤印格/圈点出现，全页≤3%"
+        }
+      ],
+      "fonts": "霞鹭文楷 LXGW WenKai（标题/题签/引文/印文，回退 Kaiti SC/STKaiti/KaiTi） / Noto Sans SC（正文与 UI，回退 PingFang SC/微软雅黑） / Source Serif 4（拉丁、数字、眉标，回退 Georgia）",
+      "signature": "朱砂只以「印」出现（卷首长方印、名章、朱文产品印、按钮钤印格、压缝骑缝章），配竖排 H1、竖排题签的册页式装裱框、乌丝栏五步与朱丝栏信笺——任何一屏截图都认得出。",
+      "anchors": [
+        {
+          "brand": "日本设计中心 NDC（原研哉）",
+          "url": "https://www.ndc.co.jp",
+          "borrowed": "实抓 _astro CSS：#fcfcfc 画布/#1a1a1a 字/#6f6f6f 灰/#eee 线、全站 0 处 box-shadow、cubic-bezier(.16,1,.3,1)、Source Serif 4 + Songti SC 中西搭配 → 近白近黑底盘、--ease-ink 原值、拉丁字体、几乎无阴影"
+        },
+        {
+          "brand": "故宫博物院",
+          "url": "https://www.dpm.org.cn",
+          "borrowed": "实抓 main.css：宫墙红 #761e1d/#b73736 仅点题、正文 #474747/#707070、writing-mode 竖排出现 50 余次且只用于短题名 → 竖排只给短句、红色不铺底、重墨一档正文灰；未借其圆形按钮与金棕大投影"
+        },
+        {
+          "brand": "茑屋书店 T-SITE",
+          "url": "https://store.tsite.jp",
+          "borrowed": "实抓 index.css：黑白 + 暖灰细线 #e5e5e1/#f6f6f3、圆角近 0、仅 1 处 1px 阴影 → 一根细线管所有分隔、目录式而非卡片式内容列表"
+        },
+        {
+          "brand": "无印良品 MUJI 中国",
+          "url": "https://www.muji.com.cn",
+          "borrowed": "实抓 muji.2.1.css/portal.1.0.css：#333 字、#eee/#ccc 线、max-width 1024、无阴影 → 信息靠线与空白分组不靠容器；反向提醒不学其 15–20px 圆角"
+        },
+        {
+          "brand": "观夏 / 上下（仅气质参照）",
+          "url": "https://www.tosummer.com",
+          "borrowed": "东方留白与器物式单品呈现的气质参照；两站在本机 TCP 不通/DNS 无解析，Firecrawl 限频、Exa 超时，未读到真实 CSS，未取任何具体数值（已在 DESIGN.md 如实注明）"
+        }
+      ],
+      "sources": [
+        "https://www.ndc.co.jp/",
+        "https://www.ndc.co.jp/_astro/index.Ch-VdKMZ.css",
+        "https://use.typekit.net/iho1pcl.css",
+        "https://www.dpm.org.cn/",
+        "https://img.dpm.org.cn/static/themes/css/main.css?v=766",
+        "https://store.tsite.jp/",
+        "https://store.tsite.jp/static_contents/site/tsite/css/index.css",
+        "https://www.muji.com.cn/",
+        "https://www.muji.com.cn/cn/net/css/muji.2.1.css",
+        "https://www.muji.com.cn/cn/net/css/portal.1.0.css",
+        "https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700",
+        "https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/lxgwwenkai-regular.css"
+      ],
+      "self_notes": "输出目录：/private/tmp/claude-502/-Users-qiu-----/7d6f27d1-bb5d-40db-915c-d59a6bdb5162/scratchpad/styles-repo/styles/02-ink-seal/（DESIGN.md、tokens.css、index.html、kit.html、shot-fold/full/mobile/kit.png）。tokens.css 与 DESIGN.md Quick Start 已用脚本校验逐字一致；页面内无 token 外裸色值（kit 里的 hex 仅为色板文字标注，返回钮的 rgba 为 brief 指定样式）。\n已发现并修复：(1) `.hero .wrap` 误伤书眉条导致其被撑高、跌出首屏 → 改 `.hero>.wrap`；(2) 章节 H2 在 4 栏内折行（「路，」掉行）→ 降 heading-lg 到 clamp(32–54)、加宽文字栏并 nowrap；(3) 卷首长方印原本掉在 H1 整块下方 → 绝对定位落在较短的右列「为」字下作落款；(4) 半人马尾巴压住题签 → 调整抠图外扩方向；(5) Google Fonts 的 LXGW WenKai TC 实测出台标字形（「真」异体、标点居中）→ 改用 jsDelivr 的 GB 版 lxgw-wenkai-webfont（样式表非脚本），并写进 DESIGN.md 的 Don't；(6) 期刊区右栏过高、左下留死白 → 右栏改为 132px 斗方小框的行式条目；(7) 信笺左缘缺栏线、移动端信笺横向溢出、kit 中 border-inline 在竖排下变成上下边 → 均已修；(8) 竖排题签在窄画心旁会撑出空白 → ≤1180px 题签改横排落在画心下；(9) 移动端眉标/说明/院长正文孤字折行 → 调小字号字距；(10) 画心描线裸 rgba → 收为 --color-image-outline token。\n重要提示：brief 给的移动端截图命令在 headless Chrome 下布局宽度被钳到 500px（实测 innerWidth=500），截图只是裁掉右侧，看起来像溢出。shot-mobile.png 我改用 390px iframe 包一层拍的真实 390 布局（另核过 768 与 1024 两档），其它候选若用原命令自检会被误导。\n调研如实说明：观夏、上下两站本机网络不通（curl 底层检查 TCP refused / DNS 无解析），Firecrawl 免费额度限频、Exa 超时，按「限频即收手」未再重试，改抓 NDC、故宫、茑屋、MUJI 四家真实 CSS；小罐茶、方所同样超时未取。\n仍不满意之处：(a) 印文用文楷而非篆书，近看更像「红底标签」而非真印，正式版建议请人刻/绘 4–5 方 SVG 印稿；(b) 竖排引文里的弯引号“”在竖排下仍是横排形态（文案须逐字，未换『』）；(c) 1024 宽度档半人马偏小、卷首中部略空；(d) 地脚内容少，显得轻；(e) 文楷依赖 jsDelivr，国内偶发不可达时回退 Kaiti/STKaiti，版式不塌但气质打折，正式站应自托管子集；(f) 朱砂芝麻点依赖 text-emphasis，旧版 Safari 需 -webkit- 前缀（已加），极旧浏览器会退化为仅加粗加黑。",
+      "review": {
+        "fixed": [
+          "院长信笺（index.html + kit.html + DESIGN.md 同步）：原来 6 栏朱丝栏只写了 3 栏、左边 3–4 栏空着，像没排完。改成 5 栏、每栏约 8 字（height:9.3em; width:11em），字号提到 clamp(26–36px)。现在引文占 4 栏，左侧只留 1 空栏；移动端同规格并居中。DESIGN.md 的 Letter 组件说明和 kit 图注已改成新规格。",
+          "首屏半人马偏小、卷首中部发空：1440 宽度下主视觉从 112% 放到 122% 并右移，头顶抬到 H1「的」字的高度，尾巴不压题签，手不碰 H1。",
+          "1024–1100 宽度（制作者自述的遗留 c）：hero 栅格由 5/6 改为 4/8，主视觉放大到 116% 并右移。实拍 1024 和 1180 两档，半人马与 H1、题签都不相撞。",
+          "移动端「观点与动态」标题区：「全部观点与动态」文字链被栅格拉成整行宽，它的下划线和下面的章节粗线叠成双横线。已加 justify-self:start 收回文字宽度。",
+          "移动端题签折行孤字：「LEARN TOGETHER ｜ 在对话中看见新的可能。」原来折成两行、末行只剩「可能。」。≤520px 下把题签字号和字距收小，现在单行放得下。",
+          "截图全部重拍并覆盖。原 shot-full 高 5200 拍不到院长寄语下半、联系区和地脚，现按 5950 高拍；shot-kit 原 3200 同样截断，现拍到 4980；shot-mobile 用 390px iframe 拍真实布局（高 7300）；shot-fold 重拍。",
+          "机械项复核通过，无需改动：DESIGN.md 章节顺序与范本一致，只缺「图表色」一节（本站无图表）；tokens.css 与 Quick Start 逐字一致；index.html 无裸 hex，仅返回钮用 brief 指定的 rgba；kit.html 的 hex 只是色板文字标注；七个区块齐全，文案逐条比对 content.md 无缺无改；没有编造的数字、客户或评价；字体回退栈齐全；返回钮两页都在；图片都是 ../../assets/ 下的真实文件。"
+        ],
+        "remaining": [
+          "印文仍是文楷排的红块，近看像红底标签而不是真印。选中这套的话，请人刻或画 4–5 方 SVG 印稿。我没有用滤镜做旧，那会落进 brief 禁用的仿古纹理。",
+          "竖排引文里的弯引号“”在竖排下仍是横排形态，开引号占了约 1.5 字高，第一栏比其余栏少一个字。文案必须逐字，所以没有换成『』。",
+          "地脚内容少、分量轻，移动端和桌面端都是。文案稿只给了这些内容，不能靠编造填充。正式站加上备案号和导航重复列后自然会压住。",
+          "共学五步在桌面端每栏中段留白偏多（竖排标题和底部说明之间）。这属于方向特征，可以接受；但在深色联系区之前连续两屏都很轻，节奏略平。",
+          "文楷依赖 jsDelivr 样式表，brief 写的是 Google Fonts 可以 link，这里算擦边；国内偶尔不可达时会回退到 Kaiti/STKaiti，气质打折。正式站需要自托管字体子集。",
+          "brief 里的移动端截图命令在 headless Chrome 下布局宽度会被钳到 500px，其它候选如果按原命令自检会被误导。",
+          "DESIGN.md 没有范本里的「图表色（OKLCH）」小节。本站没有图表，brief 的章节清单也没要求，所以没有补。",
+          "制作者自述观夏、上下两个锚点站没抓到，Similar Brands 改用 NDC、故宫、茑屋、MUJI 四家。我没有重新核验这部分调研。"
+        ],
+        "scores": {
+          "craft": 8.5,
+          "distinctiveness": 9,
+          "fit": 8
+        },
+        "verdict": "「墨与印」已经可以交给站主看：竖排 H1、落款长方印、器物式半人马和题签在首屏一眼成立，朱砂只以印和着重点出现，暖色插画用册页衬纸装裱，没有硬贴，也没有景区门户或茶叶包装的俗套。这一轮修了信笺空栏、首屏和 1024 档主视觉偏小、移动端两处小问题，并补全了截图。主要短板是印文不是真篆刻、地脚偏轻、字体依赖外部 CDN；对 35–55 岁的经营者来说气质稳重可信，但竖排阅读和留白节奏比常规商务站更挑人。目录：/private/tmp/claude-502/-Users-qiu-----/7d6f27d1-bb5d-40db-915c-d59a6bdb5162/scratchpad/styles-repo/styles/02-ink-seal/"
+      }
+    },
+    {
+      "slug": "03-swiss-grid",
+      "name_zh": "瑞士网格",
+      "name_en": "Swiss Grid",
+      "tagline": "白底、近黑、一支钴蓝，全部落在 12 栏上",
+      "theme": "light",
+      "palette": [
+        {
+          "name": "纯白画布",
+          "hex": "#ffffff",
+          "role": "整页背景，不加暖不加灰"
+        },
+        {
+          "name": "近黑",
+          "hex": "#141414",
+          "role": "文字、主按钮、6/2/1px 三种结构线"
+        },
+        {
+          "name": "钴蓝信号",
+          "hex": "#0f5fd0",
+          "role": "强调词、步骤进度条、悬停/焦点、联系色块，全页 ≤8%"
+        },
+        {
+          "name": "深钴蓝",
+          "hex": "#0b4fc0",
+          "role": "按下态、浅蓝底上的字"
+        },
+        {
+          "name": "次要文灰",
+          "hex": "#5c5f66",
+          "role": "说明、摘要、图注（白底 6.4:1）"
+        },
+        {
+          "name": "浅灰衬底",
+          "hex": "#f3f3f1",
+          "role": "单色图版衬底、输入框、禁用态"
+        }
+      ],
+      "fonts": "思源黑体 Noto Sans SC 900 + Archivo 900（标题，回退 PingFang SC / Helvetica Neue） / Noto Sans SC 400 + Archivo 400（正文） / Archivo 500 tabular-nums 做悬挂编号与日期，Geist Mono 仅用于样张里的 hex 与 token 名",
+      "signature": "常显的 12 栏发丝竖线 + 页眉的「网格钮」（纯 CSS checkbox）：按一下整页的栏以 7% 钴蓝显形，证明每个字每张图都对在栏上；配合第 1–2 栏的悬挂编号、踩在 6px 黑色「地面线」上的彩色半人马，以及全部转为单色图版的插画。",
+      "anchors": [
+        {
+          "brand": "Pentagram",
+          "url": "https://www.pentagram.com/",
+          "borrowed": "实测 #fff + #1a1a1a + #767676 + 单一信号红 #e61428、border-radius:0 / box-shadow:none 为主、标题字距 -0.02em → 借了「一白一黑一支信号色」的配比、-0.02em 标题字距、零圆角零阴影"
+        },
+        {
+          "brand": "MIT Media Lab",
+          "url": "https://www.media.mit.edu/",
+          "borrowed": "实测 neue-haas-grotesk-display、字重只用 700/400、近黑 #201f20、单一青蓝 #00aeef、radius 0 → 借了极少字重档位、近黑非纯黑、学术机构用一支蓝承担全部交互信号"
+        },
+        {
+          "brand": "teenage engineering",
+          "url": "https://teenage.engineering/",
+          "borrowed": "实测 grid-template-columns:repeat(12,minmax(0,1fr))、border-radius:0、全站零 box-shadow、灰阶 #f5f5f5/#e5e5e5 → 借了 12 栏写法、产品信息排成行与表而非卡片、浅灰只做衬底"
+        },
+        {
+          "brand": "Vercel Geist",
+          "url": "https://vercel.com/geist/introduction",
+          "borrowed": "实测 --ds-gray-1000:#171717、--ds-gray-100:#f2f2f2、蓝 #0070f3/#0064e2、12 栏与可见网格线、Geist Mono → 借了把网格线当可见品牌元素、近黑取值区间、样张用 Geist Mono 标 token"
+        },
+        {
+          "brand": "IDEO U",
+          "url": "https://www.ideou.com/",
+          "borrowed": "实测 Gotham+Sentinel、#2a2623、信号黄 #ffd203、字重 500/700、圆角 4px + 0 4px 20px 阴影 → 只借了面向管理者「一句大标题 + 一句人话说明」的文案节奏；刻意没借其圆角、阴影与暖色"
+        },
+        {
+          "brand": "Josef Müller-Brockmann《Grid Systems》",
+          "url": "https://en.wikipedia.org/wiki/Josef_M%C3%BCller-Brockmann",
+          "borrowed": "悬挂编号栏、图注压在图下一条线上、用线的粗细而非底色分层、严格左对齐（经典范式，非抓取）"
+        }
+      ],
+      "sources": [
+        "https://www.pentagram.com/",
+        "https://www.pentagram.com/build/main/assets/index-zeY4wwjz.css",
+        "https://www.media.mit.edu/",
+        "https://www.media.mit.edu/static/styles/app.css",
+        "https://use.typekit.net/yuf7oeh.css",
+        "https://teenage.engineering/",
+        "https://teenage.engineering/assets/root.NRW9iUxr.css",
+        "https://teenage.engineering/assets/grid.BPtO4oiR.css",
+        "https://teenage.engineering/assets/button.B8x4Racb.css",
+        "https://vercel.com/geist/introduction",
+        "https://www.ideou.com/",
+        "https://www.ideou.com/cdn/shop/t/4/assets/ideou_main.css"
+      ],
+      "self_notes": "输出目录：/private/tmp/claude-502/-Users-qiu-----/7d6f27d1-bb5d-40db-915c-d59a6bdb5162/scratchpad/styles-repo/styles/03-swiss-grid/（DESIGN.md、tokens.css、index.html、kit.html、shot-fold/full/mobile/kit.png）。DESIGN.md 的 Quick Start 由脚本直接嵌入 tokens.css 原文并断言一致；两页无 token 外裸 hex（已 grep），零 gradient、零 box-shadow、零圆角。\n第一轮（查坏）已修：①文字链下划线在箭头处断裂（inline-flex → inline-block，箭头不带下划线）；②无头 Chrome 最小视口 500px 导致 390 截图右侧被裁、误判为溢出——改用 390px iframe 包一层再拍，确认移动端无横向溢出；③scale=2 且高度 >8000 时 Chrome 崩溃（纹理上限），改 8000 并自动裁掉底部空白；④中文标题被拆词（「工/具」「我/们」「做成的/事」）——标题、引文、联系正文改为按词组 inline-block 断行；⑤院长署名区 `.sig span{display:block}` 误伤箭头导致 ↗ 掉行；⑥平板档期刊行缩略图把标题和摘要撑开；⑦手机端期刊行过长，改为缩略图 1 栏 + 文 3 栏的紧凑行，整页从 ~7000px 降到 ~6500px；⑧kit 页 12 栏示意原先塞在 10 栏里与真网格不对齐，改为通栏。\n第二轮（美术总监）已改：首屏从「左文右图 + 图注」改成半人马前蹄踩在 6px 黑线上（线即地面），图注移到线下右侧与品牌主张同一行；五步的装饰短条改为按 20% 递增的钴蓝进度条，让「向前一点」是画出来的；联系区钴蓝色块只占 1–8 栏以守住 ≤8% 并制造不对称；验证了网格钮开启态（整页栏带显形）效果成立。\n仍不满意/需站主知情：①三张暖色插画被整体转成黑白图版，这是本方向的立场，但站主若舍不得插画原色需另议（可做 hover 还原原色，现未做）；②回退到 PingFang SC 时最重只有 Semibold，标题气势会弱一档，版式不塌；③shot-full 实际高 5209px、shot-kit 4875px、shot-mobile 为 390px 全页（均自动裁到内容底部，故截图里看不到左下角返回钮，页面里有）；④首屏 H1 与副标题之间在 1440 下留白偏大，是有意的瑞士式留白，但超宽屏下会更空；⑤「复制客服链接」点击后按钮文字会短暂变为「已复制」，属交互反馈而非文案改写；页眉网格钮无可见文字，仅 aria-label。"
+    },
+    {
+      "slug": "04-boardroom",
+      "name_zh": "董事会深蓝",
+      "name_en": "Boardroom Navy",
+      "tagline": "深蓝定调，象牙行文，黄铜只画线",
+      "theme": "light",
+      "palette": [
+        {
+          "name": "象牙画布",
+          "hex": "#f5f2ea",
+          "role": "--color-background 正文区主背景"
+        },
+        {
+          "name": "董事会深蓝",
+          "hex": "#0b1f3a",
+          "role": "--color-primary hero/整段色带/主按钮，约 33% 面积"
+        },
+        {
+          "name": "墨蓝前景",
+          "hex": "#111c2e",
+          "role": "--color-foreground 正文与书眉重线"
+        },
+        {
+          "name": "黄铜",
+          "hex": "#b08d4c",
+          "role": "--color-brass 只做线、签、内线、指针，≤3%"
+        },
+        {
+          "name": "午夜蓝",
+          "hex": "#07162b",
+          "role": "--color-primary-deep 页脚、按压态"
+        },
+        {
+          "name": "石板灰",
+          "hex": "#4f5b6e",
+          "role": "--color-muted-foreground 次要文字 6.15:1"
+        }
+      ],
+      "fonts": "Noto Serif SC + Frank Ruhl Libre（回退 Songti SC/STSong）/ Noto Sans SC + Libre Franklin（回退 PingFang SC/Microsoft YaHei）/ IBM Plex Mono（回退 ui-monospace/Menlo，日期编号图注）",
+      "signature": "「黄铜经纬」：首屏抠图半人马站在深蓝上的细线罗盘里，一根黄铜指针顺着他的视线指出去；配套每个区块开头的书眉线（1px 通栏线 + 左端 56×3 黄铜签）与三章节的空心描边大数字。",
+      "anchors": [
+        {
+          "brand": "a16z",
+          "url": "https://a16z.com/",
+          "borrowed": "实抓 CSS：藏蓝 #092344 + 象牙 #f6f4ee/#f0ece3 + 灰金线 #aca08d 的三色关系（校准出 #0b1f3a/#f5f2ea/#b08d4c），页脚金属色细线收边"
+        },
+        {
+          "brand": "Harvard Business School Online",
+          "url": "https://online.hbs.edu/",
+          "borrowed": "Tiempos 衬线标题 + Graphik 正文的分工、4px 以内小圆角、1340px 宽容器、暖白底 #f6f4f2"
+        },
+        {
+          "brand": "Harvard Business Review",
+          "url": "https://hbr.org/",
+          "borrowed": "层级靠线（#e2e2e2 大量分隔线）不靠阴影、2–3px 圆角、日期/栏目/标题/摘要分列的目录式文章列表"
+        },
+        {
+          "brand": "Bridgewater",
+          "url": "https://www.bridgewater.com/",
+          "borrowed": "唯一一档阴影 0 10px 40px rgba(0,0,0,.1)（只给插画框）、直角图片、砖红 #80241e 直接用作 destructive"
+        },
+        {
+          "brand": "长江商学院 CKGSB",
+          "url": "https://www.ckgsb.edu.cn/",
+          "borrowed": "反面锚点：亮蓝 #0190c5 + 5px 圆角 + 蓝色发光阴影读起来像门户，本范式把蓝压到 #0b1f3a、去掉彩色阴影以拉开距离"
+        }
+      ],
+      "sources": [
+        "https://a16z.com/",
+        "https://a16z.com/wp-content/themes/a16z/assets/compiled/vite/css/vite-core-css.css",
+        "https://online.hbs.edu/",
+        "https://online.hbs.edu/_next/static/css/ (全部 css chunk)",
+        "https://hbr.org/",
+        "https://hbr.org/_next/static/chunks/*.css",
+        "https://www.bridgewater.com/",
+        "https://bridgewater.brightspotcdn.com/resource/00000171-41a9-d5b9-adfb-e7b992400000/styleguide/All.min.9a7266f2043b616a4de829d1c256dcec.css",
+        "https://www.ckgsb.edu.cn/",
+        "https://www.ckgsb.edu.cn/public/ckgsb/html5/css/style.css?v=1.59",
+        "https://www.economist.com/ (403，未取到)",
+        "https://www.mckinsey.com/featured-insights (超时，未取到)"
+      ],
+      "self_notes": "输出目录：/private/tmp/claude-502/-Users-qiu-----/7d6f27d1-bb5d-40db-915c-d59a6bdb5162/scratchpad/styles-repo/styles/04-boardroom/（DESIGN.md、tokens.css、index.html、kit.html、shot-fold/full/mobile/kit.png）。DESIGN.md 的 Quick Start 由脚本从 tokens.css 原文嵌入，一字不差；两页 CSS 内无裸 hex（kit 里的 hex 只是色板标签文字；唯一 rgba 是 brief 规定的返回钮）。\n第一轮修掉的坏：hero 文案被 grid 自动排到第二行（补 grid-row:1）；强调词底线用 background 画时离字太远（改 text-decoration + underline-offset）；↗ 在等宽字体里太小（箭头改走 sans、放大）；罗盘竖线穿过页头线（缩到 100%）；产品行文字链底线撑满整格（justify-self:start）；kit 页头 padding 简写覆盖了 wrap 的左右边距；返回钮 color:inherit 在深蓝上不可见（外包一层 mix-blend-mode:difference，样式本身未改）。发现无头 Chrome 窗口最小宽 500，390 直接截图是假溢出，改用 390px iframe 包裹截图验证，移动端实际无横向滚动。\n第二轮（美术总监视角）改的：三章节的小号等宽编号换成 1px 旧金描边的空心大数字，辨识度明显上来；第一章文字列改为上下两端对齐消掉左下大空洞；院长寄语左栏加空心描边引号填住空位；区块间距从 136 收到 120；hero 眉标里的「——」改成真的夹在中英文之间的黄铜线。\n与 brief 的出入：页面实高 6872px（桌面）/ 7256px（移动），所以 shot-full 用 1440×6872、shot-mobile 用 390×7256@2x、shot-kit 用 1440×4860 一次拍全，没用 brief 里的 5200/4400/3200（会被裁掉）。期刊标题未加《》书名号（按目录体例）；产品行的「—」由表格分列替代；复制按钮点击后会出现一行「已复制 + 链接」的状态提示（文案稿之外的唯一新增字）。\n仍不满意：页面偏长，第三章横幅 + 产品表一段略松；深象牙 #ebe6d9 的五步色带是全页最接近「暖米色」的地方，若站主嫌暖可改为深蓝色带；返回钮在 hero 底部会压到品牌主张那行字的左端；Economist 与 McKinsey 未能抓到 CSS，未列入 Similar Brands；Google Fonts 加载失败时回退 Songti SC 的 900 字重不存在，强调词将只靠黄铜底线区分。"
+    },
+    {
+      "slug": "05-night-precision",
+      "name_zh": "夜航精密",
+      "name_en": "Night Precision",
+      "tagline": "近黑画布上的仪表级克制，一点橙领航",
+      "theme": "dark",
+      "palette": [
+        {
+          "name": "夜航黑",
+          "hex": "#0a0c10",
+          "role": "画布，偏蓝的近黑（--color-background）"
+        },
+        {
+          "name": "舱面一级",
+          "hex": "#0f1217",
+          "role": "卡片、亮盒外框、联系横幅（--color-card）"
+        },
+        {
+          "name": "发丝线",
+          "hex": "#212731",
+          "role": "分割线、航道线、刻度小格（--color-border）"
+        },
+        {
+          "name": "仪表白",
+          "hex": "#eceef2",
+          "role": "主文字、主按钮底（--color-foreground / --color-primary）"
+        },
+        {
+          "name": "Logo 橙",
+          "hex": "#f27a1a",
+          "role": "唯一强调色与焦点环，≤5%（--color-brand）"
+        },
+        {
+          "name": "亮盒衬纸",
+          "hex": "#f4eee3",
+          "role": "暖色插画的 5px 衬边，只在亮盒内出现（--color-lightbox）"
+        }
+      ],
+      "fonts": "思源黑体 Noto Sans SC 500 紧字距（回退 PingFang SC / Microsoft YaHei）+ Geist 接管拉丁与数字 / 同栈 400 正文 / Geist Mono 做坐标式标注（章节号、FIG. 图号、日期、英文眉标）",
+      "signature": "「亮盒展品 + 刻度尺引线」：暖色插画装进带 FIG. 图号刻度条、暖纸衬边和对位角标的发丝线亮盒，成为冷黑页面里唯一发暖的锚点；半人马抠图直接踩在一把 8/80px 刻度尺上，两条工程图式引线把「人的意愿」「能力的延伸」分别指向橙色人身与蓝色马身。",
+      "anchors": [
+        {
+          "brand": "Linear",
+          "url": "https://linear.app/",
+          "borrowed": "实读 CSS：画布 #08090a、表面分级 #0f1011/#141516/#191a1b、线 #23252a、标题字距 -0.022em、字重 510/590。借了「每级只亮约 2% + 线比面重要」的分层法、紧字距中等字重标题、H2「灰句 + 白强调词」写法；没借靛紫与 Inter。"
+        },
+        {
+          "brand": "Vercel / Geist",
+          "url": "https://vercel.com/",
+          "borrowed": "实读：--geist-radius 6px、页宽 1200px、深色灰阶 #1a1a1a/#1f1f1f/#2e2e2e、半透明线 #ffffff24。借了 6px 基准圆角、Geist + Geist Mono 字体家族、贯穿全页的竖向栅格线与交点十字。"
+        },
+        {
+          "brand": "Raycast",
+          "url": "https://www.raycast.com/",
+          "borrowed": "实读：画布 #07080a（偏蓝近黑）、线 #242728、文字 #f4f4f6/#c2c7ca、主按钮 #ffffffd0 底 + #18191a 字、Geist Mono 标注。借了画布的蓝色偏、「深色站主按钮用白不用品牌色」、等宽小标注。"
+        },
+        {
+          "brand": "Cursor",
+          "url": "https://cursor.com/",
+          "borrowed": "实读：深色画布 #14120b（偏暖）、卡片 #1b1913、强调橙 #f54e00、线用前景色 2.5–20% 混合、页宽 1300px。借了「深底只放一个橙」的配比；刻意不跟它的暖黑——插画已暖，画布必须冷。"
+        },
+        {
+          "brand": "Resend",
+          "url": "https://resend.com/",
+          "borrowed": "实读：深色灰阶 #141517/#191b1e/#212629（带蓝绿偏）、Commit Mono 做标注。借了深色底上把实物图像当「打了光的展品」陈列的做法，落成亮盒与地面光。"
+        }
+      ],
+      "sources": [
+        "https://linear.app/ (HTML + static.linear.app/web/_next/static/css/*.css)",
+        "https://vercel.com/ (HTML + /vc-ap-vercel-marketing/_next/static/immutable/chunks/*.css)",
+        "https://www.raycast.com/ (HTML + /_next/static/immutable/chunks/*.css)",
+        "https://cursor.com/ (HTML + /marketing-static/_next/static/chunks/*.css)",
+        "https://resend.com/ (HTML + /_next/static/immutable/chunks/*.css)",
+        "https://nothing.tech/ (仅抓到 HTML，未取到有效 token，未列为锚点)"
+      ],
+      "self_notes": "输出目录：/private/tmp/claude-502/-Users-qiu-----/7d6f27d1-bb5d-40db-915c-d59a6bdb5162/scratchpad/styles-repo/styles/05-night-precision/（DESIGN.md、tokens.css、index.html、kit.html、shot-fold/full/mobile/kit.png）。DESIGN.md 的 Quick Start 由脚本从 tokens.css 原样嵌入并 assert 一致；index.html 无裸 hex（kit.html 里的 hex 仅为色板文字标签）。\n第一轮（查坏）已修：1) hero-copy 与 hero-fig 列区间重叠导致自动换行成两行→显式 grid-row:1；2) `.hero .wrap` 选择器误伤刻度尺与底栏的 wrap，超高窗口下 hero 被撑到 1500px→改 `.hero>.wrap`；3) 联系横幅橙色指示线被 overflow 裁掉→top:0、2px；4) 整页超过 5200 截图高度、页脚被截→收紧区块内边距到 76–88px；5) 无头 Chrome 在 macOS 上窗口最小宽 500px，按 brief 命令截的 390 图其实是 500px 布局被裁（看起来像横向溢出）→改用 390px iframe 线束截真移动布局再裁成 780×8800，确认无横向滚动；shot-mobile.png 因页面约 6000px 高只拍到寄语区为止。\n第二轮（美术总监眼光）已改：首屏文案由底对齐改垂直居中并放大半人马到 5–12 列，消掉顶部空洞；马背引线节点位置校准到真正落在马背；引文与期刊标题加 text-wrap:balance + nowrap 片段，避免「共/生」「工/具」断词；五步标题从悬空的第 3 列改为左对齐；链接箭头从等宽字改回无衬线避免下沉；平板档取消 hero 最小高度。kit 页合并了输入框+引文、圆角并入卡片区，shot-kit 用 1440×4300 拍全（brief 模板是 3200）。\n仍不满意：1) 引线把图注「人的意愿 · 能力的延伸」拆到半人马两侧、底栏只留「HUMAN × AI」（完整图注保留为 sr-only，≤1080px 恢复整句）——属于对「逐字」的版式化处理，站主若介意可一行改回；2) H2 里全角逗号后的空隙在 56px 下略松，未做标点挤压；3) 移动端期刊行标题 balance 后仍可能在词中断行；4) Geist/思源依赖 Google Fonts，国内失败时回退 PingFang/SF，版式已验证不塌但拉丁字形会略变；5) 亮盒下方的暖色溢光很弱，在低对比度屏幕上几乎不可见，属有意克制。"
+    },
+    {
+      "slug": "06-origami-block",
+      "name_zh": "折纸色块",
+      "name_en": "Origami Block",
+      "tagline": "把 logo 的折纸切面铺成整站的色块",
+      "theme": "light",
+      "palette": [
+        {
+          "name": "米白画布",
+          "hex": "#f6f1e6",
+          "role": "页面底色（纸的正面），也是墨蓝底上的主文字色"
+        },
+        {
+          "name": "钴蓝·本色",
+          "hex": "#1450c8",
+          "role": "品牌主色块：首屏左半、第三章、流程带、强调词垫条；只配白字"
+        },
+        {
+          "name": "橘橙·本色",
+          "hex": "#f47216",
+          "role": "主 CTA 与整段铺色（第二章、联系区、台座）；只配墨蓝字"
+        },
+        {
+          "name": "墨蓝",
+          "hex": "#0e1a3a",
+          "role": "正文、硬位移纸影、深色分区与页脚，替代纯黑"
+        },
+        {
+          "name": "钴蓝·背光",
+          "hex": "#0d3a96",
+          "role": "折痕旁阴影折面、流程带偶数面板、钴蓝容器的纸背"
+        },
+        {
+          "name": "橘橙·受光",
+          "hex": "#ffb070",
+          "role": "台座顶面、橘橙色块高光折面、墨蓝底上的文字链与焦点环"
+        }
+      ],
+      "fonts": "Bricolage Grotesque 800 + 思源黑体 Noto Sans SC 900（标题） / Noto Sans SC 400·500·700（正文，回退 PingFang SC / Microsoft YaHei） / Space Mono（眉标、图注、日期）",
+      "signature": "每种品牌色都有受光、本色、背光三个面。半人马抠图站在橘橙折纸台座上，身后是斜切的钴蓝大色块；分区之间用斜折痕过渡；「共学五步」做成一条上下沿交替错开的经折流程带；所有容器方正，右上折角，只用不带模糊的硬位移纸影。",
+      "anchors": [
+        {
+          "brand": "Gumroad",
+          "url": "https://gumroad.com/",
+          "borrowed": "从 design-*.css 读到 .25rem .25rem 0 currentColor 的无模糊硬位移阴影、.25rem 圆角、#ff90e8/#ffc900/#f4f4f0、字体 ABC Favorit。借了硬位移纸影（做成 4/8/16px offset token）、按钮 hover 抬起和 active 压下的动作，以及亮色底上坚持放深色字；没借它的多色与描边"
+        },
+        {
+          "brand": "Headspace",
+          "url": "https://www.headspace.com/",
+          "borrowed": "读到蓝 #0040ea/#0061ef 与黄 #ffce00 大面积对撞、暖白 #f9f4f2、正文 #2d2c2b 不用纯黑、字体 Apercu、按钮阴影 0 .125rem 0。借了高饱和蓝配暖色的整段铺色、暖白画布、不用纯黑的文字；没借 2rem 大圆角和圆脸插画"
+        },
+        {
+          "brand": "Pitch",
+          "url": "https://pitch.com/",
+          "borrowed": "读到 Mark Pro Bold 标题配 Space Mono 标注、深紫 #280f62/#5318eb 整屏铺底、圆角 4/8/24px。借了厚重几何无衬线标题配等宽小字标注的搭法（落成 Bricolage Grotesque 800 + Space Mono），以及用深色整屏分区做节奏停顿（院长寄语）"
+        },
+        {
+          "brand": "Mailchimp",
+          "url": "https://mailchimp.com/",
+          "borrowed": "读到 #231e15、#efeeea、#e7b75f、阴影色 rgba(35,30,21,.15)、字体 Means + Graphik。借了让中性色都带品牌色相的做法（墨蓝代替黑、灰蓝次文代替中性灰）；没借衬线标题"
+        },
+        {
+          "brand": "Figma",
+          "url": "https://www.figma.com/",
+          "borrowed": "只读到 figmaSans / figmaMono 的字体声明，色值没取到。只作方向参考：首页按功能切成整屏色块、每屏换底色。这一项没有落到具体数值"
+        }
+      ],
+      "sources": [
+        "https://gumroad.com/",
+        "https://assets.gumroad.com/vite/assets/entrypoints/design-CcDu3-Px.css",
+        "https://www.headspace.com/",
+        "https://pitch.com/",
+        "https://mailchimp.com/",
+        "https://mailchimp.com/release/plums/cxp/css/common.eeb49ea5.1.css",
+        "https://www.figma.com/",
+        "https://www.figma.com/_netlify/_next/static/css/617e0bc399c83bea.css"
+      ],
+      "self_notes": "四个文件和四张截图都已写入 /private/tmp/claude-502/-Users-qiu-----/7d6f27d1-bb5d-40db-915c-d59a6bdb5162/scratchpad/styles-repo/styles/06-origami-block/。DESIGN.md 的 Quick Start 与 tokens.css 用 diff 核对一致，两个页面的样式里没有 token 之外的裸 hex（kit.html 色板上显示的 hex 是文案，取值由 tokens.css 生成）。\n\n两轮自检中已修的问题：\n- 抠图自带的灰色脚下投影原先横在钴蓝色块上显脏，把橘橙台座加高并向左延伸后，投影全部落在台座顶面。\n- 折痕分隔的高度是小数像素，接缝处出现一条 1px 杂色线。改成折痕底色取下一分区色、伪元素向上溢出 2px 后消失。\n- 手机截图起初被我误判为横向溢出，实际是 macOS 无头 Chrome 最小窗口宽 500px，390px 截图只是裁了一半。shot-mobile.png 改用 390px iframe 包裹页重拍；顺手给单栏布局里的 flex 子项补了 min-width:0。\n- 院长寄语在手机端，次要文字压到钴蓝折面上对比度只有约 3.6:1。手机端把折面收窄到 14vw，并隐藏第二块折面。\n- 三张期刊卡原先用三种颜色的「观点」标签，会被读成分类，统一成钴蓝；右侧横排卡标题出现孤字，给标题加 text-wrap:balance 并调窄封面。\n- kit 里引文块用了 background 简写，把折角的纸背三角盖掉了，改成 background-color。\n- 橘橙字放在米白底上只有 2.6:1，所以错误提示改用橘橙三角标配墨蓝字。\n\n仍不满意或需要知道的地方：\n- shot-mobile.png 只拍到 7400px（@2x）。手机页实际约 8470px，超过无头 Chrome 的纹理上限，拍不全；联系区和页脚另拍过一张尾部截图，确认无误。\n- shot-full.png 和 shot-kit.png 用了比 BRIEF 给的更高的窗口，因为两页实际约 7400px 和 7350px。\n- 苹方最重只有 Semibold，回退时标题比 Noto Sans SC Black 轻一档，压色块的力度会弱一些；版式不塌。\n- Figma 的色值没抓到，Similar Brands 里只如实写成方向参考。\n- 首屏半人马的尾巴有约 30px 搭在背光蓝折面上，那一段对比偏低。我认为可以接受，想干净的话可以把抠图再右移。\n- 白卡上的折角纸背取深米色，比较弱，只有近看才看得出。\n- 联系按钮用的企微链接 https://work.weixin.qq.com/kfid/kfc472df2b7db14c36e 不在 content.md 里，是沿用其他候选页的，站内路径同样沿用它们的写法。\n- 加载的 high-end-visual-design 技能主张胶囊按钮、玻璃导航、双层圆角，与 BRIEF 和本方向冲突，只取了自定义缓动曲线、按压反馈和大留白这三条。"
+    }
+  ],
+  "judge": {}
+}

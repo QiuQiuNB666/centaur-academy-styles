@@ -1,0 +1,113 @@
+:root {
+  /* Colors — 两种纸 + 一种墨 + 一种专色 */
+  --color-background: #f2efe7;
+  --color-foreground: #1c1b18;
+  --color-card: #fcf8f0;
+  --color-card-foreground: #1c1b18;
+  --color-primary: #1c1b18;
+  --color-primary-foreground: #f7f4ec;
+  --color-secondary: #e9e4d8;
+  --color-secondary-foreground: #1c1b18;
+  --color-muted: #e9e4d8;
+  --color-muted-foreground: #5d594f;
+  --color-brand: #1b4bb0;
+  --color-brand-foreground: #f7f4ec;
+  --color-border: #d3cdbf;
+  --color-rule: #1c1b18;
+  --color-input: #857e6f;
+  --color-ring: #1b4bb0;
+  --color-destructive: #8f2f26;
+  --color-destructive-foreground: #f7f4ec;
+  --color-success: #2f5d3a;
+  --color-success-foreground: #f7f4ec;
+
+  /* Inverse — 封底墨版 */
+  --color-inverse-background: #1c1b18;
+  --color-inverse-foreground: #f7f4ec;
+  --color-inverse-muted: #b9b3a5;
+  --color-inverse-border: #45423b;
+
+  /* Pastel semantic pairs */
+  --color-pastel-blue-bg: #e1e7f3;
+  --color-pastel-blue-text: #1b4bb0;
+  --color-pastel-ochre-bg: #f1e6cf;
+  --color-pastel-ochre-text: #7a4f14;
+  --color-pastel-green-bg: #e2eadd;
+  --color-pastel-green-text: #2f5d3a;
+  --color-pastel-red-bg: #f3e0da;
+  --color-pastel-red-text: #8f2f26;
+
+  /* Typography — Font Families */
+  --font-serif:
+    'Newsreader', 'Noto Serif SC', 'Songti SC', 'Source Han Serif SC', STSong,
+    SimSun, 'Iowan Old Style', Georgia, serif;
+  --font-sans:
+    'Helvetica Neue', 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', sans-serif;
+  --font-latin:
+    'Newsreader', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Typography — Scale */
+  --text-caption: 12px;
+  --text-body-sm: 14px;
+  --text-body: 16px;
+  --text-body-lg: 18px;
+  --text-subheading: 22px;
+  --text-heading: 30px;
+  --text-heading-lg: clamp(32px, 4.2vw, 58px);
+  --text-display: clamp(56px, 8.4vw, 124px);
+  --text-quote: clamp(26px, 3.3vw, 46px);
+
+  /* Line Height & Tracking */
+  --leading-display: 1.1;
+  --leading-heading: 1.25;
+  --leading-body: 1.75;
+  --tracking-display: 0.01em;
+  --tracking-heading: 0.02em;
+  --tracking-body: 0.02em;
+  --tracking-caps: 0.16em;
+
+  /* Spacing — 4px base，竖向节奏以 28px 基线为单位 */
+  --spacing: 0.25rem;
+  --baseline: 28px;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-6: 24px;
+  --spacing-7: 28px;
+  --spacing-10: 40px;
+  --spacing-14: 56px;
+  --spacing-21: 84px;
+  --spacing-28: 112px;
+  --spacing-35: 140px;
+
+  /* Layout */
+  --container: 1328px;
+  --gutter: clamp(20px, 4vw, 56px);
+  --margin-col: 200px;
+  --col-gap: 48px;
+
+  /* Rules — 线是这套范式的主要装饰 */
+  --rule-hair: 1px solid var(--color-border);
+  --rule-ink: 1px solid var(--color-rule);
+  --rule-thick: 3px solid var(--color-rule);
+
+  /* Border Radius — 印刷品没有圆角 */
+  --radius-none: 0px;
+  --radius-sm: 2px;
+  --radius-full: 999px;
+
+  /* Shadows — 只有「贴页图版」一处 */
+  --shadow-none: none;
+  --shadow-plate:
+    0 1px 1px rgba(28, 27, 24, 0.05), 0 14px 28px -18px rgba(28, 27, 24, 0.28);
+  --shadow-plate-hover:
+    0 1px 1px rgba(28, 27, 24, 0.06), 0 22px 36px -18px rgba(28, 27, 24, 0.34);
+
+  /* Motion */
+  --ease-page: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --duration-fast: 160ms;
+  --duration-slow: 480ms;
+}

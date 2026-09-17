@@ -6,12 +6,12 @@
 
 | # | 范式 | 一句话 | 预览 | 样张 | 范式文档 |
 |---|---|---|---|---|---|
-| 01 | 纸上学刊 | 现站方向的精修版：暖纸、宋体，靠真实刊物版式取胜（制作中） | — | — | — |
-| 02 | 墨与印 | 新中式留白：宣纸白、墨色层次、朱砂印一点（制作中） | — | — | — |
-| 03 | 瑞士网格 | 国际主义平面：纯白、近黑、钴蓝单信号色，可见网格（制作中） | — | — | — |
-| 04 | 董事会深蓝 | 商学院式权威：深海军蓝、象牙白、黄铜细线（制作中） | — | — | — |
-| 05 | 夜航精密 | 深色精密：近黑画布、发丝线、logo 橙唯一强调（制作中） | — | — | — |
-| 06 | 折纸色块 | 从 logo 长出来：钴蓝与橘橙大色块、折纸切面（制作中） | — | — | — |
+| 01 | **纸上学刊** | 两种纸，一种墨，一种专色，线比色块重要 | [打开](https://qiuqiunb666.github.io/centaur-academy-styles/styles/01-paper-journal/) | [kit](https://qiuqiunb666.github.io/centaur-academy-styles/styles/01-paper-journal/kit.html) | [DESIGN.md](styles/01-paper-journal/DESIGN.md) |
+| 02 | **墨与印** | 月白纸上，墨分五色，朱砂只落印 | [打开](https://qiuqiunb666.github.io/centaur-academy-styles/styles/02-ink-seal/) | [kit](https://qiuqiunb666.github.io/centaur-academy-styles/styles/02-ink-seal/kit.html) | [DESIGN.md](styles/02-ink-seal/DESIGN.md) |
+| 03 | **瑞士网格** | 白底、近黑、一支钴蓝，全部落在 12 栏上 | [打开](https://qiuqiunb666.github.io/centaur-academy-styles/styles/03-swiss-grid/) | [kit](https://qiuqiunb666.github.io/centaur-academy-styles/styles/03-swiss-grid/kit.html) | [DESIGN.md](styles/03-swiss-grid/DESIGN.md) |
+| 04 | **董事会深蓝** | 深蓝定调，象牙行文，黄铜只画线 | [打开](https://qiuqiunb666.github.io/centaur-academy-styles/styles/04-boardroom/) | [kit](https://qiuqiunb666.github.io/centaur-academy-styles/styles/04-boardroom/kit.html) | [DESIGN.md](styles/04-boardroom/DESIGN.md) |
+| 05 | **夜航精密** | 近黑画布上的仪表级克制，一点橙领航 | [打开](https://qiuqiunb666.github.io/centaur-academy-styles/styles/05-night-precision/) | [kit](https://qiuqiunb666.github.io/centaur-academy-styles/styles/05-night-precision/kit.html) | [DESIGN.md](styles/05-night-precision/DESIGN.md) |
+| 06 | **折纸色块** | 把 logo 的折纸切面铺成整站的色块 | [打开](https://qiuqiunb666.github.io/centaur-academy-styles/styles/06-origami-block/) | [kit](https://qiuqiunb666.github.io/centaur-academy-styles/styles/06-origami-block/kit.html) | [DESIGN.md](styles/06-origami-block/DESIGN.md) |
 
 ## 目录
 

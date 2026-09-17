@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>墨与印 · 组件样张 — 半人马AI学院</title>
+<meta name="description" content="半人马AI学院候选美术范式「墨与印」的组件样张：色板、字体、按钮、印章、装裱框、信笺、乌丝栏。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/lxgwwenkai-regular.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/lxgwwenkai-bold.css">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--color-background);color:var(--color-foreground);font-family:var(--font-sans);font-size:var(--text-body);line-height:1.8;letter-spacing:var(--tracking-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3,p,figure,ol,ul,blockquote{margin:0;padding:0}ol,ul{list-style:none}
+:focus-visible,.is-focus{outline:2px solid var(--color-ring);outline-offset:3px}
+.wrap{max-width:var(--content-max);margin-inline:auto;padding-inline:var(--page-gutter)}
+.label{font-family:var(--font-latin),var(--font-sans);font-size:var(--text-caption);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--color-ink-dan)}
+.mono{font-family:var(--font-mono);font-size:12px;letter-spacing:0;color:var(--color-ink-dan)}
+.kai{font-family:var(--font-display)}
+.tcy{text-combine-upright:all;-webkit-text-combine:horizontal}
+header.top{border-bottom:1px solid var(--color-border)}
+header.top .wrap{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;padding-block:48px 32px}
+header.top h1{font-family:var(--font-display);font-weight:400;font-size:clamp(34px,4vw,54px);letter-spacing:.08em;line-height:1.2;color:var(--color-ink-jiao)}
+header.top a{min-height:44px;display:inline-flex;align-items:center}
+section.k{padding-block:64px;border-bottom:1px solid var(--color-border)}
+section.k>.wrap{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:32px;row-gap:32px}
+.k-title{grid-column:1/3;writing-mode:vertical-rl;font-family:var(--font-display);font-size:22px;letter-spacing:.3em;color:var(--color-ink-jiao);border-right:1px solid var(--color-border-strong);padding-right:16px;justify-self:start;white-space:nowrap}
+.k-title small{font-family:var(--font-latin);font-size:11px;letter-spacing:.22em;color:var(--color-ink-dan)}
+.k-body{grid-column:3/13;min-width:0}
+.row{display:flex;flex-wrap:wrap;gap:20px 28px;align-items:center}
+.cap{font-size:12px;color:var(--color-ink-dan);letter-spacing:.08em;margin-top:8px}
+
+.sw{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
+.sw li{border:1px solid var(--color-border);background:var(--color-card)}
+.sw i{display:block;height:88px;border-bottom:1px solid var(--color-border)}
+.sw div{padding:10px 12px 12px}
+.sw b{display:block;font-family:var(--font-display);font-weight:700;font-size:16px;letter-spacing:.1em;color:var(--color-ink-jiao)}
+.sw p{font-size:12px;line-height:1.6;color:var(--color-ink-zhong)}
+
+.type-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--color-border)}
+.fam{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;margin-bottom:32px}
+.fam h3{font-weight:400;font-size:34px;line-height:1.3;color:var(--color-ink-jiao)}
+
+.hd em{font-style:normal;font-weight:700;color:var(--color-ink-jiao);-webkit-text-emphasis:filled sesame var(--color-brand);text-emphasis:filled sesame var(--color-brand);-webkit-text-emphasis-position:under right;text-emphasis-position:under right}
+.hd{font-family:var(--font-display);font-weight:400;color:var(--color-ink-zhong);letter-spacing:var(--tracking-heading);line-height:var(--leading-heading)}
+
+.btn{display:inline-flex;align-items:stretch;min-height:48px;border-radius:var(--radius-sm);border:1px solid transparent;font:500 15px/1 var(--font-sans);letter-spacing:.1em;text-decoration:none;cursor:pointer;transition:background-color var(--duration-fast) var(--ease-ink),color var(--duration-fast) var(--ease-ink),transform var(--duration-fast) var(--ease-ink);white-space:nowrap}
+.btn>span:first-child{display:flex;align-items:center;padding:0 22px}
+.btn .chop{display:grid;place-items:center;width:36px;margin:5px 5px 5px 0;background:var(--color-brand);color:var(--color-brand-foreground);border-radius:1px;letter-spacing:0;transition:transform var(--duration-fast) var(--ease-ink)}
+.btn-primary{background:var(--color-primary);color:var(--color-primary-foreground)}
+.btn-primary:hover,.btn-primary.is-hover{background:var(--color-ink-zhong)}
+.btn:hover .chop,.btn.is-hover .chop{transform:scale(.9)}
+.btn:active,.btn.is-active{transform:scale(.98)}
+.btn.is-active .chop{transform:scale(.84);background:var(--color-brand-deep)}
+.btn-outline{border-color:var(--color-border-strong);color:var(--color-ink-jiao);background:transparent}
+.btn-outline:hover,.btn-outline.is-hover{background:var(--color-ink-jiao);color:var(--color-primary-foreground)}
+.btn[disabled]{background:var(--color-muted);color:var(--color-ink-dan);border-color:var(--color-border);cursor:not-allowed;transform:none}
+.link{display:inline-flex;align-items:center;gap:.5em;min-height:44px;font-size:15px;letter-spacing:.08em;color:var(--color-ink-jiao);text-decoration:none;background:linear-gradient(var(--color-ink-jiao),var(--color-ink-jiao)) 0 calc(100% - 9px)/100% 1px no-repeat}
+.link:hover,.link.is-hover{color:var(--color-brand-deep);background-image:linear-gradient(var(--color-brand),var(--color-brand))}
+.ink-panel{background:var(--color-inverse);padding:28px;margin-top:28px}
+.ink-panel .btn-primary{background:var(--color-inverse-foreground);color:var(--color-ink-jiao)}
+.ink-panel .btn-outline{border-color:var(--color-inverse-border);color:var(--color-inverse-foreground)}
+.ink-panel .cap{color:var(--color-inverse-muted)}
+.state{display:flex;flex-direction:column;align-items:flex-start}
+
+.seal{display:inline-block;writing-mode:vertical-rl;font-family:var(--font-display);font-weight:700;line-height:1.12;letter-spacing:.04em;border-radius:var(--radius-sm);flex:none}
+.seal--bai{background:var(--color-brand);color:var(--color-brand-foreground);padding:6px 5px}
+.seal--zhu{border:2px solid var(--color-brand);color:var(--color-brand);padding:4px 3px}
+.seam{position:relative;height:120px;background:linear-gradient(var(--color-inverse) 50%,var(--color-background) 50%);border:1px solid var(--color-border);flex:1;min-width:220px}
+.seam .seal{position:absolute;right:28px;top:50%;transform:translateY(-50%);font-size:22px;padding:9px 7px;height:calc(2.24em + 20px)}
+
+.badge{display:inline-flex;align-items:center;min-height:24px;padding:0 9px;border-radius:var(--radius-sm);font-size:12px;letter-spacing:.14em}
+.field{display:flex;flex-direction:column;gap:6px;width:280px;font-size:13px;letter-spacing:.1em;color:var(--color-ink-zhong)}
+.field input{height:48px;border:0;border-bottom:1px solid var(--color-input);background:transparent;padding:0 2px;font:16px var(--font-sans);color:var(--color-ink-jiao);border-radius:0;outline-offset:4px}
+.field input::placeholder{color:var(--color-ink-dan)}
+.field input:focus,.field input.is-focus{border-bottom:2px solid var(--color-ink-jiao);outline:none}
+.field.err input{border-bottom:2px solid var(--color-destructive)}
+.field.err small{color:var(--color-destructive);letter-spacing:.04em}
+
+.mount{background:var(--color-card);border:1px solid var(--color-border);box-shadow:var(--shadow-mount);padding:36px 28px 28px 18px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px}
+.mount .pic{overflow:hidden;outline:1px solid var(--color-image-outline);outline-offset:-1px}
+.mount .pic img{width:100%;height:100%;object-fit:cover;filter:saturate(.84) contrast(.98)}
+.slip{writing-mode:vertical-rl;font-family:var(--font-display);font-size:13px;line-height:1.5;letter-spacing:.2em;color:var(--color-ink-zhong);background:var(--color-card);border:1px solid var(--color-border);padding:14px 7px;align-self:start;white-space:nowrap}
+.slip .en{font-family:var(--font-latin);font-size:11px;letter-spacing:.24em}
+.frames{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.plinth{position:relative;padding-bottom:16px}
+.plinth::after{content:"";position:absolute;left:0;right:0;bottom:16px;border-bottom:1px solid var(--color-border-strong)}
+.plinth img{filter:saturate(.92)}
+
+.entry .meta{font-size:13px;letter-spacing:.16em;color:var(--color-ink-dan)}
+.entry .meta span{font-family:var(--font-latin);letter-spacing:.1em}
+.entry h3{font-family:var(--font-display);font-weight:700;font-size:var(--text-subheading);color:var(--color-ink-jiao);letter-spacing:.04em;line-height:1.4;margin:6px 0 10px;text-indent:-.5em}
+.entry p{color:var(--color-ink-zhong);font-size:15px}
+.entry{display:grid;grid-template-columns:132px minmax(0,1fr);column-gap:24px;max-width:460px;padding-block:28px;border-block:1px solid var(--color-border)}
+.entry .mount{display:block;padding:8px;grid-row:1/4}
+.entry .pic{aspect-ratio:1/1}
+.prod{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:18px;padding:18px 0;border-top:1px solid var(--color-border-strong);border-bottom:1px solid var(--color-border);flex:1;min-width:320px}
+.prod b{font-family:var(--font-display);font-size:24px;letter-spacing:.14em;color:var(--color-ink-jiao);margin-right:12px}
+.prod span.t{font-size:15px;color:var(--color-ink-zhong)}
+.prod .btn{min-height:44px;font-size:13px}.prod .btn>span{padding:0 14px}
+
+.letter{background:var(--color-card);border:1px solid var(--color-border);box-shadow:var(--shadow-mount);padding:40px 36px;display:inline-block}
+.letter blockquote{writing-mode:vertical-rl;font-family:var(--font-display);font-size:26px;line-height:2.2;letter-spacing:.12em;color:var(--color-ink-jiao);height:9.3em;width:11em;background:repeating-linear-gradient(to left,transparent 0,transparent calc(2.2em - 1px),var(--color-brand-rule) calc(2.2em - 1px),var(--color-brand-rule) 2.2em);border-left:1px solid var(--color-brand-rule);border-right:1px solid var(--color-brand-rule)}
+
+.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-left:1px solid var(--color-border);background:var(--color-card);border-block:1px solid var(--color-border-strong)}
+.steps li{border-right:1px solid var(--color-border);padding:20px 20px 20px;display:grid;grid-template-rows:auto 1fr auto;min-height:280px}
+.steps .no{font-family:var(--font-latin);font-size:15px;letter-spacing:.12em;color:var(--color-ink-dan)}
+.steps h3{writing-mode:vertical-rl;font-family:var(--font-display);font-weight:400;font-size:30px;letter-spacing:.2em;line-height:1.2;color:var(--color-ink-jiao);margin:12px 0 20px;justify-self:end}
+.steps p{font-size:14px;color:var(--color-ink-zhong)}
+
+@media (max-width:900px){
+  section.k>.wrap{display:block}
+  .k-title{writing-mode:horizontal-tb;border-right:0;border-bottom:1px solid var(--color-border-strong);padding:0 0 10px;margin-bottom:28px;display:block}
+  .sw{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fam,.frames{grid-template-columns:1fr}
+  .type-row{grid-template-columns:1fr;gap:2px}
+  .steps{grid-template-columns:1fr}.steps li{min-height:0;grid-template-rows:auto}.steps h3{writing-mode:horizontal-tb;justify-self:start;margin:4px 0}
+  .letter blockquote{font-size:22px}
+  header.top .wrap{flex-direction:column;align-items:flex-start}
+}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}.btn:active,.btn.is-active,.btn:hover .chop{transform:none}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div><p class="label">Centaur AI Academy · Style 02 · Ink &amp; Seal</p><h1>墨与印 · 组件样张</h1></div>
+  <a class="link" href="index.html">看首页预览 <span aria-hidden="true">→</span></a>
+</div></header>
+
+<main>
+<section class="k"><div class="wrap">
+  <h2 class="k-title">色板 <small>COLOR</small></h2>
+  <div class="k-body">
+    <ul class="sw">
+      <li><i style="background:var(--color-background)"></i><div><b>月白</b><span class="mono">#f2f4f1</span><p>画布。偏青的冷白，不是米色</p></div></li>
+      <li><i style="background:var(--color-card)"></i><div><b>宣纸白</b><span class="mono">#fbfbf8</span><p>衬纸、信笺、乌丝栏底</p></div></li>
+      <li><i style="background:var(--color-secondary)"></i><div><b>绫边灰</b><span class="mono">#e8ebe6</span><p>次级底、禁用态</p></div></li>
+      <li><i style="background:var(--color-border)"></i><div><b>界格线</b><span class="mono">#d5d9d3</span><p>细墨线、栏线、分隔</p></div></li>
+      <li><i style="background:var(--color-brand)"></i><div><b>朱砂</b><span class="mono">#b5301f</span><p>只以「印」出现，全页 ≤3%</p></div></li>
+      <li><i style="background:var(--color-brand-deep)"></i><div><b>朱砂 · 沉</b><span class="mono">#8f2217</span><p>链接 hover、错误文字</p></div></li>
+      <li><i style="background:var(--color-ink-jiao)"></i><div><b>焦墨</b><span class="mono">#16181a</span><p>着重字、主按钮、墨池</p></div></li>
+      <li><i style="background:var(--color-ink-nong)"></i><div><b>浓墨</b><span class="mono">#26292c</span><p>正文</p></div></li>
+      <li><i style="background:var(--color-ink-zhong)"></i><div><b>重墨</b><span class="mono">#474c50</span><p>标题常态、说明文</p></div></li>
+      <li><i style="background:var(--color-ink-dan)"></i><div><b>淡墨</b><span class="mono">#5f6569</span><p>次要文字，5.35:1</p></div></li>
+      <li><i style="background:var(--color-ink-qing)"></i><div><b>清墨</b><span class="mono">#a9aeaa</span><p>输入线、墨池上的次要字</p></div></li>
+      <li><i style="background:linear-gradient(90deg,var(--color-pastel-red-bg) 25%,var(--color-pastel-blue-bg) 25% 50%,var(--color-pastel-green-bg) 50% 75%,var(--color-pastel-yellow-bg) 75%)"></i><div><b>朱 黛 竹青 缃</b><span class="mono">pastel-*</span><p>柔和语义色，浅底配深字</p></div></li>
+    </ul>
+  </div>
+</div></section>
+
+<section class="k"><div class="wrap">
+  <h2 class="k-title">字体 <small>TYPE</small></h2>
+  <div class="k-body">
+    <div class="fam">
+      <div><p class="label">Display · 霞鹭文楷</p><h3 class="kai">各有知君，<br>共创万象。</h3><p class="cap">标题、题签、引文、印文。回退 Kaiti SC / STKaiti / KaiTi</p></div>
+      <div><p class="label">Body · Noto Sans SC</p><h3 style="font-family:var(--font-sans);font-size:18px;line-height:1.9;color:var(--color-foreground)">把你的经验、判断和真实问题，与 AI 的能力连接起来。</h3><p class="cap">正文与 UI。回退 PingFang SC / 微软雅黑</p></div>
+      <div><p class="label">Latin · Source Serif 4</p><h3 style="font-family:var(--font-latin)">Centaur <i>Journal</i> 2026.09</h3><p class="cap">拉丁、数字、眉标。回退 Georgia</p></div>
+    </div>
+    <div class="type-row"><span class="mono">display · clamp(52–108)</span><span class="kai" style="font-size:72px;line-height:1.16;letter-spacing:.06em;color:var(--color-ink-jiao)">让 AI 成为</span></div>
+    <div class="type-row"><span class="mono">heading-lg · clamp(32–54)</span><span class="hd" style="font-size:var(--text-heading-lg)">你走过的路，都是<em>起点</em>。</span></div>
+    <div class="type-row"><span class="mono">heading · 30</span><span class="kai" style="font-size:30px;color:var(--color-ink-jiao)">每一次共学，都向前一点</span></div>
+    <div class="type-row"><span class="mono">subheading · 22</span><span class="kai" style="font-size:22px;font-weight:700;color:var(--color-ink-jiao)">《来自嘉木的一封信》</span></div>
+    <div class="type-row"><span class="mono">body-lg · 18 / 1.9</span><span style="font-size:18px">让 AI 的能力，长在你的经验与判断之上。</span></div>
+    <div class="type-row"><span class="mono">body · 16 / 1.9</span><span>聊聊你正在做的事，和你希望 AI 帮你做成的事。</span></div>
+    <div class="type-row"><span class="mono">body-sm · 14</span><span style="font-size:14px;color:var(--color-ink-zhong)">讲清背景，找到目标。</span></div>
+    <div class="type-row"><span class="mono">caption / label · 12</span><span class="label">From the founder · 从这里开始</span></div>
+  </div>
+</div></section>
+
+<section class="k"><div class="wrap">
+  <h2 class="k-title">按钮 <small>BUTTON</small></h2>
+  <div class="k-body">
+    <div class="row">
+      <div class="state"><a class="btn btn-primary" href="#"><span>联系学院顾问</span><span class="chop" aria-hidden="true">↗</span></a><span class="cap">default</span></div>
+      <div class="state"><a class="btn btn-primary is-hover" href="#"><span>联系学院顾问</span><span class="chop" aria-hidden="true">↗</span></a><span class="cap">hover · 墨色转淡，印格下压</span></div>
+      <div class="state"><a class="btn btn-primary is-active" href="#"><span>联系学院顾问</span><span class="chop" aria-hidden="true">↗</span></a><span class="cap">active · scale .98</span></div>
+      <div class="state"><a class="btn btn-primary is-focus" href="#"><span>联系学院顾问</span><span class="chop" aria-hidden="true">↗</span></a><span class="cap">focus-visible</span></div>
+      <div class="state"><button class="btn" disabled><span>下载知君 ↓</span></button><span class="cap">disabled</span></div>
+    </div>
+    <div class="row" style="margin-top:28px">
+      <div class="state"><button class="btn btn-outline"><span>复制客服链接</span></button><span class="cap">outline</span></div>
+      <div class="state"><button class="btn btn-outline is-hover"><span>复制客服链接</span></button><span class="cap">outline · hover</span></div>
+      <div class="state"><a class="link" href="#">了解共学与共创 <span aria-hidden="true">→</span></a><span class="cap">文字链</span></div>
+      <div class="state"><a class="link is-hover" href="#">了解共学与共创 <span aria-hidden="true">→</span></a><span class="cap">文字链 · hover</span></div>
+    </div>
+    <div class="ink-panel"><div class="row">
+      <div class="state"><a class="btn btn-primary" href="#"><span>联系学院顾问</span><span class="chop" aria-hidden="true">↗</span></a><span class="cap">墨池上 · primary</span></div>
+      <div class="state"><button class="btn btn-outline"><span>复制客服链接</span></button><span class="cap">墨池上 · outline</span></div>
+    </div></div>
+  </div>
+</div></section>
+
+<section class="k"><div class="wrap">
+  <h2 class="k-title">印 <small>SEAL</small></h2>
+  <div class="k-body">
+    <div class="row" style="align-items:flex-end">
+      <div class="state"><span class="seal seal--bai" style="font-size:15px;height:calc(4.6em + 14px)">各有知君<br>共创万象</span><span class="cap">长方白文 · 卷首落款</span></div>
+      <div class="state"><span class="seal seal--bai" style="font-size:16px">嘉木</span><span class="cap">名章 · 署名旁</span></div>
+      <div class="state"><span class="seal seal--zhu" style="font-size:15px">知君</span><span class="cap">朱文 · 产品</span></div>
+      <div class="state"><span class="seal seal--zhu" style="font-size:15px">万象</span><span class="cap">朱文 · 产品</span></div>
+      <div class="seam"><span class="seal seal--bai">共学<br>共创</span></div>
+    </div>
+    <p class="cap">骑缝章压在墨池与地脚的接缝上。印永远是直角、平涂、无做旧；一屏之内不出现第二方白文印。</p>
+  </div>
+</div></section>
+
+<section class="k"><div class="wrap">
+  <h2 class="k-title">图片框 <small>MOUNT</small></h2>
+  <div class="k-body">
+    <div class="frames">
+      <figure class="mount"><figcaption class="slip"><span class="en">EXPERIENCE</span> ｜ 经验，值得新的可能。</figcaption><div class="pic" style="aspect-ratio:4/3"><img src="../../assets/experience.webp" alt="概念插画：笔记、铅笔与方向标，象征经验积累与判断"></div></figure>
+      <figure class="mount"><figcaption class="slip"><span class="en">LEARN TOGETHER</span> ｜ 在对话中看见新的可能。</figcaption><div class="pic" style="aspect-ratio:1/1"><img src="../../assets/co-learning.webp" alt="概念插画：三位同伴围桌讨论纸上的想法"></div></figure>
+      <figure style="max-width:340px"><div class="plinth"><img src="../../assets/academy-centaur-cutout.webp" alt="橙色人身与蓝色马身结合的半人马艺术形象"></div><p class="cap">器物式：抠图直接立在月白上，脚下一根焦墨地线。只给半人马用。</p></figure>
+    </div>
+    <p class="cap">册页式装裱：宣纸白衬纸 + 界格细线 + 竖排题签；天头 36–44px 大于地脚 28–32px；插画 saturate(.84) 收一点暖。横披 4:3 / 斗方 1:1 / 手卷 3:2 三种开本。</p>
+  </div>
+</div></section>
+
+<section class="k"><div class="wrap">
+  <h2 class="k-title">卡与行 <small>ENTRY</small></h2>
+  <div class="k-body">
+    <div class="row" style="align-items:flex-start">
+      <article class="entry">
+        <div class="mount"><div class="pic"><img src="../../assets/creating.webp" alt=""></div></div>
+        <p class="meta">观点 · <span>2026.09.15</span></p>
+        <h3>《用自己的语言，做一件趁手的工具》</h3>
+        <p>从每天反复处理的一件小事开始。</p>
+      </article>
+      <div class="prod"><span class="seal seal--zhu" style="font-size:15px">知君</span><div><b>知君</b><span class="t">— 让积累参与思考 ↗</span></div><button class="btn" disabled><span>下载知君 ↓</span></button></div>
+    </div>
+    <div class="row" style="margin-top:32px">
+      <span class="badge" style="background:var(--color-pastel-red-bg);color:var(--color-pastel-red-text)">观点</span>
+      <span class="badge" style="background:var(--color-pastel-blue-bg);color:var(--color-pastel-blue-text)">共学</span>
+      <span class="badge" style="background:var(--color-pastel-green-bg);color:var(--color-pastel-green-text)">已开放</span>
+      <span class="badge" style="background:var(--color-pastel-yellow-bg);color:var(--color-pastel-yellow-text)">暂未开放</span>
+      <span class="badge" style="border:1px solid var(--color-border-strong);color:var(--color-ink-jiao)">动态</span>
+    </div>
+  </div>
+</div></section>
+
+<section class="k"><div class="wrap">
+  <h2 class="k-title">输入 <small>INPUT</small></h2>
+  <div class="k-body"><div class="row" style="align-items:flex-start">
+    <label class="field">称呼<input type="text" placeholder="怎么称呼你"></label>
+    <label class="field">正在做的事<input class="is-focus" type="text" value="想把报价流程理顺"></label>
+    <label class="field err">联系方式<input type="text" value="138" aria-invalid="true"><small>请填写完整的手机号或微信号</small></label>
+  </div><p class="cap">输入框只有一根底线，像在格子纸上写字；focus 时底线由清墨变焦墨并加粗到 2px。</p></div>
+</div></section>
+
+<section class="k"><div class="wrap">
+  <h2 class="k-title">引文 <small>LETTER</small></h2>
+  <div class="k-body"><div class="row" style="align-items:flex-end">
+    <div class="letter"><blockquote>“我希望学院能聚起一群认同人机共生、愿意共同成长的人。”</blockquote></div>
+    <p class="cap" style="max-width:260px">朱丝栏信笺：竖排、行距 2.2em、栏线为 34% 朱砂。每栏约 8 字、共 5 栏，引文占 4 栏，左侧只留 1 空栏。</p>
+  </div></div>
+</div></section>
+
+<section class="k"><div class="wrap">
+  <h2 class="k-title">流程 <small>STEPS</small></h2>
+  <div class="k-body">
+    <ol class="steps">
+      <li><span class="no">01</span><h3>带来问题</h3><p>从正在做的事出发。</p></li>
+      <li><span class="no">02</span><h3>一起梳理</h3><p>讲清背景，找到目标。</p></li>
+      <li><span class="no">03</span><h3>动手尝试</h3><p>做出可以试用的初版。</p></li>
+      <li><span class="no">04</span><h3>交流结果</h3><p>体验彼此的成果。</p></li>
+      <li><span class="no">05</span><h3>持续改进</h3><p>带着反馈，再走一步。</p></li>
+    </ol>
+  </div>
+</div></section>
+</main>
+
+<a href="../../" style="position:fixed;left:12px;bottom:12px;z-index:99;font:12px/1 ui-monospace,monospace;padding:8px 10px;border-radius:999px;background:rgba(127,127,127,.18);backdrop-filter:blur(8px);color:inherit;text-decoration:none">← 全部方案</a>
+</body>
+</html>

@@ -1,0 +1,112 @@
+:root {
+  /* Colors — ivory side */
+  --color-background: #f5f2ea;
+  --color-foreground: #111c2e;
+  --color-card: #fbf9f4;
+  --color-card-foreground: #111c2e;
+  --color-popover: #fbf9f4;
+  --color-popover-foreground: #111c2e;
+  --color-secondary: #ebe6d9;
+  --color-secondary-foreground: #111c2e;
+  --color-muted: #ebe6d9;
+  --color-muted-foreground: #4f5b6e;
+  --color-accent: #ebe6d9;
+  --color-accent-foreground: #111c2e;
+  --color-border: #d9d3c3;
+  --color-border-strong: #111c2e;
+  --color-input: #8d8673;
+  --color-ring: #0b1f3a;
+
+  /* Colors — navy side */
+  --color-primary: #0b1f3a;
+  --color-primary-foreground: #f5f2ea;
+  --color-primary-deep: #07162b;
+  --color-primary-raised: #15305a;
+  --color-primary-muted-foreground: #a9b4c6;
+  --color-primary-border: #2a4166;
+  --color-ring-inverse: #d4b97c;
+
+  /* Colors — brass (lines and small labels only, ≤3%) */
+  --color-brass: #b08d4c;
+  --color-brass-deep: #765a1f;
+  --color-brass-light: #d4b97c;
+
+  /* Colors — status */
+  --color-destructive: #80241e;
+  --color-destructive-foreground: #fbf9f4;
+  --color-success: #2f5d46;
+  --color-success-foreground: #fbf9f4;
+
+  /* Pastel semantic pairs */
+  --color-pastel-navy-bg: #e1e7f0;
+  --color-pastel-navy-text: #1d3a66;
+  --color-pastel-brass-bg: #f0e7d0;
+  --color-pastel-brass-text: #6b4f14;
+  --color-pastel-stone-bg: #e7e3d8;
+  --color-pastel-stone-text: #4a5261;
+  --color-pastel-red-bg: #f4e2de;
+  --color-pastel-red-text: #80241e;
+
+  /* Typography — Font Families */
+  --font-display:
+    'Frank Ruhl Libre', 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC',
+    STSong, SimSun, Georgia, serif;
+  --font-serif:
+    'Frank Ruhl Libre', 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC',
+    STSong, SimSun, Georgia, serif;
+  --font-sans:
+    'Libre Franklin', 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'Helvetica Neue', system-ui, sans-serif;
+  --font-mono:
+    'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    monospace;
+
+  /* Typography — Scale */
+  --text-caption: 12px;
+  --text-body-sm: 14px;
+  --text-body: 16px;
+  --text-body-lg: 18px;
+  --text-subheading: 22px;
+  --text-heading: 28px;
+  --text-heading-lg: clamp(30px, 3.2vw, 44px);
+  --text-heading-xl: clamp(36px, 4.7vw, 68px);
+  --text-display: clamp(52px, 8vw, 116px);
+
+  /* Line Height & Tracking */
+  --leading-display: 1.12;
+  --leading-heading: 1.22;
+  --leading-body: 1.8;
+  --tracking-display: 0.01em;
+  --tracking-heading: 0.02em;
+  --tracking-body: 0.01em;
+  --tracking-label: 0.16em;
+
+  /* Spacing (4px base) */
+  --spacing: 0.25rem;
+  --section-gap: clamp(64px, 8vw, 120px);
+  --page-gutter: clamp(20px, 5vw, 60px);
+  --container: 1320px;
+
+  /* Border Radius */
+  --radius: 2px;
+  --radius-sm: 1px;
+  --radius-md: 2px;
+  --radius-lg: 4px;
+  --radius-full: 999px;
+
+  /* Rules */
+  --rule-hair: 1px;
+  --rule-heavy: 2px;
+  --rule-tab-width: 56px;
+  --rule-tab-height: 3px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(7, 22, 43, 0.06);
+  --shadow-frame: 0 10px 40px 0 rgba(7, 22, 43, 0.1);
+  --shadow-frame-navy: 0 18px 50px 0 rgba(3, 10, 22, 0.45);
+
+  /* Motion */
+  --ease-board: cubic-bezier(0.32, 0.72, 0, 1);
+  --duration-fast: 180ms;
+  --duration-slow: 600ms;
+}
