@@ -77,7 +77,7 @@
   --spacing: 4px;
   --gutter: clamp(16px, 4vw, 48px);
   --container: 1200px;
-  --section-gap: clamp(88px, 9vw, 150px);
+  --section-gap: 48px; /* 手机收紧防空屏；≥700px 为 clamp(88px, 9vw, 150px) */
   --header-h: 64px;
 
   /* Border Radius */
@@ -103,9 +103,10 @@
   --dur-fast: 160ms;
   --dur-base: 280ms;
 
-  /* 半人马登场（钉住段：lead 放大 + hold 扫光，合计 ≤ 82svh） */
+  /* 半人马登场（钉住段：lead 放大 + hold 扫光，合计 ≤ 82svh；手机 hold 缩到 64px 防空屏，≥700px 回到 min(36svh, 300px)） */
   --pin-top: 76px;
   --zoom-lead: min(46svh, 400px);
-  --zoom-hold: min(36svh, 300px);
+  --zoom-hold: min(8svh, 64px);
+  --glint-lead: min(16svh, 140px);
   --zoom-from: 0.55;
 }

@@ -59,7 +59,8 @@
 
 - **Substitute:** STKaiti, KaiTi, Kaiti SC
 - **Weights:** 400
-- **Sizes:** 26px（手机题签）, 34–42px（竖排题签）, 62–128px（主标题下半句）
+- **Sizes:** 28px（手机题签）, 34–42px（竖排题签）, 62–128px（主标题下半句）
+- **Tracking:** 题签（横排与竖排）-0.04em——马善政字面只占字格约 0.8–0.9em，负字距后字与字的实际空隙约 0.1em，读起来是一句话；「AI」横入竖排时字距归 0，保持正常宽度
 - **Role:** 全站只用两处：H1「你的能力。」、主视觉竖排题签「人决定方向，AI 拓展人的能力。」。按 `&text=` 只加载这 16 个字，不用于正文和长句。
 
 ### Noto Serif SC 900 — 粗宋标题 · `--font-title`
@@ -68,6 +69,7 @@
 - **Weights:** 700, 900
 - **Sizes:** 20px（顶栏品牌）, 22–28px, 34–60px, 30–44px（页脚口号）
 - **Role:** 章节标题、五步标题、卡片标题、院长引文、口号——最「正」的那种字，像牌匾。
+- **Tracking:** 标题 0.06em；页脚口号「各有知君，共创万象。」0.08em——超过 0.12em 会读成一个字一个字地蹦，口号要读成一句话。
 
 ### Noto Sans SC — 粗黑主标与正文 · `--font-sans`
 
@@ -118,7 +120,7 @@
 | Name        | Value                       | Token           |
 | ----------- | --------------------------- | --------------- |
 | gutter      | clamp(16px, 4vw, 48px)      | `--gutter`      |
-| section-gap | clamp(88px, 9vw, 150px)     | `--section-gap` |
+| section-gap | 48px（<700）/ clamp(88px, 9vw, 150px)（≥700） | `--section-gap` |
 | container   | 1200px                      | `--container`   |
 | header      | 64px（手机）/ 78px（桌面）  | `--header-h`    |
 
@@ -161,10 +163,13 @@
 | dur-base   | 280ms                              | `--dur-base`   |
 | pin-top    | 76px（手机）/ 96px（桌面）         | `--pin-top`    |
 | zoom-lead  | min(46svh, 400px)                  | `--zoom-lead`  |
-| zoom-hold  | min(36svh, 300px)                  | `--zoom-hold`  |
+| zoom-hold  | min(8svh, 64px)（<700）/ min(36svh, 300px)（≥700） | `--zoom-hold`  |
+| glint-lead | min(16svh, 140px)（<700）/ 0px（≥700）| `--glint-lead` |
 | zoom-from  | 0.55                               | `--zoom-from`  |
 
-- 半人马登场：`.stage` 做 `view-timeline`，画框 `position:sticky` 钉在 `--pin-top`。钉线前 `zoom-lead` 距离内 scale 0.55→1、金环 0.8→1 并由暗转亮、光束淡入；钉住的 `zoom-hold`（额外滚动 ≤300px，远小于 90svh）里暖金扫光从左到右掠过马身。只写 transform / opacity。
+- 半人马登场：`.stage` 做 `view-timeline`，画框 `position:sticky` 钉在 `--pin-top`。钉线前 `zoom-lead` 距离内 scale 0.55→1、金环 0.8→1、透明度 0.6→1（首屏就能看见金环）、光束淡入；钉住的 `zoom-hold`（额外滚动 ≤300px，远小于 90svh）里暖金扫光从左到右掠过马身。只写 transform / opacity。
+- 手机（<700）防空屏：钉住段只留 64px，扫光提前 `glint-lead` 在放大后段开始；图注与题签不淡入、始终可见；首个章节上边距 40px、区块间距 48px、入局框上下 36px、页脚上边距 28px。验收标准：390×844 从顶部每滚 100px，视口内无文字/图片/按钮的纵向空带 ≤160px（实测最大 150px）。
+- 桌面（≥1024）首屏：hero 上边距 28px、各段间距收紧、舞台上边距 8px、放大原点改为画框顶边（50% 0），1440×900 在 scrollY=0 时能看到金环与半人马上半身（初始 0.55 倍，画框顶 652px）。
 - 写在 `@supports (animation-timeline: view())` + `prefers-reduced-motion: no-preference` + `max-height:1600px` 里，`animation-timeline` 在 `animation` 简写之后。
 - JS 兜底：不支持时（安卓微信、iOS 26 以下）或 URL 带 `?nosd` 时启用；IntersectionObserver 只在舞台附近（±200px）挂 passive scroll，rAF 合帧，与 CSS 同一区间。
 - `prefers-reduced-motion: reduce`：不钉住、不放大，直接终态。
@@ -210,7 +215,7 @@
 ### 神兽舞台（Hero Figure）
 
 **Role:** 签名记忆点
-透明抠图 + 内联 SVG：双金环（实线 + 1:7 点线）、90s 自转的钴蓝虚线环、三枚菱形金接点、两组呼吸粒子、左右两朵线描云纹托底；背后一道梯形钴蓝光束；抠图上叠一层以抠图为遮罩的暖金扫光。竖排题签贴在舞台右侧（手机横排，左右两道金线夹住）。
+透明抠图 + 内联 SVG：双金环（实线 + 1:7 点线）、90s 自转的钴蓝虚线环、三枚菱形金接点、两组呼吸粒子、左右两朵线描云纹托底；背后一道梯形钴蓝光束；抠图上叠一层以抠图为遮罩的暖金扫光。竖排题签贴在舞台右侧（手机横排，左右两道金线夹住）。马善政没有竖排标点字形，竖排时「，」「。」包一层 `.pv` 挪到字格右上（translate .55em, -.6em），紧贴上一字，不在列底孤悬。
 
 ### 产品铭牌
 
@@ -421,7 +426,7 @@ Example Component Prompts:
   --spacing: 4px;
   --gutter: clamp(16px, 4vw, 48px);
   --container: 1200px;
-  --section-gap: clamp(88px, 9vw, 150px);
+  --section-gap: 48px; /* 手机收紧防空屏；≥700px 为 clamp(88px, 9vw, 150px) */
   --header-h: 64px;
 
   /* Border Radius */
@@ -447,10 +452,11 @@ Example Component Prompts:
   --dur-fast: 160ms;
   --dur-base: 280ms;
 
-  /* 半人马登场（钉住段：lead 放大 + hold 扫光，合计 ≤ 82svh） */
+  /* 半人马登场（钉住段：lead 放大 + hold 扫光，合计 ≤ 82svh；手机 hold 缩到 64px 防空屏，≥700px 回到 min(36svh, 300px)） */
   --pin-top: 76px;
   --zoom-lead: min(46svh, 400px);
-  --zoom-hold: min(36svh, 300px);
+  --zoom-hold: min(8svh, 64px);
+  --glint-lead: min(16svh, 140px);
   --zoom-from: 0.55;
 }
 ```
@@ -537,7 +543,7 @@ Example Component Prompts:
   --spacing: 4px;
   --gutter: clamp(16px, 4vw, 48px);
   --container: 1200px;
-  --section-gap: clamp(88px, 9vw, 150px);
+  --section-gap: 48px; /* 手机收紧防空屏；≥700px 为 clamp(88px, 9vw, 150px) */
   --header-h: 64px;
 
   /* Border Radius */
@@ -563,10 +569,11 @@ Example Component Prompts:
   --dur-fast: 160ms;
   --dur-base: 280ms;
 
-  /* 半人马登场（钉住段：lead 放大 + hold 扫光，合计 ≤ 82svh） */
+  /* 半人马登场（钉住段：lead 放大 + hold 扫光，合计 ≤ 82svh；手机 hold 缩到 64px 防空屏，≥700px 回到 min(36svh, 300px)） */
   --pin-top: 76px;
   --zoom-lead: min(46svh, 400px);
-  --zoom-hold: min(36svh, 300px);
+  --zoom-hold: min(8svh, 64px);
+  --glint-lead: min(16svh, 140px);
   --zoom-from: 0.55;
 }
 ```
