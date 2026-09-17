@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>半人马AI学院 · 刊本组件样张</title>
+<meta name="description" content="半人马AI学院「刊本」范式的组件样张：色板、三声部字体、胶囊按钮全状态、装裱插画、期刊卡、共学五步瓦片、引文与输入框。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Instrument+Sans:wdth,wght@75..100,400..700&family=Instrument+Serif&family=Noto+Sans+SC:wght@400;700;900&family=Noto+Serif+SC:wght@500;700&display=swap">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:var(--header-h)}
+body{margin:0;background:var(--color-paper);color:var(--color-ink);font-family:var(--font-sans);font-size:var(--text-body);line-height:var(--leading-body);overflow-x:hidden;-webkit-font-smoothing:antialiased;font-synthesis:none}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3,p,figure,blockquote,ol,ul{margin:0}
+ol,ul{padding:0;list-style:none}
+em{font-style:normal}
+:focus-visible{outline:2px solid var(--color-ring);outline-offset:3px}
+.on-dark :focus-visible{outline-color:var(--color-ring-dark)}
+.skip{position:absolute;left:-9999px;top:0;z-index:40;background:var(--color-accent);color:var(--color-accent-foreground);padding:12px 16px;font-weight:700}
+.skip:focus{left:16px;top:8px}
+
+/* —— 三声部 —— */
+.label{font-family:var(--font-mono);font-size:var(--text-label);line-height:1.4;letter-spacing:var(--tracking-label);text-transform:uppercase;font-weight:500}
+.shout{font-family:var(--font-display);font-weight:900;font-size:var(--text-shout);line-height:var(--leading-shout);letter-spacing:var(--tracking-shout);font-variation-settings:"wdth" 100}
+.display{font-family:var(--font-display);font-weight:900;font-size:var(--text-display);line-height:var(--leading-display);letter-spacing:var(--tracking-display)}
+.narr-h{font-family:var(--font-serif-zh);font-weight:700;font-size:var(--text-heading);line-height:var(--leading-heading);letter-spacing:var(--tracking-heading)}
+.narr-h em{font-family:var(--font-sans);font-weight:900}
+.narr{font-family:var(--font-serif-zh);font-weight:500;font-size:var(--text-narrative);line-height:var(--leading-narrative)}
+.body{color:var(--color-grey-dark);font-size:var(--text-body);line-height:var(--leading-body)}
+.roman{font-family:var(--font-serif);font-weight:400;font-style:normal}
+
+/* —— 发丝分区头（线 + 等宽标签） —— */
+.sec-rule{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-top:var(--hairline) solid var(--color-ink);padding-top:12px}
+.on-dark .sec-rule{border-top-color:var(--color-hair-dark)}
+
+/* —— 胶囊按钮 —— */
+.btn{display:inline-flex;align-items:center;gap:14px;min-height:48px;padding:4px 4px 4px 22px;border-radius:var(--radius-pill);border:var(--hairline) solid transparent;font:700 15px/1 var(--font-sans);text-decoration:none;cursor:pointer;background:none;color:inherit;transition:background-color var(--dur-fast) var(--ease-edition),color var(--dur-fast) var(--ease-edition),transform var(--dur-fast) var(--ease-edition);white-space:nowrap}
+.btn .ico{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:var(--radius-pill);background:var(--color-construct-paper);font-family:var(--font-mono);font-weight:500;font-size:17px;transition:transform var(--dur-base) var(--ease-edition)}
+.btn:hover .ico,.btn.is-hover .ico{transform:translate(2px,-2px)}
+.btn:active,.btn.is-active{transform:scale(.97)}
+.btn--accent{background:var(--color-accent);color:var(--color-accent-foreground)}
+.btn--accent .ico{background:var(--color-ink);color:var(--color-paper)}
+.btn--accent:hover,.btn--accent.is-hover{background:var(--color-accent-press)}
+.btn--ink{background:var(--color-ink);color:var(--color-paper)}
+.btn--ink .ico{background:var(--color-paper);color:var(--color-ink)}
+.btn--ink:hover,.btn--ink.is-hover{background:var(--color-grey-dark)}
+.btn--line{border-color:var(--color-ink)}
+.btn--line:hover,.btn--line.is-hover{background:var(--color-ink);color:var(--color-paper)}
+.btn--line:hover .ico,.btn--line.is-hover .ico{background:var(--color-accent);color:var(--color-ink)}
+.on-dark .btn--line{border-color:var(--color-construct-strong);color:var(--color-on-dark)}
+.on-dark .btn--line .ico{background:var(--color-construct)}
+.on-dark .btn--line:hover{background:var(--color-on-dark);color:var(--color-ink)}
+.btn:disabled,.btn[aria-disabled="true"]{background:var(--color-disabled-bg);color:var(--color-disabled-fg);border-color:var(--color-hair);cursor:not-allowed;transform:none}
+.btn:disabled .ico,.btn[aria-disabled="true"] .ico{background:transparent;transform:none}
+.btn--sm{min-height:44px;padding:2px 2px 2px 16px;gap:10px;font-size:14px}
+.btn--sm .ico{width:38px;height:38px}
+.textlink{display:inline-flex;align-items:center;min-height:44px;font-weight:700;font-size:15px;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px;transition:color var(--dur-fast) var(--ease-edition)}
+.textlink:hover{color:var(--color-grey-mid)}
+
+/* —— 画作式装裱 —— */
+.plate{position:relative;margin:0;--mat:clamp(18px,4.2vw,64px)}
+.plate .mat{background:var(--color-paper-deep);padding:var(--mat)}
+.plate .mat img{width:100%;aspect-ratio:1448/1086;object-fit:cover;outline:var(--hairline) solid var(--color-ink);outline-offset:-1px}
+.plate figcaption{display:flex;justify-content:flex-end;align-items:center;height:52px;border-bottom:var(--hairline) solid var(--color-hair);color:var(--color-grey-mid)}
+/* ② 的图像角标：奶油底等宽小标签压在插画右下角 */
+.plate .plate-tag{position:absolute;right:var(--mat);bottom:calc(52px + var(--mat));background:var(--color-paper);color:var(--color-ink);padding:7px 10px 6px 12px;line-height:1}
+.plate figcaption .cap{font-family:var(--font-serif-zh);font-size:var(--text-body-sm);text-align:right}
+
+/* —— 期刊卡 —— */
+.jcard{display:flex;flex-direction:column;gap:14px}
+.jcard .cover{background:var(--color-paper-deep);padding:clamp(12px,1.6vw,24px);display:block}
+.jcard .cover img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform var(--dur-base) var(--ease-edition)}
+.jcard .cover--blend img{mix-blend-mode:multiply}
+.jcard:hover .cover img{transform:scale(1.02)}
+.jcard .meta{display:flex;align-items:center;gap:12px;color:var(--color-grey-mid)}
+.jcard .meta .label{font-size:14px}
+.jcard h3{font-family:var(--font-sans);font-weight:700;font-size:21px;line-height:1.35;letter-spacing:-.01em}
+.jcard h3 a{text-decoration:none}
+.jcard h3 a:hover{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+.jcard p{color:var(--color-grey-dark);font-size:var(--text-body-sm);line-height:1.75}
+
+/* —— 标签胶囊 —— */
+.tag{display:inline-flex;align-items:center;min-height:28px;padding:0 12px;border-radius:var(--radius-pill);border:var(--hairline) solid var(--color-ink);font-family:var(--font-mono);font-size:12px;letter-spacing:var(--tracking-label);text-transform:uppercase}
+.tag--accent{background:var(--color-accent);border-color:var(--color-accent);color:var(--color-accent-foreground)}
+.tag--muted{border-color:var(--color-hair);color:var(--color-grey-mid)}
+
+/* —— 共学五步瓦片 —— */
+.steps-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:10px;counter-reset:none}
+.step{position:relative;background:var(--color-paper-deep);min-height:236px;padding:22px 24px 24px;display:flex;flex-direction:column;overflow:hidden}
+.step .num{position:absolute;right:16px;top:10px;font-family:var(--font-display);font-weight:700;font-size:clamp(56px,5vw,76px);line-height:1;letter-spacing:-.04em;font-weight:400;color:var(--color-ink);pointer-events:none}
+.step h3{position:relative;z-index:1;font-family:var(--font-sans);font-weight:900;font-size:clamp(24px,2.1vw,32px);line-height:1.15;letter-spacing:-.02em}
+.step p{position:relative;margin-top:10px;font-family:var(--font-serif-zh);font-weight:500;font-size:18px;line-height:1.6;color:var(--color-grey-dark);max-width:15em}
+.step .label{position:relative;margin-bottom:auto;padding-bottom:28px;color:var(--color-ink)}
+.step--lead{background:var(--color-ink);color:var(--color-on-dark)}
+.step--lead p{color:var(--color-on-dark-muted)}
+.step--lead .label{color:var(--color-on-dark-muted)}
+.step--lead .num{top:auto;bottom:-.1em;font-weight:700;color:var(--color-accent);font-size:clamp(160px,18vw,280px)}
+.step--line{background:transparent;outline:var(--hairline) solid var(--color-hair);outline-offset:-1px}
+.s1{grid-column:span 5;grid-row:span 2}
+.s2{grid-column:span 4}
+.s3{grid-column:span 3}
+.s4{grid-column:span 3}
+.s5{grid-column:span 4}
+
+/* —— 引文 —— */
+.pull{font-family:var(--font-serif-zh);font-weight:700;font-size:clamp(28px,2.6vw + 8px,46px);line-height:1.36;letter-spacing:-.01em}
+.qmark{font-family:var(--font-serif);font-size:clamp(96px,10vw,160px);line-height:.7;height:.5em;display:block;color:var(--color-accent)}
+
+/* —— 输入框 —— */
+.field{display:flex;flex-direction:column;gap:8px;max-width:520px}
+.field input{appearance:none;height:52px;border:var(--hairline) solid var(--color-ink);border-radius:var(--radius-none);background:var(--color-paper);padding:0 16px;font:400 16px var(--font-sans);color:var(--color-ink)}
+.field input::placeholder{color:var(--color-grey-mid)}
+.field input:focus-visible{outline:2px solid var(--color-accent);outline-offset:0}
+.field input[aria-invalid="true"]{border-color:var(--color-accent-press);border-width:2px}
+.field .hint{font-size:var(--text-caption);color:var(--color-grey-mid)}
+.field input:disabled{background:var(--color-disabled-bg);border-color:var(--color-hair);color:var(--color-disabled-fg)}
+
+/* 返回钮垫底：按钮样式不动，在它下面垫一块半透明奶油底，黑场上也找得到 */
+.back-pad{position:fixed;left:8px;bottom:8px;z-index:98;width:var(--back-pad-w);height:36px;border-radius:var(--radius-pill);background:var(--color-back-pad);pointer-events:none}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.kit-head{background:var(--color-void);color:var(--color-on-dark);padding:48px var(--gutter) 56px;border-bottom:var(--hairline) solid var(--color-hair-dark)}
+.kit-head .label{color:var(--color-on-dark-muted)}
+.kit-head h1{margin-top:20px}
+.kit-head h1 em{color:var(--color-accent)}
+.kit-head .narr{margin-top:16px;color:var(--color-on-dark-muted);max-width:34em}
+.kit{padding:0 var(--gutter) 120px;max-width:1440px}
+.block{padding-top:72px}
+.block > h2{font-family:var(--font-display);font-weight:900;font-size:clamp(32px,4vw,56px);line-height:1.05;letter-spacing:-.02em;margin:24px 0 32px}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:10px}
+.sw{grid-column:span 2;border:var(--hairline) solid var(--color-hair);display:flex;flex-direction:column}
+.sw i{display:block;height:92px}
+.sw div{padding:10px 12px 12px;font-size:15px;line-height:1.5}
+.sw b{display:block;font-size:16px}
+.sw .label{color:var(--color-grey-mid);text-transform:none;display:block}
+.types{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.type{border-top:var(--hairline) solid var(--color-ink);padding:14px 0 0}
+.type .label{color:var(--color-grey-mid)}
+.type .sample{margin:18px 0 10px}
+.scale{width:100%;border-collapse:collapse;margin-top:40px}
+.scale td{border-top:var(--hairline) solid var(--color-hair);padding:12px 8px 12px 0;vertical-align:baseline}
+.scale td:first-child{width:170px}
+.scale .label{color:var(--color-grey-mid)}
+.states{display:grid;grid-template-columns:140px repeat(5,minmax(0,1fr));gap:18px 12px;align-items:center}
+.states .label{color:var(--color-grey-mid)}
+.forced-focus{outline:2px solid var(--color-ring);outline-offset:3px}
+.dark-row{background:var(--color-ink-deep);color:var(--color-on-dark);padding:24px;margin-top:24px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.dark-row .label{color:var(--color-on-dark-muted)}
+.dark-row .forced-focus{outline-color:var(--color-ring-dark)}
+.pair{display:grid;grid-template-columns:7fr 5fr;gap:40px;align-items:start}
+.cards{display:grid;grid-template-columns:6fr 3fr 3fr;gap:16px;align-items:start}
+.tags{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:8px}
+.quote-demo{display:grid;grid-template-columns:5fr 7fr;min-height:320px}
+.quote-demo .l{background:var(--color-ink);color:var(--color-on-dark);padding:24px;display:flex;flex-direction:column;justify-content:space-between}
+.quote-demo .l .label{color:var(--color-on-dark-muted)}
+.quote-demo .r{background:var(--color-paper-deep);padding:24px 40px}
+.product-demo{border-top:var(--hairline) solid var(--color-ink)}
+.product-demo .row{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;padding:20px 0;border-bottom:var(--hairline) solid var(--color-hair)}
+.product-demo .pn{font-weight:900;font-size:48px;line-height:1;letter-spacing:-.02em}
+.product-demo a{font-family:var(--font-serif-zh);font-weight:700;font-size:20px;text-decoration:none}
+.product-demo .dl{display:flex;gap:12px;align-items:center}
+.product-demo .dl .label{color:var(--color-grey-mid)}
+.construct-demo{background:var(--color-void);height:260px;position:relative;overflow:hidden}
+.construct-demo svg{position:absolute;inset:0;width:100%;height:100%}
+.construct-demo img{position:absolute;left:50%;top:50%;width:260px;transform:translate(-50%,-50%)}
+.tear-demo{background:var(--color-void);height:120px;position:relative;margin-top:10px}
+.tear-demo svg{position:absolute;left:0;right:0;bottom:0;width:100%;height:24px;fill:var(--color-paper)}
+.note{margin-top:12px;color:var(--color-grey-mid);font-size:var(--text-caption)}
+.product-demo--dark{background:var(--color-ink);color:var(--color-on-dark);padding:0 24px;border-top:0}
+.product-demo--dark .row{border-bottom-color:var(--color-hair-dark)}
+.product-demo--dark .dl .label{color:var(--color-on-dark-muted)}
+.product-demo--dark .btn:disabled{background:transparent;border-color:var(--color-accent);color:var(--color-on-dark-muted)}
+.claim-demo{margin-top:24px;font-weight:900;font-size:clamp(32px,5vw,72px);line-height:1.1;letter-spacing:-.02em}
+.claim-demo span{display:block}
+.claim-demo span + span{color:var(--color-accent-ink)}
+@media (max-width:900px){
+  .sw{grid-column:span 4}
+  .types,.pair,.cards,.quote-demo{grid-template-columns:1fr}
+  .states{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .states > .label{grid-column:1 / -1}
+  .product-demo .row{grid-template-columns:1fr}
+  .steps-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .s1,.s5{grid-column:1 / -1;grid-row:auto}
+  .s2,.s3,.s4{grid-column:span 1}
+}
+@media (max-width:560px){.sw{grid-column:span 6}.steps-grid{grid-template-columns:1fr}.s2,.s3,.s4{grid-column:1 / -1}}
+</style>
+</head>
+<body>
+<header class="kit-head on-dark">
+  <p class="label">半人马AI学院 · 组件样张 · C / EDITION</p>
+  <h1 class="display">刊本：黑场开幕，<em>纸页</em>正文。</h1>
+  <p class="narr">两色加一组橄榄灰，唯一界面强色是 logo 里的橘橙；面零圆角，控件胶囊，层次靠发丝线和底色切换。</p>
+</header>
+
+<main class="kit">
+
+  <section class="block" aria-labelledby="k-color">
+    <div class="sec-rule"><span class="label">01 / COLOR</span><span class="roman">I</span></div>
+    <h2 id="k-color">色板</h2>
+    <div class="grid">
+      <div class="sw"><i style="background:var(--color-void)"></i><div><b>黑场</b><span class="label">#000000 · --color-void</span><br>只用于开幕</div></div>
+      <div class="sw"><i style="background:var(--color-paper)"></i><div><b>奶油纸</b><span class="label">#F1EFE6 · --color-paper</span><br>正文画布</div></div>
+      <div class="sw"><i style="background:var(--color-paper-deep)"></i><div><b>衬纸</b><span class="label">#E4E1D4 · --color-paper-deep</span><br>画框衬纸、瓦片</div></div>
+      <div class="sw"><i style="background:var(--color-ink)"></i><div><b>橄榄墨</b><span class="label">#25251B · --color-ink</span><br>正文、深色瓦片</div></div>
+      <div class="sw"><i style="background:var(--color-ink-deep)"></i><div><b>深墨</b><span class="label">#1B1B13 · --color-ink-deep</span><br>联系区与页脚</div></div>
+      <div class="sw"><i style="background:var(--color-accent)"></i><div><b>橘橙 ≤3%</b><span class="label">#F07800 · --color-accent</span><br>唯一界面强色</div></div>
+      <div class="sw"><i style="background:var(--color-hair)"></i><div><b>发丝</b><span class="label">#D2CFC0 · --color-hair</span><br>纸面分隔线</div></div>
+      <div class="sw"><i style="background:var(--color-grey-mid)"></i><div><b>橄榄灰 · 中</b><span class="label">#5E5D51 · --color-grey-mid</span><br>次要文字 5.8:1</div></div>
+      <div class="sw"><i style="background:var(--color-grey-dark)"></i><div><b>橄榄灰 · 深</b><span class="label">#45443A · --color-grey-dark</span><br>正文说明</div></div>
+      <div class="sw"><i style="background:var(--color-on-dark-muted)"></i><div><b>暗面次要</b><span class="label">#BFBEB0 · --color-on-dark-muted</span><br>黑场上的小字 11:1</div></div>
+      <div class="sw"><i style="background:var(--color-hair-dark)"></i><div><b>暗面发丝</b><span class="label">#3A3A2E · --color-hair-dark</span><br>暗面分隔</div></div>
+      <div class="sw"><i style="background:var(--color-accent-press)"></i><div><b>橘橙按下</b><span class="label">#D86A00 · --color-accent-press</span><br>hover / active</div></div>
+      <div class="sw"><i style="background:var(--color-accent-ink)"></i><div><b>橘橙 · 纸上字</b><span class="label">#C25F00 · --color-accent-ink</span><br>纸面大字强调 3.7:1</div></div>
+      <div class="sw"><i style="background:var(--color-grid)"></i><div><b>网格发丝</b><span class="label">rgba(94,93,81,.25) · --color-grid</span><br>贯穿竖线与横线</div></div>
+    </div>
+    <p class="note">logo 钴蓝 #0C6CCC（--color-logo-blue）只存在于 logo 与插画里，界面不用。</p>
+  </section>
+
+  <section class="block" aria-labelledby="k-type">
+    <div class="sec-rule"><span class="label">02 / TYPE</span><span class="roman">II</span></div>
+    <h2 id="k-type">三声部</h2>
+    <div class="types">
+      <div class="type"><span class="label">喊 · Noto Sans SC 900 / Instrument Sans</span><p class="sample shout" style="font-size:72px">与同行者</p><p class="body">章节名、开幕标题、页脚字标。字号越大字距越紧，最紧 -0.02em，行高 1.02。</p></div>
+      <div class="type"><span class="label">讲 · Noto Serif SC 500/700</span><p class="sample narr-h">一个好问题，<br>值得<em>一起做</em>。</p><p class="body">叙述句与引文。强调词不换色，换声部：落回 900 黑体。</p></div>
+      <div class="type"><span class="label">记 · Geist Mono 500</span><p class="sample label" style="font-size:14px;line-height:1.8">01 / &nbsp;CENTAUR JOURNAL<br>2026.09.15 · EXPERIENCE<br>下载暂未开放</p><p class="body">编号、日期、图注、分区头。只在 12–14px 出现，大写，字距 +0.06em。</p></div>
+    </div>
+    <table class="scale">
+      <tr><td class="label">shout · 148px / 1.02</td><td><span class="shout" style="font-size:clamp(40px,7vw,104px)">从你的积累出发</span></td></tr>
+      <tr><td class="label">display · 92px / 1.06</td><td><span class="display" style="font-size:clamp(36px,5vw,72px)">让 AI 成为</span></td></tr>
+      <tr><td class="label">heading · 50px / 1.18 衬线</td><td><span class="narr-h">你走过的路，都是<em>起点</em>。</span></td></tr>
+      <tr><td class="label">narrative · 30px / 1.5 衬线</td><td><span class="narr">人决定方向，AI 拓展人的能力。</span></td></tr>
+      <tr><td class="label">lede · 19px / 1.75</td><td><span style="font-size:var(--text-lede)">聊聊你正在做的事，和你希望 AI 帮你做成的事。</span></td></tr>
+      <tr><td class="label">body · 16px / 1.75</td><td><span class="body">把你的经验、判断和真实问题，与 AI 的能力连接起来。</span></td></tr>
+      <tr><td class="label">label · 13px mono</td><td><span class="label">HUMAN × AI ｜ 人的意愿 · 能力的延伸</span></td></tr>
+    </table>
+  </section>
+
+  <section class="block" aria-labelledby="k-btn">
+    <div class="sec-rule"><span class="label">03 / BUTTONS</span><span class="roman">III</span></div>
+    <h2 id="k-btn">胶囊按钮 · 全状态</h2>
+    <div class="states">
+      <span></span><span class="label">default</span><span class="label">hover</span><span class="label">active</span><span class="label">focus</span><span class="label">disabled</span>
+      <span class="label">accent 主 CTA</span>
+      <a class="btn btn--accent" href="#k-btn">联系学院顾问 <span class="ico" aria-hidden="true">↗</span></a>
+      <a class="btn btn--accent is-hover" href="#k-btn">联系学院顾问 <span class="ico" aria-hidden="true">↗</span></a>
+      <a class="btn btn--accent is-active" href="#k-btn">联系学院顾问 <span class="ico" aria-hidden="true">↗</span></a>
+      <a class="btn btn--accent forced-focus" href="#k-btn">联系学院顾问 <span class="ico" aria-hidden="true">↗</span></a>
+      <button class="btn" type="button" disabled>联系学院顾问 <span class="ico" aria-hidden="true">↗</span></button>
+      <span class="label">ink 次级</span>
+      <a class="btn btn--ink btn--sm" href="#k-btn">全部观点与动态 <span class="ico" aria-hidden="true">↗</span></a>
+      <a class="btn btn--ink btn--sm is-hover" href="#k-btn">全部观点与动态 <span class="ico" aria-hidden="true">↗</span></a>
+      <a class="btn btn--ink btn--sm is-active" href="#k-btn">全部观点与动态 <span class="ico" aria-hidden="true">↗</span></a>
+      <a class="btn btn--ink btn--sm forced-focus" href="#k-btn">全部观点与动态 <span class="ico" aria-hidden="true">↗</span></a>
+      <button class="btn btn--sm" type="button" disabled>下载知君 <span class="ico" aria-hidden="true">↓</span></button>
+      <span class="label">line 描边</span>
+      <a class="btn btn--line btn--sm" href="#k-btn">了解学院的主张 <span class="ico" aria-hidden="true">↗</span></a>
+      <a class="btn btn--line btn--sm is-hover" href="#k-btn">了解学院的主张 <span class="ico" aria-hidden="true">↗</span></a>
+      <a class="btn btn--line btn--sm is-active" href="#k-btn">了解学院的主张 <span class="ico" aria-hidden="true">↗</span></a>
+      <a class="btn btn--line btn--sm forced-focus" href="#k-btn">了解学院的主张 <span class="ico" aria-hidden="true">↗</span></a>
+      <button class="btn btn--sm" type="button" disabled>下载万象 <span class="ico" aria-hidden="true">↓</span></button>
+    </div>
+    <div class="dark-row on-dark">
+      <span class="label">暗面</span>
+      <a class="btn btn--accent" href="#k-btn">联系学院顾问 <span class="ico" aria-hidden="true">↗</span></a>
+      <button class="btn btn--line" type="button">复制客服链接 <span class="ico" aria-hidden="true">⧉</span></button>
+      <button class="btn btn--line forced-focus" type="button">复制客服链接 <span class="ico" aria-hidden="true">⧉</span></button>
+      <a class="textlink" href="#k-btn">了解共学与共创 →</a>
+    </div>
+    <p class="note">顶栏 CTA 是满高方形色条（书脊），不是胶囊——全站唯一的方形可点色块。</p>
+  </section>
+
+  <section class="block" aria-labelledby="k-plate">
+    <div class="sec-rule"><span class="label">04 / IMAGERY</span><span class="roman">IV</span></div>
+    <h2 id="k-plate">画作式装裱 · 构图线 · 撕纸边</h2>
+    <div class="pair">
+      <figure class="plate">
+        <div class="mat"><img src="../../assets/experience.webp" width="1448" height="1086" alt="概念插画：笔记、铅笔与方向标，象征经验积累与判断"><span class="plate-tag label" aria-hidden="true">EXPERIENCE</span></div>
+        <figcaption><span class="sr-only">EXPERIENCE </span><span class="cap">｜ 经验，值得新的可能。</span></figcaption>
+      </figure>
+      <div>
+        <div class="construct-demo">
+          <svg viewBox="0 0 1440 844" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="none" stroke="var(--color-construct)" stroke-width="1" vector-effect="non-scaling-stroke"><line x1="720" y1="0" x2="720" y2="844"/><circle cx="720" cy="-3" r="425"/><circle cx="720" cy="847" r="425"/><line x1="0" y1="7" x2="1440" y2="837"/><line x1="0" y1="837" x2="1440" y2="7"/></g><rect x="530" y="162" width="380" height="520" fill="none" stroke="var(--color-construct-strong)"/></svg>
+          <img src="../../assets/academy-centaur-cutout.webp" width="1448" height="1086" alt="橙色人身与蓝色马身结合的半人马艺术形象">
+        </div>
+        <div class="tear-demo"><svg viewBox="0 0 1440 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0 24V7H4V4H9V7H12V8H15V5H21V4H27V3H30V4H35V3H38V6H41V3H46V3H52V3H56V4H62V3H65V6H68V6H72V5H77V3H83V3H89V3H95V3H98V3H102V3H108V3H114V3H120V6H125V7H130V9H135V9H139V8H143V6H147V6H153V8H159V10H163V8H167V11H170V10H175V9H179V10H184V8H187V9H193V10H197V12H203V14H209V12H212V14H216V11H219V13H223V14H227V11H231V12H236V10H240V7H245V7H249V6H253V7H258V5H263V7H267V10H272V9H276V12H281V13H285V14H289V13H293V12H296V11H300V8H304V7H309V7H313V6H316V9H321V10H325V13H329V10H335V13H340V14H345V14H350V14H353V11H358V9H362V11H366V9H370V6H374V3H377V3H383V3H389V3H393V3H396V4H402V4H406V5H410V3H415V5H418V7H423V7H428V6H431V7H434V9H438V12H442V11H445V12H451V14H455V14H458V12H462V14H466V13H470V12H474V14H480V14H486V13H490V14H494V13H498V14H504V11H508V11H511V11H516V12H520V13H525V11H529V9H533V11H537V12H541V14H545V11H551V12H556V10H559V9H564V8H569V9H574V10H577V11H582V10H585V9H589V8H592V10H598V12H602V11H606V14H612V11H616V9H619V8H625V7H630V4H634V3H638V6H642V7H646V10H650V9H655V10H658V13H663V14H668V14H672V14H676V11H682V10H687V7H693V6H697V8H701V6H707V3H713V6H717V9H723V7H728V4H734V3H738V3H742V6H745V9H750V7H753V8H758V11H764V14H770V14H774V14H779V14H785V13H791V13H797V12H803V11H808V9H813V11H818V9H822V10H826V9H829V7H833V8H837V8H841V10H845V8H849V10H854V9H858V10H862V11H868V12H872V13H876V11H880V8H884V11H888V13H893V14H896V14H900V14H906V12H912V11H915V9H918V9H922V8H925V7H929V7H934V6H939V9H945V11H951V9H955V6H959V7H963V7H966V5H969V3H973V3H979V3H982V5H985V6H988V7H994V6H998V9H1001V7H1005V7H1009V6H1012V6H1016V9H1020V9H1024V12H1029V12H1033V9H1037V6H1041V3H1044V6H1050V9H1054V8H1059V6H1064V8H1069V9H1075V9H1081V8H1085V7H1089V8H1093V5H1097V3H1101V3H1104V3H1109V3H1112V6H1117V5H1121V3H1125V3H1130V3H1134V3H1139V4H1143V7H1147V6H1151V6H1154V7H1158V4H1162V5H1166V7H1169V10H1173V9H1177V6H1183V6H1186V5H1189V3H1194V3H1199V3H1203V3H1207V6H1213V7H1217V9H1221V9H1225V8H1231V11H1234V14H1239V14H1243V11H1249V10H1255V7H1258V6H1261V4H1265V6H1270V3H1276V6H1279V8H1283V5H1287V3H1292V6H1298V9H1301V11H1304V9H1308V8H1312V7H1316V9H1321V7H1326V7H1331V6H1334V5H1337V5H1341V4H1345V6H1348V8H1351V6H1355V8H1359V11H1363V13H1367V14H1372V14H1375V14H1379V14H1382V14H1385V12H1390V14H1396V14H1400V13H1404V11H1407V14H1411V14H1415V14H1419V12H1423V11H1427V13H1432V10H1437V7H1440V24Z"/></svg></div>
+        <p class="note">黑场 + 黄金分割构图线 + 细框，抠图版半人马放在框里；进入正文时用像素撕纸边切到纸色。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="k-card">
+    <div class="sec-rule"><span class="label">05 / CARDS &amp; TAGS</span><span class="roman">V</span></div>
+    <h2 id="k-card">期刊卡 · 徽标</h2>
+    <div class="cards">
+      <article class="jcard">
+        <span class="cover"><img src="../../assets/co-learning.webp" width="1448" height="1086" alt=""></span>
+        <p class="meta"><span class="tag">观点</span><span class="label">2026.09.15</span></p>
+        <h3><a href="#k-card">《来自嘉木的一封信》</a></h3>
+        <p>我们为什么创办学院，以及希望与你一起走向怎样的 AI 未来。</p>
+      </article>
+      <article class="jcard">
+        <span class="cover cover--blend"><img src="../../assets/academy-centaur-hero.webp" width="1448" height="1086" alt=""></span>
+        <p class="meta"><span class="tag">观点</span><span class="label">2026.09.15</span></p>
+        <h3><a href="#k-card">《AI 越强大，我们越应该谈谈人》</a></h3>
+        <p>人决定去哪里、为什么出发，AI 帮助人走得更远。</p>
+      </article>
+      <div>
+        <span class="label" style="color:var(--color-grey-mid)">徽标</span>
+        <div class="tags"><span class="tag">观点</span><span class="tag tag--accent">联系</span><span class="tag tag--muted">下载暂未开放</span></div>
+        <span class="label" style="display:block;margin-top:32px;color:var(--color-grey-mid)">输入框（零圆角）</span>
+        <div class="field" style="margin-top:10px">
+          <label for="k-in">你的问题</label>
+          <input id="k-in" placeholder="聊聊你正在做的事">
+          <span class="hint">默认态</span>
+        </div>
+        <div class="field" style="margin-top:14px">
+          <label for="k-in2">你的问题</label>
+          <input id="k-in2" aria-invalid="true" value="">
+          <span class="hint">错误态：2px 橘橙深边</span>
+        </div>
+        <div class="field" style="margin-top:14px">
+          <label for="k-in3">你的问题</label>
+          <input id="k-in3" disabled placeholder="暂未开放">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="k-steps">
+    <div class="sec-rule"><span class="label">06 / STEPS</span><span class="roman">VI</span></div>
+    <h2 id="k-steps">共学五步瓦片</h2>
+    <ol class="steps-grid">
+      <li class="step step--lead s1"><span class="label">STEP</span><h3>带来问题</h3><p>从正在做的事出发。</p><span class="num" aria-hidden="true">01</span></li>
+      <li class="step s2"><span class="label">STEP</span><h3>一起梳理</h3><p>讲清背景，找到目标。</p><span class="num" aria-hidden="true">02</span></li>
+      <li class="step step--line s3"><span class="label">STEP</span><h3>动手尝试</h3><p>做出可以试用的初版。</p><span class="num" aria-hidden="true">03</span></li>
+      <li class="step step--line s4"><span class="label">STEP</span><h3>交流结果</h3><p>体验彼此的成果。</p><span class="num" aria-hidden="true">04</span></li>
+      <li class="step s5"><span class="label">STEP</span><h3>持续改进</h3><p>带着反馈，再走一步。</p><span class="num" aria-hidden="true">05</span></li>
+    </ol>
+  </section>
+
+  <section class="block" aria-labelledby="k-quote">
+    <div class="sec-rule"><span class="label">07 / QUOTE &amp; PRODUCT</span><span class="roman">VII</span></div>
+    <h2 id="k-quote">引文对开 · 产品下载行</h2>
+    <div class="quote-demo">
+      <div class="l on-dark"><span class="qmark" aria-hidden="true">“</span><p><b style="font-size:40px;font-weight:900;display:block;line-height:1">嘉木</b><span class="label">— 半人马AI学院院长、创始人</span></p></div>
+      <div class="r"><blockquote class="pull"><p>“我希望学院能聚起一群认同人机共生、愿意共同成长的人。”</p></blockquote></div>
+    </div>
+    <div class="product-demo" style="margin-top:40px">
+      <div class="row"><span class="pn">知君</span><a href="#k-quote">— 让积累参与思考 ↗</a><div class="dl"><button class="btn btn--sm" type="button" disabled>下载知君 <span class="ico" aria-hidden="true">↓</span></button><span class="label">下载暂未开放</span></div></div>
+    </div>
+    <div class="product-demo product-demo--dark on-dark">
+      <div class="row"><span class="pn">万象</span><a href="#k-quote">— 让想法成为应用 ↗</a><div class="dl"><button class="btn btn--sm" type="button" disabled>下载万象 <span class="ico" aria-hidden="true">↓</span></button><span class="label">下载暂未开放</span></div></div>
+    </div>
+    <p class="note">第三章墨色整章里，禁用下载按钮改为橘橙描边。</p>
+    <p class="claim-demo"><span>人决定方向，</span><span>AI 拓展人的能力。</span></p>
+    <p class="note">主张大字带：第二行用纸面橘橙字 --color-accent-ink。</p>
+  </section>
+</main>
+
+<span class="back-pad" aria-hidden="true"></span>
+<a href="../../" style="position:fixed;left:12px;bottom:12px;z-index:99;font:12px/1 ui-monospace,monospace;padding:8px 10px;border-radius:999px;background:rgba(127,127,127,.18);backdrop-filter:blur(8px);color:inherit;text-decoration:none">← 全部方案</a>
+</body>
+</html>

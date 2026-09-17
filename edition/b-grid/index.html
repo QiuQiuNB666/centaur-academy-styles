@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>半人马AI学院 · 发丝网格版</title>
+<meta name="description" content="半人马AI学院：面向经营者与管理者的长期共学与共创学院。人决定方向，AI 拓展人的能力。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Geist+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400..500;1,6..72,400&family=Noto+Sans+SC:wght@100..900&family=Noto+Serif+SC:wght@500;700&display=swap">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:var(--header-h)}
+body{margin:0;background:var(--color-paper);color:var(--color-foreground);font:var(--wght-text) var(--text-body)/var(--leading-body) var(--font-sans);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3,p,figure,ol,ul{margin:0;padding:0}
+ol,ul{list-style:none}
+:focus-visible{outline:2px solid var(--color-focus);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- type voices ---------- */
+.wide{display:inline-block;transform:scaleX(var(--stretch-cjk));transform-origin:0 50%}
+.lat{font-family:var(--font-display-latin);font-weight:540;font-variation-settings:"wdth" var(--wdth-latin),"opsz" 96;letter-spacing:var(--tracking-latin-display);line-height:.9}
+.mono{font-family:var(--font-mono);font-size:var(--text-label);letter-spacing:var(--tracking-label);text-transform:uppercase;line-height:1.4;font-weight:400}
+.serif{font-family:var(--font-serif-latin),var(--font-serif);font-weight:500}
+.h2{font-weight:var(--wght-display);font-size:var(--text-h2);line-height:var(--leading-heading);letter-spacing:var(--tracking-display)}
+.h2 em,.h1 strong{font-style:normal;font-weight:var(--wght-heavy)}
+.h2 em{color:var(--color-accent)}
+.narr{font-family:var(--font-serif);font-weight:500;font-size:var(--text-narrative);line-height:var(--leading-narrative)}
+.anno{font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;color:var(--color-accent);line-height:1.3}
+
+/* ---------- buttons & links ---------- */
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 24px;border-radius:var(--radius-pill);font:600 var(--text-body)/1 var(--font-sans);text-decoration:none;border:1px solid transparent;cursor:pointer;white-space:nowrap;transition:background-color var(--dur-fast) var(--ease-quick),color var(--dur-fast) var(--ease-quick),transform var(--dur-fast) var(--ease-quick)}
+.btn:active{transform:scale(.97)}
+.btn-accent{background:var(--color-accent);color:var(--color-on-accent)}
+.btn-accent:hover{background:var(--color-accent-deep)}
+.btn-line{background:transparent;color:var(--color-on-dark);border-color:var(--color-muted-on-dark)}
+.btn-line:hover{border-color:var(--color-on-dark);background:var(--color-ink-2)}
+.btn[aria-disabled="true"]{background:var(--color-disabled-bg);color:var(--color-disabled-fg);cursor:not-allowed;pointer-events:none}
+.tlink{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-weight:600;text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 calc(100% - 10px)/100% 1px no-repeat;transition:color var(--dur-fast) var(--ease-quick)}
+.tlink:hover{color:var(--color-accent)}
+.rowlink{display:flex;justify-content:space-between;align-items:center;min-height:52px;border-top:1px solid currentColor;font-weight:600;text-decoration:none;max-width:454px}
+.rowlink:hover{color:var(--color-accent)}
+.dark-surface .rowlink:hover{color:var(--color-accent-on-dark)}
+.tag{display:inline-flex;align-items:center;min-height:28px;padding:0 12px;border-radius:var(--radius-pill);font:500 13px/1 var(--font-sans)}
+
+/* ---------- grid + hairlines (照 ③) ---------- */
+.g{display:grid;grid-template-columns:var(--cols)}
+.lines{background-image:linear-gradient(var(--color-hairline),var(--color-hairline)),linear-gradient(var(--color-hairline),var(--color-hairline)),linear-gradient(var(--color-hairline),var(--color-hairline)),linear-gradient(var(--color-hairline),var(--color-hairline));background-repeat:no-repeat;background-size:1px 100%;background-position:12.2% 0,51.1% 0,60% 0,90% 0}
+.pad{padding-left:24px;padding-right:24px}
+
+/* ---------- header (照 ② 书脊) ---------- */
+.bar{position:sticky;top:0;z-index:30;display:flex;align-items:stretch;height:var(--header-h);background:var(--color-paper);border-bottom:1px solid var(--color-hairline)}
+.brand{display:flex;align-items:center;gap:10px;padding:0 20px 0 12px;background:var(--color-ink);color:var(--color-on-dark);text-decoration:none}
+.brand img{width:30px;height:40px;object-fit:contain}
+.brand b{display:block;font-size:16px;font-weight:700;line-height:1.2;letter-spacing:.02em}
+.brand small{display:block;font:500 10px/1.3 var(--font-mono);letter-spacing:.08em;color:var(--color-muted-on-dark)}
+.bar-cta{display:flex;align-items:center;justify-content:flex-end;min-width:min(30vw,420px);padding:0 24px;background:var(--color-accent);color:var(--color-on-accent);font-weight:600;text-decoration:none;transition:background-color var(--dur-fast) var(--ease-quick)}
+.bar-cta:hover{background:var(--color-accent-deep)}
+.bar-nav{display:flex;align-items:center;gap:40px;margin-left:auto;padding-right:24px}
+.bar-nav a{font-size:15px;font-weight:500;text-decoration:none;min-height:44px;display:flex;align-items:center}
+.bar-nav a:hover{color:var(--color-accent)}
+.bar-menu{display:none}
+
+/* ---------- stage: hero grid → black scene (照 ③ s01→s04 + ④ 开幕) ---------- */
+.pin{position:relative;display:flex;flex-direction:column}
+.pin .hero{order:1}.pin .dark{order:2}
+.hero{position:relative;background-color:var(--color-paper);grid-template-rows:7% 60% 21% 12%;height:var(--pin-h)}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(var(--color-hairline),var(--color-hairline)),linear-gradient(var(--color-hairline),var(--color-hairline)),linear-gradient(var(--color-hairline),var(--color-hairline));background-repeat:no-repeat;background-size:100% 1px;background-position:0 7%,0 67%,0 88%}
+.hero>*{position:relative;z-index:1}
+.eyebrow{grid-column:2/5;grid-row:1;display:flex;align-items:center;gap:12px;color:var(--color-foreground)}
+.eyebrow i{display:block;width:40px;height:1px;background:var(--color-accent)}
+.h1{grid-column:2;grid-row:2;align-self:start;padding-top:28px;color:var(--color-accent);font-weight:var(--wght-display);font-size:var(--text-display);line-height:var(--leading-display);letter-spacing:var(--tracking-display)}
+.sub{grid-column:2;grid-row:2;align-self:end;padding-bottom:28px;font-size:clamp(20px,1.8vw,26px);line-height:1.5;font-family:var(--font-serif);font-weight:500}
+.side-anno{grid-column:1;grid-row:2;padding:34px 16px 0 24px;display:flex;flex-direction:column;gap:6px;align-items:flex-end;text-align:right}
+.side-anno span{display:block;width:1px;height:48px;background:var(--color-accent);opacity:.5}
+.vert{grid-column:5;grid-row:2;align-self:start;justify-self:end;padding:28px 24px 0 0;writing-mode:vertical-rl;color:var(--color-muted)}
+.desc{grid-column:2;grid-row:3;padding-top:22px;color:var(--color-muted);font-size:var(--text-body)}
+.actions{grid-column:2;grid-row:3;align-self:end;padding-bottom:20px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px}
+.cell-fig{grid-column:4;grid-row:2;margin:24px}
+.cap{grid-column:4;grid-row:3;padding-top:22px;display:flex;flex-wrap:wrap;gap:4px 10px;color:var(--color-foreground)}
+.cap b{font-weight:500;color:var(--color-accent)}
+.baseline{grid-column:2/4;grid-row:4;align-self:center;font-family:var(--font-serif);font-weight:700;font-size:18px}
+.chev{grid-column:4;grid-row:4;align-self:center;justify-self:end;margin-right:24px;color:var(--color-accent)}
+
+.dark{position:relative;background:var(--color-black);color:var(--color-on-dark);overflow:hidden;height:var(--pin-h)}
+.construct{position:absolute;inset:0;width:100%;height:100%}
+.construct *{fill:none;stroke:var(--color-muted-on-dark);stroke-opacity:.3;stroke-width:1;vector-effect:non-scaling-stroke}
+.construct{transform-box:view-box;transform-origin:50% 50%}
+.frame{position:absolute;left:50%;top:50%;width:var(--cw);aspect-ratio:4/3;transform:translate(-50%,-50%);border:1px solid var(--color-muted-on-dark);opacity:.45}
+.dk-title{position:absolute;left:calc(12.2% + 24px);top:32px;font-size:clamp(48px,7.4vw,118px);color:var(--color-on-dark)}
+.dk-meta{position:absolute;right:calc(10% + 24px);top:40px;color:var(--color-muted-on-dark)}
+.dk-l,.dk-r{position:absolute;bottom:40px;font-family:var(--font-serif);font-size:22px;color:var(--color-on-dark)}
+.dk-l{left:calc(12.2% + 24px)}
+.dk-r{right:calc(10% + 24px)}
+.dk-l::before,.dk-r::before{content:"";display:block;width:48px;height:1px;background:var(--color-accent-on-dark);margin-bottom:12px}
+.dk-r::before{margin-left:auto}
+.centaur{position:absolute;left:50%;bottom:calc(var(--pin-h) / 2);width:var(--cw);transform:translate(-50%,50%);z-index:5;pointer-events:none}
+:root{--cw:min(760px,56vw)}
+
+/* enhanced: pinned scroll zoom: box laid out at final size, scaled up from .5 to 1 */
+@media (min-width:768px) and (prefers-reduced-motion:no-preference){
+  @supports (animation-timeline: scroll()){
+    .stage{height:calc(var(--pin-h) + var(--pin-extra))}
+    .pin{position:sticky;top:var(--header-h);height:var(--pin-h);overflow:hidden}
+    .hero,.dark{position:absolute;inset:0}
+    .hero{z-index:2}
+    .cell-fig{visibility:hidden}
+    .centaur{top:50%;bottom:auto;transform:translate(-50%,-50%);will-change:transform}
+    .hero{animation:fade-out linear both;animation-timeline:scroll(root);animation-range:calc(var(--pin-extra) * .12) calc(var(--pin-extra) * .42)}
+    .dark{animation:fade-in linear both;animation-timeline:scroll(root);animation-range:calc(var(--pin-extra) * .12) calc(var(--pin-extra) * .42)}
+    .centaur{animation:zoom linear both;animation-timeline:scroll(root);animation-range:0px calc(var(--pin-extra) * .82)}
+    .construct{animation:unfold linear both;animation-timeline:scroll(root);animation-range:calc(var(--pin-extra) * .25) calc(var(--pin-extra) * .9)}
+    .frame{animation:frame-in linear both;animation-timeline:scroll(root);animation-range:calc(var(--pin-extra) * .55) calc(var(--pin-extra) * .9)}
+    .dk-title,.dk-meta,.dk-l,.dk-r{animation:rise linear both;animation-timeline:scroll(root);animation-range:calc(var(--pin-extra) * .6) calc(var(--pin-extra) * .95)}
+  }
+}
+@keyframes fade-out{to{opacity:0}}
+@keyframes fade-in{from{opacity:0}to{opacity:1}}
+@keyframes zoom{
+  from{transform:translate(calc(-50% + 25vw),calc(-50% - .13 * var(--pin-h))) scale(.5)}
+  to{transform:translate(-50%,-50%) scale(1)}
+}
+@keyframes unfold{from{opacity:0;transform:scale(.72)}to{opacity:1;transform:scale(1)}}
+@keyframes frame-in{from{opacity:0;transform:translate(-50%,-50%) scale(.94)}to{opacity:.45;transform:translate(-50%,-50%) scale(1)}}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* ---------- index board (照 ③ s03 八宫格) ---------- */
+.board{padding:var(--tile-gap);display:grid;gap:var(--tile-gap);grid-template-columns:1fr 1.8fr 1.4fr 1fr;grid-template-rows:repeat(6,minmax(0,1fr));height:min(880px,max(720px,100svh));grid-template-areas:"steps ch1 ch2 founder" "steps ch1 ch2 founder" "steps ch1 ch2 founder" "journal ch3 logo founder" "journal ch3 contact contact" "journal ch3 contact contact"}
+.tile{position:relative;min-height:0;display:flex;flex-direction:column;padding:22px 24px;border-radius:var(--radius-face);text-decoration:none;overflow:hidden;background:var(--color-paper-2);transition:background-color var(--dur-base) var(--ease-quick)}
+.tile h3{font-weight:var(--wght-display);font-size:var(--text-tile);line-height:1.15;letter-spacing:var(--tracking-display)}
+.tile .mono{margin-top:8px;color:var(--color-muted)}
+.tile .go{position:absolute;top:22px;right:24px;font-size:20px;line-height:1;transition:transform var(--dur-base) var(--ease-quick)}
+.tile:hover .go{transform:translate(3px,3px)}
+.tile:hover{background:var(--color-rule)}
+.tile-ink{background:var(--color-ink);color:var(--color-on-dark)}
+.tile-ink .mono{color:var(--color-muted-on-dark)}
+.tile-ink:hover{background:var(--color-ink-2)}
+.tile-accent{background:var(--color-accent);color:var(--color-on-accent)}
+.tile-accent .mono{color:var(--color-on-accent)}
+.tile-accent:hover{background:var(--color-accent-deep)}
+.tile .pic{margin-top:20px;flex:1 1 0;min-height:0;align-self:flex-end;width:78%;object-fit:cover;border-radius:var(--radius-none)}
+.t-steps{grid-area:steps}.t-ch1{grid-area:ch1}.t-ch2{grid-area:ch2}.t-ch3{grid-area:ch3}.t-founder{grid-area:founder}.t-journal{grid-area:journal}.t-contact{grid-area:contact}
+.t-ch2 .pic{width:70%}
+.t-logo{grid-area:logo;display:flex;gap:var(--tile-gap);min-height:0}
+.t-logo span{position:relative;height:100%;aspect-ratio:1;background:var(--color-ink);border-radius:var(--radius-face)}
+.t-logo img{position:absolute;left:50%;top:50%;height:72%;width:auto;transform:translate(-50%,-50%)}
+.t-logo i{flex:1;border:1px solid var(--color-hairline);border-radius:var(--radius-face)}
+.nodes{margin-top:auto;width:100%;height:auto;color:var(--color-muted-on-dark)}
+.quotes{margin-top:auto;font-family:var(--font-serif-latin);font-size:clamp(120px,13vw,200px);line-height:.6;height:.5em;color:var(--color-ink)}
+.quotes b{display:block;text-align:right;font-weight:500}
+.pages{margin-top:auto;align-self:flex-end;position:relative;width:62%;aspect-ratio:3/4}
+.pages i{position:absolute;inset:0;border:1px solid var(--color-foreground);background:var(--color-paper)}
+.pages i:nth-child(1){transform:translate(-16px,-16px)}
+.pages i:nth-child(2){transform:translate(-8px,-8px)}
+.t-contact h3{font-size:clamp(28px,2.8vw,44px)}
+.t-contact .big-arrow{margin-top:auto;align-self:flex-end;font-family:var(--font-display-latin);font-size:clamp(64px,7vw,120px);line-height:.8}
+
+/* ---------- manifesto + slider demo (照 ③ s09 + s11) ---------- */
+.demo{padding:160px 0 150px;border-top:1px solid var(--color-hairline)}
+.demo-lab{grid-column:1;padding:14px 16px 0 24px;text-align:right}
+.demo-lab span{display:block}
+.demo-lab span+span{margin-top:6px}
+.big{grid-column:2/5;padding:0 24px;font-size:clamp(44px,6.6vw,104px);line-height:1.1;letter-spacing:var(--tracking-display)}
+.big span{display:block}
+.big .hu{font-weight:var(--w-hu,610);transform:scaleX(var(--x-hu,1.04));transform-origin:0 50%}
+.big .ai{font-weight:var(--w-ai,610);transform:scaleX(var(--x-ai,1.04));transform-origin:0 50%;color:var(--color-accent)}
+.control{grid-column:2/4;margin:56px 24px 0;display:flex;align-items:center;gap:16px;min-height:56px;padding:0 20px;background:var(--color-paper);border:1px solid var(--color-foreground);border-radius:var(--radius-pill)}
+.control label{font-size:15px;font-weight:600;white-space:nowrap}
+.control input{flex:1;min-width:80px;accent-color:var(--color-accent);height:44px;cursor:pointer}
+.readout{grid-column:4;margin:56px 24px 0;align-self:center}
+
+/* ---------- chapters ---------- */
+.sec-rail{grid-column:1;grid-row:1/span 3;padding:6px 16px 0 24px}
+.sec-rail .mono{display:block;color:var(--color-accent)}
+.sec-rail .vname{position:sticky;top:calc(var(--header-h) + 24px);margin-top:14px;writing-mode:vertical-rl;font-size:15px;font-weight:600;letter-spacing:.12em}
+.frame-fig{position:relative}
+.frame-fig img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius-none)}
+.tab{position:absolute;left:0;bottom:0;background:var(--color-paper);padding:6px 10px 0 0;color:var(--color-foreground)}
+.figcap{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;margin-top:14px}
+.figcap .serif{font-family:var(--font-serif);font-size:15px}
+
+.ch1{padding:var(--space-ch1) 0 180px;border-top:1px solid var(--color-hairline)}
+.ch1 .num{grid-column:2;padding:0 24px}
+.ch1 .num b{display:block;font-size:var(--text-numeral);color:var(--color-foreground)}
+.ch1 .num span{display:block;margin-top:18px;font-size:clamp(28px,2.6vw,40px);font-weight:var(--wght-display);letter-spacing:var(--tracking-display)}
+.ch1 .txt{grid-column:3/5;padding:10px 24px 0}
+.txt .narr{margin-top:28px;color:var(--color-foreground)}
+.txt .rowlink{margin-top:40px}
+.ch1 .frame-fig{grid-column:2;grid-row:2;margin:150px 24px 0}
+.ch1 .aside{grid-column:4;grid-row:2;align-self:end;padding:0 24px}
+.ch1 .aside .serif{display:block;margin-top:8px;font-family:var(--font-serif);font-size:22px;line-height:1.5}
+
+.ch2{padding:var(--space-ch2) 0 170px;border-top:1px solid var(--color-hairline)}
+.ch2 .txt{grid-column:2/4;padding:0 24px}
+.ch2 .txt .narr{max-width:26em}
+.trio{grid-column:2/5;grid-row:2;margin:96px 24px 0;display:grid;grid-template-columns:38.9fr 38.9fr;gap:24px}
+.trio img{width:100%;height:100%;object-fit:cover;border-radius:var(--radius-none)}
+.trio .a{grid-row:1/3;aspect-ratio:4/5}
+.trio .a img{aspect-ratio:auto;height:100%}
+.trio .a img{object-position:48% 60%}
+.trio .b img{object-position:44% 80%}
+.trio .c img{object-position:30% 30%}
+.trio .b,.trio .c{overflow:hidden}
+.trio .b img,.trio .c img{transform:scale(1.9)}
+.trio .b img{transform-origin:44% 76%}
+.trio .c img{transform-origin:28% 30%}
+.ch2 .figcap{grid-column:2/5;grid-row:3;padding:0 24px}
+.ch2 .trio-anno{grid-column:1;grid-row:2;padding:110px 16px 0 24px;text-align:right}
+
+.dark-surface{background-color:var(--color-ink);color:var(--color-on-dark)}
+.dark-surface.lines{background-image:linear-gradient(var(--color-rule-dark),var(--color-rule-dark)),linear-gradient(var(--color-rule-dark),var(--color-rule-dark)),linear-gradient(var(--color-rule-dark),var(--color-rule-dark)),linear-gradient(var(--color-rule-dark),var(--color-rule-dark))}
+.ch3{padding:var(--space-ch3) 0 150px}
+.ch3 .sec-rail .mono{color:var(--color-accent-on-dark)}
+.ch3 .num{grid-column:2;padding:0 24px;color:var(--color-muted-on-dark)}
+.ch3 .num b{display:block;font-size:var(--text-numeral)}
+.ch3 .num span{display:block;margin-top:18px;font-size:clamp(28px,2.6vw,40px);font-weight:var(--wght-display);color:var(--color-on-dark)}
+.ch3 .txt{grid-column:3/5;padding:0 24px}
+.ch3 .h2 em{color:var(--color-accent-on-dark)}
+.ch3 .narr{color:var(--color-on-dark)}
+.combo{grid-column:2/5;grid-row:2;margin:110px 24px 0;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.combo .frame-fig .tab{background:var(--color-ink);color:var(--color-on-dark)}
+.combo .frame-fig img{aspect-ratio:auto;height:100%;min-height:420px}
+.prods{display:grid;gap:24px}
+.prod{background:var(--color-ink-2);border-radius:var(--radius-face);padding:22px 24px 26px;display:flex;flex-direction:column;gap:18px;min-height:200px}
+.prod .tag{align-self:flex-start;border:1px solid var(--color-accent-on-dark);color:var(--color-on-dark)}
+.prod h3{font-weight:var(--wght-display);font-size:clamp(24px,2.2vw,32px);line-height:1.2}
+.prod h3 a{text-decoration:none}
+.prod h3 a:hover{color:var(--color-accent-on-dark)}
+.prod .dl{margin-top:auto;display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px}
+.prod .dl small{font-size:var(--text-sm);color:var(--color-muted-on-dark)}
+.ch3 .figcap{grid-column:2/5;grid-row:3;padding:0 24px;color:var(--color-on-dark)}
+.ch3 .figcap .mono{color:var(--color-muted-on-dark)}
+
+/* ---------- five steps (照 ② s13 数字格) ---------- */
+.steps{background:var(--color-paper-2);padding:var(--space-steps) 0 0}
+.steps h2{grid-column:2/5;padding:0 24px 64px;font-family:var(--font-serif);font-weight:700;font-size:clamp(28px,3vw,44px);line-height:1.3}
+.steps-anno{grid-column:1;padding:14px 16px 0 24px;text-align:right}
+.steps ol{grid-column:1/-1;display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--color-foreground)}
+.steps li{padding:24px 24px 56px;border-left:1px solid var(--color-rule);transition:background-color var(--dur-base) var(--ease-quick)}
+.steps li:first-child{border-left:0}
+.steps li b{display:block;font-size:clamp(64px,7vw,112px);color:var(--color-foreground);transition:color var(--dur-base) var(--ease-quick)}
+.steps li:hover{background:var(--color-paper)}
+.steps li:hover b{color:var(--color-accent)}
+.steps h3{margin-top:72px;font-size:22px;font-weight:700;letter-spacing:.02em}
+.steps li p{margin-top:8px;color:var(--color-muted);font-size:15px;line-height:1.6}
+
+/* ---------- journal (照 ② s11) ---------- */
+.journal{padding:var(--space-journal) 0 160px}
+.j-head{grid-column:2;padding:0 24px}
+.j-head .mono{color:var(--color-accent)}
+.j-head .h2{margin-top:28px}
+.j-head .tlink{margin-top:28px}
+.j-main{grid-column:3/5;padding:0 24px}
+.feat a{text-decoration:none;display:block}
+.feat img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:50% 40%}
+.meta{display:flex;gap:10px;margin-top:20px;color:var(--color-muted)}
+.feat h3{margin-top:10px;font-family:var(--font-serif);font-weight:700;font-size:var(--text-h3);line-height:1.35}
+.feat a:hover h3,.jrow a:hover h3{color:var(--color-accent)}
+.feat p,.jrow p{margin-top:10px;color:var(--color-muted)}
+.jrow{margin-top:40px;border-top:1px solid var(--color-foreground)}
+.jrow a{display:grid;grid-template-columns:176px 1fr;gap:24px;padding:24px 0;text-decoration:none}
+.jrow+.jrow{margin-top:0}
+.jrow img{width:176px;aspect-ratio:4/3;object-fit:cover}
+.jrow .mix{mix-blend-mode:multiply;object-fit:contain;background:var(--color-paper-2)}
+.jrow h3{font-family:var(--font-serif);font-weight:700;font-size:20px;line-height:1.4;margin-top:6px}
+.jrow .meta{margin-top:0}
+
+/* ---------- founder (照 ② s05 引语对开) ---------- */
+.founder{display:grid;grid-template-columns:40.8fr 59.2fr}
+.f-left{background:var(--color-ink);color:var(--color-on-dark);padding:32px 24px 48px;display:grid;grid-template-columns:1fr 1fr;align-content:start;gap:0 24px;min-height:560px}
+.f-left .qm{font-family:var(--font-serif-latin);font-size:120px;line-height:.8;color:var(--color-accent-on-dark)}
+.f-who{padding-top:12px}
+.f-who .mono{color:var(--color-muted-on-dark)}
+.f-who h2{margin-top:120px;font-family:var(--font-serif);font-size:32px;font-weight:700}
+.f-who p{margin-top:10px;color:var(--color-muted-on-dark);font-size:var(--text-sm);line-height:1.7}
+.f-right{background:var(--color-paper-2);padding:32px 24px 48px}
+.f-right blockquote{margin:0;font-family:var(--font-serif);font-weight:500;font-size:var(--text-quote);line-height:var(--leading-quote);max-width:15em}
+.f-right .narr{margin-top:56px;font-size:19px;color:var(--color-foreground);max-width:28em}
+.f-right .rowlink{margin-top:36px}
+
+/* ---------- contact (照 ④ 黑场构图线 + 细线框 + ② 居中收尾) ---------- */
+.contact{position:relative;background:var(--color-black);color:var(--color-on-dark);padding:150px 16px;overflow:hidden;min-height:700px}
+.contact .construct{opacity:1}
+.c-box{position:relative;margin:0 auto;max-width:620px;border:1px solid var(--color-muted-on-dark);padding:48px 40px 44px;text-align:center;background:var(--color-black)}
+.c-box .mono{color:var(--color-muted-on-dark)}
+.c-box .h2{margin-top:28px;font-size:clamp(32px,3.6vw,52px)}
+.c-box p.body{margin:24px auto 0;color:var(--color-muted-on-dark);max-width:24em}
+.c-box .acts{margin-top:40px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.copied{display:block;min-height:22px;margin-top:10px;font-size:var(--text-sm);color:var(--color-accent-on-dark)}
+
+/* ---------- footer (照 ② 满宽字标) ---------- */
+.foot{background:var(--color-ink);color:var(--color-on-dark);padding:48px 16px 20px}
+.foot .word{font-weight:var(--wght-heavy);font-size:var(--text-wordmark);line-height:1;letter-spacing:-0.03em;white-space:nowrap}
+.foot-row{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:24px;margin-top:40px;padding-top:24px;border-top:1px solid var(--color-rule-dark)}
+.foot-brand{display:flex;gap:12px;align-items:center}
+.foot-brand img{width:40px;height:54px;object-fit:contain}
+.foot-brand b{display:block;font-size:18px}
+.foot-brand small{display:block;color:var(--color-muted-on-dark)}
+.foot-row p{color:var(--color-muted-on-dark)}
+.foot-row .serif{color:var(--color-on-dark);font-family:var(--font-serif);font-size:20px}
+.foot-row a{color:var(--color-on-dark)}
+.foot-row a:hover{color:var(--color-accent-on-dark)}
+.foot-end{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:40px;padding-top:14px;border-top:1px solid var(--color-rule-dark);color:var(--color-muted-on-dark)}
+
+@media (min-width:1101px){
+  .brand{flex:0 0 12.2%;padding:0 8px 0 12px;gap:8px;overflow:hidden}
+  .brand small{letter-spacing:.01em}
+  .bar-cta{flex:0 0 38.9%;min-width:0}
+}
+/* ---------- tablet ---------- */
+@media (max-width:1100px){
+  .bar-nav{gap:22px}
+  .bar-cta{min-width:0}
+  .board{grid-template-columns:1fr 1fr 1fr;grid-template-rows:auto;height:auto;grid-template-areas:"ch1 ch1 steps" "ch2 ch3 ch3" "ch2 founder journal" "logo contact contact"}
+  .tile{min-height:300px}
+  .t-logo{min-height:120px}
+  .t-logo span{height:120px}
+  .combo{grid-template-columns:1fr}
+  .steps ol{grid-template-columns:repeat(3,1fr)}
+  .steps li:nth-child(4){border-left:0}
+  .steps li:nth-child(n+4){border-top:1px solid var(--color-rule)}
+  .jrow a{grid-template-columns:120px 1fr}
+  .jrow img{width:120px}
+  .f-left{grid-template-columns:1fr}
+  .f-who h2{margin-top:48px}
+}
+@media (max-width:900px){
+  .bar-nav{display:none;position:absolute;top:var(--header-h);left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:8px 16px 16px;background:var(--color-paper);border-bottom:1px solid var(--color-hairline)}
+  .bar-nav.open{display:flex}
+  .bar-nav a{min-height:48px;border-bottom:1px solid var(--color-rule)}
+  .bar-menu{display:flex;align-items:center;margin-left:auto;padding:0 16px;min-width:44px;background:none;border:0;font:600 15px var(--font-sans);color:var(--color-foreground);cursor:pointer}
+}
+
+/* ---------- mobile: everything collapses to one column ---------- */
+@media (max-width:767px){
+  .g{display:block;padding:0 16px}
+  .lines,.hero{background-image:linear-gradient(var(--color-hairline),var(--color-hairline)),linear-gradient(var(--color-hairline),var(--color-hairline));background-repeat:no-repeat;background-size:1px 100%;background-position:16px 0,calc(100% - 16px) 0}
+  .dark-surface.lines{background-image:linear-gradient(var(--color-rule-dark),var(--color-rule-dark)),linear-gradient(var(--color-rule-dark),var(--color-rule-dark))}
+  .pad{padding-left:16px;padding-right:16px}
+  .brand{padding:0 12px 0 8px}
+  .brand small{display:none}
+  .brand b{font-size:15px}
+  .bar-cta{padding:0 14px;font-size:14px}
+  .bar-menu{padding:0 12px}
+  .hero{height:auto;display:flex;flex-direction:column;padding:0 16px 0}
+  .hero::after{display:none}
+  .hero>*{padding-left:16px;padding-right:16px;align-self:stretch}
+  .eyebrow{order:1;padding-top:28px;flex-wrap:wrap;gap:6px 10px}
+  .side-anno,.vert,.cell-fig,.chev{display:none}
+  .h1{order:2;padding-top:36px;font-size:clamp(44px,12.4vw,56px)}
+  .sub{order:3;padding:36px 16px 0;font-size:21px}
+  .desc{order:4;padding-top:14px}
+  .actions{order:5;padding-top:28px;padding-bottom:36px}
+  .baseline{order:6;border-top:1px solid var(--color-hairline);padding-top:18px;padding-bottom:18px;font-size:16px}
+  .cap{order:7;border-top:1px solid var(--color-hairline);padding-top:16px;padding-bottom:16px}
+  :root{--cw:calc(100vw - 32px)}
+  .dark{height:calc(var(--cw) * .75 + 190px)}
+  .centaur{bottom:calc(var(--cw) * .375 + 80px)}
+  .dk-title{left:16px;top:20px;font-size:44px}
+  .dk-meta{display:none}
+  .dk-l,.dk-r{bottom:20px;font-size:17px}
+  .dk-l{left:16px}.dk-r{right:16px}
+  .board{grid-template-columns:1fr 1fr;grid-template-areas:"ch1 ch1" "steps ch2" "ch3 ch3" "founder journal" "contact contact" "logo logo"}
+  .tile{min-height:250px;padding:18px}
+  .tile h3{font-size:18px;padding-right:22px}
+  .tile h3 .wide{transform:none}
+  .tile .go{top:18px;right:18px}
+  .t-logo{min-height:72px}
+  .t-logo span{height:72px}
+  .demo{padding:96px 0}
+  .demo-lab{text-align:left;padding:0 0 20px 16px}
+  .demo-lab span{display:inline;margin-right:10px}
+  .big{padding:0 16px;font-size:clamp(34px,9.4vw,44px)}
+  .control{margin:36px 0 0;flex-wrap:wrap;padding:10px 20px;border-radius:28px;gap:4px 12px}
+  .control input{order:3;flex-basis:100%}
+  .control label:last-of-type{margin-left:auto}
+  .readout{margin:16px 16px 0;display:block}
+  .sec-rail{padding:0 16px 24px;display:flex;align-items:center;gap:12px}
+  .sec-rail .vname{position:static;writing-mode:horizontal-tb;margin:0}
+  .ch1,.ch2{padding-top:96px;padding-bottom:96px}
+  .ch3{padding:88px 0 96px}
+  .num{padding:0 16px !important}
+  .txt{padding:36px 16px 0 !important}
+  .ch1 .frame-fig{margin:56px 16px 0}
+  .ch1 .aside{padding:16px 16px 0}
+  .trio{margin:48px 16px 0;grid-template-columns:1fr 1fr;gap:10px}
+  .trio .a{grid-column:1/3;grid-row:auto;aspect-ratio:4/3}
+  .trio .b,.trio .c{aspect-ratio:1}
+  .ch2 .trio-anno{display:none}
+  .figcap{padding:0 16px !important}
+  .combo{margin:48px 16px 0;grid-template-columns:1fr}
+  .combo .frame-fig img{min-height:0;aspect-ratio:4/3}
+  .steps h2{padding:0 16px 40px}
+  .steps-anno{padding:0 16px 12px;text-align:left}
+  .steps ol{grid-template-columns:1fr;margin:0 -16px}
+  .steps li{border-left:0;border-top:1px solid var(--color-rule);display:grid;grid-template-columns:96px 1fr;gap:0 16px;padding:20px 16px 24px}
+  .steps li:first-child{border-top:0}
+  .steps li b{grid-row:1/3;font-size:64px}
+  .steps h3{margin-top:4px}
+  .journal{padding:110px 0 96px}
+  .j-head,.j-main{padding:0 16px}
+  .j-main{margin-top:48px}
+  .jrow a{grid-template-columns:96px 1fr;gap:16px}
+  .jrow img{width:96px}
+  .founder{grid-template-columns:1fr}
+  .f-left{min-height:0;padding:28px 16px 36px}
+  .f-left .qm{font-size:88px}
+  .f-who h2{margin-top:24px}
+  .f-right{padding:36px 16px 48px}
+  .contact{padding:72px 16px}
+  .c-box{padding:36px 20px}
+  .foot-row{grid-template-columns:1fr}
+  .foot .word{font-size:14.4vw}
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <a class="brand" href="https://qiuqiunb666.github.io/centaur-ai-academy/">
+    <img src="../../assets/centaur-logo.webp" alt="" width="434" height="576">
+    <span><b>半人马AI学院</b><small>CENTAUR AI ACADEMY</small></span>
+  </a>
+  <a class="bar-cta" href="https://work.weixin.qq.com/kfid/kfc472df2b7db14c36e" target="_blank" rel="noopener">联系学院顾问 ↗</a>
+  <button class="bar-menu" type="button" aria-expanded="false" aria-controls="nav">目录 +</button>
+  <nav class="bar-nav" id="nav" aria-label="主导航">
+    <a href="https://qiuqiunb666.github.io/centaur-ai-academy/academy/">了解学院</a>
+    <a href="https://qiuqiunb666.github.io/centaur-ai-academy/learning/">共学共创</a>
+    <a href="https://qiuqiunb666.github.io/centaur-ai-academy/tools/">实践工具</a>
+    <a href="https://qiuqiunb666.github.io/centaur-ai-academy/journal/">观点与动态</a>
+  </nav>
+</header>
+
+<main>
+<!-- 1 · HERO：白纸发丝网格，一格 H1、一格半人马；滚动时半人马放大进黑场 -->
+<section class="stage lines" aria-labelledby="h1">
+  <div class="pin">
+    <div class="dark" aria-hidden="true">
+      <svg class="construct" viewBox="0 0 1440 844" preserveAspectRatio="xMidYMid slice">
+        <line x1="0" y1="0" x2="1440" y2="844"/><line x1="1440" y1="0" x2="0" y2="844"/>
+        <line x1="720" y1="0" x2="720" y2="844"/><line x1="340" y1="0" x2="340" y2="844"/><line x1="1100" y1="0" x2="1100" y2="844"/>
+        <line x1="0" y1="137" x2="1440" y2="137"/><line x1="0" y1="707" x2="1440" y2="707"/>
+        <circle cx="720" cy="137" r="570"/><circle cx="720" cy="707" r="570"/>
+        <rect x="130" y="137" width="210" height="210"/><rect x="210" y="137" width="130" height="130"/><rect x="260" y="137" width="80" height="80"/>
+        <rect x="1100" y="497" width="210" height="210"/><rect x="1100" y="577" width="130" height="130"/><rect x="1100" y="627" width="80" height="80"/>
+      </svg>
+      <div class="frame"></div>
+      <p class="dk-title lat">HUMAN × AI</p>
+      <p class="dk-meta mono">CENTAUR AI ACADEMY · 2026</p>
+      <p class="dk-l">人的意愿</p>
+      <p class="dk-r">能力的延伸</p>
+    </div>
+
+    <div class="hero g lines">
+      <p class="eyebrow mono pad"><span>CENTAUR AI ACADEMY</span><i></i><span>学习 · 实践 · 共创</span></p>
+      <div class="side-anno" aria-hidden="true"><span></span><p class="anno">WGHT 560<br>WGHT 860</p><p class="anno">行高 1.06</p></div>
+      <h1 class="h1 pad" id="h1"><span class="wide">让 AI 成为</span><br><span class="wide"><strong>你的能力</strong>。</span></h1>
+      <p class="sub pad">面向经营者与管理者的<br>长期共学与共创学院。</p>
+      <p class="desc pad">把你的经验、判断和真实问题，<br>与 AI 的能力连接起来。</p>
+      <div class="actions pad">
+        <a class="btn btn-accent" href="https://work.weixin.qq.com/kfid/kfc472df2b7db14c36e" target="_blank" rel="noopener">联系学院顾问 ↗</a>
+        <a class="tlink" href="https://qiuqiunb666.github.io/centaur-ai-academy/learning/">了解共学与共创 →</a>
+      </div>
+      <div class="cell-fig" aria-hidden="true"></div>
+      <p class="cap mono pad" id="cap"><b>HUMAN × AI</b><span>｜ 人的意愿 · 能力的延伸</span></p>
+      <p class="vert mono" aria-hidden="true">CENTAUR AI ACADEMY · 2026</p>
+      <p class="baseline pad">人决定方向，AI 拓展人的能力。</p>
+      <svg class="chev" width="28" height="30" viewBox="0 0 28 30" aria-hidden="true"><path d="M2 2l12 11L26 2M2 16l12 11 12-11" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+    </div>
+
+    <figure class="centaur">
+      <img src="../../assets/academy-centaur-cutout.webp" alt="橙色人身与蓝色马身结合的半人马艺术形象" width="1448" height="1086" aria-describedby="cap" fetchpriority="high">
+    </figure>
+  </div>
+</section>
+
+<!-- 目录：八格瓦片，首页即目录 -->
+<nav class="board" aria-label="首页目录">
+  <a class="tile tile-ink t-steps" href="#steps">
+    <h3><span class="wide">共学五步</span></h3><p class="mono">01 - 05</p><span class="go" aria-hidden="true">↘</span>
+    <svg class="nodes" viewBox="0 0 200 240" aria-hidden="true"><polyline points="16,24 184,72 24,120 176,168 40,216" fill="none" stroke="currentColor"/><g fill="currentColor"><rect x="10" y="18" width="12" height="12" rx="2"/><rect x="178" y="66" width="12" height="12" rx="2"/><rect x="18" y="114" width="12" height="12" rx="2"/><rect x="170" y="162" width="12" height="12" rx="2"/><rect x="34" y="210" width="12" height="12" rx="2"/></g></svg>
+  </a>
+  <a class="tile t-ch1" href="#ch1">
+    <h3><span class="wide">从你的积累出发</span></h3><p class="mono">01 / EXPERIENCE</p><span class="go" aria-hidden="true">↘</span>
+    <img class="pic" src="../../assets/experience.webp" alt="" loading="lazy" width="1448" height="1086">
+  </a>
+  <a class="tile t-ch2" href="#ch2">
+    <h3><span class="wide">与同行者一起</span></h3><p class="mono">02 / LEARN TOGETHER</p><span class="go" aria-hidden="true">↘</span>
+    <img class="pic" src="../../assets/co-learning.webp" alt="" loading="lazy" width="1448" height="1086">
+  </a>
+  <a class="tile t-founder" href="#founder">
+    <h3><span class="wide">院长寄语</span></h3><p class="mono">FROM THE FOUNDER</p><span class="go" aria-hidden="true">↘</span>
+    <p class="quotes" aria-hidden="true">“<b>”</b></p>
+  </a>
+  <a class="tile t-journal" href="#journal">
+    <h3><span class="wide">观点与动态</span></h3><p class="mono">CENTAUR JOURNAL</p><span class="go" aria-hidden="true">↘</span>
+    <span class="pages" aria-hidden="true"><i></i><i></i><i></i></span>
+  </a>
+  <a class="tile tile-ink t-ch3" href="#ch3">
+    <h3><span class="wide">让想法落地</span></h3><p class="mono">03 / MAKE IT REAL</p><span class="go" aria-hidden="true">↘</span>
+    <img class="pic" src="../../assets/creating.webp" alt="" loading="lazy" width="1448" height="1086">
+  </a>
+  <div class="t-logo" aria-hidden="true"><span><img src="../../assets/centaur-logo.webp" alt="" width="434" height="576"></span><i></i></div>
+  <a class="tile tile-accent t-contact" href="#contact">
+    <h3><span class="wide">从这里开始</span></h3><p class="mono">THE NEXT CHAPTER</p>
+    <span class="big-arrow" aria-hidden="true">↘</span>
+  </a>
+</nav>
+
+<!-- 演示件：人的意愿 ↔ 能力的延伸 -->
+<section class="demo g lines" aria-label="人的意愿与能力的延伸">
+  <p class="demo-lab" aria-hidden="true"><span class="anno" id="ro-hu">人 · WGHT 610</span><span class="anno" id="ro-ai">AI · WGHT 610</span></p>
+  <p class="big" id="big"><span class="hu">人决定方向，</span><span class="ai">AI 拓展人的能力。</span></p>
+  <div class="control">
+    <label for="balance">人的意愿</label>
+    <input id="balance" type="range" min="0" max="100" value="50" aria-valuetext="居中">
+    <label for="balance" aria-hidden="true">能力的延伸</label>
+  </div>
+  <p class="readout mono" aria-hidden="true">HUMAN × AI</p>
+</section>
+
+<!-- 2 · 三个叙事章节 -->
+<section class="ch1 g lines" id="ch1" aria-labelledby="ch1-t">
+  <div class="sec-rail"><span class="mono">§01</span><span class="vname">从你的积累出发</span></div>
+  <p class="num"><b class="lat">01</b><span class="wide">从你的积累出发</span></p>
+  <div class="txt">
+    <h2 class="h2" id="ch1-t"><span class="wide">你走过的路，</span><br><span class="wide">都是<em>起点</em>。</span></h2>
+    <p class="narr">让 AI 的能力，<br>长在你的经验与判断之上。</p>
+    <a class="rowlink" href="https://qiuqiunb666.github.io/centaur-ai-academy/academy/">了解学院的主张 <span aria-hidden="true">↗</span></a>
+  </div>
+  <figure class="frame-fig">
+    <img src="../../assets/experience.webp" alt="概念插画：笔记、铅笔与方向标，象征经验积累与判断" loading="lazy" width="1448" height="1086">
+    <figcaption class="tab mono">EXPERIENCE</figcaption>
+  </figure>
+  <p class="aside"><span class="mono">｜</span><span class="serif">经验，值得新的可能。</span></p>
+</section>
+
+<section class="ch2 g lines" id="ch2" aria-labelledby="ch2-t">
+  <div class="sec-rail"><span class="mono">§02</span><span class="vname">与同行者一起</span></div>
+  <div class="txt">
+    <h2 class="h2" id="ch2-t"><span class="wide">一个好问题，</span><br><span class="wide">值得<em>一起做</em>。</span></h2>
+    <p class="narr">交流彼此的经验，动手试一次，<br>再把新的方法带回工作。</p>
+    <a class="rowlink" href="https://qiuqiunb666.github.io/centaur-ai-academy/learning/">了解共学与共创 <span aria-hidden="true">↗</span></a>
+  </div>
+  <p class="trio-anno anno" aria-hidden="true">1 : 2<br>同一幅画<br>三处取景</p>
+  <div class="trio">
+    <figure class="a frame-fig"><img src="../../assets/co-learning.webp" alt="概念插画：三位同伴围桌讨论纸上的想法" loading="lazy" width="1448" height="1086"><figcaption class="tab mono">LEARN TOGETHER</figcaption></figure>
+    <div class="b"><img src="../../assets/co-learning.webp" alt="" loading="lazy" width="1448" height="1086"></div>
+    <div class="c"><img src="../../assets/co-learning.webp" alt="" loading="lazy" width="1448" height="1086"></div>
+  </div>
+  <p class="figcap"><span class="mono">｜</span><span class="serif">在对话中看见新的可能。</span></p>
+</section>
+
+<section class="ch3 g lines dark-surface" id="ch3" aria-labelledby="ch3-t">
+  <div class="sec-rail"><span class="mono">§03</span><span class="vname">让想法落地</span></div>
+  <p class="num"><b class="lat">03</b><span class="wide">让想法落地</span></p>
+  <div class="txt">
+    <h2 class="h2" id="ch3-t"><span class="wide">从“我想”，</span><br><span class="wide">到<em>“我来做”</em>。</span></h2>
+    <p class="narr">你的积累，由你掌握。<br>你的方法，可以成为工具。</p>
+  </div>
+  <div class="combo">
+    <figure class="frame-fig">
+      <img src="../../assets/creating.webp" alt="概念插画：电脑、纸面原型与立体模型，表现从想法到创造" loading="lazy" width="1448" height="1086">
+      <figcaption class="tab mono">MAKE IT REAL</figcaption>
+    </figure>
+    <div class="prods">
+      <article class="prod" id="zhijun">
+        <span class="tag">知君</span>
+        <h3><a href="https://qiuqiunb666.github.io/centaur-ai-academy/tools/#zhijun"><span class="sr">知君：</span>让积累参与思考 ↗</a></h3>
+        <p class="dl"><a class="btn" aria-disabled="true" role="link">下载知君 ↓</a><small>下载暂未开放</small></p>
+      </article>
+      <article class="prod" id="wanxiang">
+        <span class="tag">万象</span>
+        <h3><a href="https://qiuqiunb666.github.io/centaur-ai-academy/tools/#wanxiang"><span class="sr">万象：</span>让想法成为应用 ↗</a></h3>
+        <p class="dl"><a class="btn" aria-disabled="true" role="link">下载万象 ↓</a><small>下载暂未开放</small></p>
+      </article>
+    </div>
+  </div>
+  <p class="figcap"><span class="mono">｜</span><span class="serif">亲手试用，持续改进。</span></p>
+</section>
+
+<!-- 3 · 共学五步 -->
+<section class="steps g" id="steps" aria-labelledby="steps-t">
+  <p class="steps-anno anno" aria-hidden="true">01 → 05</p>
+  <h2 id="steps-t">每一次共学，都向前一点</h2>
+  <ol>
+    <li><b class="lat">01</b><h3>带来问题</h3><p>从正在做的事出发。</p></li>
+    <li><b class="lat">02</b><h3>一起梳理</h3><p>讲清背景，找到目标。</p></li>
+    <li><b class="lat">03</b><h3>动手尝试</h3><p>做出可以试用的初版。</p></li>
+    <li><b class="lat">04</b><h3>交流结果</h3><p>体验彼此的成果。</p></li>
+    <li><b class="lat">05</b><h3>持续改进</h3><p>带着反馈，再走一步。</p></li>
+  </ol>
+</section>
+
+<!-- 4 · 观点与动态 -->
+<section class="journal g lines" id="journal" aria-labelledby="j-t">
+  <div class="j-head">
+    <p class="mono">CENTAUR JOURNAL / 观点与动态</p>
+    <h2 class="h2" id="j-t"><span class="wide">保持好奇，</span><br><span class="wide"><em>继续对话</em>。</span></h2>
+    <a class="tlink" href="https://qiuqiunb666.github.io/centaur-ai-academy/journal/">全部观点与动态 ↗</a>
+  </div>
+  <div class="j-main">
+    <article class="feat">
+      <a href="https://qiuqiunb666.github.io/centaur-ai-academy/journal/a-letter-from-jiamu/">
+        <img src="../../assets/co-learning.webp" alt="" loading="lazy" width="1448" height="1086">
+        <p class="meta mono"><span>观点</span><span>2026.09.15</span></p>
+        <h3>来自嘉木的一封信</h3>
+        <p>我们为什么创办学院，以及希望与你一起走向怎样的 AI 未来。</p>
+      </a>
+    </article>
+    <article class="jrow">
+      <a href="https://qiuqiunb666.github.io/centaur-ai-academy/journal/centaur-future/">
+        <img class="mix" src="../../assets/academy-centaur-hero.webp" alt="" loading="lazy" width="1448" height="1086">
+        <div><p class="meta mono"><span>观点</span><span>2026.09.15</span></p><h3>AI 越强大，我们越应该谈谈人</h3><p>人决定去哪里、为什么出发，AI 帮助人走得更远。这是半人马AI学院的出发点。</p></div>
+      </a>
+    </article>
+    <article class="jrow">
+      <a href="https://qiuqiunb666.github.io/centaur-ai-academy/journal/create-with-language/">
+        <img src="../../assets/creating.webp" alt="" loading="lazy" width="1448" height="1086">
+        <div><p class="meta mono"><span>观点</span><span>2026.09.15</span></p><h3>用自己的语言，做一件趁手的工具</h3><p>从每天反复处理的一件小事开始。讲清需求，试用初版，再根据真实结果继续调整。</p></div>
+      </a>
+    </article>
+  </div>
+</section>
+
+<!-- 5 · 院长寄语 -->
+<section class="founder" id="founder" aria-labelledby="f-t">
+  <div class="f-left">
+    <p class="qm" aria-hidden="true">“</p>
+    <div class="f-who">
+      <p class="mono">FROM THE FOUNDER</p>
+      <h2 id="f-t">嘉木</h2>
+      <p>半人马AI学院院长、创始人<br>产品经理 · 连续创业者</p>
+    </div>
+  </div>
+  <div class="f-right">
+    <blockquote>“我希望学院能聚起一群认同人机共生、愿意共同成长的人。”</blockquote>
+    <p class="narr">AI 越强大，我们越应该认真思考：<br>人如何保有自己的目标、判断与选择。</p>
+    <a class="rowlink" href="https://qiuqiunb666.github.io/centaur-ai-academy/journal/a-letter-from-jiamu/">阅读院长来信 <span aria-hidden="true">↗</span></a>
+  </div>
+</section>
+
+<!-- 6 · 联系 -->
+<section class="contact" id="contact" aria-labelledby="c-t">
+  <svg class="construct" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <line x1="0" y1="0" x2="1440" y2="700"/><line x1="1440" y1="0" x2="0" y2="700"/>
+    <line x1="720" y1="0" x2="720" y2="700"/><line x1="410" y1="0" x2="410" y2="700"/><line x1="1030" y1="0" x2="1030" y2="700"/>
+    <circle cx="720" cy="0" r="520"/><circle cx="720" cy="700" r="520"/>
+    <rect x="160" y="90" width="250" height="250"/><rect x="250" y="90" width="160" height="160"/>
+    <rect x="1030" y="360" width="250" height="250"/><rect x="1030" y="450" width="160" height="160"/>
+  </svg>
+  <div class="c-box">
+    <p class="mono">THE NEXT CHAPTER · 从这里开始</p>
+    <h2 class="h2" id="c-t">带上你的问题，<br>我们一起往前走。</h2>
+    <p class="body">聊聊你正在做的事，和你希望 AI 帮你做成的事。</p>
+    <div class="acts">
+      <a class="btn btn-accent" href="https://work.weixin.qq.com/kfid/kfc472df2b7db14c36e" target="_blank" rel="noopener">联系学院顾问 ↗</a>
+      <button class="btn btn-line" type="button" id="copy">复制客服链接</button>
+    </div>
+    <span class="copied" id="copied" role="status"></span>
+  </div>
+</section>
+</main>
+
+<!-- 7 · Footer -->
+<footer class="foot">
+  <p class="word" aria-hidden="true">半人马AI学院</p>
+  <div class="foot-row">
+    <div class="foot-brand"><img src="../../assets/centaur-logo.webp" alt="半人马AI学院标志" width="434" height="576" loading="lazy"><div><b>半人马AI学院</b><small class="mono">CENTAUR AI ACADEMY</small></div></div>
+    <div><p class="serif">各有知君，共创万象。</p><p>人决定方向，AI 拓展人的能力。</p></div>
+    <div><p><a class="tlink" href="https://centaurloop.com/" target="_blank" rel="noopener">半人马人工智能 ↗</a></p><p>由半人马人工智能发起</p></div>
+  </div>
+  <p class="foot-end mono"><span>CENTAUR AI ACADEMY · 2026</span><span>人的意愿 × 能力的延伸</span></p>
+</footer>
+
+<a href="../../" style="position:fixed;left:12px;bottom:12px;z-index:99;font:12px/1 ui-monospace,monospace;padding:8px 10px;border-radius:999px;background:rgba(127,127,127,.18);backdrop-filter:blur(8px);color:inherit;text-decoration:none">← 全部方案</a>
+
+<script>
+(function(){
+  var m=document.querySelector('.bar-menu'),n=document.getElementById('nav');
+  m.addEventListener('click',function(){var o=n.classList.toggle('open');m.setAttribute('aria-expanded',o);m.textContent=o?'目录 −':'目录 +';});
+  var r=document.getElementById('balance'),big=document.getElementById('big'),rh=document.getElementById('ro-hu'),ra=document.getElementById('ro-ai');
+  function set(){var v=+r.value,wh=Math.round(860-v*5),wa=Math.round(360+v*5);
+    big.style.setProperty('--w-hu',wh);big.style.setProperty('--w-ai',wa);
+    big.style.setProperty('--x-hu',(1.1-v*.0012).toFixed(3));big.style.setProperty('--x-ai',(0.98+v*.0012).toFixed(3));
+    rh.textContent='人 · WGHT '+wh;ra.textContent='AI · WGHT '+wa;
+    r.setAttribute('aria-valuetext',v<40?'偏向人的意愿':v>60?'偏向能力的延伸':'居中');}
+  r.addEventListener('input',set);set();
+  var c=document.getElementById('copy'),s=document.getElementById('copied'),url='https://work.weixin.qq.com/kfid/kfc472df2b7db14c36e';
+  c.addEventListener('click',function(){
+    var done=function(){s.textContent='已复制客服链接';setTimeout(function(){s.textContent='';},2400);};
+    if(navigator.clipboard){navigator.clipboard.writeText(url).then(done,function(){s.textContent=url;});}else{s.textContent=url;}
+  });
+})();
+</script>
+</body>
+</html>

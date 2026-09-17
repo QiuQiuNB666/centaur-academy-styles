@@ -84,6 +84,22 @@ note = ''
 if overall:
     names = {i['slug']: i['zh'] for i in rows}
     note = f'<aside><h3>横向评审的看法（独立评委 agent，仅供参考，你说了算）</h3>{rich(overall)}<p class="order">评审排序：{e(" → ".join(names.get(s, s) for s in order))}</p></aside>'
+
+# --- round 3: one edition built strictly after references 2/3/4 ---
+featured_v3 = ''
+ED = ROOT/'edition'
+if (ED/'final'/'index.html').exists():
+    webp(ED/'final'/'shot-fold.png', ED/'final'/'thumb.webp', 1400)
+    ed = json.loads((ED/'manifest.json').read_text()) if (ED/'manifest.json').exists() else {}
+    summary = ed.get('refine', {}).get('summary', '')
+    names = {b['key']: b['name_zh'] for b in ed.get('builds', [])}
+    winner = ed.get('judge', {}).get('winner', '')
+    drafts = ''.join(f'<a href="edition/{k}/">{e(names.get(k, k))}（{"胜出原稿" if k == winner else "落选草稿"}）</a>' for k in ('a-report', 'b-grid', 'c-edition') if (ED/k/'index.html').exists())
+    featured_v3 = (f'<section class="v3"><a class="v3shot" href="edition/final/"><img src="edition/final/thumb.webp" alt="第三轮版本首屏截图" width="1400" height="875"></a>'
+        f'<div class="v3meta"><p class="no">第三轮 · 照着参考 ②③④ 做的一版</p><h2>照着 AI in Design Report、Dropbox Brand、Shopify Editions</h2>'
+        f'<p>{e(summary)}</p><nav><a class="go" href="edition/final/">打开这一版 →</a><a href="edition/final/kit.html">组件样张</a>'
+        f'<a href="{BLOB}edition/final/DESIGN.md">DESIGN.md</a><a href="references/">三个参考站</a></nav>'
+        f'<p class="drafts">同一轮的三个骨架原稿：{drafts}</p></div></section>')
 done = sum(i['ready'] for i in rows)
 page = f'''<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -92,7 +108,7 @@ page = f'''<!doctype html>
 :root{{--bg:#f3f3f1;--ink:#1b1c1e;--mute:#63656a;--line:#dcdcd8;--card:#fff}}
 *{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",system-ui,sans-serif}}
 main{{width:min(1240px,100% - 40px);margin:0 auto;padding-block:56px 96px}}
-header h1{{font-size:clamp(1.6rem,3.4vw,2.4rem);line-height:1.25;margin:0 0 12px;letter-spacing:-.01em}}header p{{margin:0;color:var(--mute);max-width:46em}}header .round2{{margin-top:14px}}header .round2 a{{color:var(--ink);font-weight:600;text-underline-offset:4px}}
+header h1{{font-size:clamp(1.6rem,3.4vw,2.4rem);line-height:1.25;margin:0 0 12px;letter-spacing:-.01em}}header p{{margin:0;color:var(--mute);max-width:46em}}header .round2{{margin-top:14px}}header .round2 a{{color:var(--ink);font-weight:600;text-underline-offset:4px}}.v3{{margin-top:36px;background:var(--card);border:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}}.v3shot{{display:block;overflow:hidden;border-right:1px solid var(--line);aspect-ratio:16/10}}.v3shot img{{display:block;width:100%;height:100%;object-fit:cover;object-position:top}}.v3meta{{padding:28px;display:flex;flex-direction:column;gap:12px}}.v3meta h2{{font-size:1.375rem}}.v3meta p{{margin:0;color:var(--mute)}}.v3meta .drafts{{font-size:.875rem}}.v3meta .drafts a{{color:var(--ink);margin-left:10px}}.r1{{margin:64px 0 0;font-size:1.25rem}}@media(max-width:860px){{.v3{{grid-template-columns:1fr}}.v3shot{{border-right:0;border-bottom:1px solid var(--line)}}}}
 aside{{margin-top:28px;padding:18px 20px;border:1px solid var(--line);border-left:3px solid var(--ink);background:var(--card);font-size:.9375rem}}aside h3{{margin:0 0 6px;font-size:1rem}}aside p{{margin:6px 0 0;color:var(--mute)}}aside ul{{margin:8px 0 0;padding-left:1.2em;color:var(--mute)}}aside li{{margin:4px 0}}aside b{{color:var(--ink)}}aside .order{{color:var(--ink);margin-top:12px}}
 .grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:28px;margin-top:40px}}
 .card{{background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column}}
@@ -106,7 +122,7 @@ h2{{margin:0;font-size:1.5rem;line-height:1.3}}.tag{{margin:0;color:var(--mute)}
 nav{{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:auto;padding-top:14px;font-size:.9375rem}}nav a{{color:var(--ink);text-underline-offset:4px;min-height:44px;display:inline-flex;align-items:center}}nav .go{{font-weight:600}}
 a:focus-visible{{outline:2px solid var(--ink);outline-offset:3px}}footer{{margin-top:56px;color:var(--mute);font-size:.875rem}}
 </style></head><body><main>
-<header><h1>半人马AI学院 · 美术范式候选</h1><p>同一份首页文案、同一批插画，六种美术范式。每套都有完整的 DESIGN.md（色板、字体、间距、组件、Do / Don't、Agent Prompt Guide）、可滚动的首页预览和一页组件样张。当前完成 {done} / {len(rows)}。</p><p class="round2"><a href="references/">第二轮：有奖项和行业背书的真实高级参考站 →</a></p>{note}</header>
+<header><h1>半人马AI学院 · 美术范式候选</h1><p>同一份首页文案、同一批插画，六种美术范式。每套都有完整的 DESIGN.md（色板、字体、间距、组件、Do / Don't、Agent Prompt Guide）、可滚动的首页预览和一页组件样张。当前完成 {done} / {len(rows)}。</p><p class="round2"><a href="references/">第二轮：有奖项和行业背书的真实高级参考站 →</a></p></header>{featured_v3}<h2 class="r1">第一轮 · 六套自拟方案</h2>{note}
 <section class="grid">{''.join(card(i) for i in rows)}</section>
 <footer>挑中哪套告诉我编号即可；也可以混搭（例：02 的版式 + 04 的配色）。预览页左下角「← 全部方案」返回这里。</footer>
 </main></body></html>'''
@@ -114,6 +130,7 @@ a:focus-visible{{outline:2px solid var(--ink);outline-offset:3px}}footer{{margin
 
 md = ['# 半人马AI学院 · 美术范式候选', '', f'在线挑选：**{PAGES}**', '', '同一份首页文案、同一批插画，六种美术范式。每套含 `DESIGN.md`、`tokens.css`、首页预览 `index.html`、组件样张 `kit.html`。', '']
 if overall: md += ['**横向评审（独立评委 agent，仅供参考）**', ''] + [('> ' + l if l.strip() else '>') for l in overall.splitlines()] + ['', '评审排序：' + ' → '.join({i['slug']: i['zh'] for i in rows}.get(x, x) for x in order), '']
+if featured_v3: md += ['## 第三轮 · 照着参考 ②③④ 做的一版', '', f'[打开]({PAGES}edition/final/) · [组件样张]({PAGES}edition/final/kit.html) · [DESIGN.md](edition/final/DESIGN.md) · [三个参考站]({PAGES}references/)', '', '## 第一轮 · 六套自拟方案', '']
 md += ['| # | 范式 | 一句话 | 预览 | 样张 | 范式文档 |', '|---|---|---|---|---|---|']
 for i in rows:
     if i['ready']: md.append(f"| {i['slug'][:2]} | **{i['zh']}** | {i['tagline']} | [打开]({PAGES}styles/{i['slug']}/) | [kit]({PAGES}styles/{i['slug']}/kit.html) | [DESIGN.md](styles/{i['slug']}/DESIGN.md) |")

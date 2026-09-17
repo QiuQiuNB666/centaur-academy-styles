@@ -17,6 +17,12 @@
 
 评审排序：董事会深蓝 → 纸上学刊 → 折纸色块 → 墨与印 → 瑞士网格 → 夜航精密
 
+## 第三轮 · 照着参考 ②③④ 做的一版
+
+[打开](https://qiuqiunb666.github.io/centaur-academy-styles/edition/final/) · [组件样张](https://qiuqiunb666.github.io/centaur-academy-styles/edition/final/kit.html) · [DESIGN.md](edition/final/DESIGN.md) · [三个参考站](https://qiuqiunb666.github.io/centaur-academy-styles/references/)
+
+## 第一轮 · 六套自拟方案
+
 | # | 范式 | 一句话 | 预览 | 样张 | 范式文档 |
 |---|---|---|---|---|---|
 | 01 | **纸上学刊** | 两种纸，一种墨，一种专色，线比色块重要 | [打开](https://qiuqiunb666.github.io/centaur-academy-styles/styles/01-paper-journal/) | [kit](https://qiuqiunb666.github.io/centaur-academy-styles/styles/01-paper-journal/kit.html) | [DESIGN.md](styles/01-paper-journal/DESIGN.md) |

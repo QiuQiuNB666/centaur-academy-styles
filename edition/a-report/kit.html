@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>报告版 · 组件样张</title>
+<meta name="description" content="半人马AI学院「报告版」美术范式的组件样张：色板、三声部字体、按钮状态、目录瓦片、切片图框、报告小节组件。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Instrument+Sans:wght@400..700&family=Instrument+Serif&family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Serif+SC:wght@500;700&display=swap">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--color-paper);color:var(--color-ink);font:400 var(--text-body)/var(--leading-body) var(--font-sans);-webkit-font-smoothing:antialiased;overflow-x:clip}
+h1,h2,h3,p,figure,ul,ol{margin:0;padding:0}
+ul,ol{list-style:none}
+img{display:block;max-width:100%}
+a{color:inherit}
+em{font-style:normal;color:var(--color-cobalt)}
+:focus-visible{outline:2px solid var(--color-cobalt);outline-offset:3px}
+.label{font:500 var(--text-label)/1.3 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase}
+.muted{color:var(--color-ink-muted)}
+.wrap{padding-inline:var(--gutter)}
+.split{display:grid;grid-template-columns:minmax(0,41.47fr) minmax(0,58.53fr);column-gap:var(--gutter)}
+
+.top{height:var(--header-h);display:grid;grid-template-columns:calc(var(--gutter) + (100% - 3 * var(--gutter)) * var(--split) + var(--gutter) / 2) 1fr;border-bottom:1px solid var(--color-ink)}
+.spine{display:flex}
+.brand{display:flex;align-items:center;gap:10px;padding:0 16px 0 12px;background:var(--color-night);color:var(--color-on-night);text-decoration:none}
+.brand img{height:36px;width:auto}
+.brand b{display:block;font:700 17px/1.1 var(--font-display)}
+.brand small{display:block;font:500 9px/1.3 var(--font-mono);letter-spacing:.08em;color:var(--color-on-night-muted)}
+.bar{flex:1;display:flex;align-items:center;justify-content:flex-end;padding:0 18px;background:var(--color-cobalt);color:var(--color-paper);text-decoration:none;font:500 17px/1 var(--font-sans)}
+.bar:hover{background:var(--color-cobalt-deep)}
+.bar:focus-visible{outline-color:var(--color-on-night)}
+.nav{display:flex;justify-content:flex-end;align-items:center;gap:32px;padding:0 var(--gutter);font:500 17px/1 var(--font-sans)}
+
+.sec{padding-block:64px 88px}
+.sec.stone{background:var(--color-stone)}
+.sec-head{border-top:1px solid var(--color-ink);padding-top:14px;display:flex;justify-content:space-between;gap:16px;margin-bottom:40px}
+.intro h1{font:500 var(--text-display-l)/var(--leading-display) var(--font-display);letter-spacing:var(--tracking-display);margin-top:48px}
+.intro p:not(.label){font:500 var(--text-heading)/1.4 var(--font-serif);max-width:24em}
+
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1px;background:var(--color-rule);border:1px solid var(--color-rule)}
+.sw{background:var(--color-paper);display:flex;flex-direction:column}
+.sw i{display:block;height:96px;border-bottom:1px solid var(--color-rule)}
+.sw div{padding:10px 12px 14px}
+.sw b{display:block;font:700 15px/1.3 var(--font-sans)}
+.sw code{display:block;font:500 12px/1.5 var(--font-mono);color:var(--color-ink-muted)}
+.sw span{display:block;font-size:13px;line-height:1.5;color:var(--color-ink-muted);margin-top:4px}
+
+.voices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gutter)}
+.voice{border-top:1px solid var(--color-ink);padding-top:14px}
+.voice .sample{margin:24px 0 16px;min-height:120px;display:flex;align-items:flex-end}
+.v-display{font:500 64px/1.04 var(--font-display);letter-spacing:var(--tracking-display)}
+.v-serif{font:700 44px/1.3 var(--font-serif)}
+.v-mono{font:500 20px/1.4 var(--font-mono);letter-spacing:.06em;text-transform:uppercase}
+.scale li{display:grid;grid-template-columns:200px 1fr;gap:16px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--color-rule)}
+.scale li:first-child{border-top:1px solid var(--color-rule)}
+.scale .t{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 24px;border-radius:var(--radius-pill);font:500 var(--text-body)/1 var(--font-sans);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background-color var(--duration-fast) var(--ease-link),transform var(--duration-fast) var(--ease-link),border-color var(--duration-fast) var(--ease-link)}
+.btn-primary{background:var(--color-cobalt);color:var(--color-paper)}
+.btn-primary:hover,.btn-primary.is-hover{background:var(--color-cobalt-deep)}
+.btn:active,.btn.is-active{transform:scale(.97)}
+.btn.is-focus{outline:2px solid var(--color-cobalt);outline-offset:3px}
+.btn[disabled]{background:var(--color-disabled-bg);color:var(--color-disabled-fg);cursor:not-allowed;transform:none}
+.btn-ghost{background:transparent;color:var(--color-on-night);border-color:var(--color-on-night-muted)}
+.btn-ghost:hover,.btn-ghost.is-hover{border-color:var(--color-on-night);background:var(--color-night-raised)}
+.btn-ghost.is-focus{outline-color:var(--color-on-night)}
+.states{display:grid;grid-template-columns:140px repeat(5,minmax(0,1fr));align-items:center;gap:0}
+.states>*{padding:16px 12px;border-bottom:1px solid var(--color-rule)}
+.states .h{font:500 var(--text-label)/1 var(--font-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--color-ink-muted)}
+.states.night{background:var(--color-night);color:var(--color-on-night);margin-top:24px}
+.states.night>*{border-color:var(--color-night-rule)}
+.states.night .h{color:var(--color-on-night-muted)}
+.tlink{display:inline-flex;align-items:center;min-height:44px;font-weight:500;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
+.tlink:hover,.tlink.is-hover{color:var(--color-cobalt)}
+
+.slab{display:flex;justify-content:space-between;align-items:center;min-height:84px;padding:0 20px;background:var(--color-night);color:var(--color-on-night);text-decoration:none;font:500 var(--text-body-lg)/1.2 var(--font-sans)}
+.slab:hover,.slab.is-hover{background:var(--color-cobalt)}
+.slab svg{width:26px;height:26px}
+.rowlink{display:flex;justify-content:space-between;align-items:center;min-height:52px;border-top:1px solid var(--color-ink);text-decoration:none;font-weight:500}
+.rowlink:hover{color:var(--color-cobalt)}
+
+.field{display:flex;max-width:560px}
+.field input{flex:1;min-width:0;height:62px;border:1px solid var(--color-ink);border-right:0;border-radius:0;padding:0 18px;font:400 var(--text-body)/1 var(--font-sans);background:var(--color-paper);color:var(--color-ink)}
+.field input::placeholder{color:var(--color-ink-muted)}
+.field input:focus-visible{outline:2px solid var(--color-cobalt);outline-offset:-2px}
+.field button{height:62px;border:0;border-radius:0;padding:0 26px;background:var(--color-cobalt);color:var(--color-paper);font:500 var(--text-body)/1 var(--font-sans);cursor:pointer}
+.field.err input{border-bottom:3px solid var(--color-cobalt)}
+
+.tag{position:absolute;right:0;bottom:0;background:var(--color-paper);color:var(--color-ink);font:500 10px/1 var(--font-mono);letter-spacing:.06em;text-transform:uppercase;padding:5px 7px 4px}
+.tags{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.tags .tag{position:static;outline:1px solid var(--color-rule)}
+.meta-chip{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:var(--radius-pill);border:1px solid var(--color-ink);font:500 12px/1 var(--font-mono);letter-spacing:.04em}
+
+.plates{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gutter)}
+.plate{position:relative;aspect-ratio:4/3;background:var(--color-stone-deep);overflow:hidden}
+.plate>img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.08) brightness(1.04);mix-blend-mode:multiply}
+.plate.raw>img{filter:none;mix-blend-mode:normal}
+.win{position:absolute;left:calc(var(--x) * 1%);top:calc(var(--y) * 1%);width:calc(var(--w) * 1%);height:calc(var(--h) * 1%);overflow:hidden;outline:1px solid var(--color-paper)}
+.win img{position:absolute;max-width:none;left:calc(var(--x) / var(--w) * -100%);top:calc(var(--y) / var(--h) * -100%);width:calc(10000% / var(--w));height:calc(10000% / var(--h));object-fit:cover}
+.cap{margin-top:10px;display:flex;justify-content:space-between;gap:12px}
+
+.tiles{display:grid;grid-template-columns:1fr 1.8fr 1fr;gap:1px;background:var(--color-grid);border:1px solid var(--color-grid)}
+.tile{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:24px;min-height:220px;padding:18px;background:var(--color-paper);text-decoration:none}
+.tile:hover,.tile.is-hover{background:var(--color-stone)}
+.tile .label{display:flex;justify-content:space-between}
+.tile strong{font:700 28px/1.15 var(--font-display);letter-spacing:var(--tracking-display);max-width:9em}
+.tile .thumb{position:absolute;right:18px;top:52px;width:min(38%,200px);aspect-ratio:4/3;overflow:hidden;outline:1px solid var(--color-rule)}
+.tile .thumb img{width:100%;height:100%;object-fit:cover}
+.tile .glyph{font:500 56px/1 var(--font-display);letter-spacing:-0.03em;color:var(--color-rule);margin-bottom:auto;margin-top:-8px}
+.tile--accent{background:var(--color-cobalt);color:var(--color-paper)}
+.tile--accent:hover{background:var(--color-cobalt-deep)}
+.tile--accent .glyph{position:absolute;right:18px;bottom:14px;color:var(--color-paper);font-size:80px;margin:0}
+
+.chapter-demo{border-top:1px solid var(--color-ink);padding-top:18px}
+.ch-mark{font:500 var(--text-display-l)/1.02 var(--font-display);letter-spacing:var(--tracking-display)}
+.ch-mark span{display:block;font-weight:500}
+.ch-body h3{font:700 var(--text-quote)/var(--leading-quote) var(--font-serif)}
+.ch-body p{font-size:var(--text-body-lg);margin-top:24px}
+
+.stair{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--color-ink);border-bottom:1px solid var(--color-ink)}
+.stair li{padding:16px 16px 24px;border-left:1px solid var(--color-rule);display:flex;flex-direction:column;gap:10px}
+.stair li:first-child{border-left:0;padding-left:0}
+.stair .n{font:500 clamp(48px,6vw,96px)/.9 var(--font-display);letter-spacing:-0.04em;padding-top:calc((5 - var(--i)) * clamp(12px,2vw,28px));padding-bottom:36px;margin-bottom:auto}
+.stair li:last-child .n{color:var(--color-cobalt)}
+.stair h4{margin:0;font:700 var(--text-title)/1.3 var(--font-display)}
+.stair p{color:var(--color-ink-muted)}
+
+.product{display:grid;grid-template-columns:1fr auto;gap:10px 16px;align-items:center;padding:18px 0;border-bottom:1px solid var(--color-rule);max-width:806px}
+.product:first-of-type{border-top:1px solid var(--color-ink)}
+.product a{font:700 var(--text-heading)/1.2 var(--font-display);text-decoration:none}
+.product a span{font:400 var(--text-body-lg)/1.3 var(--font-serif);margin-left:8px}
+.product small{grid-column:1/-1;text-align:right;font:500 12px/1 var(--font-mono);color:var(--color-ink-muted)}
+
+.quote{display:grid;grid-template-columns:calc((100% - var(--gutter)) * var(--split) + var(--gutter) / 2) 1fr;min-height:420px}
+.quote .l{background:var(--color-night);color:var(--color-on-night);padding:var(--gutter);display:flex;flex-direction:column;justify-content:space-between}
+.quote .l svg{width:52px;height:40px;color:var(--color-cobalt-on-night)}
+.quote .l b{display:block;font:700 var(--text-title)/1.3 var(--font-display)}
+.quote .l span{color:var(--color-on-night-muted);font-size:14px}
+.quote .r{background:var(--color-stone-deep);padding:var(--gutter) var(--gutter) 40px 8px}
+.quote blockquote{margin:0;font:700 clamp(28px,3.4vw,48px)/1.26 var(--font-serif);text-wrap:balance}
+
+.banner{background:var(--color-night);color:var(--color-on-night);text-align:center;padding:72px 24px;display:flex;flex-direction:column;align-items:center;gap:20px}
+.banner h3{font:500 clamp(30px,3.6vw,52px)/1.16 var(--font-display);letter-spacing:var(--tracking-display)}
+.banner .muted{color:var(--color-on-night-muted)}
+
+.zoomdemo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gutter)}
+.zd{position:relative;aspect-ratio:16/10;background-color:var(--color-stone);background-image:linear-gradient(var(--color-grid) 1px,transparent 1px),linear-gradient(90deg,var(--color-grid) 1px,transparent 1px);background-size:12.5% 20%;overflow:hidden}
+.zd img{position:absolute;left:50%;top:50%;width:62%;translate:-50% -50%}
+.zd.start img{width:31%;left:60%;top:21%}
+.zd.start::after{content:"";position:absolute;inset:0 0 58% 0;border-bottom:1px solid var(--color-ink)}
+.zd .tag{right:10px;bottom:10px;outline:1px solid var(--color-grid)}
+
+@media (max-width:899px){
+  .top{grid-template-columns:1fr}
+  .nav{display:none}
+  .split,.voices,.plates,.zoomdemo{grid-template-columns:1fr;row-gap:28px}
+  .states{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .states .h:first-child{grid-column:1/-1}
+  .scale li{grid-template-columns:1fr}
+  .tiles{grid-template-columns:1fr 1fr}
+  .stair{grid-template-columns:1fr;border-bottom:0}
+  .stair li{border-left:0;padding:16px 0;border-bottom:1px solid var(--color-rule)}
+  .stair .n{padding:0 0 12px}
+  .quote{grid-template-columns:1fr}
+  .quote .l{gap:40px}
+}
+@media (max-width:560px){
+  .brand small{display:none}
+  .tiles{grid-template-columns:1fr}
+  .product{grid-template-columns:1fr}
+  .product small{text-align:left}
+  .field{flex-direction:column}
+  .field input{border-right:1px solid var(--color-ink)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="spine">
+    <a class="brand" href="index.html"><img src="../../assets/centaur-logo.webp" alt="" width="434" height="576"><span><b>半人马AI学院</b><small>CENTAUR AI ACADEMY</small></span></a>
+    <a class="bar" href="https://work.weixin.qq.com/kfid/kfc472df2b7db14c36e" target="_blank" rel="noopener">联系学院顾问 ↗</a>
+  </div>
+  <nav class="nav" aria-label="样张目录"><span>顶栏 · 书脊</span><span class="label muted">KIT / A-REPORT</span></nav>
+</header>
+
+<main>
+<section class="sec wrap intro">
+  <div class="sec-head"><span class="label">组件样张 / KIT</span><span class="label muted">CENTAUR AI ACADEMY · 2026</span></div>
+  <div class="split">
+    <p class="label muted">报告版 · 骨架照 AI in Design Report 2026</p>
+    <div>
+      <p>一本可以滚动的年度报告：白纸与暖灰交替，一支钴蓝，发丝线分格，图像只有一种处理。</p>
+      <h1>让 AI 成为<br><em>你的能力</em>。</h1>
+    </div>
+  </div>
+</section>
+
+<section class="sec wrap stone" aria-labelledby="k1">
+  <div class="sec-head"><h2 class="label" id="k1">§01 色板 / COLOR</h2><span class="label muted">钴蓝是唯一界面强色 · 橙只留在 logo 与插画</span></div>
+  <div class="swatches">
+    <div class="sw"><i style="background:var(--color-paper)"></i><div><b>纸白</b><code>#ffffff · --color-paper</code><span>主画布、目录格、卡片底</span></div></div>
+    <div class="sw"><i style="background:var(--color-stone)"></i><div><b>暖灰</b><code>#f3f1ec · --color-stone</code><span>与纸白交替的分区底</span></div></div>
+    <div class="sw"><i style="background:var(--color-stone-deep)"></i><div><b>深暖灰</b><code>#e9e6df · --color-stone-deep</code><span>图框衬底、引语右页</span></div></div>
+    <div class="sw"><i style="background:var(--color-rule)"></i><div><b>暖发丝</b><code>#dcd8cf · --color-rule</code><span>列表分隔、禁用边</span></div></div>
+    <div class="sw"><i style="background:var(--color-ink)"></i><div><b>暖墨</b><code>#1b1916 · --color-ink</code><span>正文、标题、分区黑线</span></div></div>
+    <div class="sw"><i style="background:var(--color-ink-muted)"></i><div><b>次要墨</b><code>#57534b · --color-ink-muted</code><span>说明文字，暖灰底上 6.78:1</span></div></div>
+    <div class="sw"><i style="background:var(--color-night)"></i><div><b>黑场</b><code>#0f0e0c · --color-night</code><span>字标块、院长左页、联系与页脚</span></div></div>
+    <div class="sw"><i style="background:var(--color-on-night-muted)"></i><div><b>黑场次要字</b><code>#aaa498 · --color-on-night-muted</code><span>黑场上 7.78:1</span></div></div>
+    <div class="sw"><i style="background:var(--color-cobalt)"></i><div><b>钴蓝</b><code>#0c6ccc · --color-cobalt</code><span>顶栏 CTA、主按钮、强调词；白字 5.21:1</span></div></div>
+    <div class="sw"><i style="background:var(--color-cobalt-deep)"></i><div><b>深钴蓝</b><code>#0a58a8 · --color-cobalt-deep</code><span>悬停 / 按下</span></div></div>
+    <div class="sw"><i style="background:var(--color-grid)"></i><div><b>蓝发丝</b><code>#d3e0f1 · --color-grid</code><span>满屏网格线、目录格缝</span></div></div>
+    <div class="sw"><i style="background:var(--color-logo-orange)"></i><div><b>logo 橙（界面禁用）</b><code>#f07800 · --color-logo-orange</code><span>只存在于 logo 与插画</span></div></div>
+  </div>
+</section>
+
+<section class="sec wrap" aria-labelledby="k2">
+  <div class="sec-head"><h2 class="label" id="k2">§02 三声部 / TYPE</h2><span class="label muted">喊 · 讲 · 标</span></div>
+  <div class="voices">
+    <div class="voice"><p class="label">喊 · Instrument Sans + Noto Sans SC 500 / 700</p><p class="sample v-display">共学 AI</p><p class="muted">首屏、章名、目录格、页脚字标。字越大越紧：-0.02em，行高 1.06。</p></div>
+    <div class="voice"><p class="label">讲 · Instrument Serif + Noto Serif SC 700</p><p class="sample v-serif">都是<em>起点</em>。</p><p class="muted">章节大引语、院长寄语、副标题。行高 1.3。</p></div>
+    <div class="voice"><p class="label">标 · Geist Mono 500</p><p class="sample v-mono">EXPERIENCE<br>§01 · 2026.09.15</p><p class="muted">分区书眉、图框小标签、日期。12px，字距 0.06em，大写。</p></div>
+  </div>
+  <ol class="scale" style="margin-top:56px">
+    <li><span class="label muted">wordmark · 15.8vw / .92</span><span class="t" style="font:700 clamp(40px,8vw,120px)/.92 var(--font-display);letter-spacing:-0.03em">半人马AI学院</span></li>
+    <li><span class="label muted">display-xl · 132 / 1.06</span><span class="t" style="font:500 var(--text-display-xl)/1.06 var(--font-display);letter-spacing:-0.02em">你的能力。</span></li>
+    <li><span class="label muted">display-l · 78 / 1.02</span><span class="t" style="font:500 var(--text-display-l)/1.02 var(--font-display);letter-spacing:-0.02em">01 从你的积累出发</span></li>
+    <li><span class="label muted">quote · 56 / 1.3 serif</span><span class="t" style="font:700 var(--text-quote)/1.3 var(--font-serif)">一个好问题，值得一起做。</span></li>
+    <li><span class="label muted">display-m · 50 / 1.22</span><span class="t" style="font:500 var(--text-display-m)/1.22 var(--font-display);letter-spacing:-0.02em">保持好奇，继续对话。</span></li>
+    <li><span class="label muted">heading · 32 / 1.22</span><span class="t" style="font:700 var(--text-heading)/1.22 var(--font-display)">《用自己的语言，做一件趁手的工具》</span></li>
+    <li><span class="label muted">title · 22 / 1.3</span><span class="t" style="font:700 22px/1.3 var(--font-display)">带来问题</span></li>
+    <li><span class="label muted">body-lg · 18 / 1.7</span><span style="font-size:18px">让 AI 的能力，长在你的经验与判断之上。</span></li>
+    <li><span class="label muted">body · 16 / 1.7</span><span>聊聊你正在做的事，和你希望 AI 帮你做成的事。</span></li>
+    <li><span class="label muted">label · 12 mono</span><span class="label">CENTAUR JOURNAL / 观点与动态</span></li>
+  </ol>
+</section>
+
+<section class="sec wrap stone" aria-labelledby="k3">
+  <div class="sec-head"><h2 class="label" id="k3">§03 按钮 / BUTTONS</h2><span class="label muted">胶囊按钮 vs 直角面，两极化</span></div>
+  <div class="states">
+    <span class="h">状态</span><span class="h">default</span><span class="h">hover</span><span class="h">active</span><span class="h">focus</span><span class="h">disabled</span>
+    <span class="h">primary</span>
+    <span><a class="btn btn-primary" href="#k3">联系学院顾问 ↗</a></span>
+    <span><a class="btn btn-primary is-hover" href="#k3">联系学院顾问 ↗</a></span>
+    <span><a class="btn btn-primary is-active" href="#k3">联系学院顾问 ↗</a></span>
+    <span><a class="btn btn-primary is-focus" href="#k3">联系学院顾问 ↗</a></span>
+    <span><button class="btn" type="button" disabled>下载知君 ↓</button></span>
+    <span class="h">text link</span>
+    <span><a class="tlink" href="#k3">了解共学与共创 →</a></span>
+    <span><a class="tlink is-hover" href="#k3">了解共学与共创 →</a></span>
+    <span><a class="tlink" href="#k3">了解共学与共创 →</a></span>
+    <span><a class="tlink" href="#k3" style="outline:2px solid var(--color-cobalt);outline-offset:3px">了解共学与共创 →</a></span>
+    <span class="muted">—</span>
+  </div>
+  <div class="states night">
+    <span class="h">黑场 ghost</span>
+    <span><button class="btn btn-ghost" type="button">复制客服链接</button></span>
+    <span><button class="btn btn-ghost is-hover" type="button">复制客服链接</button></span>
+    <span><button class="btn btn-ghost is-active" type="button">复制客服链接</button></span>
+    <span><button class="btn btn-ghost is-focus" type="button">复制客服链接</button></span>
+    <span><button class="btn" type="button" disabled>下载万象 ↓</button></span>
+  </div>
+  <div class="split" style="margin-top:48px">
+    <div>
+      <p class="label muted" style="margin-bottom:12px">直角面 · 章节黑条（default / hover）</p>
+      <a class="slab" href="#k3">了解学院的主张 ↗<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 12h17M13 5l7 7-7 7"/></svg></a>
+      <a class="slab is-hover" href="#k3" style="margin-top:12px">了解共学与共创 ↗<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 12h17M13 5l7 7-7 7"/></svg></a>
+    </div>
+    <div>
+      <p class="label muted" style="margin-bottom:12px">行链接 · 输入框（直角，62 高）</p>
+      <a class="rowlink" href="#k3" style="max-width:454px">阅读院长来信 ↗<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 12h17M13 5l7 7-7 7"/></svg></a>
+      <form class="field" style="margin-top:28px" onsubmit="return false"><label class="label" for="kin" style="position:absolute;left:-9999px">称呼</label><input id="kin" placeholder="你的称呼"><button type="submit">联系学院顾问 ↗</button></form>
+      <div class="field err" style="margin-top:12px"><input aria-label="错误态示例" value="错误态：底部 3px 钴蓝线"><button type="button">重试</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec wrap" aria-labelledby="k4">
+  <div class="sec-head"><h2 class="label" id="k4">§04 图像处理 / IMAGERY</h2><span class="label muted">灰阶叠印底 + 原色切片窗 + 等宽小标签</span></div>
+  <div class="plates">
+    <figure><div class="plate raw"><img src="../../assets/experience.webp" alt="原图：经验插画"></div><figcaption class="cap"><span class="label muted">原图 · 不直接使用</span><span class="muted">暖纸感</span></figcaption></figure>
+    <figure><div class="plate"><img src="../../assets/experience.webp" alt="灰阶叠印后的经验插画"></div><figcaption class="cap"><span class="label muted">第一步 · grayscale + multiply</span><span class="muted">衬 #e9e6df</span></figcaption></figure>
+    <figure><div class="plate"><img src="../../assets/experience.webp" alt="加上原色切片窗的经验插画"><span class="win" style="--x:22;--y:28;--w:30;--h:44"><img src="../../assets/experience.webp" alt=""><span class="tag">Experience</span></span><span class="win" style="--x:76;--y:22;--w:20;--h:34"><img src="../../assets/experience.webp" alt=""></span></div><figcaption class="cap"><span class="label muted">第二步 · 1–2 个原色窗</span><span class="muted">窗口对位，白 1px 框</span></figcaption></figure>
+  </div>
+  <div class="tags" style="margin-top:40px">
+    <span class="tag">Human × AI</span><span class="tag">Experience</span><span class="tag">Learn together</span><span class="tag">Make it real</span>
+    <span class="meta-chip">观点 · 2026.09.15</span>
+  </div>
+  <div class="zoomdemo" style="margin-top:48px">
+    <figure><div class="zd start"><img src="../../assets/academy-centaur-cutout.webp" alt="滚动放大起点：半人马在首屏拼贴格内"><span class="tag">scale 0.5</span></div><figcaption class="cap"><span class="label muted">签名动效 · 起点</span><span class="muted">停在拼贴格里</span></figcaption></figure>
+    <figure><div class="zd"><img src="../../assets/academy-centaur-cutout.webp" alt="滚动放大终点：半人马居中"><span class="tag">scale 1 · ≤740px</span></div><figcaption class="cap"><span class="label muted">签名动效 · 终点</span><span class="muted">钉住 640px 后释放</span></figcaption></figure>
+  </div>
+</section>
+
+<section class="sec wrap stone" aria-labelledby="k5">
+  <div class="sec-head"><h2 class="label" id="k5">§05 目录瓦片 / INDEX TILES</h2><span class="label muted">同构格子 · 蓝发丝缝 · 一格钴蓝</span></div>
+  <div class="tiles">
+    <a class="tile" href="#k5"><span class="label"><span>§01</span><span aria-hidden="true">↘</span></span><strong>从你的积累出发</strong><span class="thumb"><img src="../../assets/experience.webp" alt=""></span></a>
+    <a class="tile is-hover" href="#k5"><span class="label"><span>§02 · hover</span><span aria-hidden="true">↘</span></span><strong>与同行者一起</strong><span class="thumb"><img src="../../assets/co-learning.webp" alt=""></span></a>
+    <a class="tile" href="#k5"><span class="label"><span>§04</span><span aria-hidden="true">↘</span></span><span class="glyph" aria-hidden="true">01—05</span><strong>每一次共学，都向前一点</strong></a>
+    <a class="tile" href="#k5"><span class="label"><span>§06</span><span aria-hidden="true">↘</span></span><span class="glyph" aria-hidden="true">“</span><strong>FROM THE FOUNDER</strong></a>
+    <a class="tile tile--accent" href="#k5" style="grid-column:span 2"><span class="label"><span>§07</span><span aria-hidden="true">↘</span></span><strong>THE NEXT CHAPTER · 从这里开始</strong><span class="glyph" aria-hidden="true">↗</span></a>
+  </div>
+</section>
+
+<section class="sec wrap" aria-labelledby="k6">
+  <div class="sec-head"><h2 class="label" id="k6">§06 报告小节 / CHAPTER</h2><span class="label muted">章节号 + 章名 ｜ 大引语 + 说明</span></div>
+  <div class="chapter-demo split">
+    <p class="ch-mark"><span>02</span>与同行者一起</p>
+    <div class="ch-body"><h3>一个好问题，<br>值得<em>一起做</em>。</h3><p>交流彼此的经验，动手试一次，<br>再把新的方法带回工作。</p></div>
+  </div>
+  <p class="label muted" style="margin:64px 0 16px">共学五步 · 台阶</p>
+  <ol class="stair">
+    <li style="--i:1"><span class="n">01</span><h4>带来问题</h4><p>从正在做的事出发。</p></li>
+    <li style="--i:2"><span class="n">02</span><h4>一起梳理</h4><p>讲清背景，找到目标。</p></li>
+    <li style="--i:3"><span class="n">03</span><h4>动手尝试</h4><p>做出可以试用的初版。</p></li>
+    <li style="--i:4"><span class="n">04</span><h4>交流结果</h4><p>体验彼此的成果。</p></li>
+    <li style="--i:5"><span class="n">05</span><h4>持续改进</h4><p>带着反馈，再走一步。</p></li>
+  </ol>
+  <p class="label muted" style="margin:64px 0 16px">产品下载行</p>
+  <div class="product"><a href="https://qiuqiunb666.github.io/centaur-ai-academy/tools/#zhijun">知君<span>— 让积累参与思考 ↗</span></a><button class="btn" type="button" disabled style="min-height:44px;padding:0 18px;font-size:14px">下载知君 ↓</button><small>下载暂未开放</small></div>
+  <div class="product"><a href="https://qiuqiunb666.github.io/centaur-ai-academy/tools/#wanxiang">万象<span>— 让想法成为应用 ↗</span></a><button class="btn" type="button" disabled style="min-height:44px;padding:0 18px;font-size:14px">下载万象 ↓</button><small>下载暂未开放</small></div>
+</section>
+
+<section class="sec wrap stone" aria-labelledby="k7">
+  <div class="sec-head"><h2 class="label" id="k7">§07 引文与联系 / QUOTE · BANNER</h2><span class="label muted">黑场只给院长左页与联系区</span></div>
+  <div class="quote">
+    <div class="l"><svg viewBox="0 0 52 40" fill="currentColor" aria-hidden="true"><path d="M0 40V24C0 10 7 2 20 0l2 6c-7 2-10 6-10 12h9v22zm30 0V24c0-14 7-22 20-24l2 6c-7 2-10 6-10 12h9v22z"/></svg><p><b>嘉木</b><span>半人马AI学院院长、创始人 / 产品经理 · 连续创业者</span></p></div>
+    <div class="r"><blockquote>“我希望学院能聚起一群认同人机共生、愿意共同成长的人。”</blockquote></div>
+  </div>
+  <div class="banner" style="margin-top:var(--gutter)">
+    <p class="label muted">THE NEXT CHAPTER · 从这里开始</p>
+    <h3>带上你的问题，<br>我们一起往前走。</h3>
+    <p class="muted">聊聊你正在做的事，和你希望 AI 帮你做成的事。</p>
+    <p><a class="btn btn-primary" href="https://work.weixin.qq.com/kfid/kfc472df2b7db14c36e" target="_blank" rel="noopener">联系学院顾问 ↗</a></p>
+  </div>
+</section>
+</main>
+
+<a href="../../" style="position:fixed;left:12px;bottom:12px;z-index:99;font:12px/1 ui-monospace,monospace;padding:8px 10px;border-radius:999px;background:rgba(127,127,127,.18);backdrop-filter:blur(8px);color:inherit;text-decoration:none">← 全部方案</a>
+</body>
+</html>

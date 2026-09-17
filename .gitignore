@@ -1,5 +1,5 @@
-shot-*.png
 .DS_Store
+shot-*.png
 fold.png
 references/*/*
 !references/*/STYLE.md

@@ -1,0 +1,98 @@
+:root {
+  /* Colors — surfaces */
+  --color-paper: #f8f8f3;
+  --color-paper-2: #ecece3;
+  --color-ink: #20211a;
+  --color-ink-2: #2b2c24;
+  --color-black: #000000;
+
+  /* Colors — text */
+  --color-foreground: #20211a;
+  --color-muted: #63645a;
+  --color-on-dark: #f8f8f3;
+  --color-muted-on-dark: #a9aa9c;
+
+  /* Colors — the one accent (logo horse cobalt) */
+  --color-accent: #0c6ccc;
+  --color-accent-deep: #0a56a6;
+  --color-accent-on-dark: #5b9be0;
+  --color-on-accent: #f8f8f3;
+
+  /* Colors — lines */
+  --color-hairline: #cddff2;
+  --color-rule: #d9d9cc;
+  --color-rule-dark: #3a3b32;
+  --color-construct: #34352d;
+  --color-focus: #0c6ccc;
+  --color-disabled-bg: #e2e2d8;
+  --color-disabled-fg: #5a5b51;
+
+  /* Typography — families */
+  --font-sans: 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', system-ui, sans-serif;
+  --font-serif: 'Noto Serif SC', 'Songti SC', STSong, SimSun, serif;
+  --font-display-latin: 'Bricolage Grotesque', 'Helvetica Neue', 'PingFang SC', sans-serif;
+  --font-serif-latin: 'Newsreader', Georgia, 'Songti SC', serif;
+  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Typography — scale */
+  --text-label: 12px;
+  --text-sm: 14px;
+  --text-body: 16px;
+  --text-narrative: 22px;
+  --text-tile: clamp(22px, 1.9vw, 30px);
+  --text-h3: 28px;
+  --text-quote: clamp(28px, 3.2vw, 48px);
+  --text-h2: clamp(34px, 4vw, 60px);
+  --text-display: clamp(44px, 5.9vw, 92px);
+  --text-numeral: clamp(72px, 8.4vw, 132px);
+  --text-wordmark: clamp(56px, 16.4vw, 250px);
+
+  /* Typography — weights (variable, 非整百) */
+  --wght-light: 380;
+  --wght-text: 420;
+  --wght-display: 560;
+  --wght-heavy: 860;
+  --wdth-latin: 100;
+  --stretch-cjk: 1.04;
+
+  /* Line height & tracking */
+  --leading-display: 1.06;
+  --leading-heading: 1.12;
+  --leading-quote: 1.32;
+  --leading-narrative: 1.55;
+  --leading-body: 1.75;
+  --tracking-display: -0.02em;
+  --tracking-latin-display: -0.045em;
+  --tracking-label: 0.06em;
+
+  /* Spacing (4px base) */
+  --spacing: 4px;
+  --gutter: 16px;
+  --tile-gap: 10px;
+  --space-ch1: 160px;
+  --space-ch2: 240px;
+  --space-ch3: 120px;
+  --space-steps: 96px;
+  --space-journal: 200px;
+
+  /* Grid — 5 unequal columns, same fractions everywhere */
+  --cols: 12.2fr 38.9fr 8.9fr 30fr 10fr;
+  --header-h: 56px;
+  --pin-h: min(calc(100svh - 56px), 844px);
+  --pin-extra: min(100vh, 900px);
+
+  /* Radius — two poles */
+  --radius-face: 2px;
+  --radius-none: 0px;
+  --radius-pill: 999px;
+
+  /* Shadows — none; one ring for controls on dark */
+  --shadow-none: none;
+  --shadow-ring: 0 0 0 1px rgba(32, 33, 26, 0.14);
+
+  /* Motion */
+  --ease-quick: cubic-bezier(0.2, 0.1, 0, 1);
+  --ease-stage: cubic-bezier(0.72, 0.16, 0.19, 0.96);
+  --dur-fast: 0.15s;
+  --dur-base: 0.3s;
+}

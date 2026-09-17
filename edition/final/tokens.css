@@ -1,0 +1,89 @@
+:root {
+  /* Colors — 两色 + 橄榄灰阶 + 唯一强色 */
+  --color-void: #000000;
+  --color-paper: #f1efe6;
+  --color-paper-deep: #e4e1d4;
+  --color-ink: #25251b;
+  --color-ink-deep: #1b1b13;
+  --color-hair: #d2cfc0;
+  --color-hair-dark: #3a3a2e;
+  --color-grey-mid: #5e5d51;
+  --color-grey-dark: #45443a;
+  --color-on-dark: #f1efe6;
+  --color-on-dark-muted: #bfbeb0;
+  --color-accent: #f07800;
+  --color-accent-press: #d86a00;
+  --color-accent-ink: #c25f00;
+  --color-accent-foreground: #25251b;
+  --color-logo-blue: #0c6ccc;
+  --color-construct: rgba(241, 239, 230, 0.17);
+  --color-construct-strong: rgba(241, 239, 230, 0.42);
+  --color-construct-paper: rgba(37, 37, 27, 0.07);
+  --color-grid: rgba(94, 93, 81, 0.25);
+  --color-back-pad: rgba(241, 239, 230, 0.88);
+  --color-disabled-bg: #e4e1d4;
+  --color-disabled-fg: #5e5d51;
+  --color-ring: #25251b;
+  --color-ring-dark: #f07800;
+
+  /* Typography — Font Families */
+  --font-display:
+    'Instrument Sans', 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', system-ui, sans-serif;
+  --font-sans:
+    'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
+    system-ui, sans-serif;
+  --font-serif:
+    'Instrument Serif', 'Noto Serif SC', 'Songti SC', STSong, SimSun, serif;
+  --font-serif-zh: 'Noto Serif SC', 'Songti SC', STSong, SimSun, serif;
+  --font-mono:
+    'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    monospace;
+
+  /* Typography — Scale */
+  --text-label: 13px;
+  --text-caption: 15px;
+  --text-body-sm: 16px;
+  --text-body: 16px;
+  --text-lede: 19px;
+  --text-narrative: clamp(22px, 1.2vw + 14px, 30px);
+  --text-heading: clamp(30px, 2.4vw + 14px, 50px);
+  --text-display: clamp(44px, 5.4vw + 8px, 92px);
+  --text-shout: clamp(52px, 9.4vw - 8px, 148px);
+  --text-wordmark: clamp(64px, 14.6vw, 216px);
+
+  /* Line Height & Tracking — 字越大越紧 */
+  --leading-shout: 1.02;
+  --leading-display: 1.06;
+  --leading-heading: 1.18;
+  --leading-narrative: 1.5;
+  --leading-body: 1.75;
+  --tracking-shout: -0.02em;
+  --tracking-display: -0.02em;
+  --tracking-heading: -0.01em;
+  --tracking-body: 0em;
+  --tracking-label: 0.06em;
+
+  /* Spacing (4px base) */
+  --spacing: 4px;
+  --gutter: 16px;
+  --col-gap: 16px;
+  --toc-width: 248px;
+  --content-max: 1160px;
+  --header-h: 56px;
+  --back-pad-w: 94px;
+
+  /* Shapes — 面零圆角，控件胶囊 */
+  --radius-none: 0px;
+  --radius-pill: 999px;
+  --hairline: 1px;
+
+  /* Shadows — 不用 */
+  --shadow-none: none;
+
+  /* Motion */
+  --ease-edition: cubic-bezier(0.72, 0.16, 0.19, 0.96);
+  --ease-settle: cubic-bezier(0.41, 0.19, 0.13, 0.95);
+  --dur-fast: 0.2s;
+  --dur-base: 0.45s;
+}
