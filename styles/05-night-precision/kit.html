@@ -108,7 +108,10 @@ button,input{font:inherit;color:inherit}
 .cut{position:relative;padding:var(--spacing-6) var(--spacing-6) 0;border:1px solid var(--color-border);border-radius:var(--radius-lg);overflow:hidden}
 .cut img{position:relative;z-index:1;margin-bottom:-6.4%}
 .cut::after{content:"";position:absolute;left:4%;right:4%;bottom:-8%;height:26%;background:radial-gradient(50% 50% at 50% 50%,var(--ground-light),transparent 72%)}
-.cut .ruler{position:absolute;left:0;right:0;bottom:0;z-index:2;border-bottom:0}
+.cut .ruler{position:absolute;left:0;right:0;bottom:0;z-index:0;border-bottom:0}
+.cut::before{content:"";position:absolute;right:0;bottom:0;width:10px;height:80%;background:
+  repeating-linear-gradient(0deg,var(--color-border-strong) 0 1px,transparent 1px var(--tick-major)) 100% 100%/100% 100% no-repeat,
+  repeating-linear-gradient(0deg,var(--color-border) 0 1px,transparent 1px var(--tick-minor)) 100% 100%/50% 100% no-repeat}
 .j-meta{display:flex;gap:var(--spacing-3);align-items:center}
 .tag{font-family:var(--font-mono);font-size:var(--text-caption);padding:3px 7px;border-radius:var(--radius-sm);letter-spacing:.1em}
 .tag.o{color:var(--color-pastel-orange-text);background:var(--color-pastel-orange-bg)}
@@ -270,7 +273,7 @@ button,input{font:inherit;color:inherit}
       </figure>
       <div>
         <div class="cut"><img src="../../assets/academy-centaur-cutout.webp" alt="橙色人身与蓝色马身结合的半人马艺术形象" width="1448" height="1086"><div class="ruler" aria-hidden="true"></div></div>
-        <p class="note">左：亮盒展品——发丝线外框 + 图号刻度条 + 5px 暖纸衬边 + 图注，角上两枚对位标。右：抠图直接站在画布上，脚下只有一块冷白地面光和一把刻度尺。</p>
+        <p class="note">左：亮盒展品——发丝线外框 + 图号刻度条 + 5px 暖纸衬边 + 图注，角上两枚对位标。右：抠图直接站在画布上，脚下只有一块冷白地面光和一把刻度尺，右缘一把竖尺量高；刻度永远在马蹄后面。</p>
         <div class="row-gap" style="margin-top:var(--spacing-6)">
           <div class="lightbox mini" style="width:120px"><div class="lb-mat"><img src="../../assets/creating.webp" alt="" width="1448" height="1086"></div></div>
           <div class="lightbox mini" style="width:120px"><div class="lb-mat"><img src="../../assets/academy-centaur-hero.webp" alt="" width="1448" height="1086"></div></div>

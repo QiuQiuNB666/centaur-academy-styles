@@ -73,6 +73,11 @@ button{font:inherit;color:inherit}
 /* ── Hero ── */
 .hero{position:relative;overflow:hidden}
 .hero>.wrap{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--spacing-8);align-items:center;min-height:min(720px,calc(100svh - var(--header-height) - 82px));padding-top:var(--spacing-12)}
+.hero>.wrap{z-index:2}
+.hero-ruler{z-index:1}
+.hero>.wrap::after{content:"";position:absolute;right:-1px;bottom:0;width:10px;height:min(80%,560px);pointer-events:none;background:
+  repeating-linear-gradient(0deg,var(--color-border-strong) 0 1px,transparent 1px var(--tick-major)) 100% 100%/100% 100% no-repeat,
+  repeating-linear-gradient(0deg,var(--color-border) 0 1px,transparent 1px var(--tick-minor)) 100% 100%/50% 100% no-repeat}
 .hero-copy{grid-column:1/7;grid-row:1;padding-bottom:var(--spacing-12);position:relative;z-index:2}
 .hero-copy .mono{display:flex;flex-wrap:wrap;align-items:center;gap:0 var(--spacing-3)}
 .hero-copy .mono .dash{display:inline-block;width:40px;height:1px;background:var(--color-border-strong)}
@@ -93,7 +98,7 @@ h1 em{font-style:normal;color:var(--color-brand)}
 .hero-foot .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-6);min-height:72px;padding-block:var(--spacing-4)}
 .hero-foot p:first-child{font-size:var(--text-body);letter-spacing:.04em}
 .hero-foot .cap-rest{display:none}
-.hero-ruler{position:relative;z-index:1}
+.hero-ruler{position:relative}
 .hero-ruler .wrap{border-inline-color:transparent;padding-inline:0}
 
 /* ── 章节 ── */
@@ -168,7 +173,7 @@ h2.plain{color:var(--color-foreground)}
 .j-card{display:block}
 .j-card .lb-mat img{aspect-ratio:16/9}
 .j-meta{display:flex;gap:var(--spacing-3);align-items:center}
-.j-meta .tag{color:var(--color-pastel-orange-text);background:var(--color-pastel-orange-bg);padding:3px 7px;border-radius:var(--radius-sm);letter-spacing:.1em}
+.j-meta .tag{white-space:nowrap;color:var(--color-pastel-orange-text);background:var(--color-pastel-orange-bg);padding:3px 7px;border-radius:var(--radius-sm);letter-spacing:.1em}
 .j-card h3{font-size:var(--text-heading);line-height:1.3;font-weight:var(--weight-medium);letter-spacing:var(--tracking-heading);transition:color var(--duration-fast) var(--ease-precise)}
 .j-card p{margin-top:var(--spacing-3);color:var(--color-muted-foreground);font-size:15px;line-height:1.7}
 .j-card:hover h3{color:var(--color-brand)}
@@ -209,7 +214,7 @@ h2.plain{color:var(--color-foreground)}
 .ftr .wrap{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--spacing-8);row-gap:var(--spacing-8);padding-block:var(--spacing-12) var(--spacing-16)}
 .f-brand{grid-column:1/6;display:flex;gap:var(--spacing-4);align-items:center}
 .f-brand img{width:40px}
-.f-slogan{grid-column:6/10;align-self:center;font-size:var(--text-subheading);letter-spacing:.14em;font-weight:var(--weight-medium)}
+.f-slogan{white-space:nowrap;grid-column:6/10;align-self:center;font-size:var(--text-subheading);letter-spacing:.14em;font-weight:var(--weight-medium)}
 .f-link{grid-column:10/13;justify-self:end;align-self:center}
 .f-base{grid-column:1/-1;display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--spacing-2) var(--spacing-8);padding-top:var(--spacing-6);border-top:1px solid var(--color-border);font-size:var(--text-body-sm);color:var(--color-subtle-foreground)}
 
@@ -228,6 +233,28 @@ h2.plain{color:var(--color-foreground)}
   .steps-head .mono{grid-column:1/-1;margin-bottom:var(--spacing-3)}.steps-head h2{grid-column:1/-1}
   .founder .mono{grid-column:1/-1;margin-bottom:var(--spacing-6)}
   .f-body{grid-column:1/9}.f-sign{grid-column:9/13}
+  .j-lead,.j-side{grid-column:1/-1}
+  .j-side{margin-top:var(--spacing-10)}
+  .j-lead{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--spacing-8);align-items:center}
+  .j-lead>.lightbox{grid-column:1/8;grid-row:1/4}
+  .j-lead>.j-meta,.j-lead>h3,.j-lead>p{grid-column:8/13}
+  .j-lead>.j-meta{margin-top:0;align-self:end}.j-lead>p{align-self:start}
+  .f-brand{grid-column:1/5}.f-slogan{grid-column:5/10;text-align:center}
+}
+@media (min-width:768px) and (max-width:1080px){
+  .products li{grid-template-columns:1fr}
+  .p-dl{flex-direction:row;align-items:center;gap:var(--spacing-3)}
+}
+@media (max-width:900px){
+  .hero>.wrap{display:block}
+  .hero>.wrap::after{display:none}
+  .hero-fig{width:min(620px,92%);margin:-140px 0 0 auto}
+  .steps ol{grid-template-columns:1fr;border-bottom:0}
+  .steps li,.steps li:first-child{display:grid;grid-template-columns:48px 1fr;column-gap:var(--spacing-3);padding:var(--spacing-5) 0;border-left:0;background:linear-gradient(90deg,var(--color-brand) 0 10px,var(--color-border) 10px) top/100% 1px no-repeat}
+  .steps li::before,.steps li:first-child::before{display:none}
+  .steps .no{grid-row:1/3;padding-top:5px}
+  .steps h3{margin-top:0}
+  .steps .ruler{display:none}
 }
 @media (max-width:860px){
   .nav,.hdr .btn{display:none}
@@ -244,7 +271,7 @@ h2.plain{color:var(--color-foreground)}
   .hero>.wrap{display:block;min-height:0;padding-top:var(--spacing-12)}
   .hero-copy{padding-bottom:var(--spacing-8)}
   h1 span{white-space:normal}
-  .hero-fig{margin:0 -8px 0 -24px}
+  .hero-fig{width:auto;margin:0 -8px 0 -24px}
   .hero-foot .wrap{flex-direction:column;align-items:flex-start;gap:var(--spacing-2);padding-block:var(--spacing-5)}
   .chapter .wrap{display:block;padding-block:var(--spacing-16)}
   .ch-meta{margin-bottom:var(--spacing-6)}
@@ -252,14 +279,9 @@ h2.plain{color:var(--color-foreground)}
   .lightbox{padding:var(--spacing-2)}
   .steps .wrap,.journal .wrap{padding-block:var(--spacing-16)}
   .steps-head{display:block;margin-bottom:var(--spacing-10)}
-  .steps ol{grid-template-columns:1fr;border-bottom:0}
-  .steps li,.steps li:first-child{display:grid;grid-template-columns:48px 1fr;column-gap:var(--spacing-3);padding:var(--spacing-5) 0;border-left:0;border-top:1px solid var(--color-border)}
-  .steps li::before,.steps li:first-child::before{left:0;top:-1px;width:10px;height:1px}
-  .steps .no{grid-row:1/3;padding-top:5px}
-  .steps h3{margin-top:0}
-  .steps .ruler{display:none}
   .j-head{margin-bottom:var(--spacing-10)}
-  .j-grid{display:block}
+  .j-grid,.j-lead{display:block}
+  .j-lead>.j-meta{margin-top:var(--spacing-6)}
   .j-side{margin-top:var(--spacing-10)}
   .j-row{grid-template-columns:1fr 96px;gap:var(--spacing-4);padding-block:var(--spacing-6)}
   .founder .wrap{display:block;padding-block:var(--spacing-24)}
@@ -273,6 +295,7 @@ h2.plain{color:var(--color-foreground)}
   .c-panel .ruler{margin:var(--spacing-10) calc(-1*var(--spacing-6)) 0}
   .ftr .wrap{display:flex;flex-direction:column;gap:var(--spacing-8);padding-block:var(--spacing-12) var(--spacing-24)}
   .f-link{justify-self:start;align-self:flex-start}
+  .f-slogan{align-self:flex-start;text-align:left}
   .f-base{flex-direction:column}
 }
 @media (prefers-reduced-motion:reduce){
@@ -426,7 +449,7 @@ h2.plain{color:var(--color-foreground)}
         <a class="j-card j-row" href="https://qiuqiunb666.github.io/centaur-ai-academy/journal/centaur-future/">
           <div>
             <div class="j-meta mono"><span class="tag">观点</span><time datetime="2026-09-15">2026.09.15</time></div>
-            <h3>AI 越强大，我们越应该谈谈人</h3>
+            <h3><span class="nw">AI 越强大，</span><span class="nw">我们越应该谈谈人</span></h3>
             <p>人决定去哪里、为什么出发，AI 帮助人走得更远。这是半人马AI学院的出发点。</p>
           </div>
           <div class="lightbox"><div class="lb-mat"><img src="../../assets/academy-centaur-hero.webp" alt="" width="1448" height="1086" loading="lazy"></div></div>
@@ -434,7 +457,7 @@ h2.plain{color:var(--color-foreground)}
         <a class="j-card j-row" href="https://qiuqiunb666.github.io/centaur-ai-academy/journal/create-with-language/">
           <div>
             <div class="j-meta mono"><span class="tag">观点</span><time datetime="2026-09-15">2026.09.15</time></div>
-            <h3>用自己的语言，做一件趁手的工具</h3>
+            <h3><span class="nw">用自己的语言，</span><span class="nw">做一件趁手的工具</span></h3>
             <p>从每天反复处理的一件小事开始。讲清需求，试用初版，再根据真实结果继续调整。</p>
           </div>
           <div class="lightbox"><div class="lb-mat"><img src="../../assets/creating.webp" alt="" width="1448" height="1086" loading="lazy"></div></div>
@@ -467,7 +490,7 @@ h2.plain{color:var(--color-foreground)}
         <h2 id="ct-h" class="plain"><span>带上你的问题，</span><span>我们一起往前走。</span></h2>
       </div>
       <div class="c-r">
-        <p>聊聊你正在做的事，和你希望 AI 帮你做成的事。</p>
+        <p><span class="nw">聊聊你正在做的事，</span><span class="nw">和你希望 AI 帮你做成的事。</span></p>
         <div class="c-btns">
           <a class="btn btn-primary" href="https://work.weixin.qq.com/kfid/kfc472df2b7db14c36e">联系学院顾问 <span class="btn-ico" aria-hidden="true">↗</span></a>
           <button class="btn btn-outline" id="copyBtn" type="button" data-link="https://work.weixin.qq.com/kfid/kfc472df2b7db14c36e">复制客服链接</button>

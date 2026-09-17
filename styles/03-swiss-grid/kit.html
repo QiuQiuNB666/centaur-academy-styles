@@ -72,7 +72,7 @@ main,footer{position:relative;z-index:1}
 /* —— 图版（Plate）—— */
 .plate{margin:0}
 .plate-frame{overflow:hidden;background:var(--color-secondary)}
-.plate-frame img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:grayscale(1) contrast(1.08)}
+.plate-frame img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:grayscale(1) contrast(1.2)}
 .plate figcaption,.cap{display:grid;grid-template-columns:auto 1fr;gap:var(--spacing-4);align-items:baseline;margin-top:var(--spacing-3);padding-top:var(--spacing-3);border-top:var(--rule-hair) solid var(--color-rule);font-size:var(--text-caption);line-height:1.5}
 .cap b{font-weight:var(--weight-strong);letter-spacing:var(--tracking-label);text-transform:uppercase}
 .cap span{color:var(--color-muted-foreground);text-align:right}
@@ -88,7 +88,7 @@ main,footer{position:relative;z-index:1}
 .field .hint.err{color:var(--color-destructive)}
 
 @media (max-width:719px){
-  :root{--grid-gutter:16px}
+  :root{--grid-gutter:16px;--text-display:clamp(50px,16vw,72px)}
   .guides-row{grid-template-columns:repeat(4,minmax(0,1fr))}
   .guides i:nth-child(n+5){display:none}
   .guides i:nth-child(4){border-right:var(--rule-hair) solid var(--color-grid)}
@@ -174,7 +174,7 @@ main,footer{position:relative;z-index:1}
 .entries li:last-child .entry{border-bottom:var(--rule-hair) solid var(--color-rule)}
 .entry .meta{grid-column:1 / span 2;display:flex;flex-direction:column;gap:var(--spacing-2);align-items:flex-start;font-size:var(--text-body-sm);font-weight:500}
 .entry .thumb{grid-column:3 / span 2;overflow:hidden;background:var(--color-secondary)}
-.entry .thumb img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:grayscale(1) contrast(1.08)}
+.entry .thumb img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:grayscale(1) contrast(1.2)}
 .entry h3{grid-column:5 / span 4;text-wrap:balance}
 .entry p{grid-column:9 / span 3;font-size:15px;color:var(--color-muted-foreground)}
 .entry .go{grid-column:12;justify-self:end;font-size:var(--text-heading);line-height:1;font-weight:500;transition:transform var(--duration-base) var(--ease-swiss)}
@@ -379,7 +379,7 @@ main,footer{position:relative;z-index:1}
           <tr><td><i class="sw" style="background:var(--color-muted-foreground)"></i></td><td>次要文</td><td class="mono">#5c5f66</td><td><code>--color-muted-foreground</code></td><td>说明、图注、摘要。白底 6.4:1</td></tr>
           <tr><td><i class="sw" style="background:var(--color-secondary)"></i></td><td>浅灰底</td><td class="mono">#f3f3f1</td><td><code>--color-secondary</code></td><td>图版衬底、输入框、禁用态</td></tr>
           <tr><td><i class="sw" style="background:var(--color-border)"></i></td><td>行线灰</td><td class="mono">#d4d4d1</td><td><code>--color-border</code></td><td>表格行之间的次级发丝线</td></tr>
-          <tr><td><i class="sw" style="background:var(--color-grid)"></i></td><td>栏线灰</td><td class="mono">#ececea</td><td><code>--color-grid</code></td><td>常显的 12 栏竖线</td></tr>
+          <tr><td><i class="sw" style="background:var(--color-grid)"></i></td><td>栏线灰</td><td class="mono">#e4e4e1</td><td><code>--color-grid</code></td><td>常显的 12 栏竖线</td></tr>
           <tr><td><i class="sw" style="background:var(--color-destructive)"></i></td><td>警示红</td><td class="mono">#b3261e</td><td><code>--color-destructive</code></td><td>仅表单错误</td></tr>
           <tr><td><i class="sw" style="background:var(--color-success)"></i></td><td>确认绿</td><td class="mono">#1e6b3a</td><td><code>--color-success</code></td><td>仅成功反馈</td></tr>
         </tbody>

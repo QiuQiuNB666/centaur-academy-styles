@@ -56,7 +56,7 @@
   --text-subheading: 22px;
   --text-heading: 30px;
   --text-heading-lg: clamp(32px, 4.2vw, 58px);
-  --text-display: clamp(56px, 8.4vw, 124px);
+  --text-display: clamp(56px, 9.6vw, 140px);
   --text-quote: clamp(26px, 3.3vw, 46px);
 
   /* Line Height & Tracking */

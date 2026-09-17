@@ -48,7 +48,7 @@
 
 - **Substitute:** Songti SC, Source Han Serif SC, STSong, SimSun
 - **Weights:** 500（导航、目录、封面底栏）/ 700（H2、文章标题、引文）/ 900（H1、首字下沉、产品名、署名）
-- **Sizes:** 13px, 15px, 20px, 22px, 28px, 30px, 32–58px, 26–46px, 56–124px
+- **Sizes:** 13px, 15px, 20px, 22px, 28px, 30px, 32–58px, 26–46px, 56–140px
 - **Line height:** display 1.1 / 标题 1.25 / 引文 1.5
 - **Letter spacing:** 标题 0.02em，导航与栏目名 0.08–0.12em（宋体小字必须拉开字距才不糊）
 - **OpenType features:** `text-emphasis: dot`（着重号）
@@ -81,7 +81,7 @@
 
 | Role       | Size                      | Line Height | Letter Spacing | Token               |
 | ---------- | ------------------------- | ----------- | -------------- | ------------------- |
-| display    | clamp(56px, 8.4vw, 124px) | 1.1         | 0.01em         | `--text-display`    |
+| display    | clamp(56px, 9.6vw, 140px) | 1.1         | 0.01em         | `--text-display`    |
 | heading-lg | clamp(32px, 4.2vw, 58px)  | 1.25        | 0.02em         | `--text-heading-lg` |
 | quote      | clamp(26px, 3.3vw, 46px)  | 1.5         | 0.02em         | `--text-quote`      |
 | heading    | 30px                      | 1.35        | 0.02em         | `--text-heading`    |
@@ -161,7 +161,7 @@
 
 ### Layout
 
-- **Section gap:** 版面上 56px / 下 84px（移动端 40 / 56），版面之间只隔一根墨线
+- **Section gap:** 版面上 56px / 下 84px（移动端 40 / 56），版面之间只隔一根墨线；封底墨版反过来用 84 / 56，因为按钮下方留有 30px 的「已复制」状态位，视觉上下才等重
 - **页边栏:** 200px（≤1100px 收到 148px；≤860px 折成正文上方的一行）
 - **栏间距:** 48px（≤1100px 为 32px），页边栏竖线落在栏间距正中
 - **Element gap:** 28px（1 基线）
@@ -237,12 +237,12 @@ Logo 38px + 「半人马AI学院」宋体 700/22px/0.06em + 英文名 Newsreader
 ### 期刊卡 Journal Card
 
 **Role:** 观点与动态
-无底色、无边框、无圆角。头条占 7 栏：2:1 专色单印封面 + 元信息行（栏目名钴蓝黑体 0.2em + 日期 Newsreader tabular）+ 宋体 700/30px 标题 + 摘要。右 5 栏是两条「132px 方图 + 文」的次条，之间一根细线，左侧一根竖栏线。hover：标题下 1px 墨线展开，图版上抬 2px、阴影换 plate-hover。
+无底色、无边框、无圆角。头条占 7 栏：2:1 专色单印封面 + 元信息行（栏目名钴蓝黑体 0.2em + 日期 Newsreader tabular）+ 宋体 700/30px 标题 + 摘要。右 5 栏是两条「132px 方图 + 文」的次条（次条标题按逗号意群用 `inline-block` 断行，不留「做一 / 件」这种断法），之间一根细线，左侧一根竖栏线。hover：标题下 1px 墨线展开，图版上抬 2px、阴影换 plate-hover。
 
 ### 引文块 Pull Quote
 
 **Role:** 院长寄语
-宋体 700、26–46px、行高 1.5。开引号钴蓝并**悬挂**（`padding-left:.56em; text-indent:-.56em`），第二行与首字对齐；按意群断行（每个意群一个 `inline-block`），不让「人机共生」被拆开。署名在右栏：一根墨线顶线，名字前是一段 1.6em 的墨线（不用破折号字符，衬线字体里它会断成两截），宋体 900/26px/0.2em，职务两行 14px 次要墨。
+宋体 700、26–46px、行高 1.5。开引号钴蓝并**悬挂**（`padding-left:.56em; text-indent:-.56em`），第二行与首字对齐；按意群断行（每个意群一个 `inline-block`），不让「人机共生」被拆开。正文与署名两栏各顶一根墨线、顶线对齐（与封面「目录 / 副标题」那一对顶线呼应）；署名在右栏，名字前是一段 1.6em 的墨线（不用破折号字符，衬线字体里它会断成两截），宋体 900/26px/0.2em，职务两行 14px 次要墨。
 
 ### 联系横幅 Back Cover
 
@@ -306,7 +306,7 @@ Logo 38px + 「半人马AI学院」宋体 700/22px/0.06em + 英文名 Newsreader
 
 ## Layout
 
-1328px 容器，两侧 gutter `clamp(20px,4vw,56px)`。封面是三行网格：眉标条通栏；H1 横跨「页边栏 + 正文栏」两栏，右侧 456px 的竖图版从第二行贯到底；第三行左为目录、右为副标题/说明/按钮，两者顶线对齐成一条水平基准。封面以一行通栏的品牌主张收尾（上墨线下细线）。其后每个区块都是「200px 页边栏 + 主栏」的版面，主栏内三章分别用 7:5（图左文右）、整栏跨栏大图 + 下方 7:5 文字、6:6（图左，文与产品行右）；五步是五栏表；观点是 7:5 头条 + 次条；寄语是整栏引文 + 7:5 正文/署名；联系是 8:4。全页只有联系区一处满幅色块（封底墨版），其余全部是书纸加线。≤1100px 页边栏收窄到 148px；≤860px 全部单栏，页边栏折成「章节号 + 栏目名」一行并带一根细底线，导航收进「目录」按钮，五步改为竖排行。
+1328px 容器，两侧 gutter `clamp(20px,4vw,56px)`。封面是三行网格：眉标条通栏；H1 横跨「页边栏 + 正文栏」两栏，右侧 456px 的竖图版从第二行贯到底；第三行左为目录、右为副标题/说明/按钮，两者顶线对齐成一条水平基准。封面以一行通栏的品牌主张收尾（上墨线下细线）。其后每个区块都是「200px 页边栏 + 主栏」的版面，主栏内三章分别用 7:5（图左文右）、整栏跨栏大图 + 下方 7:5 文字、6:6（图左，文与产品行右）；五步是五栏表；观点是 7:5 头条 + 次条；寄语是整栏引文 + 7:5 正文/署名；联系是 8:4。全页只有联系区一处满幅色块（封底墨版），其余全部是书纸加线。≤1100px 页边栏收窄到 148px；≤860px 页边栏折成「章节号 + 栏目名」一行并带一根细底线，导航收进「目录」按钮，五步改为竖排行；其中 600–860px（平板档）章节仍保持 1:1 图文对开，<600px 才全部单栏。
 
 ## Agent Prompt Guide
 
@@ -401,7 +401,7 @@ Example Component Prompts:
   --text-subheading: 22px;
   --text-heading: 30px;
   --text-heading-lg: clamp(32px, 4.2vw, 58px);
-  --text-display: clamp(56px, 8.4vw, 124px);
+  --text-display: clamp(56px, 9.6vw, 140px);
   --text-quote: clamp(26px, 3.3vw, 46px);
 
   /* Line Height & Tracking */
@@ -519,7 +519,7 @@ Example Component Prompts:
   --text-subheading: 22px;
   --text-heading: 30px;
   --text-heading-lg: clamp(32px, 4.2vw, 58px);
-  --text-display: clamp(56px, 8.4vw, 124px);
+  --text-display: clamp(56px, 9.6vw, 140px);
   --text-quote: clamp(26px, 3.3vw, 46px);
 
   --spacing: 0.25rem;

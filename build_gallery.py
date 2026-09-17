@@ -50,6 +50,16 @@ for slug, zh, plan in PLAN:
     rows.append(item)
 
 e = html.escape
+def rich(t):
+    t = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', e(t))
+    out, items = [], []
+    for line in [l.strip() for l in t.splitlines() if l.strip()]:
+        if line.startswith('- '): items.append(f'<li>{line[2:]}</li>')
+        else:
+            if items: out.append('<ul>' + ''.join(items) + '</ul>'); items = []
+            out.append(f'<p>{line}</p>')
+    if items: out.append('<ul>' + ''.join(items) + '</ul>')
+    return ''.join(out)
 def card(i):
     base = f"styles/{i['slug']}/"
     if not i['ready']:
@@ -64,7 +74,7 @@ def card(i):
     if i['cost']: extra += f'<p class="line"><b>代价</b>{e(i["cost"])}</p>'
     kit = f'<a href="{base}kit.html">组件样张</a>' if i['kit'] else ''
     return (f'<article class="card"><a class="shot" href="{base}">{shot}</a><div class="meta">'
-            f'<p class="no">{e(i["slug"][:2])} · {e(i.get("theme",""))}{" · 初稿，美术总监审稿中" if i["draft"] else ""}</p><h2>{e(i["zh"])}</h2><p class="tag">{e(i["tagline"])}</p>'
+            f'<p class="no">{e(i["slug"][:2])} · {e(i.get("theme",""))}{" · 初稿，美术总监审稿中" if i["draft"] else ""}{(" · 评审排序 " + str(i["rank"]) + "/6") if i.get("rank") else ""}</p><h2>{e(i["zh"])}</h2><p class="tag">{e(i["tagline"])}</p>'
             f'<ul class="chips">{chips}</ul>{extra}'
             f'<nav><a class="go" href="{base}">打开预览 →</a>{kit}<a href="{BLOB}styles/{i["slug"]}/DESIGN.md">DESIGN.md</a></nav></div></article>')
 
@@ -73,7 +83,7 @@ order = [r['slug'] for r in sorted(manifest.get('judge', {}).get('ranking', []),
 note = ''
 if overall:
     names = {i['slug']: i['zh'] for i in rows}
-    note = f'<aside><b>横向评审的看法</b><p>{e(overall)}</p><p class="order">推荐顺序：{e(" → ".join(names.get(s, s) for s in order))}</p></aside>'
+    note = f'<aside><h3>横向评审的看法（独立评委 agent，仅供参考，你说了算）</h3>{rich(overall)}<p class="order">评审排序：{e(" → ".join(names.get(s, s) for s in order))}</p></aside>'
 done = sum(i['ready'] for i in rows)
 page = f'''<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -83,7 +93,7 @@ page = f'''<!doctype html>
 *{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",system-ui,sans-serif}}
 main{{width:min(1240px,100% - 40px);margin:0 auto;padding-block:56px 96px}}
 header h1{{font-size:clamp(1.6rem,3.4vw,2.4rem);line-height:1.25;margin:0 0 12px;letter-spacing:-.01em}}header p{{margin:0;color:var(--mute);max-width:46em}}
-aside{{margin-top:28px;padding:18px 20px;border:1px solid var(--line);border-left:3px solid var(--ink);background:var(--card);font-size:.9375rem}}aside p{{margin:6px 0 0;color:var(--mute)}}aside .order{{color:var(--ink)}}
+aside{{margin-top:28px;padding:18px 20px;border:1px solid var(--line);border-left:3px solid var(--ink);background:var(--card);font-size:.9375rem}}aside h3{{margin:0 0 6px;font-size:1rem}}aside p{{margin:6px 0 0;color:var(--mute)}}aside ul{{margin:8px 0 0;padding-left:1.2em;color:var(--mute)}}aside li{{margin:4px 0}}aside b{{color:var(--ink)}}aside .order{{color:var(--ink);margin-top:12px}}
 .grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:28px;margin-top:40px}}
 .card{{background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column}}
 .shot{{display:block;aspect-ratio:16/10;overflow:hidden;background:#e9e9e6;border-bottom:1px solid var(--line)}}.shot img{{display:block;width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .5s cubic-bezier(.23,1,.32,1)}}
@@ -103,7 +113,7 @@ a:focus-visible{{outline:2px solid var(--ink);outline-offset:3px}}footer{{margin
 (ROOT/'index.html').write_text(page)
 
 md = ['# 半人马AI学院 · 美术范式候选', '', f'在线挑选：**{PAGES}**', '', '同一份首页文案、同一批插画，六种美术范式。每套含 `DESIGN.md`、`tokens.css`、首页预览 `index.html`、组件样张 `kit.html`。', '']
-if overall: md += ['> ' + overall, '']
+if overall: md += ['**横向评审（独立评委 agent，仅供参考）**', ''] + [('> ' + l if l.strip() else '>') for l in overall.splitlines()] + ['', '评审排序：' + ' → '.join({i['slug']: i['zh'] for i in rows}.get(x, x) for x in order), '']
 md += ['| # | 范式 | 一句话 | 预览 | 样张 | 范式文档 |', '|---|---|---|---|---|---|']
 for i in rows:
     if i['ready']: md.append(f"| {i['slug'][:2]} | **{i['zh']}** | {i['tagline']} | [打开]({PAGES}styles/{i['slug']}/) | [kit]({PAGES}styles/{i['slug']}/kit.html) | [DESIGN.md](styles/{i['slug']}/DESIGN.md) |")

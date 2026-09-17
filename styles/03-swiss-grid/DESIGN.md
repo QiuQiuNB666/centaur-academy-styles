@@ -20,7 +20,7 @@
 | AA 次要文      | `#5c5f66`                | `--color-muted-foreground`   | 说明、摘要、图注。白底 6.4:1，浅灰底 5.8:1                    |
 | 浅灰衬底       | `#f3f3f1`                | `--color-secondary`          | 图版衬底、输入框底、禁用按钮                                 |
 | 行线灰         | `#d4d4d1`                | `--color-border`             | 表格行之间的次级发丝线、禁用按钮边                           |
-| 栏线灰         | `#ececea`                | `--color-grid`               | 常显的 12 栏竖线，只比白深一点                               |
+| 栏线灰         | `#e4e4e1`                | `--color-grid`               | 常显的 12 栏竖线，只比白深一点                               |
 | 栏显形         | `rgba(15,95,208,0.07)`   | `--color-grid-band`          | 按下网格钮后每一栏的填色                                     |
 | 警示红         | `#b3261e`                | `--color-destructive`        | 仅表单错误                                                   |
 | 确认绿         | `#1e6b3a`                | `--color-success`            | 仅成功反馈                                                   |
@@ -68,7 +68,7 @@
 
 | Role       | Size                        | Line Height | Letter Spacing | Token               |
 | ---------- | --------------------------- | ----------- | -------------- | ------------------- |
-| display    | clamp(50px, 10vw, 152px)    | 1.04        | -0.035em       | `--text-display`    |
+| display    | clamp(50px, 10vw, 152px)；≤719px 页内覆写为 clamp(50px, 16vw, 72px) | 1.04        | -0.035em       | `--text-display`    |
 | heading-lg | clamp(34px, 4.6vw, 68px)    | 1.1         | -0.02em        | `--text-heading-lg` |
 | index      | clamp(40px, 4.4vw, 64px)    | 1.0         | -0.03em        | `--text-index`      |
 | heading    | 28px                        | 1.2         | -0.02em        | `--text-heading`    |
@@ -180,7 +180,7 @@
 ### Grid Toggle（签名组件）
 
 **Role:** 让网格显形
-页眉右侧 44×44 的图标钮，本体是一个 `<input type="checkbox">` + `<label>`，零 JS：`body:has(#grid-toggle:checked) .guides i::after{opacity:1}`。`.guides` 是 `position:fixed` 的 12 个 `<i>`，左右各外扩半个栏距，所以竖线正好落在栏距中线。默认态只有 #ececea 的发丝线；开启后每栏填 7% 钴蓝。
+页眉右侧 44×44 的图标钮，本体是一个 `<input type="checkbox">` + `<label>`，零 JS：`body:has(#grid-toggle:checked) .guides i::after{opacity:1}`。`.guides` 是 `position:fixed` 的 12 个 `<i>`，左右各外扩半个栏距，所以竖线正好落在栏距中线。默认态只有 #e4e4e1 的发丝线；开启后每栏填 7% 钴蓝。
 
 ### Chapter Row（章节行）
 
@@ -190,7 +190,7 @@
 ### Plate（图版）
 
 **Role:** 所有场景插画
-`filter: grayscale(1) contrast(1.08)`，直角，无边无影，衬底 `--color-secondary`，固定 4:3。图注在图下：1px 黑线 + 左侧大写标签（12px/700/+0.08em）+ 右对齐的灰字。半人马抠图是唯一例外：保留原色，不进框。
+`filter: grayscale(1) contrast(1.2)`，直角，无边无影，衬底 `--color-secondary`，固定 4:3。图注在图下：1px 黑线 + 左侧大写标签（12px/700/+0.08em）+ 右对齐的灰字。半人马抠图是唯一例外：保留原色，不进框。
 
 ### Product Row（产品下载行）
 
@@ -200,7 +200,7 @@
 ### Steps（流程步骤）
 
 **Role:** 共学五步
-五个等宽栏，各占 2 个网格栏。每步顶 2px 黑线，上面压一条 6px 钴蓝进度条，宽度 = 步数 × 20%（`--n`）。编号 Archivo 500，下隔 48px 才是标题——留白本身是节奏。手机端改为纵向表格：编号一列、内容一列。
+五个等宽栏，各占 2 个网格栏。每步顶 2px 黑线，上面压一条 6px 钴蓝进度条，宽度 = 步数 × 20%（`--n`）。编号 Archivo 500，下隔 48px 才是标题——留白本身是节奏。≤899px 改为纵向表格：编号一列、内容一列（五栏在平板上会把说明挤成孤字）。
 
 ### Index Row（期刊索引行）
 
@@ -264,11 +264,11 @@
 
 ## Imagery
 
-三张场景插画（experience / co-learning / creating）原稿是暖色纸感，和纯白 + 钴蓝的色板冲突，所以一律 `grayscale(1) contrast(1.08)` 转成单色图版，像老设计年鉴里的黑白图录：4:3、直角、无边、浅灰衬底，下面跟一条 1px 线和一行图注。期刊缩略图同样处理。半人马用透明抠图版，保留橙与蓝，直接站在白底上；首屏里它的前蹄压在 6px 黑线上，那条线就是地面——这是全页唯一的「插画时刻」，也是 logo 色唯一完整出现的地方。图标只有三个内联 SVG / 字符（网格钮、菜单、箭头 ↗ → ↓），1.5px 线宽，不用图标库，不用 emoji。
+三张场景插画（experience / co-learning / creating）原稿是暖色纸感，和纯白 + 钴蓝的色板冲突，所以一律 `grayscale(1) contrast(1.2)` 转成单色图版，像老设计年鉴里的黑白图录：4:3、直角、无边、浅灰衬底，下面跟一条 1px 线和一行图注。期刊缩略图同样处理。半人马用透明抠图版，保留橙与蓝，直接站在白底上；首屏里它的前蹄压在 6px 黑线上，那条线就是地面——这是全页唯一的「插画时刻」，也是 logo 色唯一完整出现的地方。图标只有三个内联 SVG / 字符（网格钮、菜单、箭头 ↗ → ↓），1.5px 线宽，不用图标库，不用 emoji。
 
 ## Layout
 
-1440px 容器、64px 页边、12 栏 × 24px 栏距，竖线常显。页眉 64px 高、白底、底 1px 黑线、sticky：logo 与站名在左，四项导航、网格钮、直角黑按钮在右。首屏：眉标一行 + 灰线；H1 占 `1–8` 栏、顶对齐；副标题（`1–3`）与说明（`4–6`）并排沉底，下面是主按钮与文字链；半人马占 `7–12` 栏、踩在 6px 线上；线下一行左边是品牌主张，右边是图注。之后是三行章节（悬挂编号 / 文 / 图，第二行翻转），6px 线，五步（`1–2` 栏标题 + `3–12` 栏五等分），6px 线，期刊索引（标题行 + 三条索引行），6px 线，院长引文，钴蓝联系色块（`1–8`）+ 行动栏（`9–12`），页脚三段（logo / 口号 / 发起方）+ 一行主张。≤1079px：文与图上下叠，仍留悬挂栏；≤899px：导航收进菜单；≤719px：12 栏收成 4 栏，所有内容通栏，五步变纵向表格，联系色块出血到屏幕边。
+1440px 容器、64px 页边、12 栏 × 24px 栏距，竖线常显。页眉 64px 高、白底、底 1px 黑线、sticky：logo 与站名在左，四项导航、网格钮、直角黑按钮在右。首屏：眉标一行 + 灰线；H1 占 `1–8` 栏、顶对齐；副标题（`1–3`）与说明（`4–6`）并排沉底，下面是主按钮与文字链；半人马占 `7–12` 栏、踩在 6px 线上；线下一行左边是品牌主张，右边是图注。之后是三行章节（悬挂编号 / 文 / 图，第二行翻转），6px 线，五步（`1–2` 栏标题 + `3–12` 栏五等分），6px 线，期刊索引（标题行 + 三条索引行），6px 线，院长引文，钴蓝联系色块（`1–8`）+ 行动栏（`9–12`），页脚三段（logo / 口号 / 发起方）+ 一行主张。≤1079px：章节编号与栏目名并成一行章节头，下面一律「文在前、图在后」（翻转行也不例外），正文仍从第 3 栏起；≤899px：导航收进菜单，五步变纵向表格；≤719px：12 栏收成 4 栏，所有内容通栏，H1 改用 16vw 撑满版心，联系色块出血到屏幕边。
 
 ## Agent Prompt Guide
 
@@ -282,13 +282,13 @@ brand-strong: #0b4fc0
 muted-foreground: #5c5f66
 secondary: #f3f3f1
 border: #d4d4d1
-grid line: #ececea
+grid line: #e4e4e1
 ```
 
 Example Component Prompts:
 
 1. Create a primary CTA: `background:#141414; color:#fff; border:2px solid #141414; border-radius:0; min-height:48px; padding:0 24px 0 16px; font:700 15px Archivo,'Noto Sans SC'`. Label left, arrow ↗ right (`justify-content:space-between`). Hover swaps fill and border to `#0f5fd0`, active `#0b4fc0` + `translateY(1px)`. No shadow, no scale.
-2. Create a journal index row: a single `<a>` on a 12-column grid with a 1px `#141414` top rule — cols 1–2 date (`tabular-nums`, 14px/500) + square black badge, cols 3–4 a 4:3 thumbnail with `filter:grayscale(1) contrast(1.08)`, cols 5–8 title 28px/900 tracking -0.02em, cols 9–11 excerpt 15px `#5c5f66`, col 12 a ↗ that moves 3px up-right on hover while the title turns `#0f5fd0`. No card, no radius, no background.
+2. Create a journal index row: a single `<a>` on a 12-column grid with a 1px `#141414` top rule — cols 1–2 date (`tabular-nums`, 14px/500) + square black badge, cols 3–4 a 4:3 thumbnail with `filter:grayscale(1) contrast(1.2)`, cols 5–8 title 28px/900 tracking -0.02em, cols 9–11 excerpt 15px `#5c5f66`, col 12 a ↗ that moves 3px up-right on hover while the title turns `#0f5fd0`. No card, no radius, no background.
 3. Create a process strip: five equal columns, each with a 2px `#141414` top rule overlaid by a 6px `#0f5fd0` bar whose width is `calc(var(--n) * 20%)`; number in Archivo 500 at `clamp(40px,4.4vw,64px)`, 48px gap, then title 20px/900 and one line of 14px `#5c5f66` text.
 
 ## Similar Brands
@@ -324,7 +324,7 @@ Example Component Prompts:
   --color-border: #d4d4d1;
   --color-input: #141414;
   --color-ring: #0f5fd0;
-  --color-grid: #ececea;
+  --color-grid: #e4e4e1;
   --color-grid-band: rgba(15, 95, 208, 0.07);
   --color-destructive: #b3261e;
   --color-destructive-foreground: #ffffff;
@@ -435,7 +435,7 @@ Example Component Prompts:
   --color-border: #d4d4d1;
   --color-input: #141414;
   --color-ring: #0f5fd0;
-  --color-grid: #ececea;
+  --color-grid: #e4e4e1;
   --color-grid-band: rgba(15, 95, 208, 0.07);
   --color-destructive: #b3261e;
   --color-destructive-foreground: #ffffff;
@@ -450,9 +450,9 @@ Example Component Prompts:
   --color-pastel-green-bg: #e6f2ea;
   --color-pastel-green-text: #1e6b3a;
 
-  --font-sans: 'Archivo', 'Helvetica Neue', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  --font-display: 'Archivo', 'Helvetica Neue', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  --font-mono: 'Geist Mono', ui-monospace, monospace;
+  --font-sans: 'Archivo', 'Helvetica Neue', Helvetica, 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
+  --font-display: 'Archivo', 'Helvetica Neue', Helvetica, 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   --text-caption: 12px;
   --text-body-sm: 14px;

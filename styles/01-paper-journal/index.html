@@ -33,7 +33,7 @@ em.mark{font-style:normal;color:var(--color-brand);-webkit-text-emphasis:dot var
 /* ── 链接与按钮 ── */
 .link{display:inline-flex;align-items:baseline;gap:.4em;min-height:44px;padding-block:9px;font:500 var(--text-body)/1.6 var(--font-sans);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.42em;text-decoration-color:var(--color-foreground);transition:color var(--duration-fast) var(--ease-page),text-decoration-color var(--duration-fast) var(--ease-page)}
 .link:hover{color:var(--color-brand);text-decoration-color:var(--color-brand);text-decoration-thickness:2px}
-.link .arr,.btn .arr{font-family:var(--font-latin);display:inline-block;transition:transform var(--duration-fast) var(--ease-page)}
+.link .arr,.btn .arr,.products__name .arr{font-family:var(--font-latin);display:inline-block;transition:transform var(--duration-fast) var(--ease-page)}
 .link:hover .arr,.btn:hover .arr{transform:translate(2px,-2px)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:48px;padding:0 24px;border:1px solid var(--color-primary);border-radius:var(--radius-sm);background:var(--color-primary);color:var(--color-primary-foreground);font:500 15px/1 var(--font-sans);letter-spacing:.06em;text-decoration:none;cursor:pointer;transition:background var(--duration-fast) var(--ease-page),border-color var(--duration-fast) var(--ease-page),color var(--duration-fast) var(--ease-page),transform var(--duration-fast) var(--ease-page)}
 .btn:hover{background:var(--color-brand);border-color:var(--color-brand);color:var(--color-brand-foreground)}
@@ -66,15 +66,15 @@ em.mark{font-style:normal;color:var(--color-brand);-webkit-text-emphasis:dot var
 .cover{display:grid;grid-template-columns:var(--margin-col) minmax(0,1fr) minmax(0,456px);column-gap:var(--col-gap);grid-template-areas:"head head head" "title title plate" "toc body plate";grid-template-rows:auto 1fr auto}
 .cover__head{grid-area:head;display:flex;justify-content:space-between;gap:24px;padding-block:14px;border-bottom:var(--rule-hair);color:var(--color-muted-foreground)}
 .cover__motto{font:500 13px/1.4 var(--font-serif);letter-spacing:.24em;text-transform:none;color:var(--color-foreground)}
-.cover h1{grid-area:title;align-self:start;padding-top:var(--spacing-14);font:900 var(--text-display)/var(--leading-display) var(--font-serif);letter-spacing:var(--tracking-display)}
+.cover h1{grid-area:title;align-self:start;padding-top:calc(var(--spacing-10) + var(--spacing-2));font:900 var(--text-display)/var(--leading-display) var(--font-serif);letter-spacing:var(--tracking-display)}
 .cover h1 span{display:block}
 .cover h1 em{font-style:normal;color:var(--color-brand)}
-.toc{grid-area:toc;align-self:start;margin-top:var(--spacing-14);border-top:var(--rule-ink);padding-top:12px}
+.toc{grid-area:toc;align-self:start;margin-top:var(--spacing-10);border-top:var(--rule-ink);padding-top:12px}
 .toc__title{display:block;margin-bottom:6px;color:var(--color-muted-foreground)}
 .toc a{display:flex;align-items:baseline;gap:8px;min-height:30px;font:500 13px/1.5 var(--font-serif);letter-spacing:.04em;text-decoration:none}
 .toc a i{font:italic 400 13px/1 var(--font-latin);color:var(--color-muted-foreground);width:1.5em;flex:none}
 .toc a:hover{color:var(--color-brand)}
-.cover__body{grid-area:body;align-self:start;margin-top:var(--spacing-14);border-top:var(--rule-ink);padding-top:var(--spacing-6)}
+.cover__body{grid-area:body;align-self:start;margin-top:var(--spacing-10);border-top:var(--rule-ink);padding-top:var(--spacing-6)}
 .cover__sub{font:700 clamp(21px,2.1vw,28px)/1.45 var(--font-serif);letter-spacing:var(--tracking-heading)}
 .cover__desc{margin-top:var(--spacing-4);color:var(--color-muted-foreground);font-size:var(--text-body-lg)}
 .cover__actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px 28px;margin-top:var(--spacing-7)}
@@ -162,6 +162,7 @@ h2 span{display:block}
 .art--side:first-child{padding-top:0;border-top:0}
 .art--side .plate__img{aspect-ratio:1/1;padding:6px}
 .art--side h3{font-size:var(--text-subheading)}
+.art h3 span{display:inline-block}
 .art--side p{font-size:15px;line-height:1.7}
 .art--side .centaur{object-position:72% 40%}
 
@@ -172,14 +173,14 @@ h2 span{display:block}
 .founder .q{color:var(--color-brand)}
 .founder__grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);column-gap:var(--col-gap);margin-top:var(--spacing-14);align-items:start}
 .founder__body{font-size:var(--text-body-lg);line-height:1.9}
-.founder__sign{border-top:var(--rule-ink);padding-top:14px}
+.founder__grid>*{border-top:var(--rule-ink);padding-top:14px}
 .founder__sign strong{display:block;font:900 26px/1.3 var(--font-serif);letter-spacing:.2em}
 .founder__sign strong::before{content:"";display:inline-block;width:1.6em;border-top:var(--rule-ink);vertical-align:.32em;margin-right:.5em}
 .founder__sign span{display:block;font-size:14px;color:var(--color-muted-foreground);line-height:1.8;margin-top:4px}
 
 /* 联系（封底墨版）*/
 .on-ink{background:var(--color-inverse-background);color:var(--color-inverse-foreground)}
-.on-ink .spread{border-top:0;margin-top:0}
+.on-ink .spread{border-top:0;margin-top:0;padding-block:var(--spacing-21) var(--spacing-14)}
 .on-ink .margin{border-color:var(--color-inverse-border)}
 .on-ink .margin .caps{color:var(--color-inverse-muted)}
 .contact .main{display:grid;grid-template-columns:minmax(0,8fr) minmax(0,4fr);column-gap:var(--col-gap);align-items:start}
@@ -262,6 +263,14 @@ h2 span{display:block}
   .colophon__by{text-align:left}
   .colophon__line{letter-spacing:.1em}
   .contact__actions .btn{flex:1 1 100%}
+}
+/* ── 600–860：平板档，章节恢复图文对开，避免整页单栏直排 ── */
+@media (min-width:600px) and (max-width:860px){
+  .ch1 .main,.ch3 .main{grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:var(--col-gap);align-items:start}
+  .ch1 .plate,.ch3 .plate{order:0}
+  .ch2 .txt{grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:var(--col-gap)}
+  .ch2 .lede{margin-top:6px}
+  .contact__actions .btn{flex:0 1 auto}
 }
 </style>
 </head>
@@ -413,7 +422,7 @@ h2 span{display:block}
               <div class="plate__img plate__img--spot"><span><img class="centaur" src="../../assets/academy-centaur-hero.webp" alt="" width="1448" height="1086" loading="lazy"></span></div>
               <div>
                 <div class="art__meta"><b>观点</b><span>2026.09.15</span></div>
-                <h3>AI 越强大，我们越应该谈谈人</h3>
+                <h3><span>AI 越强大，</span><span>我们越应该谈谈人</span></h3>
                 <p>人决定去哪里、为什么出发，AI 帮助人走得更远。这是半人马AI学院的出发点。</p>
               </div>
             </a>
@@ -421,7 +430,7 @@ h2 span{display:block}
               <div class="plate__img plate__img--spot"><span><img src="../../assets/creating.webp" alt="" width="1448" height="1086" loading="lazy"></span></div>
               <div>
                 <div class="art__meta"><b>观点</b><span>2026.09.15</span></div>
-                <h3>用自己的语言，做一件趁手的工具</h3>
+                <h3><span>用自己的语言，</span><span>做一件趁手的工具</span></h3>
                 <p>从每天反复处理的一件小事开始。讲清需求，试用初版，再根据真实结果继续调整。</p>
               </div>
             </a>

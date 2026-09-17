@@ -71,7 +71,7 @@ ol,ul{list-style:none}
 .btn[disabled]>.arr,.btn.is-disabled>.arr{border-left:1px dashed var(--color-border)}
 .btn[disabled]>.arr i{transform:none}
 /* 文字链：黄铜底线，hover 时线变墨色 */
-.tlink{display:inline-flex;align-items:center;gap:.5em;min-height:44px;font-weight:500;font-size:15px;letter-spacing:.04em;text-decoration:none;background:linear-gradient(var(--color-brass),var(--color-brass)) left calc(50% + .85em)/100% 1px no-repeat;transition:background-size var(--duration-slow) var(--ease-board)}
+.tlink{display:inline-flex;justify-self:start;align-items:center;gap:.5em;min-height:44px;font-weight:500;font-size:15px;letter-spacing:.04em;text-decoration:none;background:linear-gradient(var(--color-brass),var(--color-brass)) left calc(50% + .85em)/100% 1px no-repeat;transition:background-size var(--duration-slow) var(--ease-board)}
 .tlink i{font-style:normal;font-family:var(--font-sans);font-size:1.2em;line-height:1;transition:transform var(--duration-fast) var(--ease-board)}
 .tlink:hover i,.tlink.is-hover i{transform:translate(2px,-2px)}
 .tlink:hover,.tlink.is-hover{background-image:linear-gradient(currentColor,currentColor)}
@@ -156,6 +156,8 @@ ol,ul{list-style:none}
   .prod-row{grid-template-columns:1fr auto;gap:10px 16px}
   .prod-row .name{grid-column:1/-1}
   .prod-row .tlink{grid-column:1/-1;justify-self:start}
+  .prod-row .btn{justify-self:start}
+  .steps li:last-child{padding-bottom:0}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}

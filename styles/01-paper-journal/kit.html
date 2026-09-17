@@ -33,7 +33,7 @@ em.mark{font-style:normal;color:var(--color-brand);-webkit-text-emphasis:dot var
 /* ── 链接与按钮 ── */
 .link{display:inline-flex;align-items:baseline;gap:.4em;min-height:44px;padding-block:9px;font:500 var(--text-body)/1.6 var(--font-sans);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.42em;text-decoration-color:var(--color-foreground);transition:color var(--duration-fast) var(--ease-page),text-decoration-color var(--duration-fast) var(--ease-page)}
 .link:hover{color:var(--color-brand);text-decoration-color:var(--color-brand);text-decoration-thickness:2px}
-.link .arr,.btn .arr{font-family:var(--font-latin);display:inline-block;transition:transform var(--duration-fast) var(--ease-page)}
+.link .arr,.btn .arr,.products__name .arr{font-family:var(--font-latin);display:inline-block;transition:transform var(--duration-fast) var(--ease-page)}
 .link:hover .arr,.btn:hover .arr{transform:translate(2px,-2px)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:48px;padding:0 24px;border:1px solid var(--color-primary);border-radius:var(--radius-sm);background:var(--color-primary);color:var(--color-primary-foreground);font:500 15px/1 var(--font-sans);letter-spacing:.06em;text-decoration:none;cursor:pointer;transition:background var(--duration-fast) var(--ease-page),border-color var(--duration-fast) var(--ease-page),color var(--duration-fast) var(--ease-page),transform var(--duration-fast) var(--ease-page)}
 .btn:hover{background:var(--color-brand);border-color:var(--color-brand);color:var(--color-brand-foreground)}
@@ -162,6 +162,7 @@ h2 span{display:block}
 .art--side:first-child{padding-top:0;border-top:0}
 .art--side .plate__img{aspect-ratio:1/1;padding:6px}
 .art--side h3{font-size:var(--text-subheading)}
+.art h3 span{display:inline-block}
 .art--side p{font-size:15px;line-height:1.7}
 .art--side .centaur{object-position:72% 40%}
 
@@ -172,7 +173,7 @@ h2 span{display:block}
 .founder .q{color:var(--color-brand)}
 .founder__grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);column-gap:var(--col-gap);margin-top:var(--spacing-14);align-items:start}
 .founder__body{font-size:var(--text-body-lg);line-height:1.9}
-.founder__sign{border-top:var(--rule-ink);padding-top:14px}
+.founder__grid>*{border-top:var(--rule-ink);padding-top:14px}
 .founder__sign strong{display:block;font:900 26px/1.3 var(--font-serif);letter-spacing:.2em}
 .founder__sign strong::before{content:"";display:inline-block;width:1.6em;border-top:var(--rule-ink);vertical-align:.32em;margin-right:.5em}
 .founder__sign span{display:block;font-size:14px;color:var(--color-muted-foreground);line-height:1.8;margin-top:4px}
@@ -370,7 +371,7 @@ h2 span{display:block}
         <div><span class="caps">Sans · <span class="zh">思源黑体 / PingFang SC</span></span><p style="font:400 28px/1.6 var(--font-sans)">把你的经验、判断和真实问题，与 AI 的能力连接起来。</p></div>
       </div>
       <table class="scale">
-        <tr><th>display</th><td style="font:900 72px/1.1 var(--font-serif)">让 AI 成为</td><td>56–124 / 1.1 / 900（样张缩至 72）</td></tr>
+        <tr><th>display</th><td style="font:900 72px/1.1 var(--font-serif)">让 AI 成为</td><td>56–140 / 1.1 / 900（样张缩至 72）</td></tr>
         <tr><th>heading-lg</th><td style="font:700 var(--text-heading-lg)/1.25 var(--font-serif)">你走过的路，都是<em class="mark">起点</em>。</td><td>32–58 / 1.25 / 700</td></tr>
         <tr><th>quote</th><td style="font:700 var(--text-quote)/1.5 var(--font-serif)">“愿意共同成长的人。”</td><td>26–46 / 1.5 / 700</td></tr>
         <tr><th>heading</th><td style="font:700 var(--text-heading)/1.35 var(--font-serif)">来自嘉木的一封信</td><td>30 / 1.35 / 700</td></tr>
@@ -445,7 +446,7 @@ h2 span{display:block}
         <div class="journal__side">
           <a class="art art--side" href="#components">
             <div class="plate__img plate__img--spot"><span><img src="../../assets/creating.webp" alt="" width="1448" height="1086"></span></div>
-            <div><div class="art__meta"><b>观点</b><span>2026.09.15</span></div><h3>用自己的语言，做一件趁手的工具</h3><p>从每天反复处理的一件小事开始。</p></div>
+            <div><div class="art__meta"><b>观点</b><span>2026.09.15</span></div><h3><span>用自己的语言，</span><span>做一件趁手的工具</span></h3><p>从每天反复处理的一件小事开始。</p></div>
           </a>
           <ul class="products" style="margin-top:0">
             <li>

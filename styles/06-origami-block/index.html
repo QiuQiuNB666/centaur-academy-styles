@@ -220,7 +220,7 @@ ol,ul{list-style:none}
 .founder__name{margin-top:28px;font:900 40px/1.1 var(--font-display);letter-spacing:.08em}
 .founder__role{margin-top:12px;color:var(--color-ink-muted-foreground);font-size:15px;line-height:1.7}
 .founder__say{grid-column:5/12}
-.founder blockquote{position:relative;margin-top:32px;font:900 clamp(28px,3.5vw,50px)/1.36 var(--font-display);letter-spacing:var(--tracking-heading);text-indent:-.5em}
+.founder blockquote{position:relative;margin-top:32px;font:900 clamp(28px,3.5vw,50px)/1.36 var(--font-display);letter-spacing:var(--tracking-heading);text-indent:-.5em;text-wrap:balance}
 .founder__body{margin-top:36px;font-size:var(--text-body-lg);color:var(--color-ink-muted-foreground);line-height:1.8}
 .founder .link{margin-top:28px;color:var(--color-orange-lit)}
 
@@ -230,7 +230,7 @@ ol,ul{list-style:none}
 .contact__grid{position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--spacing-8);align-items:center}
 .contact__copy{grid-column:1/9}
 .contact h2{margin-top:24px;font:900 clamp(38px,5.6vw,80px)/1.14 var(--font-display);letter-spacing:var(--tracking-display)}
-.contact__copy>p:not(.eyebrow){margin-top:28px;font-size:var(--text-body-lg)}
+.contact__copy>p:not(.eyebrow){margin-top:28px;font-size:var(--text-body-lg);text-wrap:balance}
 .contact__cta{display:flex;flex-wrap:wrap;gap:20px 24px;margin-top:40px}
 .arrow{grid-column:9/13;width:100%;height:auto;filter:drop-shadow(var(--offset-lg) var(--offset-lg) 0 var(--color-orange-deep))}
 .arrow .a{fill:var(--color-card)}.arrow .b{fill:var(--color-cobalt)}.arrow .c{fill:var(--color-cobalt-deep)}.arrow .d{fill:var(--color-ink)}.arrow .e{fill:var(--color-cobalt-lit)}
@@ -250,18 +250,18 @@ ol,ul{list-style:none}
   .menu-btn{display:block}
   .site-header__in{gap:12px;flex-wrap:wrap;min-height:64px}
   .site-header .btn{display:none}
-  .nav{display:none;flex-basis:100%;flex-direction:column;gap:0;margin:0 calc(var(--gutter)*-1);padding:8px var(--gutter) 20px;background:var(--color-ink);color:var(--color-ink-foreground);--ring:var(--color-ring-inverse)}
+  .nav{display:none;flex-basis:calc(100% + var(--gutter)*2);flex-direction:column;gap:0;margin:0 calc(var(--gutter)*-1);padding:8px var(--gutter) 20px;background:var(--color-ink);color:var(--color-ink-foreground);--ring:var(--color-ring-inverse)}
   [data-open="true"] .nav{display:flex}
   .nav a{min-height:52px;padding:0;font-size:18px;font-weight:700;border-bottom:1px solid var(--color-muted-foreground)}
   .nav a::after{display:none}
-  [data-open="true"] .btn{display:inline-flex;flex-basis:100%;margin:0 0 16px}
+  [data-open="true"] .btn{display:inline-flex;flex-basis:100%;margin:0 0 16px;--btn-bg:var(--color-primary);--btn-fg:var(--color-primary-foreground);--btn-back:var(--color-orange-deep)}
   .hero{min-height:0}
   .hero__block{display:none}
   .hero__in{display:block;padding-block:0}
   .hero__copy{width:auto;margin-inline:calc(var(--gutter)*-1);padding:48px var(--gutter) 104px;background:linear-gradient(to bottom right,var(--color-cobalt-lit) 0 18%,var(--color-cobalt) 18%);clip-path:polygon(0 0,100% 0,100% calc(100% - 64px),0 100%)}
   .hero__figure{position:relative;left:auto;top:auto;bottom:auto;margin-top:-24px;padding-top:min(62vw,520px)}
-  .hero__figure img{left:50%;width:min(112vw,760px);margin-left:calc(min(112vw,760px) * -.56);bottom:74px}
-  .plinth{position:relative;left:auto;margin-left:6%}
+  .hero__figure img{left:50%;width:min(104vw,760px);margin-left:calc(min(104vw,760px) * -.47);bottom:74px}
+  .plinth{position:relative;left:auto;margin-left:0}
   .plinth__top{height:44px;clip-path:polygon(36px 0,100% 0,100% 100%,0 100%)}
   .plinth__front{padding-left:16px;flex-wrap:wrap}
   .plinth__front::before{width:24px}
@@ -276,6 +276,7 @@ ol,ul{list-style:none}
   .strip li{clip-path:polygon(0 0,100% 0,calc(100% - var(--z)) 100%,0 100%)}
   .strip li:nth-child(even){clip-path:polygon(0 0,calc(100% - var(--z)) 0,100% 100%,0 100%)}
   .strip .n{font-size:36px;min-width:52px}
+  .strip li+li{margin-top:-1px}
   .strip h3{margin-top:0}
   .strip p{flex-basis:100%;padding-left:70px;margin-top:4px}
   .posts{display:flex;flex-direction:column;margin-right:var(--offset-md)}
@@ -317,7 +318,7 @@ ol,ul{list-style:none}
       <a href="https://qiuqiunb666.github.io/centaur-ai-academy/tools/">实践工具</a>
       <a href="https://qiuqiunb666.github.io/centaur-ai-academy/journal/">观点与动态</a>
     </nav>
-    <a class="btn btn--sm" href="https://work.weixin.qq.com/kfid/kfc472df2b7db14c36e">联系学院顾问 <span class="arr">↗</span></a>
+    <a class="btn btn--sm btn--ink" href="https://work.weixin.qq.com/kfid/kfc472df2b7db14c36e">联系学院顾问 <span class="arr">↗</span></a>
   </div>
 </header>
 

@@ -78,7 +78,32 @@
         "https://www.owspace.com/",
         "https://img.owspace.com/ows/style.css?ver=2021"
       ],
-      "self_notes": "输出目录：/private/tmp/claude-502/-Users-qiu-----/7d6f27d1-bb5d-40db-915c-d59a6bdb5162/scratchpad/styles-repo/styles/01-paper-journal/（DESIGN.md、tokens.css、index.html、kit.html、shot-fold/full/mobile/kit.png）。tokens.css 由脚本原样嵌入 DESIGN.md Quick Start（断言通过）；两页 <style> 内已脚本检查无裸 hex/rgba（仅规定的返回钮内联样式除外）。\n已修（第一轮·坏）：页面超 5200 高→收紧版面间距；首字下沉的浮动把下方链接挤偏→lede 后清浮动；页边栏图注起点偏 24px；联系区 H2 末字掉行、正文孤字；引文「人机共生」被拆行→按意群 inline-block 断行；开引号撞到页边栏线→改为 padding+负缩进悬挂；Newsreader 里「——」断成两截→眉标改黑体破折号、署名前改用一段墨线；五步说明孤字→14px+收右 padding；页脚英文名折行；封面目录与正文块顶线不齐→网格行 auto/1fr/auto 对齐。\n已修（第二轮·美术）：H1 加到 124px 让封面更像封面；眉标条右端补口号当刊物格言；同一张 co-learning 在页内出现两次显得偷懒→文章头条改裁下半 + 三张文章封面统一做钴蓝专色单印（grayscale × screen × 图版纸 multiply），同时和章节彩图拉开层级；强调色弃陶土选钴蓝，避开「米色+宋体+陶土」的 AI 脸；主视觉不用 multiply（会在 #f2efe7 上露出矩形边），改为图版纸取 #fcf8f0 同值无接缝。\n注意事项：(1) BRIEF 给的 390 宽无头截图命令在本机 Chrome 上实际按 ~500px 布局并裁切（会误判为移动端溢出），shot-mobile.png 改用 390px iframe 包裹拍摄，为真实 390 布局，且拍了整页（7150px 高，非 4400）；shot-kit.png 拍 4700 高以拍全。(2) 文案稿里没有企微链接，取自现站 live-index.html：https://work.weixin.qq.com/kfid/kfc472df2b7db14c36e；「半人马人工智能 ↗」指向现站的 https://centaurloop.com/。(3) 为版式加了少量结构性文字：封面「目录」及其锚点条目（取自各区块原标题）、移动端菜单钮「目录」、复制反馈「已复制」、skip link；文章标题未带《》。未编造期号/页码/数据。(4) 钴蓝「≤5%」指文字与界面；H1 强调词与专色单印封面是有意的成块出现，已在 DESIGN.md 写明。\n仍不满意：768 档是单栏直排，成立但不如 1440 有版式感；封面 H1 与下方目录/正文之间的留白略松；Newsreader 的 ↗ 字形偏细，小字号下略弱；Google Fonts 加载失败时回退 Songti SC 的 900 字重在 Windows（SimSun 无粗体）会变成伪粗，标题气势会打折。"
+      "self_notes": "输出目录：/private/tmp/claude-502/-Users-qiu-----/7d6f27d1-bb5d-40db-915c-d59a6bdb5162/scratchpad/styles-repo/styles/01-paper-journal/（DESIGN.md、tokens.css、index.html、kit.html、shot-fold/full/mobile/kit.png）。tokens.css 由脚本原样嵌入 DESIGN.md Quick Start（断言通过）；两页 <style> 内已脚本检查无裸 hex/rgba（仅规定的返回钮内联样式除外）。\n已修（第一轮·坏）：页面超 5200 高→收紧版面间距；首字下沉的浮动把下方链接挤偏→lede 后清浮动；页边栏图注起点偏 24px；联系区 H2 末字掉行、正文孤字；引文「人机共生」被拆行→按意群 inline-block 断行；开引号撞到页边栏线→改为 padding+负缩进悬挂；Newsreader 里「——」断成两截→眉标改黑体破折号、署名前改用一段墨线；五步说明孤字→14px+收右 padding；页脚英文名折行；封面目录与正文块顶线不齐→网格行 auto/1fr/auto 对齐。\n已修（第二轮·美术）：H1 加到 124px 让封面更像封面；眉标条右端补口号当刊物格言；同一张 co-learning 在页内出现两次显得偷懒→文章头条改裁下半 + 三张文章封面统一做钴蓝专色单印（grayscale × screen × 图版纸 multiply），同时和章节彩图拉开层级；强调色弃陶土选钴蓝，避开「米色+宋体+陶土」的 AI 脸；主视觉不用 multiply（会在 #f2efe7 上露出矩形边），改为图版纸取 #fcf8f0 同值无接缝。\n注意事项：(1) BRIEF 给的 390 宽无头截图命令在本机 Chrome 上实际按 ~500px 布局并裁切（会误判为移动端溢出），shot-mobile.png 改用 390px iframe 包裹拍摄，为真实 390 布局，且拍了整页（7150px 高，非 4400）；shot-kit.png 拍 4700 高以拍全。(2) 文案稿里没有企微链接，取自现站 live-index.html：https://work.weixin.qq.com/kfid/kfc472df2b7db14c36e；「半人马人工智能 ↗」指向现站的 https://centaurloop.com/。(3) 为版式加了少量结构性文字：封面「目录」及其锚点条目（取自各区块原标题）、移动端菜单钮「目录」、复制反馈「已复制」、skip link；文章标题未带《》。未编造期号/页码/数据。(4) 钴蓝「≤5%」指文字与界面；H1 强调词与专色单印封面是有意的成块出现，已在 DESIGN.md 写明。\n仍不满意：768 档是单栏直排，成立但不如 1440 有版式感；封面 H1 与下方目录/正文之间的留白略松；Newsreader 的 ↗ 字形偏细，小字号下略弱；Google Fonts 加载失败时回退 Songti SC 的 900 字重在 Windows（SimSun 无粗体）会变成伪粗，标题气势会打折。",
+      "review": {
+        "fixed": [
+          "封面 H1 偏小、下方留白松（制作者自己也提了）：--text-display 从 clamp(56px,8.4vw,124px) 改为 clamp(56px,9.6vw,140px)，H1 顶部与右侧图版顶对齐，H1 与目录/正文顶线的间距从 56 收到 40；首屏 1440×900 仍完整收住到封面主张行。tokens.css、DESIGN.md（Type Scale、Sizes、Quick Start、@theme 共 4 处）、kit.html 标注同步，已断言 tokens.css 仍原样嵌入 DESIGN.md。",
+          "箭头字形不一致：产品行「让积累参与思考 ↗」的箭头没吃到 Newsreader（选择器漏了 .products__name .arr），比其它文字链的箭头更粗更短；index/kit 两页选择器已补齐。",
+          "观点与动态右栏次条标题断行难看（「我们越/应该谈谈人」「做一/件趁手的工具」）：按逗号意群用 inline-block 断行，桌面与 390 都断在逗号处；kit.html 同步，文案未改动。",
+          "院长寄语下半区正文与署名顶端不齐（只有署名有顶线）：两栏各加一根墨线顶线并对齐，呼应封面「目录 / 副标题」那对顶线；index/kit/DESIGN.md 同步。",
+          "联系区墨版上轻下重（上 56、下 84 再加 30px 状态位）：改为上 84 / 下 56，视觉上下等重；DESIGN.md 的 Section gap 写明这个例外。",
+          "768 档整页单栏直排、图过大（制作者自述不满意项）：新增 600–860px 平板档，章节 01/03 恢复 1:1 图文对开，章节 02 的标题与导语恢复两栏，联系按钮不再撑满整行；已截 768 图确认无溢出、无孤字；DESIGN.md Layout 段同步。",
+          "重拍并覆盖 shot-fold / shot-full / shot-mobile（390px iframe 真实布局）/ shot-kit（加 virtual-time-budget 等字体加载，否则会拍到回退字体）。",
+          "机械项全部通过，无需修改：DESIGN.md 章节齐全、顺序与范本一致；tokens.css 与 Quick Start 一字不差；两页 <style> 内无裸 hex/rgba（只有规定的返回钮内联样式）；七个区块齐全、文案与 content.md 一致；无编造数字/客户/评价；字体回退栈齐全；返回钮两页都在；图片全部是 ../../assets/ 下的真实文件。"
+        ],
+        "remaining": [
+          "Windows 上 Google Fonts 加载失败时会回退到 SimSun，它没有 900 字重，H1 会变伪粗、气势打折；要解决只能自托管思源宋体 Heavy 的子集，超出本目录和纯静态约束，没做。",
+          "章节 03 在 <600px 的顺序是标题→导语→产品行→插画，插画离标题偏远；要调需改 DOM 结构，收益小，没动。",
+          "封面 4:5 图版裁掉了马尾，这是制作者有意为之并已写进 DESIGN.md，我保留了；站主如果介意断尾，可把 object-position 往左调，或把图版改为 1:1。",
+          "文章标题没带《》，封面目录、移动端菜单钮「目录」、复制反馈「已复制」、skip link 是为版式加的结构性文字，均非编造内容，但严格说不是 content.md 的逐字原文，需要站主知情。",
+          "这一套是「不换方向只做对」的基线，辨识度天花板受限：遮住 logo 像一本认真做的学刊或出版品牌，但和现站长相仍是近亲，靠钴蓝着重号、页边栏和专色单印拉开距离，做不到让人眼前一亮。"
+        ],
+        "scores": {
+          "craft": 8.5,
+          "distinctiveness": 7,
+          "fit": 8.5
+        },
+        "verdict": "这一套可以交到站主面前：版式手法（文武线、页边栏图注、着重号、悬挂引号、专色单印）用得真，对经营者人群稳重可信；修订后封面更有封面气势，平板档也不再是单栏直排，但它是六套里最保守的一张牌。"
+      }
     },
     {
       "slug": "02-ink-seal",
@@ -276,7 +301,37 @@
         "https://www.ideou.com/",
         "https://www.ideou.com/cdn/shop/t/4/assets/ideou_main.css"
       ],
-      "self_notes": "输出目录：/private/tmp/claude-502/-Users-qiu-----/7d6f27d1-bb5d-40db-915c-d59a6bdb5162/scratchpad/styles-repo/styles/03-swiss-grid/（DESIGN.md、tokens.css、index.html、kit.html、shot-fold/full/mobile/kit.png）。DESIGN.md 的 Quick Start 由脚本直接嵌入 tokens.css 原文并断言一致；两页无 token 外裸 hex（已 grep），零 gradient、零 box-shadow、零圆角。\n第一轮（查坏）已修：①文字链下划线在箭头处断裂（inline-flex → inline-block，箭头不带下划线）；②无头 Chrome 最小视口 500px 导致 390 截图右侧被裁、误判为溢出——改用 390px iframe 包一层再拍，确认移动端无横向溢出；③scale=2 且高度 >8000 时 Chrome 崩溃（纹理上限），改 8000 并自动裁掉底部空白；④中文标题被拆词（「工/具」「我/们」「做成的/事」）——标题、引文、联系正文改为按词组 inline-block 断行；⑤院长署名区 `.sig span{display:block}` 误伤箭头导致 ↗ 掉行；⑥平板档期刊行缩略图把标题和摘要撑开；⑦手机端期刊行过长，改为缩略图 1 栏 + 文 3 栏的紧凑行，整页从 ~7000px 降到 ~6500px；⑧kit 页 12 栏示意原先塞在 10 栏里与真网格不对齐，改为通栏。\n第二轮（美术总监）已改：首屏从「左文右图 + 图注」改成半人马前蹄踩在 6px 黑线上（线即地面），图注移到线下右侧与品牌主张同一行；五步的装饰短条改为按 20% 递增的钴蓝进度条，让「向前一点」是画出来的；联系区钴蓝色块只占 1–8 栏以守住 ≤8% 并制造不对称；验证了网格钮开启态（整页栏带显形）效果成立。\n仍不满意/需站主知情：①三张暖色插画被整体转成黑白图版，这是本方向的立场，但站主若舍不得插画原色需另议（可做 hover 还原原色，现未做）；②回退到 PingFang SC 时最重只有 Semibold，标题气势会弱一档，版式不塌；③shot-full 实际高 5209px、shot-kit 4875px、shot-mobile 为 390px 全页（均自动裁到内容底部，故截图里看不到左下角返回钮，页面里有）；④首屏 H1 与副标题之间在 1440 下留白偏大，是有意的瑞士式留白，但超宽屏下会更空；⑤「复制客服链接」点击后按钮文字会短暂变为「已复制」，属交互反馈而非文案改写；页眉网格钮无可见文字，仅 aria-label。"
+      "self_notes": "输出目录：/private/tmp/claude-502/-Users-qiu-----/7d6f27d1-bb5d-40db-915c-d59a6bdb5162/scratchpad/styles-repo/styles/03-swiss-grid/（DESIGN.md、tokens.css、index.html、kit.html、shot-fold/full/mobile/kit.png）。DESIGN.md 的 Quick Start 由脚本直接嵌入 tokens.css 原文并断言一致；两页无 token 外裸 hex（已 grep），零 gradient、零 box-shadow、零圆角。\n第一轮（查坏）已修：①文字链下划线在箭头处断裂（inline-flex → inline-block，箭头不带下划线）；②无头 Chrome 最小视口 500px 导致 390 截图右侧被裁、误判为溢出——改用 390px iframe 包一层再拍，确认移动端无横向溢出；③scale=2 且高度 >8000 时 Chrome 崩溃（纹理上限），改 8000 并自动裁掉底部空白；④中文标题被拆词（「工/具」「我/们」「做成的/事」）——标题、引文、联系正文改为按词组 inline-block 断行；⑤院长署名区 `.sig span{display:block}` 误伤箭头导致 ↗ 掉行；⑥平板档期刊行缩略图把标题和摘要撑开；⑦手机端期刊行过长，改为缩略图 1 栏 + 文 3 栏的紧凑行，整页从 ~7000px 降到 ~6500px；⑧kit 页 12 栏示意原先塞在 10 栏里与真网格不对齐，改为通栏。\n第二轮（美术总监）已改：首屏从「左文右图 + 图注」改成半人马前蹄踩在 6px 黑线上（线即地面），图注移到线下右侧与品牌主张同一行；五步的装饰短条改为按 20% 递增的钴蓝进度条，让「向前一点」是画出来的；联系区钴蓝色块只占 1–8 栏以守住 ≤8% 并制造不对称；验证了网格钮开启态（整页栏带显形）效果成立。\n仍不满意/需站主知情：①三张暖色插画被整体转成黑白图版，这是本方向的立场，但站主若舍不得插画原色需另议（可做 hover 还原原色，现未做）；②回退到 PingFang SC 时最重只有 Semibold，标题气势会弱一档，版式不塌；③shot-full 实际高 5209px、shot-kit 4875px、shot-mobile 为 390px 全页（均自动裁到内容底部，故截图里看不到左下角返回钮，页面里有）；④首屏 H1 与副标题之间在 1440 下留白偏大，是有意的瑞士式留白，但超宽屏下会更空；⑤「复制客服链接」点击后按钮文字会短暂变为「已复制」，属交互反馈而非文案改写；页眉网格钮无可见文字，仅 aria-label。",
+      "review": {
+        "fixed": [
+          "移动端/平板章节顺序不一致：02 翻转行在 ≤1079px 下变成「编号→图→标题」，与 01/03 相反；已用 order 统一为「章节头→文→图」",
+          "平板 (768) 章节悬挂编号栏太窄导致栏目名折成孤字（「从你的积累出/发」）；≤1079px 改为编号+栏目名并成一行章节头，正文仍从第 3 栏起",
+          "平板首屏 hero-main 的 min-height 把 H1 与副标题之间撑出约 100px 空洞；≤1079px 取消最小高度",
+          "平板五步 5 等分栏过窄，说明文字出现孤字换行；纵向表格布局的断点从 719 提到 899",
+          "手机端 H1 只有 50px、气势不够（方向特征是超大字重标题）；≤719px 覆写 --text-display 为 clamp(50px,16vw,72px)，390 下约 62px 撑满版心，index/kit 同步，DESIGN.md Type Scale 注明",
+          "签名记忆点「常显 12 栏发丝线」在 #ececea 下截图里几乎看不见；--color-grid 调为 #e4e4e1，tokens.css / DESIGN.md（色表、Agent Prompt、Quick Start、@theme）/ kit 色板同步",
+          "单色图版发灰发平（高调插画转灰后像褪色图库图）；filter 由 contrast(1.08) 提到 contrast(1.2)，index/kit/DESIGN.md 三处同步",
+          "DESIGN.md Tailwind v4 @theme 里三个字体栈是缩水版（缺 Helvetica / Hiragino Sans GB / Source Han Sans SC / Menlo 等回退），与 tokens.css 不一致；已补齐到逐值一致",
+          "DESIGN.md Layout 与 Steps 组件说明按新的响应式行为改写",
+          "重拍四张截图并覆盖；shot-mobile 改用 390px iframe 包一层 + PIL 左对齐裁切（sips -c 是居中裁切会拍偏），高度 6600 完整到页脚"
+        ],
+        "remaining": [
+          "机械项核对通过：DESIGN.md 章节齐全且顺序与范本一致（图表色一节不适用已省略，另加 Grid / Rules 两小节）；Quick Start 第一块与 tokens.css 逐字一致；两页 <style> 无 token 外裸 hex、无 gradient/box-shadow；文案与 content.md 逐字一致、七区块齐全、无编造数据；只有一个 h1；返回钮在；图片均为 ../../assets/ 真实文件",
+          "页脚「半人马人工智能 ↗」指向 https://centaurloop.com/ ——content.md 未给出该 URL，6 套候选都用了同一地址，站主需确认是否真实",
+          "三张暖色插画整体转黑白是本方向立场，站主若舍不得原色需另议（hover 还原原色未做）",
+          "Google Fonts 加载失败回退到 PingFang SC 时最重只有 Semibold，标题气势弱一档，版式不塌但辨识度打折；正式上线建议自托管思源黑体 Heavy 子集",
+          "网格钮仅图标 + aria-label/title，无可见文字，首次访问者未必发现这个签名交互；受「文案不增不减」约束未加可见标签",
+          "kit.html 没有传统「卡片」样张——本范式用表格行替代卡片并在 DESIGN.md 写明，属立场而非缺漏",
+          "期刊索引行在 1440 下缩略图 2 栏、右侧摘要下方留白偏多，属索引式版面的取舍，未动",
+          "目录里出现 thumb.webp / thumb-mobile.webp（11:56 由其它流程生成，非本次审稿产物），未触碰；若它们是旧版截图的缩略图，需要上游重生成"
+        ],
+        "scores": {
+          "craft": 8.5,
+          "distinctiveness": 8,
+          "fit": 8
+        },
+        "verdict": "这一套修订后可以交给站主：首屏的 Heavy 黑体加踩在 6px 地面线上的半人马、常显的 12 栏线和表格式信息组织都成立，像一个真实的瑞士风品牌站。这一轮主要修了平板和手机两档的排版问题，并把栏线和单色图版的对比度提了上去。主要风险是思源黑体 Heavy 在国内加载失败时标题气势会掉一档。"
+      }
     },
     {
       "slug": "04-boardroom",
@@ -359,7 +414,39 @@
         "https://www.economist.com/ (403，未取到)",
         "https://www.mckinsey.com/featured-insights (超时，未取到)"
       ],
-      "self_notes": "输出目录：/private/tmp/claude-502/-Users-qiu-----/7d6f27d1-bb5d-40db-915c-d59a6bdb5162/scratchpad/styles-repo/styles/04-boardroom/（DESIGN.md、tokens.css、index.html、kit.html、shot-fold/full/mobile/kit.png）。DESIGN.md 的 Quick Start 由脚本从 tokens.css 原文嵌入，一字不差；两页 CSS 内无裸 hex（kit 里的 hex 只是色板标签文字；唯一 rgba 是 brief 规定的返回钮）。\n第一轮修掉的坏：hero 文案被 grid 自动排到第二行（补 grid-row:1）；强调词底线用 background 画时离字太远（改 text-decoration + underline-offset）；↗ 在等宽字体里太小（箭头改走 sans、放大）；罗盘竖线穿过页头线（缩到 100%）；产品行文字链底线撑满整格（justify-self:start）；kit 页头 padding 简写覆盖了 wrap 的左右边距；返回钮 color:inherit 在深蓝上不可见（外包一层 mix-blend-mode:difference，样式本身未改）。发现无头 Chrome 窗口最小宽 500，390 直接截图是假溢出，改用 390px iframe 包裹截图验证，移动端实际无横向滚动。\n第二轮（美术总监视角）改的：三章节的小号等宽编号换成 1px 旧金描边的空心大数字，辨识度明显上来；第一章文字列改为上下两端对齐消掉左下大空洞；院长寄语左栏加空心描边引号填住空位；区块间距从 136 收到 120；hero 眉标里的「——」改成真的夹在中英文之间的黄铜线。\n与 brief 的出入：页面实高 6872px（桌面）/ 7256px（移动），所以 shot-full 用 1440×6872、shot-mobile 用 390×7256@2x、shot-kit 用 1440×4860 一次拍全，没用 brief 里的 5200/4400/3200（会被裁掉）。期刊标题未加《》书名号（按目录体例）；产品行的「—」由表格分列替代；复制按钮点击后会出现一行「已复制 + 链接」的状态提示（文案稿之外的唯一新增字）。\n仍不满意：页面偏长，第三章横幅 + 产品表一段略松；深象牙 #ebe6d9 的五步色带是全页最接近「暖米色」的地方，若站主嫌暖可改为深蓝色带；返回钮在 hero 底部会压到品牌主张那行字的左端；Economist 与 McKinsey 未能抓到 CSS，未列入 Similar Brands；Google Fonts 加载失败时回退 Songti SC 的 900 字重不存在，强调词将只靠黄铜底线区分。"
+      "self_notes": "输出目录：/private/tmp/claude-502/-Users-qiu-----/7d6f27d1-bb5d-40db-915c-d59a6bdb5162/scratchpad/styles-repo/styles/04-boardroom/（DESIGN.md、tokens.css、index.html、kit.html、shot-fold/full/mobile/kit.png）。DESIGN.md 的 Quick Start 由脚本从 tokens.css 原文嵌入，一字不差；两页 CSS 内无裸 hex（kit 里的 hex 只是色板标签文字；唯一 rgba 是 brief 规定的返回钮）。\n第一轮修掉的坏：hero 文案被 grid 自动排到第二行（补 grid-row:1）；强调词底线用 background 画时离字太远（改 text-decoration + underline-offset）；↗ 在等宽字体里太小（箭头改走 sans、放大）；罗盘竖线穿过页头线（缩到 100%）；产品行文字链底线撑满整格（justify-self:start）；kit 页头 padding 简写覆盖了 wrap 的左右边距；返回钮 color:inherit 在深蓝上不可见（外包一层 mix-blend-mode:difference，样式本身未改）。发现无头 Chrome 窗口最小宽 500，390 直接截图是假溢出，改用 390px iframe 包裹截图验证，移动端实际无横向滚动。\n第二轮（美术总监视角）改的：三章节的小号等宽编号换成 1px 旧金描边的空心大数字，辨识度明显上来；第一章文字列改为上下两端对齐消掉左下大空洞；院长寄语左栏加空心描边引号填住空位；区块间距从 136 收到 120；hero 眉标里的「——」改成真的夹在中英文之间的黄铜线。\n与 brief 的出入：页面实高 6872px（桌面）/ 7256px（移动），所以 shot-full 用 1440×6872、shot-mobile 用 390×7256@2x、shot-kit 用 1440×4860 一次拍全，没用 brief 里的 5200/4400/3200（会被裁掉）。期刊标题未加《》书名号（按目录体例）；产品行的「—」由表格分列替代；复制按钮点击后会出现一行「已复制 + 链接」的状态提示（文案稿之外的唯一新增字）。\n仍不满意：页面偏长，第三章横幅 + 产品表一段略松；深象牙 #ebe6d9 的五步色带是全页最接近「暖米色」的地方，若站主嫌暖可改为深蓝色带；返回钮在 hero 底部会压到品牌主张那行字的左端；Economist 与 McKinsey 未能抓到 CSS，未列入 Similar Brands；Google Fonts 加载失败时回退 Songti SC 的 900 字重不存在，强调词将只靠黄铜底线区分。",
+      "review": {
+        "fixed": [
+          "移动端/平板横向溢出（制作者自述「无横向滚动」不成立）：实测 390 档 scrollWidth 比 clientWidth 多 8px、768 档多 17px，来源是首屏罗盘 SVG 探出图框。给 hero 深蓝色带加 overflow-x:clip（回退 hidden），复测三档 scrollWidth = clientWidth",
+          "第一章左栏文字被「上下两端对齐」拆成两截、中间留 190px 空洞：改为整块（标题+说明+链接）沉底、与画框下沿对齐，空白留在章节号下方；移动端去掉链接下的多余 38px",
+          "首屏左下角固定返回钮压住品牌主张「人决定方向…」：hero-foot 下内边距 28→48px，1440×900 首屏复拍已不重叠",
+          "768/390 档罗盘外圈压到「了解共学与共创」文字链：主视觉上边距改为 12vw+12px（罗盘是正圆，比 4:3 图高约 12%）",
+          "移动端产品行禁用下载按钮被 grid 拉伸，箭头格变成一条长虚线框：.prod-row .btn 加 justify-self:start（index 与 kit 同步）",
+          "移动端期刊区书眉线丢了黄铜签：.journal-head 在 ≤900px 被设成 position:static，覆盖了 .rule 的 relative，::before 跑丢；改为 position:relative;top:auto",
+          "移动端五步时间轴竖线在最后一步后多拖 28px：last-child padding-bottom:0（index 与 kit 同步）",
+          "kit 里文字链放进 grid 格时底线撑满整格：.tlink 统一加 justify-self:start",
+          "shot-kit.png 原先按 4860 高拍摄，实际页高 5301，末尾「联系横幅」样张被裁掉；已按 5301 重拍。shot-full 6875、shot-mobile 390×7300@2x（左对齐裁切，原先 sips 居中裁会切掉左边距）、shot-fold 均已覆盖；截图加 virtual-time-budget 以避免 Noto Serif SC 分片未加载完就拍",
+          "DESIGN.md 同步：Layout 段改写第一章构图说明、补 hero-foot 48px 让位说明；Compass 组件补「色带必须 overflow-x:clip、≤900px 上方留 12vw+12px」",
+          "机械项核对通过（无需改）：DESIGN.md 章节齐全且顺序与范本一致（图表色一节按本站无图表省略，多了面积配比与 Rules 两小节）；tokens.css 原文逐字嵌入 Quick Start，含 Tailwind v4 @theme；两页 <style> 无裸 hex，唯一 rgba 是 brief 规定的返回钮；七个区块齐全、文案逐字一致；无编造数字/客户/评价；四个字体族均带系统回退栈；图片全部指向 ../../assets/ 下真实文件；只有一个 h1；返回钮在两页都在"
+        ],
+        "remaining": [
+          "返回钮外包了一层 mix-blend-mode:difference 的 div（brief 写「样式别改」，钮本身没改，但包裹层是擦边做法；不包的话 color:inherit 在深蓝上确实看不见），留给站主判断",
+          "共学五步的深象牙色带 #ebe6d9 是全页最接近「暖米色」的一块，且该区块本身是全页最平的一段（13px 等宽编号 + 48px 空 + 标题），成立但不出彩；若站主嫌暖可换 primary-deep 色带，但那样深浅会变成机械的斑马节奏，我没动",
+          "页面偏长（桌面 6875px），第三章通栏横幅 + 产品表一段仍略松",
+          "期刊区左侧 sticky 栏目头在桌面静态截图里下方空约 350px（滚动时成立，截图里显空）",
+          "院长寄语左栏的空心大引号与右侧引文自带的开引号语义重复，属装饰取舍，未动",
+          "页头/页脚 logo 用 40×48 象牙衬牌垫底，略像贴纸；因 logo 的钴蓝马身直接压深蓝会糊，暂无更好解",
+          "文案稿中的「——」「—」和《》分别被黄铜线、表格分列、目录体例替代；复制按钮点击后新增一行「已复制」状态字——均为制作者已申报的出入，未改",
+          "页脚「半人马人工智能」链接指向 centaurloop.com，文案稿未给该 URL（六套候选都用了同一地址，应是现站真实链接，未核实）",
+          "未实测移动菜单展开态与 Google Fonts 完全失败时的整页回退（kit 有一次偶发部分字体未加载的截图，版式未塌）"
+        ],
+        "scores": {
+          "craft": 8,
+          "distinctiveness": 7.5,
+          "fit": 9
+        },
+        "verdict": "这一套可以交给站主：首屏「抠图半人马 + 细线罗盘 + 黄铜指针」记忆点成立，书眉线、空心章节号、期刊目录体例让它读起来像一家真实的智库或商学院官网，而不是换了配色的落地页，对经营者人群的信任感是 6 套方向里最对口的。本轮修掉了移动端/平板横向溢出（制作者自述「无横向滚动」不成立）、第一章文字中间的大空洞、返回钮压字、移动端按钮拉伸、期刊区丢黄铜签等问题，改完已重拍四张截图并复测三档宽度无溢出。短板是中后段（共学五步、第三章下半）偏稳偏松，胜在克制和对口，不靠惊艳。"
+      }
     },
     {
       "slug": "05-night-precision",
@@ -436,7 +523,37 @@
         "https://resend.com/ (HTML + /_next/static/immutable/chunks/*.css)",
         "https://nothing.tech/ (仅抓到 HTML，未取到有效 token，未列为锚点)"
       ],
-      "self_notes": "输出目录：/private/tmp/claude-502/-Users-qiu-----/7d6f27d1-bb5d-40db-915c-d59a6bdb5162/scratchpad/styles-repo/styles/05-night-precision/（DESIGN.md、tokens.css、index.html、kit.html、shot-fold/full/mobile/kit.png）。DESIGN.md 的 Quick Start 由脚本从 tokens.css 原样嵌入并 assert 一致；index.html 无裸 hex（kit.html 里的 hex 仅为色板文字标签）。\n第一轮（查坏）已修：1) hero-copy 与 hero-fig 列区间重叠导致自动换行成两行→显式 grid-row:1；2) `.hero .wrap` 选择器误伤刻度尺与底栏的 wrap，超高窗口下 hero 被撑到 1500px→改 `.hero>.wrap`；3) 联系横幅橙色指示线被 overflow 裁掉→top:0、2px；4) 整页超过 5200 截图高度、页脚被截→收紧区块内边距到 76–88px；5) 无头 Chrome 在 macOS 上窗口最小宽 500px，按 brief 命令截的 390 图其实是 500px 布局被裁（看起来像横向溢出）→改用 390px iframe 线束截真移动布局再裁成 780×8800，确认无横向滚动；shot-mobile.png 因页面约 6000px 高只拍到寄语区为止。\n第二轮（美术总监眼光）已改：首屏文案由底对齐改垂直居中并放大半人马到 5–12 列，消掉顶部空洞；马背引线节点位置校准到真正落在马背；引文与期刊标题加 text-wrap:balance + nowrap 片段，避免「共/生」「工/具」断词；五步标题从悬空的第 3 列改为左对齐；链接箭头从等宽字改回无衬线避免下沉；平板档取消 hero 最小高度。kit 页合并了输入框+引文、圆角并入卡片区，shot-kit 用 1440×4300 拍全（brief 模板是 3200）。\n仍不满意：1) 引线把图注「人的意愿 · 能力的延伸」拆到半人马两侧、底栏只留「HUMAN × AI」（完整图注保留为 sr-only，≤1080px 恢复整句）——属于对「逐字」的版式化处理，站主若介意可一行改回；2) H2 里全角逗号后的空隙在 56px 下略松，未做标点挤压；3) 移动端期刊行标题 balance 后仍可能在词中断行；4) Geist/思源依赖 Google Fonts，国内失败时回退 PingFang/SF，版式已验证不塌但拉丁字形会略变；5) 亮盒下方的暖色溢光很弱，在低对比度屏幕上几乎不可见，属有意克制。"
+      "self_notes": "输出目录：/private/tmp/claude-502/-Users-qiu-----/7d6f27d1-bb5d-40db-915c-d59a6bdb5162/scratchpad/styles-repo/styles/05-night-precision/（DESIGN.md、tokens.css、index.html、kit.html、shot-fold/full/mobile/kit.png）。DESIGN.md 的 Quick Start 由脚本从 tokens.css 原样嵌入并 assert 一致；index.html 无裸 hex（kit.html 里的 hex 仅为色板文字标签）。\n第一轮（查坏）已修：1) hero-copy 与 hero-fig 列区间重叠导致自动换行成两行→显式 grid-row:1；2) `.hero .wrap` 选择器误伤刻度尺与底栏的 wrap，超高窗口下 hero 被撑到 1500px→改 `.hero>.wrap`；3) 联系横幅橙色指示线被 overflow 裁掉→top:0、2px；4) 整页超过 5200 截图高度、页脚被截→收紧区块内边距到 76–88px；5) 无头 Chrome 在 macOS 上窗口最小宽 500px，按 brief 命令截的 390 图其实是 500px 布局被裁（看起来像横向溢出）→改用 390px iframe 线束截真移动布局再裁成 780×8800，确认无横向滚动；shot-mobile.png 因页面约 6000px 高只拍到寄语区为止。\n第二轮（美术总监眼光）已改：首屏文案由底对齐改垂直居中并放大半人马到 5–12 列，消掉顶部空洞；马背引线节点位置校准到真正落在马背；引文与期刊标题加 text-wrap:balance + nowrap 片段，避免「共/生」「工/具」断词；五步标题从悬空的第 3 列改为左对齐；链接箭头从等宽字改回无衬线避免下沉；平板档取消 hero 最小高度。kit 页合并了输入框+引文、圆角并入卡片区，shot-kit 用 1440×4300 拍全（brief 模板是 3200）。\n仍不满意：1) 引线把图注「人的意愿 · 能力的延伸」拆到半人马两侧、底栏只留「HUMAN × AI」（完整图注保留为 sr-only，≤1080px 恢复整句）——属于对「逐字」的版式化处理，站主若介意可一行改回；2) H2 里全角逗号后的空隙在 56px 下略松，未做标点挤压；3) 移动端期刊行标题 balance 后仍可能在词中断行；4) Geist/思源依赖 Google Fonts，国内失败时回退 PingFang/SF，版式已验证不塌但拉丁字形会略变；5) 亮盒下方的暖色溢光很弱，在低对比度屏幕上几乎不可见，属有意克制。",
+      "review": {
+        "fixed": [
+          "平板档(768–900) hero：马尾压在「了解共学与共创 →」文字链上——改为 ≤900px 文案/图上下叠放，图宽≤620px 靠右并上提 140px 错位，不再重叠",
+          "平板档期刊区崩坏：「观点」徽标被挤成竖排、标题三行断词、缩略亮盒溢出右侧航道线——≤1080px 改为上下两段（主推=亮盒7列+文字5列横排，两条期刊行通栏），徽标加 nowrap",
+          "平板档五步：每列仅 ~133px，说明掉孤字（「发。」「果。」），且 1x 屏下第 3/5 根橙刻度因亚像素变灰——纵向列表断点由 767 提到 900，橙刻度改为与行顶线同一像素行的渐变段，颜色稳定",
+          "平板档产品行：名称与箭头被下载钮挤成三行——768–1080 下载钮与「下载暂未开放」落到名称下方横排",
+          "页脚口号「各有知君，共创万象。」在平板断成「共创万/象。」→ nowrap + 调整列区间；移动端口号莫名居中 → 改左对齐",
+          "移动端期刊标题「AI 越强大，我/们越应该谈谈人」词中断行（制作者自述遗留项3）→ 两条标题按语义分段 nowrap",
+          "联系区正文在平板断在「希/望」→ 语义分段 nowrap",
+          "首屏刻度尺的刻度线画在前蹄上面（ruler z-index 高于图）→ 图层级提到刻度尺之上，马蹄真正「踩」在尺上；kit.html 的抠图样张同步",
+          "签名记忆点加强：hero 右侧航道线上加一把竖向刻度（同 8/80px token，最高 560px），与横尺合成「量高台」，首屏右上空洞也被收住；≤900px 隐藏。kit.html 与 DESIGN.md（Hero Figure / Step Strip / Journal / Layout 断点说明）已同步",
+          "全部 shot-fold/full/kit 按 brief 命令重拍覆盖；shot-mobile 用 390px iframe 线束拍真移动布局（780×8800）",
+          "机械项核对通过，无需改：DESIGN.md 章节齐全且顺序与范本一致（仅省略不适用的图表色）；Quick Start 与 tokens.css 逐字一致；index.html 无裸 hex，kit.html 的 hex 仅为色板文字标签；七区块齐全、文案逐字、无编造数字/客户/评价；字体回退栈齐全；返回钮两页都在；图片均为 ../../assets/ 下真实文件"
+        ],
+        "remaining": [
+          "academy-centaur-cutout.webp 素材本身在马尾根部/手部有几粒白色抠图残边，深色底上 2x 放大可见，需回到素材层修，页面层不处理",
+          "hero 引线把图注「人的意愿 · 能力的延伸」拆到半人马两侧、底栏只留 HUMAN × AI（整句保留 sr-only，≤1080px 恢复）——属对「逐字」的版式化处理，站主介意可一行改回",
+          "H2 全角逗号后的空隙在 56px 下略松，未做标点挤压",
+          "三段章节 H2 非强调部分用雾灰 #9aa3b2，克制但在低亮度屏上略显发闷；属方向取舍未动",
+          "期刊主推封面与第 02 章插画是同一张 co-learning（文案稿指定），同页重复出现两次大图",
+          "Geist/思源依赖 Google Fonts，国内失败时回退 PingFang/SF，版式不塌但拉丁字形变化",
+          "移动端整页约 6000px 高，shot-mobile.png 只拍到 8800 物理像素（约寄语区）为止"
+        ],
+        "scores": {
+          "craft": 8.5,
+          "distinctiveness": 7.5,
+          "fit": 8
+        },
+        "verdict": "这一套可以交给站主看了。桌面与 390 移动端原本就干净克制，亮盒展品和刻度地台有记忆点。原先平板档的重叠、溢出和词中断行已修掉，首屏「量高台」也做了加强，风格是 Linear 式的高级感，不是赛博朋克。辨识度有上限：深色精密这个品类本身已经常见，靠亮盒里的暖图与橙蓝半人马拉开差距。修改都在 /private/tmp/claude-502/-Users-qiu-----/7d6f27d1-bb5d-40db-915c-d59a6bdb5162/scratchpad/styles-repo/styles/05-night-precision/ 内，tokens.css 未动。"
+      }
     },
     {
       "slug": "06-origami-block",
@@ -515,8 +632,100 @@
         "https://www.figma.com/",
         "https://www.figma.com/_netlify/_next/static/css/617e0bc399c83bea.css"
       ],
-      "self_notes": "四个文件和四张截图都已写入 /private/tmp/claude-502/-Users-qiu-----/7d6f27d1-bb5d-40db-915c-d59a6bdb5162/scratchpad/styles-repo/styles/06-origami-block/。DESIGN.md 的 Quick Start 与 tokens.css 用 diff 核对一致，两个页面的样式里没有 token 之外的裸 hex（kit.html 色板上显示的 hex 是文案，取值由 tokens.css 生成）。\n\n两轮自检中已修的问题：\n- 抠图自带的灰色脚下投影原先横在钴蓝色块上显脏，把橘橙台座加高并向左延伸后，投影全部落在台座顶面。\n- 折痕分隔的高度是小数像素，接缝处出现一条 1px 杂色线。改成折痕底色取下一分区色、伪元素向上溢出 2px 后消失。\n- 手机截图起初被我误判为横向溢出，实际是 macOS 无头 Chrome 最小窗口宽 500px，390px 截图只是裁了一半。shot-mobile.png 改用 390px iframe 包裹页重拍；顺手给单栏布局里的 flex 子项补了 min-width:0。\n- 院长寄语在手机端，次要文字压到钴蓝折面上对比度只有约 3.6:1。手机端把折面收窄到 14vw，并隐藏第二块折面。\n- 三张期刊卡原先用三种颜色的「观点」标签，会被读成分类，统一成钴蓝；右侧横排卡标题出现孤字，给标题加 text-wrap:balance 并调窄封面。\n- kit 里引文块用了 background 简写，把折角的纸背三角盖掉了，改成 background-color。\n- 橘橙字放在米白底上只有 2.6:1，所以错误提示改用橘橙三角标配墨蓝字。\n\n仍不满意或需要知道的地方：\n- shot-mobile.png 只拍到 7400px（@2x）。手机页实际约 8470px，超过无头 Chrome 的纹理上限，拍不全；联系区和页脚另拍过一张尾部截图，确认无误。\n- shot-full.png 和 shot-kit.png 用了比 BRIEF 给的更高的窗口，因为两页实际约 7400px 和 7350px。\n- 苹方最重只有 Semibold，回退时标题比 Noto Sans SC Black 轻一档，压色块的力度会弱一些；版式不塌。\n- Figma 的色值没抓到，Similar Brands 里只如实写成方向参考。\n- 首屏半人马的尾巴有约 30px 搭在背光蓝折面上，那一段对比偏低。我认为可以接受，想干净的话可以把抠图再右移。\n- 白卡上的折角纸背取深米色，比较弱，只有近看才看得出。\n- 联系按钮用的企微链接 https://work.weixin.qq.com/kfid/kfc472df2b7db14c36e 不在 content.md 里，是沿用其他候选页的，站内路径同样沿用它们的写法。\n- 加载的 high-end-visual-design 技能主张胶囊按钮、玻璃导航、双层圆角，与 BRIEF 和本方向冲突，只取了自定义缓动曲线、按压反馈和大留白这三条。"
+      "self_notes": "四个文件和四张截图都已写入 /private/tmp/claude-502/-Users-qiu-----/7d6f27d1-bb5d-40db-915c-d59a6bdb5162/scratchpad/styles-repo/styles/06-origami-block/。DESIGN.md 的 Quick Start 与 tokens.css 用 diff 核对一致，两个页面的样式里没有 token 之外的裸 hex（kit.html 色板上显示的 hex 是文案，取值由 tokens.css 生成）。\n\n两轮自检中已修的问题：\n- 抠图自带的灰色脚下投影原先横在钴蓝色块上显脏，把橘橙台座加高并向左延伸后，投影全部落在台座顶面。\n- 折痕分隔的高度是小数像素，接缝处出现一条 1px 杂色线。改成折痕底色取下一分区色、伪元素向上溢出 2px 后消失。\n- 手机截图起初被我误判为横向溢出，实际是 macOS 无头 Chrome 最小窗口宽 500px，390px 截图只是裁了一半。shot-mobile.png 改用 390px iframe 包裹页重拍；顺手给单栏布局里的 flex 子项补了 min-width:0。\n- 院长寄语在手机端，次要文字压到钴蓝折面上对比度只有约 3.6:1。手机端把折面收窄到 14vw，并隐藏第二块折面。\n- 三张期刊卡原先用三种颜色的「观点」标签，会被读成分类，统一成钴蓝；右侧横排卡标题出现孤字，给标题加 text-wrap:balance 并调窄封面。\n- kit 里引文块用了 background 简写，把折角的纸背三角盖掉了，改成 background-color。\n- 橘橙字放在米白底上只有 2.6:1，所以错误提示改用橘橙三角标配墨蓝字。\n\n仍不满意或需要知道的地方：\n- shot-mobile.png 只拍到 7400px（@2x）。手机页实际约 8470px，超过无头 Chrome 的纹理上限，拍不全；联系区和页脚另拍过一张尾部截图，确认无误。\n- shot-full.png 和 shot-kit.png 用了比 BRIEF 给的更高的窗口，因为两页实际约 7400px 和 7350px。\n- 苹方最重只有 Semibold，回退时标题比 Noto Sans SC Black 轻一档，压色块的力度会弱一些；版式不塌。\n- Figma 的色值没抓到，Similar Brands 里只如实写成方向参考。\n- 首屏半人马的尾巴有约 30px 搭在背光蓝折面上，那一段对比偏低。我认为可以接受，想干净的话可以把抠图再右移。\n- 白卡上的折角纸背取深米色，比较弱，只有近看才看得出。\n- 联系按钮用的企微链接 https://work.weixin.qq.com/kfid/kfc472df2b7db14c36e 不在 content.md 里，是沿用其他候选页的，站内路径同样沿用它们的写法。\n- 加载的 high-end-visual-design 技能主张胶囊按钮、玻璃导航、双层圆角，与 BRIEF 和本方向冲突，只取了自定义缓动曲线、按压反馈和大留白这三条。",
+      "review": {
+        "fixed": [
+          "页头常驻 CTA 原来和首屏主按钮同为橘橙，违反它自己 DESIGN.md 里「同一视图橘橙主按钮最多一个」的规则；页头改为 44px 墨蓝 Ink Button（钴蓝纸影），移动端菜单展开时换回橘橙，DESIGN.md 的 Ink Button / Cobalt Button 两节已同步。",
+          "移动端菜单的墨蓝面板右侧短了 40px，没有铺满视口：负 margin 配了 flex-basis:100%；已改为 calc(100% + gutter*2)，390 宽实测铺满。",
+          "移动端和平板首屏的半人马尾巴被左边缘裁掉，脚下投影有一段悬在台座外；抠图缩到 104vw 并重新居中，台座左缘对齐视口，整只半人马和投影都落在台座上。",
+          "共学五步竖排（≤960px）时，面板接缝的小数像素缝里透出墨蓝纸影，形成一条发丝线；相邻面板加 margin-top:-1px，DESIGN.md 的 Accordion Strip 一节补了说明。",
+          "联系区正文在手机上出现孤行「的事。」；改用 text-wrap:balance，390 宽实测断行已变。",
+          "院长引文加了 text-wrap:balance，但 390 宽下折行没有变化（见未修项）。",
+          "kit.html 色板：13 个色块按 6 列排，最后一个单独落在第三行，且「米白画布」色块与页面同色看不出边界；已拆成「品牌三面色 · 6」和「中性与文字色 · 7」两组各占一行，色块加 1px 深米内描边，样式都取自 token。",
+          "kit.html 联系横幅标题原来断成「带上你的问题，我 / 们一起往前走。」；已按文案稿的断行加 <br>。",
+          "四张截图全部重拍覆盖：shot-fold、shot-full（1440×7400）、shot-kit（1440×7400）、shot-mobile。shot-mobile 改用 390px iframe 加 1.5x 一次拍全，约 8470px 的整页拍到页脚，不再截在 7400px。thumb.webp 和 thumb-mobile.webp 按新截图重新生成。",
+          "机械项核对通过，无需改动：DESIGN.md 章节齐全且顺序一致（柔和语义色一节以「三面色」表替代并写明原因，图表色因本站无图表省略）；Quick Start 与 tokens.css 逐字一致；两个页面的 <style> 和内联 style 里没有裸 hex，rgba 只出现在规定的返回钮上；七个区块文案与 content.md 逐条比对无缺失，没有编造的数字、客户或评价；图片全部是 ../../assets/ 下的真实文件；只有一个 h1，lang、返回钮、字体回退栈都在。"
+        ],
+        "remaining": [
+          "首屏桌面端半人马尾巴约 30px 搭在背光蓝折面上，那一段对比偏低。右侧手臂离视口右缘只剩约 90px，再右移会顶边，所以保留现状。",
+          "苹方最重只有 Semibold，Google Fonts 加载失败时标题比 Noto Sans SC Black 轻一档，压色块的力度变弱。这是字体本身的限制，CSS 补不了；正式上线建议自托管 Noto Sans SC 900 的子集。",
+          "院长寄语的署名区用 logo 折角方块代替头像，因为素材里没有嘉木的照片。读起来略像「logo 在讲话」，拿到真实肖像后应替换。",
+          "手机端院长引文的悬挂开引号离屏幕左缘约 6px，偏紧；「聚起一 / 群」的折行在加了 text-wrap:balance 之后也没有变化。",
+          "页脚是墨蓝底，固定的返回钮（color:inherit）滚到页脚时几乎看不见；BRIEF 要求返回钮样式不改，所以没动。",
+          "企微链接 https://work.weixin.qq.com/kfid/kfc472df2b7db14c36e 和 centaurloop.com 都不在 content.md 里，但六套候选用的是同一组，与其他候选一致，没动。",
+          "Similar Brands 里 Figma 一项没抓到色值，只作方向参考，制作者已如实写明；如果要严格做到「每个锚点都落到 token」，可以删掉这一项。",
+          "联系区右侧的折纸箭头图形略偏插画感，是全页唯一稍「可爱」的元素；可以接受，但站主若嫌活泼，缩小即可。"
+        ],
+        "scores": {
+          "craft": 8.5,
+          "distinctiveness": 8.5,
+          "fit": 7.5
+        },
+        "verdict": "这一套送审时完成度已经很高，我只修了九处细节，没有动大构图，可以直接交给站主。遮住 logo 也像一个真实的、敢用颜色的品牌官网：首屏钴蓝斜切大色块配橘橙台座上的半人马，签名记忆点成立；经折流程带、三面色、折角加硬位移纸影贯穿两个页面，读得出是一套系统，不是普通落地页换了配色。对 35–55 岁的管理者来说，高饱和蓝橙整段铺色偏年轻、偏活力，够「明快」且不幼稚，但稳重感不如偏商务的方向。"
+      }
     }
   ],
-  "judge": {}
+  "judge": {
+    "ranking": [
+      {
+        "slug": "04-boardroom",
+        "rank": 1,
+        "fits": "最贴合 35–55 岁企业主和高管：深蓝、象牙、衬线大字沉稳可信；罗盘和指针把「人决定方向」画了出来；暖色插画放在象牙底上很协调，正文字号在六套里最大。",
+        "cost": "深蓝配金是 EMBA、商学院、财富管理、律所的通用配色，最容易被当成「又一家商学院」，辨识度基本只靠首屏罗盘。黄铜小字和空心数字偏细偏淡；首屏实际是深色，在微信里第一眼偏沉；页面也偏长。"
+      },
+      {
+        "slug": "01-paper-journal",
+        "rank": 2,
+        "fits": "适合把学院定位成长期出观点、出文章的思想型机构，靠内容和院长来信建立信任。暖纸黑墨、衬线大标题对中年读者友好，钴蓝单印封面让文章列表很统一。",
+        "cost": "整体偏安静，首屏半人马装在相框里，冲击力最弱。作为签名的 200px 页边栏在手机上整个消失，微信里看起来就是一张普通的杂志风页面；页边的图注和栏目字很小；以后每张文章封面都要做钴蓝单色处理。"
+      },
+      {
+        "slug": "06-origami-block",
+        "rank": 3,
+        "fits": "适合想让品牌自己被记住、线下活动和海报物料多的路线。视觉全部从 logo 的折纸切面长出来，别家抄不走；经折五步带和折角卡片是六套里最有记忆点的组件；首屏半人马最大、最有气势。",
+        "cost": "大面积高饱和橙蓝整屏铺开，气质偏训练营和互联网活动页，对 50 岁上下的企业主不够沉稳，长页读下来眼睛累。现有低饱和暖色插画压在亮橙亮蓝上明显打架，多半要重画或重新调色。页面是六套里最长的，子页面也很难一直维持这个强度。"
+      },
+      {
+        "slug": "02-ink-seal",
+        "rank": 4,
+        "fits": "适合走东方人文路线、学员偏好国学书画气质的圈层。它和「各有知君，共创万象」这句文言口号最搭，任何一屏截图都认得出来。",
+        "cost": "容易被看成国学班、书画院、茶文化，而不是 AI 学院。竖排 H1 从右往左读，有理解成本；在手机上把副标题挤成一条窄栏。细宋体配灰字，对老花眼对比不够。橙蓝 logo 加朱砂后一屏有三种强调色；印章一旦用电脑字体凑，会显得廉价，需要真正刻一套。"
+      },
+      {
+        "slug": "03-swiss-grid",
+        "rank": 5,
+        "fits": "适合把学院讲成方法论加工具型品牌，面向设计、产品或偏理性的年轻管理者；信息层级最清楚，手机端也最干净。",
+        "cost": "「网格钮」是设计师才懂的梗，企业主不会去按，也不在乎。插画全转黑白后原本的温度没了，整页偏冷，少了「人」的感觉；粗黑体配钴蓝在设计工作室和科技公司官网里很常见；悬挂小标签的字号偏小。"
+      },
+      {
+        "slug": "05-night-precision",
+        "rank": 6,
+        "fits": "适合面向开发者、技术型创业者的 AI 产品或工具子站，做「知君」「万象」的产品页比做学院主站合适。",
+        "cost": "深色界面是 AI SaaS 官网里最常见的样子，最容易和竞品撞脸。FIG. 图号、等宽小字、刻度尺这套工程语言，和「非技术人群」的定位正相反。近黑底配细灰字，在微信内置浏览器和户外手机屏上，对 35–55 岁读者最吃力。暖色插画只能关在亮盒里，看起来像贴上去的。"
+      }
+    ],
+    "too_similar": [
+      {
+        "a": "01-paper-journal",
+        "b": "03-swiss-grid",
+        "why": "首屏构图几乎一样：左边两行巨字（上黑、下钴蓝），右边半人马，下面黑色实心按钮，左栏挂 01/02/03 编号，强调色都是同一支钴蓝。站主会觉得只是把宋体换成黑体、把插画去了色。"
+      },
+      {
+        "a": "01-paper-journal",
+        "b": "04-boardroom",
+        "why": "滚过首屏后，正文几乎一样：象牙纸底、衬线标题、发丝线、01/02/03 章节号、白卡纸裱框的同一批暖色插画、文章三条列表。差别只是 04 多了深蓝通栏，专色从钴蓝换成黄铜。"
+      },
+      {
+        "a": "01-paper-journal",
+        "b": "02-ink-seal",
+        "why": "都是纸底、细线、单一专色的路线，都在强调词下面加着重号（蓝点对红顿），同样的白框裱插画，同样的深色 CTA 收尾。不看竖排和印章那几处，缩略图上很难分开。"
+      },
+      {
+        "a": "04-boardroom",
+        "b": "05-night-precision",
+        "why": "首屏都是深色底、抠图半人马、细线仪器图形（罗盘对刻度尺和引线）、左文右图、白色按钮，缩略图并排像同一套的蓝版和黑版。往下滚才分开：04 转成象牙浅底，05 一黑到底。"
+      }
+    ],
+    "overall": "我看了六套的首屏、整页切片和手机端对比，建议这样选。\n\n- **想稳：** 选 04「董事会深蓝」。它对经营者和管理者最对味，字也最大；但要接受它长得像商学院，建议把首屏罗盘做得更独特，把黄铜小字加粗加深。\n- **想被记住：** 选 06「折纸色块」。它是唯一从自家 logo 长出来、别家抄不走的方案，代价是要降饱和，并重配插画。\n- **更折中：** 用 04 或 01 的骨架，只移植 06 的经折五步带和折角卡片，做局部点睛。\n- **02「墨与印」：** 辨识度最高，但会把学院带向国学方向；除非站主明确要走东方人文路线，否则不建议。\n- **03 和 05：** 是给设计师和技术人看的，和目标人群错位。\n- **01、03、04：** 这三套同质化明显，终选名单里留一套就够。"
+  }
 }

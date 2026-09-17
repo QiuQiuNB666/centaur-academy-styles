@@ -71,7 +71,7 @@ ol,ul{list-style:none}
 .btn[disabled]>.arr,.btn.is-disabled>.arr{border-left:1px dashed var(--color-border)}
 .btn[disabled]>.arr i{transform:none}
 /* 文字链：黄铜底线，hover 时线变墨色 */
-.tlink{display:inline-flex;align-items:center;gap:.5em;min-height:44px;font-weight:500;font-size:15px;letter-spacing:.04em;text-decoration:none;background:linear-gradient(var(--color-brass),var(--color-brass)) left calc(50% + .85em)/100% 1px no-repeat;transition:background-size var(--duration-slow) var(--ease-board)}
+.tlink{display:inline-flex;justify-self:start;align-items:center;gap:.5em;min-height:44px;font-weight:500;font-size:15px;letter-spacing:.04em;text-decoration:none;background:linear-gradient(var(--color-brass),var(--color-brass)) left calc(50% + .85em)/100% 1px no-repeat;transition:background-size var(--duration-slow) var(--ease-board)}
 .tlink i{font-style:normal;font-family:var(--font-sans);font-size:1.2em;line-height:1;transition:transform var(--duration-fast) var(--ease-board)}
 .tlink:hover i,.tlink.is-hover i{transform:translate(2px,-2px)}
 .tlink:hover,.tlink.is-hover{background-image:linear-gradient(currentColor,currentColor)}
@@ -156,6 +156,8 @@ ol,ul{list-style:none}
   .prod-row{grid-template-columns:1fr auto;gap:10px 16px}
   .prod-row .name{grid-column:1/-1}
   .prod-row .tlink{grid-column:1/-1;justify-self:start}
+  .prod-row .btn{justify-self:start}
+  .steps li:last-child{padding-bottom:0}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -188,6 +190,7 @@ ol,ul{list-style:none}
 .menu-btn[aria-expanded=true] i:last-child{transform:translateY(-4px) rotate(-45deg)}
 
 /* Hero */
+.hero-band{position:relative;overflow-x:hidden;overflow-x:clip}
 .hero{position:relative;padding-top:clamp(40px,5.4vw,72px);min-height:min(812px,calc(100svh - 88px));align-content:space-between;row-gap:40px}
 .hero-copy{grid-column:1/8;grid-row:1;position:relative;z-index:2}
 .hero-copy .eyebrow{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px}
@@ -202,7 +205,7 @@ ol,ul{list-style:none}
 .hero-fig img{position:relative;z-index:1;width:100%}
 .compass{position:absolute;z-index:0;left:50%;top:50%;width:100%;transform:translate(-46%,-50%);color:var(--color-primary-border)}
 .compass .b{stroke:var(--color-brass)}
-.hero-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 32px;padding:20px 0 28px}
+.hero-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 32px;padding:18px 0 48px}
 .hero-foot p{font-family:var(--font-serif);font-size:var(--text-body-lg);letter-spacing:.08em}
 .hero-foot figcaption,.hero-foot .cap{font:400 12px/1.6 var(--font-mono);letter-spacing:.1em;color:var(--color-primary-muted-foreground)}
 .hero-foot .cap b{font-weight:500;color:var(--color-brass-light);letter-spacing:.16em}
@@ -217,8 +220,7 @@ ol,ul{list-style:none}
 .ch-copy .lede{margin-top:28px}
 .ch-copy .tlink{margin-top:32px}
 .ch1 .ch-body{align-items:stretch}
-.ch1 .ch-copy{grid-column:1/7;padding-top:8px;display:flex;flex-direction:column;align-items:flex-start}
-.ch1 .ch-copy .lede{margin-top:auto;padding-top:28px}
+.ch1 .ch-copy{grid-column:1/7;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end}
 .ch1 .ch-copy .tlink{margin-bottom:38px}
 .ch1 .ch-fig{grid-column:7/13}
 .ch2 .ch-fig{grid-column:1/7}
@@ -285,15 +287,16 @@ ol,ul{list-style:none}
   .hero{min-height:0}
   .abstract{grid-template-columns:1fr;gap:16px}
   .abstract .lede{border-right:0;padding-right:0;padding-bottom:16px;border-bottom:1px solid var(--color-primary-border)}
-  .hero-fig{margin:24px -4% 0 -2%}
+  .hero-fig{margin:calc(12vw + 12px) -4% 0 -2%}
   .hero-foot{display:block;margin-top:8px}
   .hero-foot .cap{display:block;margin-top:10px}
   .ch-fig{margin-top:40px}
+  .ch1 .ch-copy .tlink{margin-bottom:0}
   .ch2 .ch-body{display:flex;flex-direction:column-reverse}
   .ch2 .ch-fig{margin-top:40px}
   .ch3 .ch-fig{margin-top:0}
   .ch3 .plate img{aspect-ratio:4/3;object-position:50% 50%}
-  .journal-head{position:static;margin-bottom:32px}
+  .journal-head{position:relative;top:auto;margin-bottom:32px}
   .founder-body{display:flex;flex-direction:column;gap:48px}
   .founder-main{order:-1}
   .founder-side{order:1}
@@ -308,7 +311,7 @@ ol,ul{list-style:none}
 <body>
 <a class="skip" href="#main">跳到正文</a>
 
-<div class="on-navy" style="position:relative">
+<div class="on-navy hero-band">
   <header class="wrap">
     <div class="site-head">
       <a class="brand" href="https://qiuqiunb666.github.io/centaur-ai-academy/" aria-label="半人马AI学院 首页">
