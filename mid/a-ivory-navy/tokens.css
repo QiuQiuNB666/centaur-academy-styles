@@ -1,0 +1,88 @@
+:root {
+  /* Colors — 深海蓝 + 象牙白 + 金线 + logo 橙（只给主按钮） */
+  --color-navy: #0d2240;
+  --color-navy-deep: #0a1a33;
+  --color-navy-raise: #122a4d;
+  --color-ivory: #faf7f1;
+  --color-ivory-deep: #efe9de;
+  --color-ink: #0f1c30;
+  --color-ink-muted: #3a4659;
+  --color-hair: #dcd5c8;
+  --color-grid: rgba(15, 28, 48, 0.07);
+  --color-on-navy: #f4f1ea;
+  --color-on-navy-muted: #c3cbd8;
+  --color-hair-navy: rgba(195, 203, 216, 0.2);
+  --color-gold: #b08d4f;
+  --color-gold-deep: #8c6a32;
+  --color-gold-bright: #d4b273;
+  --color-gold-line: rgba(212, 178, 115, 0.26);
+  --color-gold-faint: rgba(212, 178, 115, 0.12);
+  --color-gold-glint: #f3e2bc;
+  --color-accent: #f07800;
+  --color-accent-press: #d86a00;
+  --color-accent-foreground: #05080d;
+  --color-logo-blue: #0c6ccc;
+  --color-disabled-bg: #efe9de;
+  --color-disabled-fg: #3a4659;
+  --color-back-pad: rgba(250, 247, 241, 0.9);
+  --color-ring: #0f1c30;
+  --color-ring-dark: #d4b273;
+
+  /* Typography — Font Families */
+  --font-serif-zh:
+    'Noto Serif SC', 'Songti SC', STSong, SimSun, serif;
+  --font-sans:
+    'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
+    system-ui, sans-serif;
+  --font-latin:
+    'Cinzel', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+  --font-num:
+    'Noto Serif SC', Georgia, 'Songti SC', serif;
+
+  /* Typography — Scale（老花眼标准：正文 ≥18px，次要 ≥16px） */
+  --text-label: 14px;
+  --text-caption: 16px;
+  --text-body: clamp(18px, 0.3vw + 16px, 20px);
+  --text-lede: clamp(20px, 0.4vw + 17px, 23px);
+  --text-narrative: clamp(24px, 0.8vw + 18px, 32px);
+  --text-heading: clamp(34px, 2vw + 18px, 56px);
+  --text-display: clamp(48px, 4.6vw + 14px, 92px);
+  --text-shout: clamp(46px, 5.6vw + 10px, 104px);
+  --text-motto: clamp(32px, 2.4vw + 12px, 52px);
+  --text-button: 19px;
+
+  /* Line Height & Tracking */
+  --leading-shout: 1.12;
+  --leading-display: 1.14;
+  --leading-heading: 1.28;
+  --leading-narrative: 1.5;
+  --leading-body: 1.8;
+  --tracking-shout: 0.01em;
+  --tracking-heading: 0.01em;
+  --tracking-body: 0.01em;
+  --tracking-label: 0.14em;
+
+  /* Spacing (4px base) */
+  --spacing: 4px;
+  --gutter: clamp(16px, 2.8vw, 40px);
+  --col-gap: 20px;
+  --toc-width: 248px;
+  --content-max: 1160px;
+  --header-h: 76px;
+  --back-pad-w: 94px;
+
+  /* Shapes — 面零圆角，控件 4px 小方角 */
+  --radius-none: 0px;
+  --radius-sm: 4px;
+  --radius-pill: 999px;
+  --hairline: 1px;
+
+  /* Shadows — 不用 */
+  --shadow-none: none;
+
+  /* Motion */
+  --ease-settle: cubic-bezier(0.41, 0.19, 0.13, 0.95);
+  --ease-calm: cubic-bezier(0.33, 0, 0.2, 1);
+  --dur-fast: 0.2s;
+  --dur-base: 0.45s;
+}

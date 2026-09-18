@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>半人马AI学院 · 藏青金章</title>
+<meta name="description" content="半人马AI学院：面向经营者与管理者的长期共学与共创学院。人决定方向，AI 拓展人的能力。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&family=Cinzel:wght@600;700&display=swap">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 12px)}
+body{margin:0;background:var(--color-abyss);color:var(--color-ink);font-family:var(--font-sans);font-size:var(--text-body);line-height:var(--leading-body);-webkit-font-smoothing:antialiased;font-synthesis:none;overflow-x:clip}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3,p,figure,blockquote,ol,ul{margin:0}
+ol,ul{padding:0;list-style:none}
+em{font-style:normal}
+p,h2,h3{text-wrap:pretty}
+.display,.card h3{text-wrap:balance}
+.nw{white-space:nowrap}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--color-focus);outline-offset:3px;border-radius:var(--radius-sm)}
+.skip{position:absolute;left:-9999px;top:0;z-index:60;background:var(--color-orange);color:var(--color-on-orange);padding:12px 16px;font-weight:700}
+.skip:focus{left:16px;top:8px}
+.wrap{width:100%;max-width:calc(var(--container) + var(--gutter) * 2);margin-inline:auto;padding-inline:var(--gutter)}
+
+/* —— 字 —— */
+.metal{background:var(--gradient-gold);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.gold{color:var(--color-gold)}
+.latin{font-family:var(--font-latin);font-weight:700;font-size:var(--text-label);letter-spacing:var(--tracking-label);color:var(--color-ink-muted);text-transform:uppercase}
+.eyebrow{display:flex;align-items:center;flex-wrap:wrap;gap:6px 12px;font-size:var(--text-small);color:var(--color-ink-muted);letter-spacing:.08em}
+.eyebrow::before{content:"";width:40px;height:var(--hairline);background:var(--color-gold)}
+.display{font-family:var(--font-title);font-weight:900;font-size:var(--text-display);line-height:var(--leading-heading);letter-spacing:var(--tracking-title)}
+.lead{font-size:var(--text-lead);line-height:1.7;font-weight:500}
+.muted{color:var(--color-ink-muted)}
+
+/* —— 按钮与链接 —— */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:56px;padding:0 28px;border-radius:var(--radius-md);font-size:19px;font-weight:700;letter-spacing:.04em;text-decoration:none;border:0;cursor:pointer;transition:transform var(--dur-fast) var(--ease-rise),background-color var(--dur-base),box-shadow var(--dur-base)}
+.btn-primary{background:var(--color-orange);color:var(--color-on-orange)}
+.btn-primary:hover{background:var(--color-orange-light)}
+.btn-primary:active{transform:scale(.98)}
+.btn-outline{background:transparent;color:var(--color-ink);box-shadow:inset 0 0 0 1px var(--color-gold)}
+.btn-outline:hover{background:var(--color-gold-a08);box-shadow:inset 0 0 0 1px var(--color-gold-light)}
+.btn-outline:active{transform:scale(.98)}
+.btn[disabled]{background:var(--color-navy-high);color:var(--color-ink-disabled);box-shadow:inset 0 0 0 1px var(--color-navy-line);cursor:not-allowed;transform:none}
+.link{display:inline-flex;align-items:center;gap:6px;min-height:44px;font-size:var(--text-body);font-weight:500;text-decoration:none;color:var(--color-ink);background:linear-gradient(var(--color-gold),var(--color-gold)) left calc(100% - 8px)/100% var(--hairline) no-repeat;padding-bottom:4px;transition:background-size var(--dur-base) var(--ease-rise),color var(--dur-fast)}
+.link:hover{color:var(--color-gold-light);background-size:100% var(--rule)}
+
+/* —— 顶栏 —— */
+.masthead{position:sticky;top:0;z-index:40;background:var(--color-abyss-a92);border-bottom:var(--hairline) solid var(--color-gold-a30)}
+.masthead-in{display:flex;align-items:center;gap:16px;height:var(--header-h)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-height:44px;margin-right:auto}
+.brand img{width:31px;height:40px}
+.brand b{display:block;font-family:var(--font-title);font-weight:900;font-size:20px;line-height:1.1;letter-spacing:.06em}
+.brand small{display:block;font-family:var(--font-latin);font-weight:700;font-size:13px;line-height:1.3;letter-spacing:.12em;color:var(--color-ink-muted)}
+.nav{display:none}
+.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px;font-size:18px;color:var(--color-ink-muted);text-decoration:none;background:linear-gradient(var(--color-gold),var(--color-gold)) center bottom 6px/0 var(--hairline) no-repeat;transition:background-size var(--dur-base) var(--ease-rise),color var(--dur-fast)}
+.nav a:hover{color:var(--color-ink);background-size:100% var(--hairline)}
+.menu-btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;min-width:44px;padding:0 12px;border-radius:var(--radius-md);background:transparent;border:var(--hairline) solid var(--color-gold-a50);font-size:18px;cursor:pointer}
+.menu-btn i{display:block;width:18px;height:2px;background:var(--color-gold);box-shadow:0 -6px 0 var(--color-gold),0 6px 0 var(--color-gold)}
+.menu-btn[aria-expanded="true"] i{background:transparent;box-shadow:none;position:relative}
+.menu-btn[aria-expanded="true"] i::before,.menu-btn[aria-expanded="true"] i::after{content:"";position:absolute;inset:0;background:var(--color-gold);transform:rotate(45deg)}
+.menu-btn[aria-expanded="true"] i::after{transform:rotate(-45deg)}
+.drawer{display:none;border-top:var(--hairline) solid var(--color-gold-a15);padding:8px var(--gutter) 20px}
+.drawer.open{display:block}
+.drawer a{display:flex;align-items:center;min-height:56px;font-size:20px;text-decoration:none;border-bottom:var(--hairline) solid var(--color-gold-a15)}
+/* 手机：顶栏 CTA 挪成右下浮钮（左侧给「全部方案」让位） */
+.hdr-cta{position:fixed;left:116px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:45;transition:opacity var(--dur-base),transform var(--dur-base) var(--ease-rise)}
+.hdr-cta .btn{box-shadow:0 8px 24px var(--color-shade-a50)}
+.hdr-cta.is-hidden{opacity:0;transform:translateY(12px);pointer-events:none}
+body{padding-bottom:84px}
+
+/* —— 1 主视觉：唯一居中的一屏 —— */
+.hero{position:relative;background:var(--gradient-hero);overflow-x:clip;padding-top:clamp(32px,5vw,64px);padding-bottom:36px;border-bottom:var(--hairline) solid var(--color-gold-a50)}
+.hero-copy{position:relative;text-align:center}
+.hero .eyebrow{justify-content:center}
+.hero .eyebrow::before{display:none}
+@media (max-width:699px){.hero .eyebrow{flex-direction:column;gap:0}
+  .hero{padding-bottom:12px}.hero + .section{padding-top:32px}#contact{padding-bottom:40px}.hero + .section .chapter:first-child{border-top:0;padding-top:0} /* 手机收紧：任一滚动位置空带 ≤ 160px */}
+.hero h1{margin-top:20px;font-family:var(--font-title);font-weight:900;font-size:var(--text-hero);line-height:var(--leading-tight);letter-spacing:.02em}
+.hero h1 span{display:block;white-space:nowrap}
+.hero-sub{margin-top:22px}
+.hero-desc{margin-top:10px;color:var(--color-ink-muted)}
+.hero-acts{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:26px}
+.hero-acts .btn{width:min(100%,340px)}
+
+/* 登场舞台：按终态尺寸排版，只做 scale(<1) → 1 */
+.stage{position:relative;margin-top:24px;padding-inline:8px}
+.stage-sticky{position:relative}
+.hero-figure{position:relative;width:min(100%,440px);margin-inline:auto}
+.figure-box{position:relative;aspect-ratio:1448/1086;transform-origin:50% 12%}
+.halo{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.halo .ring{fill:none;stroke:var(--color-gold);stroke-width:1;vector-effect:non-scaling-stroke}
+.halo .ticks{fill:none;stroke:var(--color-gold-a30);stroke-width:14;stroke-dasharray:1.5 17.5}
+.halo .outer{fill:none;stroke:var(--color-gold-a15);stroke-width:1;vector-effect:non-scaling-stroke}
+.centaur{position:absolute;inset:0}
+.centaur img{width:100%;height:100%;filter:drop-shadow(var(--shadow-figure))}
+.glint{position:absolute;inset:0;background:var(--gradient-sweep);mix-blend-mode:screen;opacity:0;-webkit-mask:url(../../assets/academy-centaur-cutout.webp) center/100% 100% no-repeat;mask:url(../../assets/academy-centaur-cutout.webp) center/100% 100% no-repeat;pointer-events:none}
+.hero-figure figcaption{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:4px 12px;margin-top:calc(5.5% + 4px);text-align:center}
+.hero-figure figcaption .zh{font-size:var(--text-small);color:var(--color-ink-muted);letter-spacing:.12em}
+.tiqian{margin:18px auto 0;width:max-content;max-width:100%;padding-top:14px;border-top:var(--hairline) solid var(--color-gold-a50);text-align:center;font-family:var(--font-title);font-weight:900;font-size:24px;line-height:1.6;letter-spacing:.06em;text-wrap:balance}
+
+/* —— 通用章节 —— */
+.section{padding-block:var(--section-gap)}
+.sec-head{display:grid;gap:14px}
+
+/* —— 2 三个叙事章节：左对齐、编号 + 细线 —— */
+.chapters{display:grid;gap:var(--section-gap)}
+.chapter{display:grid;gap:24px;padding-top:24px;border-top:var(--hairline) solid var(--color-gold-a50)}
+.ch-mark{display:flex;align-items:baseline;gap:14px}
+.ch-num{font-family:var(--font-title);font-weight:900;font-size:var(--text-num);line-height:1;color:var(--color-gold)}
+.ch-name{font-size:var(--text-lead);font-weight:700;letter-spacing:.08em}
+.chapter .lead{margin-top:18px;color:var(--color-ink-muted);font-weight:400}
+.chapter .link{margin-top:18px}
+/* 细金线画框 */
+.frame{padding:10px;border:var(--hairline) solid var(--color-gold-a50);background:var(--color-navy)}
+.frame img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.frame-cap{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-top:14px}
+.frame-cap .zh{font-size:var(--text-small);color:var(--color-ink-muted)}
+
+/* 产品行 */
+.products{margin-top:28px;border-bottom:var(--hairline) solid var(--color-gold-a30)}
+.product{display:grid;gap:8px;padding-block:16px;border-top:var(--hairline) solid var(--color-gold-a30)}
+.product .link{margin-top:0}
+.product .link b{font-family:var(--font-title);font-weight:900;font-size:26px;letter-spacing:.06em;margin-right:4px}
+.product-dl{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px}
+.product-dl .btn{min-height:52px;font-size:18px;padding:0 20px}
+.product-dl .note{font-size:var(--text-small);color:var(--color-ink-muted)}
+
+/* —— 3 共学五步 —— */
+.steps-sec{background:var(--color-navy);border-block:var(--hairline) solid var(--color-gold-a50);padding-block:calc(var(--section-gap) * .5)}
+.steps{margin-top:36px;border-bottom:var(--hairline) solid var(--color-gold-a30)}
+.step{display:grid;grid-template-columns:64px 1fr;gap:16px;padding-block:20px;border-top:var(--hairline) solid var(--color-gold-a30)}
+.step-num{font-family:var(--font-title);font-weight:900;font-size:40px;line-height:1.1;color:var(--color-gold)}
+.step h3{font-family:var(--font-title);font-weight:900;font-size:var(--text-title);line-height:1.3;letter-spacing:.06em}
+.step p{margin-top:6px;color:var(--color-ink-muted)}
+
+/* —— 4 观点与动态 —— */
+.journal-head{display:grid;gap:14px;align-items:end}
+.cards{display:grid;gap:28px;margin-top:36px}
+.card{position:relative;display:grid;gap:16px;padding-top:20px;border-top:var(--hairline) solid var(--color-gold-a50)}
+.card .cover{padding:6px;border:var(--hairline) solid var(--color-gold-a30)}
+.card .cover img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.card-body{display:grid;gap:10px;align-content:start}
+.meta{display:flex;align-items:center;gap:10px;font-size:var(--text-small);color:var(--color-ink-muted)}
+.tag{display:inline-flex;align-items:center;min-height:28px;padding:0 10px;border-radius:var(--radius-sm);box-shadow:inset 0 0 0 1px var(--color-gold-a50);color:var(--color-ink)}
+.card h3{font-family:var(--font-title);font-weight:900;font-size:var(--text-title);line-height:1.45}
+.card h3 a{text-decoration:none;transition:color var(--dur-fast)}
+.card h3 a::after{content:"";position:absolute;inset:0}
+.card:hover h3 a{color:var(--color-gold-light)}
+.card p:last-child{color:var(--color-ink-muted)}
+
+/* —— 5 院长寄语 —— */
+#founder{padding-bottom:clamp(48px,5vw,72px)}
+#contact{padding-bottom:clamp(40px,4vw,64px)}
+.founder{display:grid;gap:28px;padding-top:28px;border-top:var(--hairline) solid var(--color-gold-a50)}
+.quote{margin-top:18px;font-family:var(--font-title);font-weight:900;font-size:clamp(28px,1.8vw + 20px,44px);line-height:1.55;letter-spacing:.04em}
+.quote .mark{color:var(--color-gold)}
+.founder-body{color:var(--color-ink-muted);font-weight:400}
+.sign{margin-top:24px;padding-top:18px;border-top:var(--hairline) solid var(--color-gold-a30)}
+.sign b{display:block;font-family:var(--font-title);font-weight:900;font-size:28px;letter-spacing:.1em;line-height:1.3}
+.sign span{display:block;margin-top:4px;font-size:var(--text-small);color:var(--color-ink-muted);line-height:1.6}
+.founder .link{margin-top:14px}
+
+/* —— 6 联系 —— */
+.invite{position:relative;overflow:hidden;padding:clamp(32px,4vw,56px) clamp(20px,5vw,72px);border:var(--hairline) solid var(--color-gold-a50);background:var(--color-navy)}
+.invite-rings{display:none;position:absolute;right:-120px;top:50%;width:520px;height:520px;transform:translateY(-50%);pointer-events:none}
+.invite-rings circle{fill:none;stroke:var(--color-gold-a15);stroke-width:1}
+.invite > *:not(.invite-rings){position:relative}
+.invite .display{margin-top:16px}
+.invite p.lead{margin-top:16px;color:var(--color-ink-muted);font-weight:400}
+.invite-acts{display:flex;flex-direction:column;gap:12px;margin-top:30px}
+.copy-note{margin-top:10px;font-size:var(--text-small);color:var(--color-ink-muted)}
+
+/* —— 7 页脚：细线 + 院名 —— */
+.footer{padding:32px 0 28px;border-top:var(--hairline) solid var(--color-gold-a50)}
+.foot-top{display:grid;gap:18px}
+.slogan{font-family:var(--font-title);font-weight:900;font-size:clamp(26px,1.4vw + 20px,36px);letter-spacing:.08em;line-height:1.4;color:var(--color-gold)}
+.foot-links{display:flex;flex-wrap:wrap;align-items:center;gap:4px 20px;margin-top:22px;padding-top:12px;border-top:var(--hairline) solid var(--color-gold-a15);font-size:var(--text-small);color:var(--color-ink-muted)}
+.foot-links a{display:inline-flex;align-items:center;min-height:44px}
+.foot-links .link{font-size:var(--text-small)}
+
+/* —— 平板 —— */
+@media (min-width:700px){
+  :root{--zoom-hold:min(36svh,300px);--glint-lead:0px;--section-gap:clamp(72px,6vw,96px)}
+  .hero-acts{flex-direction:row;justify-content:center;gap:28px}
+  .hero-acts .btn{width:auto}
+  .hdr-cta{left:auto}
+  :root{--pin-top:clamp(76px,calc(50svh - 320px),200px)}
+  .hero-figure{width:min(90vw,700px)}
+  .figure-box{transform-origin:50% 30%}
+  .tiqian{font-size:28px}
+  .invite-acts{flex-direction:row;align-items:center}
+  .cards{grid-template-columns:1fr 1fr}
+  .cards .card:first-child{grid-column:1/-1}
+  .steps{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:0;border-top:var(--hairline) solid var(--color-gold-a50)}
+  .step{grid-template-columns:1fr;gap:12px;padding:24px 16px 8px;border-top:0;border-left:var(--hairline) solid var(--color-gold-a30)}
+  .step:first-child{border-left:0;padding-left:0}
+  .step-num{font-size:48px}
+  .foot-top{grid-template-columns:auto 1fr;align-items:center}
+  .slogan{justify-self:end}
+}
+/* —— 桌面 —— */
+@media (min-width:1024px){
+  :root{--header-h:78px;--pin-top:clamp(96px,calc(50svh - 290px),160px);--zoom-from:.6}
+  .menu-btn,.drawer,.drawer.open{display:none}
+  .nav{display:flex;gap:26px;align-items:center}
+  .hdr-cta{position:static;margin-left:12px}
+  .hdr-cta.is-hidden{opacity:1;transform:none;pointer-events:auto}
+  .hdr-cta .btn{min-height:52px;font-size:18px;padding:0 22px;box-shadow:none}
+  body{padding-bottom:0}
+  .hero{padding-top:28px}
+  .hero h1{margin-top:12px}
+  .hero-sub{margin-top:14px}
+  .hero-desc{margin-top:6px}
+  .hero-acts{margin-top:20px}
+  .stage{margin-top:8px}
+  .hero-figure{width:720px}
+  .figure-box{transform-origin:50% 12%}
+  /* 底栏：横排粗宋、象牙白、上方一根金细线（不做竖排对联） */
+  .tiqian{margin-top:14px;padding-top:12px}
+  /* 章节：左栏编号 | 正文 | 画框 */
+  .chapter{grid-template-columns:180px minmax(0,1fr) minmax(0,1fr);column-gap:48px;padding-top:36px;align-items:start}
+  .ch-mark{flex-direction:column;align-items:flex-start;gap:12px}
+  .ch-name{font-size:20px}
+  .steps-sec .sec-head{grid-template-columns:180px 1fr;column-gap:48px;align-items:end}
+  .journal-head{grid-template-columns:1fr auto}
+  .cards{grid-template-columns:7fr 5fr;grid-template-rows:auto auto;column-gap:56px}
+  .cards .card:first-child{grid-column:1;grid-row:1/3}
+  .cards .card:first-child .cover img{aspect-ratio:4/3}
+  .cards .card:not(:first-child){grid-template-columns:180px 1fr;align-items:start}
+  .cards .card:not(:first-child) .cover img{aspect-ratio:1/1}
+  .founder{grid-template-columns:minmax(0,7fr) minmax(0,5fr);column-gap:72px;padding-top:40px}
+  .founder-side{padding-top:44px}
+  .invite-rings{display:block}
+}
+
+/* —— 半人马登场：CSS scroll-driven（animation-timeline 写在简写之后） —— */
+@keyframes rise{from{transform:scale(var(--zoom-from))}to{transform:none}}
+@keyframes halo-in{from{opacity:.4;transform:scale(.86)}to{opacity:1;transform:none}}
+@keyframes fade-in{from{opacity:0}to{opacity:1}}
+@keyframes sweep{0%{transform:translateX(-110%);opacity:0}25%{opacity:1}75%{opacity:1}100%{transform:translateX(110%);opacity:0}}
+.anim .stage::after{content:"";display:block;height:var(--zoom-hold)}
+.anim .stage-sticky{position:sticky;top:var(--pin-top)}
+@supports (animation-timeline: view()){
+  @media (prefers-reduced-motion: no-preference) and (max-height:1600px){
+    :root:not(.nosd) .stage::after{content:"";display:block;height:var(--zoom-hold)}
+    :root:not(.nosd) .stage-sticky{position:sticky;top:var(--pin-top)}
+    :root:not(.nosd) .stage{view-timeline:--stage block;view-timeline-inset:var(--pin-top) 0px}
+    :root:not(.nosd) .figure-box{animation:rise linear both;animation-timeline:--stage;animation-range:exit-crossing calc(var(--zoom-lead) * -1) exit-crossing 0px}
+    :root:not(.nosd) .halo-rings{animation:halo-in linear both;animation-timeline:--stage;animation-range:exit-crossing calc(var(--zoom-lead) * -1) exit-crossing 0px;transform-box:view-box;transform-origin:560px 390px}
+    @media (min-width:700px){:root:not(.nosd) :is(.tiqian,.hero-figure figcaption){animation:fade-in linear both;animation-timeline:--stage;animation-range:exit-crossing calc(var(--zoom-lead) * -.7) exit-crossing 0px}}
+    :root:not(.nosd) .glint{animation:sweep linear both;animation-timeline:--stage;animation-range:exit-crossing calc(var(--glint-lead) * -1) exit-crossing var(--zoom-hold)}
+  }
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .anim .stage::after{display:none}
+  .anim .stage-sticky{position:relative}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="masthead">
+  <div class="wrap masthead-in">
+    <a class="brand" href="https://qiuqiunb666.github.io/centaur-ai-academy/" aria-label="半人马AI学院 首页">
+      <img src="../../assets/centaur-logo.webp" alt="" width="434" height="576">
+      <span><b>半人马AI学院</b><small>CENTAUR AI ACADEMY</small></span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="https://qiuqiunb666.github.io/centaur-ai-academy/academy/">了解学院</a>
+      <a href="https://qiuqiunb666.github.io/centaur-ai-academy/learning/">共学共创</a>
+      <a href="https://qiuqiunb666.github.io/centaur-ai-academy/tools/">实践工具</a>
+      <a href="https://qiuqiunb666.github.io/centaur-ai-academy/journal/">观点与动态</a>
+    </nav>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="drawer"><i></i><span class="menu-txt">菜单</span></button>
+    <div class="hdr-cta"><a class="btn btn-primary" style="width:100%" href="https://work.weixin.qq.com/kfid/kfc472df2b7db14c36e" target="_blank" rel="noopener">联系学院顾问 ↗</a></div>
+  </div>
+  <nav class="drawer" id="drawer" aria-label="手机导航">
+    <a href="https://qiuqiunb666.github.io/centaur-ai-academy/academy/">了解学院</a>
+    <a href="https://qiuqiunb666.github.io/centaur-ai-academy/learning/">共学共创</a>
+    <a href="https://qiuqiunb666.github.io/centaur-ai-academy/tools/">实践工具</a>
+    <a href="https://qiuqiunb666.github.io/centaur-ai-academy/journal/">观点与动态</a>
+  </nav>
+</header>
+
+<main id="main">
+<!-- 1 · 主视觉 -->
+<section class="hero" aria-labelledby="h1">
+    <div class="wrap hero-copy">
+    <p class="eyebrow"><span class="latin">CENTAUR AI ACADEMY</span><span>—— 学习 · 实践 · 共创</span></p>
+    <h1 id="h1"><span>让 AI 成为</span><span><em class="metal">你的能力</em>。</span></h1>
+    <p class="lead hero-sub">面向经营者与管理者的<br>长期共学与共创学院。</p>
+    <p class="hero-desc">把你的经验、判断和真实问题，<br>与 AI 的能力连接起来。</p>
+    <div class="hero-acts">
+      <a class="btn btn-primary" id="hero-cta" href="https://work.weixin.qq.com/kfid/kfc472df2b7db14c36e" target="_blank" rel="noopener">联系学院顾问 ↗</a>
+      <a class="link" href="https://qiuqiunb666.github.io/centaur-ai-academy/learning/">了解共学与共创 →</a>
+    </div>
+  </div>
+
+  <div class="stage" id="stage">
+    <div class="stage-sticky">
+      <figure class="hero-figure">
+        <div class="figure-box">
+          <svg class="halo" viewBox="0 0 1000 750" aria-hidden="true">
+            <g class="halo-rings">
+              <circle class="outer" cx="560" cy="390" r="440"/>
+              <circle class="ticks" cx="560" cy="390" r="404"/>
+              <circle class="ring" cx="560" cy="390" r="372"/>
+            </g>
+          </svg>
+          <div class="centaur">
+            <img src="../../assets/academy-centaur-cutout.webp" width="1448" height="1086" alt="橙色人身与蓝色马身结合的半人马艺术形象" fetchpriority="high">
+            <span class="glint" aria-hidden="true"></span>
+          </div>
+        </div>
+        <figcaption><span class="latin">HUMAN × AI</span><span class="zh">｜ 人的意愿 · 能力的延伸</span></figcaption>
+        <p class="tiqian"><span class="nw">人决定方向，</span><span class="nw">AI 拓展人的能力。</span></p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · 三个叙事章节 -->
+<section class="section" aria-label="三个叙事章节">
+  <div class="wrap chapters">
+    <article class="chapter" id="ch1">
+      <p class="ch-mark"><span class="ch-num">01</span><span class="ch-name">从你的积累出发</span></p>
+      <div class="ch-text">
+        <h2 class="display">你走过的路，<br>都是<em class="gold">起点</em>。</h2>
+        <p class="lead">让 AI 的能力，<br>长在你的经验与判断之上。</p>
+        <a class="link" href="https://qiuqiunb666.github.io/centaur-ai-academy/academy/">了解学院的主张 ↗</a>
+      </div>
+      <figure>
+        <div class="frame"><img src="../../assets/experience.webp" width="1448" height="1086" alt="概念插画：笔记、铅笔与方向标，象征经验积累与判断"></div>
+        <figcaption class="frame-cap"><span class="latin">EXPERIENCE</span><span class="zh">｜ 经验，值得新的可能。</span></figcaption>
+      </figure>
+    </article>
+
+    <article class="chapter" id="ch2">
+      <p class="ch-mark"><span class="ch-num">02</span><span class="ch-name">与同行者一起</span></p>
+      <div class="ch-text">
+        <h2 class="display">一个好问题，<br>值得<em class="gold">一起做</em>。</h2>
+        <p class="lead">交流彼此的经验，动手试一次，<br>再把新的方法带回工作。</p>
+        <a class="link" href="https://qiuqiunb666.github.io/centaur-ai-academy/learning/">了解共学与共创 ↗</a>
+      </div>
+      <figure>
+        <div class="frame"><img src="../../assets/co-learning.webp" width="1448" height="1086" alt="概念插画：三位同伴围桌讨论纸上的想法"></div>
+        <figcaption class="frame-cap"><span class="latin">LEARN TOGETHER</span><span class="zh">｜ 在对话中看见新的可能。</span></figcaption>
+      </figure>
+    </article>
+
+    <article class="chapter" id="ch3">
+      <p class="ch-mark"><span class="ch-num">03</span><span class="ch-name">让想法落地</span></p>
+      <div class="ch-text">
+        <h2 class="display">从“我想”，<br>到<span class="nw"><em class="gold">“我来做”</em>。</span></h2>
+        <p class="lead">你的积累，由你掌握。<br>你的方法，可以成为工具。</p>
+        <div class="products">
+          <div class="product">
+            <a class="link" href="https://qiuqiunb666.github.io/centaur-ai-academy/tools/#zhijun"><b>知君</b>— 让积累参与思考 ↗</a>
+            <div class="product-dl"><button class="btn" type="button" disabled aria-describedby="n1">下载知君 ↓</button><span class="note" id="n1">下载暂未开放</span></div>
+          </div>
+          <div class="product">
+            <a class="link" href="https://qiuqiunb666.github.io/centaur-ai-academy/tools/#wanxiang"><b>万象</b>— 让想法成为应用 ↗</a>
+            <div class="product-dl"><button class="btn" type="button" disabled aria-describedby="n2">下载万象 ↓</button><span class="note" id="n2">下载暂未开放</span></div>
+          </div>
+        </div>
+      </div>
+      <figure>
+        <div class="frame"><img src="../../assets/creating.webp" width="1448" height="1086" alt="概念插画：电脑、纸面原型与立体模型，表现从想法到创造"></div>
+        <figcaption class="frame-cap"><span class="latin">MAKE IT REAL</span><span class="zh">｜ 亲手试用，持续改进。</span></figcaption>
+      </figure>
+    </article>
+  </div>
+</section>
+
+<!-- 3 · 共学五步 -->
+<section class="section steps-sec" id="steps" aria-labelledby="steps-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="latin">LEARNING TOGETHER</p>
+      <h2 class="display" id="steps-h">每一次共学，<em class="gold">都向前一点</em></h2>
+    </div>
+    <ol class="steps">
+      <li class="step"><span class="step-num">01</span><div><h3>带来问题</h3><p>从正在做的事出发。</p></div></li>
+      <li class="step"><span class="step-num">02</span><div><h3>一起梳理</h3><p>讲清背景，找到目标。</p></div></li>
+      <li class="step"><span class="step-num">03</span><div><h3>动手尝试</h3><p>做出可以试用的初版。</p></div></li>
+      <li class="step"><span class="step-num">04</span><div><h3>交流结果</h3><p>体验彼此的成果。</p></div></li>
+      <li class="step"><span class="step-num">05</span><div><h3>持续改进</h3><p>带着反馈，再走一步。</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 4 · 观点与动态 -->
+<section class="section" id="journal" aria-labelledby="journal-h">
+  <div class="wrap">
+    <div class="journal-head">
+      <div class="sec-head">
+        <p class="eyebrow"><span class="latin">CENTAUR JOURNAL /</span> <span>观点与动态</span></p>
+        <h2 class="display" id="journal-h">保持好奇，<em class="gold">继续对话</em>。</h2>
+      </div>
+      <a class="link" href="https://qiuqiunb666.github.io/centaur-ai-academy/journal/">全部观点与动态 ↗</a>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <div class="cover"><img src="../../assets/co-learning.webp" width="1448" height="1086" alt=""></div>
+        <div class="card-body">
+          <p class="meta"><span class="tag">观点</span><time datetime="2026-09-15">2026.09.15</time></p>
+          <h3><a href="https://qiuqiunb666.github.io/centaur-ai-academy/journal/a-letter-from-jiamu/">《来自嘉木的一封信》</a></h3>
+          <p>我们为什么创办学院，以及希望与你一起走向怎样的 AI 未来。</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="cover"><img src="../../assets/academy-centaur-hero.webp" width="1448" height="1086" alt=""></div>
+        <div class="card-body">
+          <p class="meta"><span class="tag">观点</span><time datetime="2026-09-15">2026.09.15</time></p>
+          <h3><a href="https://qiuqiunb666.github.io/centaur-ai-academy/journal/centaur-future/">《AI 越强大，我们越应该谈谈人》</a></h3>
+          <p>人决定去哪里、为什么出发，AI 帮助人走得更远。这是半人马AI学院的出发点。</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="cover"><img src="../../assets/creating.webp" width="1448" height="1086" alt=""></div>
+        <div class="card-body">
+          <p class="meta"><span class="tag">观点</span><time datetime="2026-09-15">2026.09.15</time></p>
+          <h3><a href="https://qiuqiunb666.github.io/centaur-ai-academy/journal/create-with-language/">《用自己的语言，做一件趁手的工具》</a></h3>
+          <p>从每天反复处理的一件小事开始。讲清需求，试用初版，再根据真实结果继续调整。</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · 院长寄语 -->
+<section class="section" id="founder" aria-labelledby="founder-h" style="padding-top:0">
+  <div class="wrap">
+    <div class="founder">
+      <div>
+        <p class="eyebrow"><span class="latin">FROM THE FOUNDER</span></p>
+        <blockquote class="quote" id="founder-h"><span class="mark">“</span>我希望学院能聚起一群认同人机共生、愿意共同成长的人。<span class="mark">”</span></blockquote>
+      </div>
+      <div class="founder-side">
+        <p class="lead founder-body">AI 越强大，我们越应该认真思考：<br>人如何保有自己的目标、判断与选择。</p>
+        <div class="sign"><b>嘉木</b><span>半人马AI学院院长、创始人<br>产品经理 · 连续创业者</span></div>
+        <a class="link" href="https://qiuqiunb666.github.io/centaur-ai-academy/journal/a-letter-from-jiamu/">阅读院长来信 ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · 联系 -->
+<section class="section" id="contact" aria-labelledby="contact-h" style="padding-top:0">
+  <div class="wrap">
+    <div class="invite">
+      <svg class="invite-rings" viewBox="0 0 520 520" aria-hidden="true"><circle cx="260" cy="260" r="258"/><circle cx="260" cy="260" r="200"/><circle cx="260" cy="260" r="142"/></svg>
+      <p class="eyebrow"><span class="latin">THE NEXT CHAPTER ·</span> <span>从这里开始</span></p>
+      <h2 class="display" id="contact-h">带上你的问题，<br><em class="gold">我们一起往前走。</em></h2>
+      <p class="lead">聊聊你正在做的事，和你希望 AI 帮你做成的事。</p>
+      <div class="invite-acts">
+        <a class="btn btn-primary" href="https://work.weixin.qq.com/kfid/kfc472df2b7db14c36e" target="_blank" rel="noopener">联系学院顾问 ↗</a>
+        <button class="btn btn-outline" type="button" data-copy="https://work.weixin.qq.com/kfid/kfc472df2b7db14c36e">复制客服链接</button>
+      </div>
+      <p class="copy-note" role="status" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <a class="brand" href="https://qiuqiunb666.github.io/centaur-ai-academy/" aria-label="半人马AI学院 首页">
+        <img src="../../assets/centaur-logo.webp" alt="" width="434" height="576">
+        <span><b>半人马AI学院</b><small>CENTAUR AI ACADEMY</small></span>
+      </a>
+      <p class="slogan">各有知君，共创万象。</p>
+    </div>
+    <p class="foot-links">
+      <a class="link" href="https://centaurloop.com/" target="_blank" rel="noopener">半人马人工智能 ↗</a>
+      <span>由半人马人工智能发起</span>
+      <span>人决定方向，AI 拓展人的能力。</span>
+    </p>
+  </div>
+</footer>
+
+<a href="../../" style="position:fixed;left:12px;bottom:12px;z-index:99;font:12px/1 ui-monospace,monospace;padding:8px 10px;border-radius:999px;background:rgba(127,127,127,.18);backdrop-filter:blur(8px);color:inherit;text-decoration:none">← 全部方案</a>
+
+<script>
+(function(){
+  /* 手机菜单 */
+  var b=document.querySelector('.menu-btn'),d=document.getElementById('drawer'),t=b.querySelector('.menu-txt');
+  b.addEventListener('click',function(){var o=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',o);d.classList.toggle('open',o);t.textContent=o?'关闭':'菜单'});
+  /* 复制客服链接 */
+  var c=document.querySelector('[data-copy]'),s=document.querySelector('.copy-note');
+  c.addEventListener('click',function(){var u=c.getAttribute('data-copy'),ok=function(){s.textContent='已复制'};
+    if(navigator.clipboard)navigator.clipboard.writeText(u).then(ok,function(){s.textContent=u});else s.textContent=u});
+  /* 手机浮钮：首屏按钮可见时先藏起来，避免同屏两个一样的按钮 */
+  var f=document.querySelector('.hdr-cta'),h=document.getElementById('hero-cta');
+  if('IntersectionObserver' in window)new IntersectionObserver(function(e){f.classList.toggle('is-hidden',e[0].isIntersecting)}).observe(h);
+})();
+/* 登场兜底：不支持 animation-timeline（安卓微信、iOS 26 以下）时启用；?nosd 强制走这里 */
+(function(){
+  var R=document.documentElement,nosd=/[?&]nosd\b/.test(location.search);
+  if(nosd)R.classList.add('nosd');
+  var sd=window.CSS&&CSS.supports&&CSS.supports('(animation-timeline: view())');
+  if((sd&&!nosd)||matchMedia('(prefers-reduced-motion: reduce)').matches||innerHeight>1600)return; /* 超高窗口（整页截图）直接静态终态 */
+  R.classList.add('anim');
+  var q=function(x){return document.querySelector(x)},stage=q('#stage'),sticky=q('.stage-sticky'),box=q('.figure-box'),rings=q('.halo-rings'),
+      glint=q('.glint'),fade=[q('.tiqian'),q('.hero-figure figcaption')],ticking=false,on=false;
+  function cl(v){return v<0?0:v>1?1:v}
+  function update(){
+    ticking=false;
+    var h=innerHeight,T=parseFloat(getComputedStyle(sticky).top)||0,
+        wide=innerWidth>=700,
+        L=Math.min(h*.46,400),H=wide?Math.min(h*.36,300):Math.min(h*.08,64),G=wide?0:Math.min(h*.16,140), /* 与 --zoom-lead / --zoom-hold / --glint-lead 同值 */
+        d=T-stage.getBoundingClientRect().top,        /* 越过钉线的距离 */
+        g=cl((d+L)/L),k=cl((d+G)/(G+H)),a=wide?cl((d+L*.7)/(L*.7)):1,
+        from=parseFloat(getComputedStyle(R).getPropertyValue('--zoom-from'))||.55;
+    box.style.transform='scale('+(from+(1-from)*g)+')';
+    rings.style.transformOrigin='560px 390px';
+    rings.style.transform='scale('+(.86+.14*g)+')';rings.style.opacity=.4+.6*g;
+    fade[0].style.opacity=fade[1].style.opacity=a;
+    glint.style.transform='translateX('+(-110+220*k)+'%)';
+    glint.style.opacity=k<=0||k>=1?0:k<.25?k/.25:k>.75?(1-k)/.25:1;
+  }
+  function tick(){if(!ticking){ticking=true;requestAnimationFrame(update)}}
+  function listen(v){if(v===on)return;on=v;var m=v?'addEventListener':'removeEventListener';
+    window[m]('scroll',tick,{passive:true});window[m]('resize',tick);tick()}
+  update();
+  if('IntersectionObserver' in window)new IntersectionObserver(function(e){listen(e[0].isIntersecting)},{rootMargin:'200px 0px'}).observe(stage);
+  else listen(true);
+})();
+</script>
+</body>
+</html>
