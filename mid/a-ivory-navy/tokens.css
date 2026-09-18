@@ -15,7 +15,7 @@
   --color-gold: #b08d4f;
   --color-gold-deep: #8c6a32;
   --color-gold-bright: #d4b273;
-  --color-gold-line: rgba(212, 178, 115, 0.26);
+  --color-gold-line: rgba(212, 178, 115, 0.5);
   --color-gold-faint: rgba(212, 178, 115, 0.12);
   --color-gold-glint: #f3e2bc;
   --color-accent: #f07800;
@@ -41,6 +41,7 @@
 
   /* Typography — Scale（老花眼标准：正文 ≥18px，次要 ≥16px） */
   --text-label: 14px;
+  --text-num: clamp(56px, 0.6vw + 52px, 64px);
   --text-caption: 16px;
   --text-body: clamp(18px, 0.3vw + 16px, 20px);
   --text-lede: clamp(20px, 0.4vw + 17px, 23px);

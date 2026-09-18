@@ -4,7 +4,7 @@
 
 **Theme:** light（开幕、第三章、联系区为深海蓝整段；正文画布为象牙白）
 
-这一版从第三轮「刊本」往中间走：保留刊本的骨架——左侧粘性目录、章节编号与节奏、细线网格、半人马随滚动放大——把它的年轻腔换成一家商学院或咨询机构的正装。开幕不再是纯黑，而是深海蓝 #0D2240，中心带一层极轻的抬升（#122A4D 径向），构图线是 12%–26% 透明度的金色细线；半人马立在一圈 1px 亮金细环里，环内一圈 6° 一格的刻度，随滚动从半尺寸放到满尺寸，金环由暗转亮，一段亮金沿环掠过一圈后隐去——这是本范式的**签名记忆点：金环登场**。开幕的收尾不是拉丁大字，而是一句居中的粗宋主张「人决定方向，AI 拓展人的能力。」。正文画布是偏暖但不发黄的象牙白 #FAF7F1，字是深蓝近黑 #0F1C30，对比度 16:1；所有标题一律 Noto Serif SC（章节名 900、H2 700），正文 Noto Sans SC 18–20px，行高 1.8，老花眼在微信里不用放大也能读。颜色只有四个角色：深海蓝、象牙白、金、logo 橙——金只做 1px 细线、章节编号和 H1 的一个关键词「你的能力」，全页金色面积 ≤2%；logo 橙只给「联系学院顾问」这类主按钮，≤3%。不用渐变字、不用投影、不用书法、不用云纹回纹，也不用满屏等宽小标签；层次靠字号、字重和深浅两段底色的切换。
+这一版从第三轮「刊本」往中间走：保留刊本的骨架——左侧粘性目录、章节编号与节奏、细线网格、半人马随滚动放大——把它的年轻腔换成一家商学院或咨询机构的正装。开幕不再是纯黑，而是深海蓝 #0D2240，不画网格和同心圆，只在中心留一团极淡的径向提亮（#122A4D → #0D2240）；半人马立在一圈 1px 亮金细环里，环内一圈 6° 一格的刻度，随滚动从半尺寸放到满尺寸，金环由暗转亮，一段亮金沿环掠过一圈后隐去——这是本范式的**签名记忆点：金环登场**。开幕的收尾不是拉丁大字，而是一句居中的粗宋主张「人决定方向，AI 拓展人的能力。」。正文画布是偏暖但不发黄的象牙白 #FAF7F1，字是深蓝近黑 #0F1C30，对比度 16:1；所有标题一律 Noto Serif SC（章节名 900、H2 700），正文 Noto Sans SC 18–20px，行高 1.8，老花眼在微信里不用放大也能读。颜色只有四个角色：深海蓝、象牙白、金、logo 橙——金只做 1px 细线、章节编号和 H1 的一个关键词「你的能力」，全页金色面积 ≤2%；logo 橙只给「联系学院顾问」这类主按钮，≤3%。不用渐变字、不用投影、不用书法、不用云纹回纹，也不用满屏等宽小标签；层次靠字号、字重和深浅两段底色的切换。
 
 ## Tokens — Colors
 
@@ -12,9 +12,9 @@
 | --- | --- | --- | --- |
 | 深海蓝 | `#0d2240` | `--color-navy` | 开幕、第三章整章、联系区与页脚；次级实心按钮 |
 | 深海蓝 · 顶栏 | `#0a1a33` | `--color-navy-deep` | 顶栏与移动菜单，比开幕深一档，压住页首 |
-| 深海蓝 · 抬升 | `#122a4d` | `--color-navy-raise` | 开幕径向光晕中心、深色衬纸、次级按钮 hover |
+| 深海蓝 · 抬升 | `#122a4d` | `--color-navy-raise` | 开幕与联系区径向提亮中心、次级按钮 hover |
 | 象牙白 | `#faf7f1` | `--color-ivory` | 正文画布，偏暖的白，不是米黄 |
-| 象牙衬纸 | `#efe9de` | `--color-ivory-deep` | 插画衬纸、步骤瓦片、院长寄语右栏、禁用底 |
+| 象牙衬纸 | `#efe9de` | `--color-ivory-deep` | 步骤瓦片、观点卡封面、院长寄语右栏、禁用底 |
 | 深蓝墨 | `#0f1c30` | `--color-ink` | 正文与标题，象牙上 16:1；分区头墨线 |
 | 次要文字 | `#3a4659` | `--color-ink-muted` | 说明、日期、次要文字，象牙上 8.9:1、衬纸上 7.9:1 |
 | 象牙发丝 | `#dcd5c8` | `--color-hair` | 图注底线、描边瓦片、目录竖线 |
@@ -23,10 +23,10 @@
 | 蓝底次要字 | `#c3cbd8` | `--color-on-navy-muted` | 深海蓝上的说明文字，9.7:1 |
 | 蓝底发丝 | `rgba(195,203,216,0.2)` | `--color-hair-navy` | 深色段分隔线、顶栏底线 |
 | 金线 | `#b08d4f` | `--color-gold` | 象牙上的细线：眉标短线、强调下划线、画框内线、目录标题线 |
-| 金 · 编号 | `#8c6a32` | `--color-gold-deep` | 象牙上的章节编号与步骤数字（≥44px，4.7:1） |
+| 金 · 编号 | `#8c6a32` | `--color-gold-deep` | 象牙上的章节编号与步骤数字（≥52px 大字，4.7:1） |
 | 亮金 | `#d4b273` | `--color-gold-bright` | 深海蓝上的金：H1 关键词（7.9:1）、金环、段落接缝线 |
-| 金 · 构图线 | `rgba(212,178,115,0.26)` | `--color-gold-line` | 开幕中轴与同心圆、金环刻度 |
-| 金 · 极淡网格 | `rgba(212,178,115,0.12)` | `--color-gold-faint` | 开幕与联系区的竖横网格 |
+| 金 · 画框线 | `rgba(212,178,115,0.5)` | `--color-gold-line` | 章节插画的 1px 金线框、金环刻度、手机开幕主张上的细线 |
+| 金 · 极淡 | `rgba(212,178,115,0.12)` | `--color-gold-faint` | 备用；开幕与联系区已不画网格，改用 navy-raise → navy 径向提亮 |
 | 金 · 掠光 | `#f3e2bc` | `--color-gold-glint` | 金环上掠过的那一段亮光，只在动画里出现 |
 | logo 橙 | `#f07800` | `--color-accent` | 只给主按钮（联系学院顾问），全页 ≤3% |
 | logo 橙 · 按下 | `#d86a00` | `--color-accent-press` | 主按钮 hover / active、输入框错误边 |
@@ -70,7 +70,7 @@
 - **Weights:** 500, 600
 - **Sizes:** 13px（顶栏、页脚字标）, 14px（眉标、图注英文）, 15px（开幕眉标）
 - **Letter spacing:** +0.14em，全大写
-- **Role:** 碑刻感的罗马字，只出现在 `CENTAUR AI ACADEMY`、`HUMAN × AI`、`EXPERIENCE` 这类文案稿原有的英文上；全页不超过 8 处，不承载关键信息
+- **Role:** 碑刻感的罗马字，只出现在 `CENTAUR AI ACADEMY`、`HUMAN × AI` 这类文案稿原有的英文眉标上；全页不超过 8 处，不承载关键信息
 
 ### Noto Serif（Noto Serif SC 的拉丁数字）— 编号 · `--font-num`
 
@@ -145,7 +145,7 @@
 | dur-fast | 0.2s | `--dur-fast` |
 | dur-base | 0.45s | `--dur-base` |
 
-- **金环登场（桌面 ≥1024px）：** 开幕钉住一屏、额外滚动 min(一屏, 90svh)。滚动 0 → 0.7 屏：半人马 `scale(.46 → 1)`、金环不透明度 `.22 → 1`、构图线 `scale(.94 → 1)` + 不透明度 `.3 → 1`；0.35 → 0.8 屏：一段亮金沿环 `rotate(-110° → 250°)` 掠过一圈，首尾淡出；0.4 → 0.68 屏：开幕文字退场；第二屏终幕主张淡入。
+- **金环登场（桌面 ≥1024px）：** 开幕钉住一屏、额外滚动 min(一屏, 90svh)。滚动 0 → 0.7 屏：半人马 `scale(.46 → 1)`、金环不透明度 `.22 → 1`；0.35 → 0.8 屏：一段亮金沿环 `rotate(-110° → 250°)` 掠过一圈，首尾淡出；0.4 → 0.68 屏：开幕文字退场；第二屏终幕主张淡入。
 - **金环登场（手机 / 平板）：** 外层 `.stage-zoom` 做 view 时间线，画面钉住一小段（额外 ≤60px），`scale(.76 → 1)`，金环与掠光同上。终态 CSS 宽度：手机（≥2.5dppx）≤480px，平板 / 桌面 ≤720px。
 - CSS 全部写在 `@supports (animation-timeline: view())` 里，`animation-timeline` 写在 `animation` 简写之后；不支持的内核（安卓微信、iOS 26 以下）由页内 JS 兜底：IntersectionObserver 只在开幕附近监听，passive scroll + requestAnimationFrame，只写 transform / opacity；URL 带 `?nosd` 强制兜底。
 - `prefers-reduced-motion: reduce`：全部静态。桌面开幕层半人马停在半尺寸（不压标题），终幕给满尺寸；手机直接是满尺寸终态。
@@ -192,12 +192,12 @@
 ### 分区头（Section Rule）
 
 **Role:** 每个区块的起点
-1px 墨色横线 + 左侧粗宋 900 44px 金色编号（01/02/03），同一高度一根极淡网格横线向两侧贯穿全宽。没有编号的区块改放一个中文小标题（粗宋 700 18px）或文案稿原有的英文眉标（Cinzel 14px）。
+1px 墨色横线；三章的编号（01/02/03，Noto Serif 900 `--text-num` 56–64px 金色衬线数字）与章节名并排、基线对齐，同一高度一根极淡网格横线向两侧贯穿全宽。没有编号的区块改放一个中文小标题（粗宋 700 18px）或文案稿原有的英文眉标（Cinzel 14px）。
 
 ### 章节名（Shout）
 
 **Role:** 章节的主标题「从你的积累出发」
-粗宋 900，clamp(46px, 5.6vw + 10px, 104px)，深蓝墨；分区头下方 30px。
+粗宋 900，clamp(46px, 5.6vw + 10px, 104px)（600px 以下 36px，保证与编号一行放下），深蓝墨；与金色编号并排放在分区头墨线下。
 
 ### H2 与强调词
 
@@ -207,7 +207,7 @@
 ### 插画装裱（Plate）
 
 **Role:** 三张暖色插画的统一处理
-象牙衬纸 `--color-ivory-deep`，内边距 clamp(18px, 3.4vw, 52px)，插画外 1px 金线框（offset 为衬纸宽的 0.42）；下方图注行：Cinzel 灰蓝英文（EXPERIENCE，7:1 以上；金色只留给框线）+ 粗宋 500 18px 中文，底边一根象牙发丝。深海蓝段里衬纸换成 #122A4D、金线换亮金。
+不垫衬纸：插画外一圈 1px 金线框（`--color-gold-line`，约 50% 不透明），框与图之间留 clamp(12px, 1.6vw, 22px)；下方图注行只留中文（粗宋 500 18px 次要字色），不放英文小标，底边一根象牙发丝。深海蓝段同一金线框。
 
 ### 金环半人马（Hero Figure）
 
@@ -264,9 +264,9 @@
 | Level | Name | Value | Purpose |
 | --- | --- | --- | --- |
 | 0 | ivory | `#faf7f1` | 正文画布 |
-| 1 | ivory-deep | `#efe9de` | 插画衬纸、步骤瓦片、院长右栏 |
+| 1 | ivory-deep | `#efe9de` | 步骤瓦片、观点卡封面、院长右栏 |
 | 2 | navy | `#0d2240` | 开幕、第三章、步骤第一块、院长左栏、联系区 |
-| 3 | navy-raise | `#122a4d` | 开幕光晕中心、深色衬纸 |
+| 3 | navy-raise | `#122a4d` | 开幕与联系区的径向提亮中心 |
 | 4 | navy-deep | `#0a1a33` | 顶栏、移动菜单 |
 
 深浅两段之间一律用一根 1px 亮金线接缝，不用撕纸边、不用渐变过渡。
@@ -281,7 +281,7 @@
 - logo 橙只给主按钮「联系学院顾问」，全页 ≤3%；次级动作用深海蓝实心或描边。
 - 主按钮 56px 高、19px 粗体；所有可点目标 ≥48px。
 - 强调词用 3px 金线下划线，不换颜色、不换字体。
-- 三张插画同一种装裱：象牙衬纸 + 1px 金线内框 + 双语图注。
+- 三张插画同一种装裱：1px 金线框 + 中文图注。
 - 深浅两段接缝处放一根 1px 亮金线。
 - 编号只给三章、五步和目录。
 - 动效只写 transform / opacity；登场结束后屏内永远有字或半人马，不留空屏。
@@ -293,7 +293,7 @@
 - 不要让拉丁大字当主视觉（整屏「HUMAN × AI」这类）。
 - 不要用书法字体、云纹、回纹、山水、印章、对联、红色大底——那是第四轮的土。
 - 不要做金属渐变字、描边字、投影、外发光、光束和粒子。
-- 不要把所有东西居中对称：只有终幕主张和联系区居中，开幕标题在左、导语在右。
+- 不要把所有东西居中对称：桌面开幕标题在左、导语在右；只有终幕主张、联系区和手机首屏（眉标 / H1 / 副标题 / 主按钮叠在半人马上方）居中。
 - 不要在正文或 16px 以下的字上用金色。
 - 不要编任何数字、客户、评价、学员数。
 - 不要写「全面 / 深入 / 赋能 / 打造 / 极致」。
@@ -301,7 +301,7 @@
 
 ## Imagery
 
-主视觉只有一张：透明底抠图半人马，放在深海蓝场上的一圈细金环里，靠「由小到大 + 金环由暗转亮 + 一段掠光」完成出场，不叠光束、不撒粒子。三张暖色纸感插画（experience / co-learning / creating）统一装进象牙衬纸 + 金线内框，像证书和画册里的插页——插画的暖色和象牙底同温，金线把它们收成一个系列；在第三章深海蓝整章里衬纸换成抬升蓝，插画像被装进深色画框。观点卡封面用同一种直角衬纸，academy-centaur-hero（米色底烤在图里）用 multiply 融进衬纸。图标只用文字箭头 ↗ → ↓，不引图标库。
+主视觉只有一张：透明底抠图半人马，放在深海蓝场上的一圈细金环里，靠「由小到大 + 金环由暗转亮 + 一段掠光」完成出场，不叠光束、不撒粒子。三张暖色纸感插画（experience / co-learning / creating）统一装进一圈 1px 金线框（不垫衬纸），像证书和画册里的插页——插画的暖色和象牙底同温，金线把它们收成一个系列；第三章深海蓝整章里同一道金框。观点卡封面用同一种直角衬纸，academy-centaur-hero（米色底烤在图里）用 multiply 融进衬纸。图标只用文字箭头 ↗ → ↓，不引图标库。
 
 ## Layout
 
@@ -325,8 +325,8 @@ accent (只给主按钮, ≤3%): #f07800
 Example Component Prompts:
 
 1. Create the primary CTA: `bg #f07800` `text #0f1c30`, `border-radius 4px`, `min-height 56px`, `padding 0 28px`, `font 700 19px Noto Sans SC`, letter-spacing .04em, label「联系学院顾问 ↗」; hover `#d86a00`, arrow nudges 2px up-right; full width under 600px. Only one per view plus the header copy.
-2. Create a chapter head: 1px `#0f1c30` top rule, then `01` in Noto Serif SC 900 44px `#8c6a32`, then the chapter name in Noto Serif SC 900 clamp(46px, 5.6vw + 10px, 104px) `#0f1c30`; the H2 below uses Noto Serif SC 700 with the keyword underlined by a 3px `#b08d4f` bar at 94%.
-3. Create the hero figure: transparent centaur cutout on `#0d2240`; behind it a circle 84% of the image width, 1px `#d4b273` border, plus an inner ring of 8px ticks every 6° in `rgba(212,178,115,.26)`; on scroll scale from .46 to 1 while the ring fades from .22 to 1 and a 3px `#f3e2bc` arc travels once around it.
+2. Create a chapter head: 1px `#0f1c30` top rule, then on the same baseline `01` in Noto Serif SC 900 clamp(56px, 0.6vw + 52px, 64px) `#8c6a32` beside the chapter name in Noto Serif SC 900 clamp(46px, 5.6vw + 10px, 104px) `#0f1c30`; the H2 below uses Noto Serif SC 700 with the keyword underlined by a 3px `#b08d4f` bar at 94%.
+3. Create the hero figure: transparent centaur cutout on `#0d2240`; behind it a circle 84% of the image width, 1px `#d4b273` border, plus an inner ring of 8px ticks every 6° in `rgba(212,178,115,.5)`; on scroll scale from .46 to 1 while the ring fades from .22 to 1 and a 3px `#f3e2bc` arc travels once around it.
 
 ## Similar Brands
 
@@ -360,7 +360,7 @@ Example Component Prompts:
   --color-gold: #b08d4f;
   --color-gold-deep: #8c6a32;
   --color-gold-bright: #d4b273;
-  --color-gold-line: rgba(212, 178, 115, 0.26);
+  --color-gold-line: rgba(212, 178, 115, 0.5);
   --color-gold-faint: rgba(212, 178, 115, 0.12);
   --color-gold-glint: #f3e2bc;
   --color-accent: #f07800;
@@ -386,6 +386,7 @@ Example Component Prompts:
 
   /* Typography — Scale（老花眼标准：正文 ≥18px，次要 ≥16px） */
   --text-label: 14px;
+  --text-num: clamp(56px, 0.6vw + 52px, 64px);
   --text-caption: 16px;
   --text-body: clamp(18px, 0.3vw + 16px, 20px);
   --text-lede: clamp(20px, 0.4vw + 17px, 23px);
@@ -452,7 +453,7 @@ Example Component Prompts:
   --color-gold: #b08d4f;
   --color-gold-deep: #8c6a32;
   --color-gold-bright: #d4b273;
-  --color-gold-line: rgba(212, 178, 115, 0.26);
+  --color-gold-line: rgba(212, 178, 115, 0.5);
   --color-gold-faint: rgba(212, 178, 115, 0.12);
   --color-gold-glint: #f3e2bc;
   --color-accent: #f07800;
@@ -466,6 +467,7 @@ Example Component Prompts:
   --font-num: 'Noto Serif SC', Georgia, serif;
 
   --text-label: 14px;
+  --text-num: clamp(56px, 0.6vw + 52px, 64px);
   --text-caption: 16px;
   --text-body: clamp(18px, 0.3vw + 16px, 20px);
   --text-lede: clamp(20px, 0.4vw + 17px, 23px);
@@ -495,7 +497,7 @@ Example Component Prompts:
 - 共学五步分区头：`共学五步`（文案稿区块名）
 - 观点分区头：`CENTAUR JOURNAL` 与 `/ 观点与动态`（文案稿眉标拆成英文眉标 + 中文小标题）
 - 院长寄语分区头：`FROM THE FOUNDER`（文案稿眉标，移到分区头）
-- 插画图注英文：`EXPERIENCE`、`LEARN TOGETHER`、`MAKE IT REAL`（文案稿图注的英文部分，用 Cinzel 次要字色显示）
+- 插画图注：只保留中文部分，文案稿里的英文 `EXPERIENCE` / `LEARN TOGETHER` / `MAKE IT REAL` 与分隔符「｜」按评审意见删去
 - 步骤大数字：`01`–`05`（文案稿编号，作为瓦片里的装饰字形，`aria-hidden`）
 - 屏幕阅读器标题：`院长寄语`（视觉隐藏）
 - 移动端菜单按钮：`菜单 +`；移动菜单内再放一枚 `联系学院顾问 ↗`（文案稿 CTA 原文）

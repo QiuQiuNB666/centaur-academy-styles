@@ -18,7 +18,6 @@ img{display:block;max-width:100%;height:auto}
 button,input{font:inherit;color:inherit}
 :focus-visible{outline:3px solid var(--color-focus);outline-offset:3px;border-radius:var(--radius-sm)}
 .wrap{max-width:calc(var(--container) + var(--gutter) * 2);margin-inline:auto;padding-inline:var(--gutter)}
-.metal{background:var(--gradient-gold);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
 .gold{color:var(--color-gold)}
 .latin{font-family:var(--font-latin);font-weight:700;font-size:var(--text-label);letter-spacing:var(--tracking-label);color:var(--color-ink-muted);text-transform:uppercase}
 .muted{color:var(--color-ink-muted)}
@@ -93,8 +92,12 @@ section + section{border-top:var(--hairline) solid var(--color-gold-a30)}
 .f-stage{position:relative;aspect-ratio:1448/1086;background:var(--gradient-hero);border:var(--hairline) solid var(--color-gold-a30);overflow:hidden}
 .f-stage svg{position:absolute;inset:0;width:100%;height:100%}
 .f-stage .ring{fill:none;stroke:var(--color-gold);stroke-width:1;vector-effect:non-scaling-stroke}
-.f-stage .ticks{fill:none;stroke:var(--color-gold-a30);stroke-width:14;stroke-dasharray:1.5 17.5}
 .f-stage img{position:absolute;inset:0;width:100%;height:100%;filter:drop-shadow(var(--shadow-figure))}
+.ivory{background:var(--color-ivory);color:var(--color-ink-deep)}
+.ivory .latin,.ivory .frames figcaption{color:var(--color-ink-deep-muted)}
+.ivory .s-head b{color:var(--color-gold-ink)}
+.ivory .frame{background:var(--color-ivory);border-color:var(--color-gold-deep-a40)}
+.ivory :focus-visible{outline-color:var(--color-ink-deep)}
 .lines{display:grid;gap:14px}
 .lines p{display:flex;gap:12px;align-items:center}
 .lines i{width:160px;height:var(--hairline)}
@@ -104,7 +107,7 @@ section + section{border-top:var(--hairline) solid var(--color-gold-a30)}
 <header class="top">
   <div class="wrap">
     <p class="latin">CENTAUR AI ACADEMY · NAVY &amp; GOLD</p>
-    <h1>藏青金章 · <span class="metal">组件样张</span></h1>
+    <h1>藏青金章 · <span class="gold">组件样张</span></h1>
     <p class="muted" style="margin-top:8px">藏青底 + 一种金 + 橘橙只给主按钮。以下是这套范式的色、字、件。</p>
   </div>
 </header>
@@ -119,7 +122,9 @@ section + section{border-top:var(--hairline) solid var(--color-gold-a30)}
       <div class="sw"><i style="background:var(--color-navy-raised)"></i><div><b>抬升藏青</b><code>#10275A</code><br>预留浮层</div></div>
       <div class="sw"><i style="background:var(--color-navy-high)"></i><div><b>高位藏青</b><code>#1A3470</code><br>禁用底</div></div>
       <div class="sw"><i style="background:var(--color-gold)"></i><div><b>金</b><code>#D8B46A gold</code><br>细线、编号、强调词</div></div>
-      <div class="sw"><i style="background:var(--gradient-gold)"></i><div><b>金属金</b><code>gradient-gold</code><br>只给 H1「你的能力」</div></div>
+      <div class="sw"><i style="background:var(--color-ivory)"></i><div><b>章节象牙白</b><code>#FAF7F1 ivory</code><br>01–03 章节底</div></div>
+      <div class="sw"><i style="background:var(--color-ink-deep)"></i><div><b>深蓝字</b><code>#0F1C30</code><br>象牙白上正文 16:1</div></div>
+      <div class="sw"><i style="background:var(--color-gold-ink)"></i><div><b>古铜金</b><code>#6B4E17</code><br>象牙白上编号 7.2:1</div></div>
       <div class="sw"><i style="background:var(--color-orange)"></i><div><b>马身橘橙</b><code>#F58A2A</code><br>只给主按钮</div></div>
       <div class="sw"><i style="background:var(--color-ink)"></i><div><b>象牙白</b><code>#F5F1E6</code><br>正文 17:1</div></div>
       <div class="sw"><i style="background:var(--color-ink-muted)"></i><div><b>月灰</b><code>#C4CEE2</code><br>次要文字 12:1</div></div>
@@ -131,14 +136,14 @@ section + section{border-top:var(--hairline) solid var(--color-gold-a30)}
 <section aria-labelledby="s-type">
   <div class="wrap">
     <div class="s-head"><b>B</b><h2 id="s-type">字体与字号</h2><span class="latin">TYPE</span></div>
-    <div class="type-row"><small>主标 · Noto Serif SC 900 · 56–92px<br>关键词金属金，全站仅此一处</small><p style="font-family:var(--font-title);font-weight:900;font-size:var(--text-hero);line-height:1.18">让 AI 成为<br><span class="metal">你的能力</span>。</p></div>
+    <div class="type-row"><small>主标 · Noto Serif SC 900 · 56–92px<br>关键词平涂金</small><p style="font-family:var(--font-title);font-weight:900;font-size:var(--text-hero);line-height:1.18">让 AI 成为<br><span class="gold">你的能力</span>。</p></div>
     <div class="type-row"><small>章节标题 · Noto Serif SC 900 · 34–58px<br>强调词平涂金</small><p style="font-family:var(--font-title);font-weight:900;font-size:var(--text-display);line-height:1.3">你走过的路，都是<span class="gold">起点</span>。</p></div>
     <div class="type-row"><small>编号 · Noto Serif SC 900 · 44–64px</small><p style="font-family:var(--font-title);font-weight:900;font-size:var(--text-num);line-height:1" class="gold">01 02 03</p></div>
     <div class="type-row"><small>小标题 · Noto Serif SC 900 · 22–28px</small><p style="font-family:var(--font-title);font-weight:900;font-size:var(--text-title)">带来问题</p></div>
     <div class="type-row"><small>导语 · Noto Sans SC 500 · 20–24px</small><p style="font-size:var(--text-lead);font-weight:500">面向经营者与管理者的长期共学与共创学院。</p></div>
     <div class="type-row"><small>正文 · Noto Sans SC 400 · 18–19px / 1.8</small><p>把你的经验、判断和真实问题，与 AI 的能力连接起来。</p></div>
     <div class="type-row"><small>次要 · 16px · 月灰</small><p class="muted" style="font-size:var(--text-small)">下载暂未开放</p></div>
-    <div class="type-row"><small>英文眉标 · Cinzel 700 · 14px · 0.18em</small><p class="latin">HUMAN × AI</p></div>
+    <div class="type-row"><small>英文眉标 · Cinzel 700 · 14px · 0.1em</small><p class="latin">HUMAN × AI</p></div>
   </div>
 </section>
 
@@ -216,23 +221,23 @@ section + section{border-top:var(--hairline) solid var(--color-gold-a30)}
     <div class="lines" style="margin-top:32px">
       <p><i style="background:var(--color-gold-a50)"></i><small class="muted">金线 a50 · 章节与区块分隔</small></p>
       <p><i style="background:var(--color-gold-a30)"></i><small class="muted">金线 a30 · 列表行、卡片内</small></p>
-      <p><i style="background:var(--color-gold-a15)"></i><small class="muted">金线 a15 · 页脚、同心圆刻度</small></p>
+      <p><i style="background:var(--color-gold-a15)"></i><small class="muted">金线 a15 · 页脚、联系横幅同心圆</small></p>
     </div>
   </div>
 </section>
 
-<section aria-labelledby="s-frame">
+<section class="ivory" aria-labelledby="s-frame">
   <div class="wrap">
     <div class="s-head"><b>G</b><h2 id="s-frame">图片框处理</h2><span class="latin">FRAMES</span></div>
     <div class="frames">
       <figure><div class="frame"><img src="../../assets/experience.webp" width="1448" height="1086" alt="概念插画：笔记、铅笔与方向标"></div><figcaption><span class="latin">EXPERIENCE</span><span>｜ 细金线画框 · 章节插画</span></figcaption></figure>
       <figure><div class="frame"><img src="../../assets/co-learning.webp" width="1448" height="1086" alt="概念插画：三位同伴围桌讨论"></div><figcaption><span class="latin">LEARN TOGETHER</span><span>｜ 同一画框，不换造型</span></figcaption></figure>
-      <figure><div class="f-stage"><svg viewBox="0 0 1000 750" aria-hidden="true"><circle class="ticks" cx="560" cy="390" r="330"/><circle class="ring" cx="560" cy="390" r="300"/></svg><img src="../../assets/academy-centaur-cutout.webp" width="1448" height="1086" alt="橙色人身与蓝色马身结合的半人马艺术形象"></div><figcaption><span class="latin">HUMAN × AI</span><span>｜ 细金环 + 刻度圈 · 只给半人马</span></figcaption></figure>
+      <figure><div class="f-stage"><svg viewBox="0 0 1000 750" aria-hidden="true"><circle class="ring" cx="560" cy="390" r="300"/></svg><img src="../../assets/academy-centaur-cutout.webp" width="1448" height="1086" alt="橙色人身与蓝色马身结合的半人马艺术形象"></div><figcaption><span class="latin">HUMAN × AI</span><span>｜ 一条细金线圈 · 只给半人马</span></figcaption></figure>
     </div>
   </div>
 </section>
 </main>
 
-<a href="../../" style="position:fixed;left:12px;bottom:12px;z-index:99;font:12px/1 ui-monospace,monospace;padding:8px 10px;border-radius:999px;background:rgba(127,127,127,.18);backdrop-filter:blur(8px);color:inherit;text-decoration:none">← 全部方案</a>
+<a href="../../" style="position:fixed;left:12px;bottom:12px;z-index:99;font:12px/1 ui-monospace,monospace;padding:8px 10px;border-radius:999px;background:var(--color-abyss-a92);box-shadow:inset 0 0 0 1px var(--color-gold-a30);color:var(--color-ink);text-decoration:none">← 全部方案</a>
 </body>
 </html>

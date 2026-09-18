@@ -2,9 +2,9 @@
 
 > 藏青底上一圈细金环，首屏端正、正文像一本商学院年报
 
-**Theme:** dark
+**Theme:** dark（章节段落为象牙白）
 
-藏青金章是第五轮「取中间值」的深色一版，从第四轮「国潮科技」往第三轮「刊本」挪了一大步。颜色只有四个角色：藏青底色系（#050E24 → #0A1B3F → #10275A）、一种金 #D8B46A、logo 马身橘橙 #F58A2A、象牙白文字 #F5F1E6——老板熟悉的「深蓝配金」没变，但金只做 1px 细线、章节编号和标题里的强调词，并且一律平涂；全站只有 H1 的「你的能力」一个词用极轻的两段金渐变。橘橙只给「联系学院顾问」主按钮，不发光、不渐变。书法字、云纹、回纹、山脊线、扇面、卷轴、印章、题跋框、光束、粒子、背景网格全部拿掉，分量改由字来扛：所有标题、编号、产品名都用 Noto Serif SC 900 粗宋，正文 Noto Sans SC，同屏中文只有这两种。版式是「首屏居中、正文左对齐」：首屏像典礼一样端正，从第一章起换成刊本的节奏——左栏大号金色编号 + 章名，中栏标题与正文，右栏细金线画框里的插画，章节之间只有一根 1px 金线。签名记忆点是**半人马在细金环里登场**：滚动时半人马从 0.55/0.6 倍放大到终态，外圈同心圆刻度由暗转亮，钉住的一小段里一道暖金扫光掠过马身——这是全站唯一的光效。
+藏青金章是第五轮「取中间值」的深色一版，从第四轮「国潮科技」往第三轮「刊本」挪了一大步。颜色只有四个角色：藏青底色系（#050E24 → #0A1B3F → #10275A）、一种金 #D8B46A、logo 马身橘橙 #F58A2A、象牙白（文字 #F5F1E6 / 章节底 #FAF7F1）——老板熟悉的「深蓝配金」没变，但金只做 1px 细线、章节编号和标题里的强调词，并且一律平涂，H1「你的能力」也是平涂金，全站没有金属渐变字。01/02/03 三个叙事章节整段换成象牙白底 #FAF7F1 + 深蓝字 #0F1C30 + 古铜金编号，打破整页暗底，读起来像商学院年报的内页。橘橙只给「联系学院顾问」主按钮，不发光、不渐变。书法字、云纹、回纹、山脊线、扇面、卷轴、印章、题跋框、光束、粒子、背景网格全部拿掉，分量改由字来扛：所有标题、编号、产品名都用 Noto Serif SC 900 粗宋，正文 Noto Sans SC，同屏中文只有这两种。版式是「首屏居中、正文左对齐」：首屏像典礼一样端正，从第一章起换成刊本的节奏——左栏大号金色编号 + 章名，中栏标题与正文，右栏细金线画框里的插画，章节之间只有一根 1px 金线。签名记忆点是**半人马在一条细金线圈里登场**：滚动时半人马从 0.55/0.6 倍放大到终态，金线圈由暗转亮——不加刻度、不加扫光，全站没有光效。
 
 ## Tokens — Colors
 
@@ -17,14 +17,20 @@
 | 藏青细线   | `#274A8C` | `--color-navy-line`    | 输入框、禁用按钮描边                                    |
 | 金         | `#D8B46A` | `--color-gold`         | 1px 分隔线、章节/步骤编号、标题强调词（≥28px）、金环   |
 | 浅金       | `#F6E2AE` | `--color-gold-light`   | 链接与卡片标题 hover                                    |
-| 暗金       | `#A57C35` | `--color-gold-deep`    | 预留；不在首页出现                                      |
+| 暗金       | `#A57C35` | `--color-gold-deep`    | 象牙白章节里的链接下划线；40% 透明度做章节细线与画框    |
 | 马身橘橙   | `#F58A2A` | `--color-orange`       | 只给主按钮，全页 ≤3 处                                  |
 | 亮橘       | `#FFA553` | `--color-orange-light` | 主按钮 hover                                            |
 | 象牙白     | `#F5F1E6` | `--color-ink`          | 正文与标题（对深海 17:1）                               |
 | 月灰       | `#C4CEE2` | `--color-ink-muted`    | 次要文字、英文眉标（对深海 12:1，对藏青 10.7:1）        |
 | 禁用灰     | `#C0C9DB` | `--color-ink-disabled` | 禁用按钮文字、占位符（对高位藏青 7.1:1）               |
 | 按钮深字   | `#050E24` | `--color-on-orange`    | 橘橙按钮上的字（7.8:1）                                 |
-| 焦点金     | `#FFD27A` | `--color-focus`        | 键盘焦点环 3px                                          |
+| 焦点金     | `#FFD27A` | `--color-focus`        | 键盘焦点环 3px（象牙白段落里改用深蓝）                  |
+| 章节象牙白 | `#FAF7F1` | `--color-ivory`        | 01/02/03 叙事章节底色、画框衬底                         |
+| 深象牙     | `#F1EBDF` | `--color-ivory-deep`   | 象牙白段落里的禁用按钮底                                |
+| 深蓝字     | `#0F1C30` | `--color-ink-deep`     | 象牙白段落的标题与正文（16:1）                          |
+| 深蓝灰     | `#3A4760` | `--color-ink-deep-muted` | 象牙白段落的导语、图注、禁用字（8.7:1）               |
+| 古铜金     | `#6B4E17` | `--color-gold-ink`     | 象牙白段落的编号 01/02/03 与标题强调词（7.2:1）         |
+| 暗金·线    | `rgba(165,124,53,.4)` | `--color-gold-deep-a40` | 象牙白段落的 1px 分隔线、画框、产品行线     |
 
 ### 柔和语义色（深底版：金的四档透明度，只用于线）
 
@@ -35,15 +41,15 @@
 | 金·弱  | `rgba(216,180,106,.15)` | `#F5F1E6`   | `--color-gold-a15` |
 | 金·底  | `rgba(216,180,106,.08)` | `#F5F1E6`   | `--color-gold-a08` |
 
-金·强分章节与区块；金·中分列表行、步骤列、卡片封面框；金·弱只给页脚内线、同心圆刻度外圈；金·底只做次按钮 hover 底。
+金·强分章节与区块；金·中分列表行、步骤列、卡片封面框；金·弱只给页脚内线、联系横幅的同心圆；金·底只做次按钮 hover 底。
 
-### 渐变（全站只有三条）
+### 渐变（全站只有一条）
 
 | Name   | Token              | Role                                                          |
 | ------ | ------------------ | ------------------------------------------------------------- |
-| 淡金   | `--gradient-gold`  | 两段极轻金渐变，只给 H1「你的能力」一个词                     |
 | 首屏   | `--gradient-hero`  | 藏青到深海的纵向过渡，不做顶光、不做光晕                      |
-| 扫光   | `--gradient-sweep` | 登场时掠过马身的暖金光带（以抠图作遮罩），全站唯一光效        |
+
+金色字一律平涂（含 H1「你的能力」）；不做金属渐变字、不做扫光。
 
 ## Tokens — Typography
 
@@ -68,7 +74,7 @@
 
 - **Substitute:** Trajan Pro, Times New Roman, serif
 - **Weights:** 700
-- **Sizes:** 13–14px，字距 0.18em，全大写
+- **Sizes:** 13–14px，字距 0.1em，全大写
 - **Role:** CENTAUR AI ACADEMY、HUMAN × AI、图注英文词；只做点缀，不承载关键信息，颜色用月灰不用金
 
 ### Type Scale
@@ -82,7 +88,7 @@
 | lead     | 20–24px   | 1.7         | 0              | `--text-lead`    |
 | body     | 18–19px   | 1.8         | 0              | `--text-body`    |
 | small    | 16px      | 1.6         | 0.08em         | `--text-small`   |
-| label    | 14px      | 1.3         | 0.18em         | `--text-label`   |
+| label    | 14px      | 1.3         | 0.1em          | `--text-label`   |
 
 ## Tokens — Spacing & Shapes
 
@@ -157,22 +163,22 @@
 ### Disabled Button
 
 **Role:** 「下载知君 ↓」「下载万象 ↓」
-`bg-navy-high` + 1px `navy-line` 描边 + 禁用灰字，高 52px，旁边 16px 月灰注「下载暂未开放」。
+在象牙白章节里：`bg-ivory-deep` + 1px 暗金·线描边 + 深蓝灰字，高 52px，旁边 16px 深蓝灰注「下载暂未开放」。深底上的变体为 `bg-navy-high` + 1px `navy-line` + 禁用灰字。
 
 ### Text Link
 
 **Role:** 「了解学院的主张 ↗」等
-象牙白 500，下方 1px 金线（离基线 8px）；hover 字变浅金、线加粗到 2px。
+深底上象牙白 500 + 1px 金线（离基线 8px），hover 字变浅金、线加粗到 2px；象牙白章节里深蓝字 + 1px 暗金线，hover 字变古铜金。
 
 ### Chapter Mark
 
 **Role:** 三章节的编号与章名（签名节奏）
-粗宋 900 金色编号 44–64px + 章名 Noto Sans 700；桌面在 180px 左栏里上下排，手机横排。上方一根贯穿整章的 1px 金·强线。
+粗宋 900 古铜金编号 44–64px + 深蓝章名 Noto Sans 700；桌面在 180px 左栏里上下排，手机横排。上方一根贯穿整章的 1px 暗金·线。
 
 ### Framed Illustration
 
 **Role:** 章节插画框
-1px 金·强细线 + 10px 藏青衬底 + 4:3 裁切插画，直角。下方图注左对齐：Cinzel 英文词 + 「｜ 中文」月灰。暖色纸感插画靠这圈藏青衬边和金线「装裱」，不做扇面、圆窗、卷轴。
+1px 暗金·线 + 10px 象牙白衬底 + 4:3 裁切插画，直角。下方图注左对齐：Cinzel 英文词 + 「｜ 中文」深蓝灰。暖色纸感插画落在象牙白纸面上，靠一圈细金线「装裱」，不做扇面、圆窗、卷轴。
 
 ### Product Row
 
@@ -204,7 +210,8 @@
 | Level | Name   | Value     | Purpose                              |
 | ----- | ------ | --------- | ------------------------------------ |
 | 0     | abyss  | `#050E24` | 页面底                               |
-| 1     | navy   | `#0A1B3F` | 共学五步、联系横幅、画框衬底         |
+| 1     | navy   | `#0A1B3F` | 共学五步、联系横幅                   |
+| 1′    | ivory  | `#FAF7F1` | 01/02/03 叙事章节整段（浅色插页）    |
 | 2     | raised | `#10275A` | 预留浮层                             |
 | 3     | high   | `#1A3470` | 禁用按钮                             |
 
@@ -213,25 +220,26 @@
 ### Do
 
 - 金只有两种用法：1px 线，和 ≥28px 的平涂字（编号、强调词、口号）。
-- 金属渐变全站只出现一次：H1「你的能力」。
+- 金色一律平涂，H1「你的能力」也不例外；全站没有金属渐变字。
 - 橘橙只给主按钮，同屏最多两个（手机浮钮在首屏按钮可见时隐藏）。
 - 首屏居中，其余一律左对齐；章节靠「编号 + 1px 金线 + 左栏」建立节奏。
 - 所有标题用 Noto Serif SC 900；正文不小于 18px，行高 1.8。
 - 插画统一用细金线画框，一个框型用到底。
-- 半人马的扫光是唯一光效；背景只留金环外那圈极淡的同心圆刻度。
+- 半人马只配一条 1px 金线圈，不加刻度、不加扫光；联系横幅右侧三圈金·弱同心圆是全站唯一的背景线。
+- 叙事章节用象牙白整段插页打破暗底，深蓝字、古铜金编号。
 
 ### Don't
 
 - 不用书法字（马善政等）、云纹、回纹、山脊线、扇面、卷轴、印章、题跋框、对联式排版。
 - 不用光束、粒子、发光线条、外发光阴影、背景网格。
 - 不用纯黑底、撕纸边、橄榄奶油纸页、整屏拉丁大字当主视觉、满屏等宽小标签。
-- 不把金用在正文或 16px 以下的字上。
+- 不把金用在正文或 16px 以下的字上；象牙白底上不用亮金 #D8B46A 做字（对比不足），改用古铜金。
 - 不给卡片加面板底色和投影——面板感来自线，不来自块。
 - 不编造数字、客户、评价、期号。
 
 ## Imagery
 
-主视觉只有一个物件：透明底半人马，放在一圈 1px 金环 + 一圈金·中短刻度 + 一圈金·弱外环里，像奖章或表盘的刻度，不是神坛。三张暖色纸感插画不去色、不叠印，靠藏青衬边与细金线装裱成「挂在深色墙上的画」。期刊卡的「AI 越强大」一篇用米色底的 academy-centaur-hero，同样进 6px 衬框。无图标库、无 emoji。
+主视觉只有一个物件：透明底半人马，放在一条 1px 金线圈里，像奖章的外缘，不是神坛。三张暖色纸感插画不去色、不叠印，放在象牙白章节里，靠细金线装裱成「年报内页的配图」。期刊卡的「AI 越强大」一篇用米色底的 academy-centaur-hero，同样进 6px 衬框。无图标库、无 emoji。
 
 ## Layout
 
@@ -247,14 +255,15 @@ section: #0A1B3F
 foreground: #F5F1E6
 muted: #C4CEE2
 gold (lines, numbers, ≥28px accents, flat): #D8B46A
+ivory chapters: bg #FAF7F1, text #0F1C30, muted #3A4760, numbers/accents #6B4E17, lines rgba(165,124,53,.4)
 primary button only: #F58A2A on #050E24
 focus: #FFD27A
 ```
 
 Example Component Prompts:
 
-1. Create a chapter row: top 1px `rgba(216,180,106,.5)` rule; grid `180px 1fr 1fr` gap 48px; left: number "01" Noto Serif SC 900 64px #D8B46A above chapter name Noto Sans SC 700 20px; middle: H2 Noto Serif SC 900 58px with one flat-gold keyword, lead 20px #C4CEE2, link with 1px gold underline; right: 4:3 illustration inside 10px #0A1B3F mat and 1px gold-a50 border, caption Cinzel 14px + Chinese 16px #C4CEE2.
-2. Create the hero: centered; eyebrow Cinzel 14px 0.18em; H1 two lines Noto Serif SC 900 92px, second line keyword with `linear-gradient(180deg,#EBD196,#D8B46A)` text fill; primary button flat #F58A2A 56px tall 6px radius; below, a transparent centaur inside a 1px gold ring and a faint tick ring, scaling from 0.6 to 1 on scroll with one warm sweep.
+1. Create a chapter row on an ivory #FAF7F1 band: top 1px `rgba(165,124,53,.4)` rule; grid `180px 1fr 1fr` gap 48px; left: number "01" Noto Serif SC 900 64px #6B4E17 above chapter name Noto Sans SC 700 20px #0F1C30; middle: H2 Noto Serif SC 900 58px #0F1C30 with one #6B4E17 keyword, lead 20px #3A4760, link with 1px #A57C35 underline; right: 4:3 illustration inside 10px ivory mat and 1px `rgba(165,124,53,.4)` border, caption Cinzel 14px 0.1em + Chinese 16px #3A4760.
+2. Create the hero: centered; eyebrow Cinzel 14px 0.1em; H1 two lines Noto Serif SC 900 92px, second line keyword flat #D8B46A; primary button flat #F58A2A 56px tall 6px radius; below, a transparent centaur inside a single 1px gold ring, scaling from 0.6 to 1 on scroll; no sweep, no tick ring.
 3. Create a five-step row: 5 equal columns, top 1px gold-a50 rule, 1px gold-a30 vertical dividers; each: "01" Noto Serif SC 900 48px gold, title 28px serif 900, one line 18px #C4CEE2.
 
 ## Similar Brands
@@ -306,6 +315,14 @@ Example Component Prompts:
   --color-on-orange: #050E24;
   --color-focus: #FFD27A;
 
+  /* Colors — 象牙白章节（01/02/03 打破整页暗底） */
+  --color-ivory: #FAF7F1;
+  --color-ivory-deep: #F1EBDF;
+  --color-ink-deep: #0F1C30;
+  --color-ink-deep-muted: #3A4760;
+  --color-gold-ink: #6B4E17;
+  --color-gold-deep-a40: rgba(165, 124, 53, 0.4);
+
   /* Colors — 半透明（细线与遮罩） */
   --color-gold-a50: rgba(216, 180, 106, 0.5);
   --color-gold-a30: rgba(216, 180, 106, 0.3);
@@ -314,10 +331,8 @@ Example Component Prompts:
   --color-abyss-a92: rgba(5, 14, 36, 0.92);
   --color-shade-a50: rgba(0, 0, 0, 0.5);
 
-  /* Gradients（金属渐变只给 H1 关键词；扫光只给半人马登场） */
-  --gradient-gold: linear-gradient(180deg, #EBD196 0%, #D8B46A 100%);
+  /* Gradients（全站只剩首屏底色一条；金色一律平涂） */
   --gradient-hero: linear-gradient(180deg, #0A1B3F 0%, #050E24 100%);
-  --gradient-sweep: linear-gradient(105deg, rgba(255, 244, 214, 0) 40%, rgba(255, 244, 214, 0.6) 50%, rgba(255, 244, 214, 0) 60%);
 
   /* Typography — Font Families（同屏中文 2 种：粗宋 + 黑体） */
   --font-title: 'Noto Serif SC', 'Songti SC', 'STSong', 'SimSun', serif;
@@ -339,7 +354,7 @@ Example Component Prompts:
   --leading-heading: 1.3;
   --leading-body: 1.8;
   --tracking-title: 0.04em;
-  --tracking-label: 0.18em;
+  --tracking-label: 0.1em;
 
   /* Spacing (4px base) */
   --spacing: 4px;
@@ -365,11 +380,10 @@ Example Component Prompts:
   --dur-fast: 160ms;
   --dur-base: 280ms;
 
-  /* 半人马登场（钉住段：lead 放大 + hold 扫光，合计 ≤ 82svh；手机 hold 64px 防空屏，≥700px 回到 min(36svh, 300px)） */
+  /* 半人马登场（钉住段：lead 放大 + hold 停留，合计 ≤ 82svh；手机 hold 64px 防空屏，≥700px 回到 min(36svh, 300px)） */
   --pin-top: 76px;
   --zoom-lead: min(46svh, 400px);
   --zoom-hold: min(8svh, 64px);
-  --glint-lead: min(16svh, 140px);
   --zoom-from: 0.55;
 }
 ```
@@ -393,15 +407,19 @@ Example Component Prompts:
   --color-ink-disabled: #C0C9DB;
   --color-on-orange: #050E24;
   --color-focus: #FFD27A;
+  --color-ivory: #FAF7F1;
+  --color-ivory-deep: #F1EBDF;
+  --color-ink-deep: #0F1C30;
+  --color-ink-deep-muted: #3A4760;
+  --color-gold-ink: #6B4E17;
+  --color-gold-deep-a40: rgba(165, 124, 53, 0.4);
   --color-gold-a50: rgba(216, 180, 106, 0.5);
   --color-gold-a30: rgba(216, 180, 106, 0.3);
   --color-gold-a15: rgba(216, 180, 106, 0.15);
   --color-gold-a08: rgba(216, 180, 106, 0.08);
   --color-abyss-a92: rgba(5, 14, 36, 0.92);
   --color-shade-a50: rgba(0, 0, 0, 0.5);
-  --gradient-gold: linear-gradient(180deg, #EBD196 0%, #D8B46A 100%);
   --gradient-hero: linear-gradient(180deg, #0A1B3F 0%, #050E24 100%);
-  --gradient-sweep: linear-gradient(105deg, rgba(255, 244, 214, 0) 40%, rgba(255, 244, 214, 0.6) 50%, rgba(255, 244, 214, 0) 60%);
   --font-title: 'Noto Serif SC', 'Songti SC', 'STSong', 'SimSun', serif;
   --font-sans: 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
   --font-latin: 'Cinzel', 'Trajan Pro', 'Times New Roman', serif;

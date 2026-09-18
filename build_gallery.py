@@ -98,7 +98,7 @@ if not os.environ.get('SKIP_MID') and any((MID/k/'index.html').exists() for k, _
     scores = {x['page'].rstrip('/').split('/')[-1]: x for x in cal.get('tu_scores', [])}
     boss = {x['key']: x['reaction'] for x in cal.get('boss_reaction', [])}
     names = {'final': '第三轮 刊本', 'guochao-tech': '第四轮 国潮科技', 'china-red': '第四轮 中国红', 'black-gold': '第四轮 黑金'}
-    names.update({k: zh for k, zh in MID_ORDER})
+    names.update({k: mb.get(k, {}).get('name_zh') or zh for k, zh in MID_ORDER})
     marks = ''
     for key, sc in sorted(scores.items(), key=lambda kv: kv[1]['tu']):
         cls = 'mid' if key in dict(MID_ORDER) else 'end'
@@ -122,7 +122,7 @@ if not os.environ.get('SKIP_MID') and any((MID/k/'index.html').exists() for k, _
                    f'<p class="no">手机优先</p><h3>{e(b.get("name_zh") or zh)}</h3><p class="tag">{e(b.get("tagline", ""))}</p>'
                    f'<ul class="chips">{chips}</ul>{lines}'
                    f'<nav><a class="go" href="mid/{k}/">打开这一版 →</a><a href="mid/{k}/kit.html">组件样张</a><a href="{BLOB}mid/{k}/DESIGN.md">DESIGN.md</a></nav></div></article>')
-    featured_v5 = (f'<section class="v4 v5"><h2>第五轮 · 取中间值</h2><p class="lead">第三轮被嫌「太好看」，第四轮被嫌「太土」。这一轮两版分别从两头往中间走：<b>象牙深蓝</b>从第三轮加分量，<b>深蓝金线</b>从国潮科技减花样。下面这把尺子是评委给所有版本打的土度分。建议<b>用手机打开</b>看。</p>'
+    featured_v5 = (f'<section class="v4 v5"><h2>第五轮 · 取中间值</h2><p class="lead">第三轮被嫌「太好看」，第四轮被嫌「太土」。这一轮两版分别从两头往中间走：<b>{e(names["a-ivory-navy"])}</b>从第三轮加分量，<b>{e(names["b-navy-gold"])}</b>从国潮科技减花样。下面这把尺子是评委给所有版本打的土度分。建议<b>用手机打开</b>看。</p>'
                    + scale + (f'<p class="lead">{e(cal.get("overall", ""))}</p>' if cal.get('overall') else '') + f'<div class="tugrid">{cards5}</div></section>')
 
 # --- round 4: 土中带着炫酷 ---
